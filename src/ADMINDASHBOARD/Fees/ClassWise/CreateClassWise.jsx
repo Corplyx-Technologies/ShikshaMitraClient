@@ -76,12 +76,11 @@ function CreateClassWise() {
         formDataToSend,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-          headers: {
-            "Content-Type": "application/json",
-          },
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+              "Content-Type": "application/json",
+
+            }
         }
       );
 

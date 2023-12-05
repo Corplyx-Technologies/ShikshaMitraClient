@@ -20,10 +20,8 @@ const Issue = ({ isOpen, onClose, bookId }) => {
         bookId
       }, {
         withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
         headers: {
+          Authorization: `Bearer ${authToken}`,
           'Content-Type': "application/json"
         }
       } );

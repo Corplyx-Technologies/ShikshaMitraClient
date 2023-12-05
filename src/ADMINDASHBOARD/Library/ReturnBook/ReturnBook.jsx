@@ -20,9 +20,9 @@ function ReturnBook() {
     axios
       .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllIssuedBookStudent?bookId=${_id}`, {
         withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
       })
       .then((response) => {
         if (Array.isArray(response.data.allStudent)) {

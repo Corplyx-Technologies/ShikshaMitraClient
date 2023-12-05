@@ -43,12 +43,10 @@ function Edit_Classwise_Fees() {
         formDataToSend,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
-            "Content-Type": "application/json", // Use multipart/form-data for file uploads
-          },
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json",
+          }
         }
       );
       setFormData(response.data);

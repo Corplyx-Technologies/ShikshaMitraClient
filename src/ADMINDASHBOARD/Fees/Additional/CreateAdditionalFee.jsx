@@ -77,13 +77,10 @@ function CreateAdditionalFee() {
         formDataToSend,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
+            Authorization: `Bearer ${authToken}`,
             "Content-Type": "application/json",
-          },
-        
+          }
         }
       );
       setFormData({
@@ -109,9 +106,14 @@ function CreateAdditionalFee() {
   };
 
   const handleDelete = (itemId) => {
-    axios.delete(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`, {
-      withCredentials: true
-    })
+    axios.delete(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`, 
+    {
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      }
+    }
+    )
       .then((response) => {
         console.log("Fees deleted successfully");
   

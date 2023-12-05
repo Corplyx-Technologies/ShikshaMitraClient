@@ -75,11 +75,10 @@ function CreateClassWise() {
         "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/createFees",
         formDataToSend,
         {
-          withCredentials: true,
+            withCredentials: true,
             headers: {
               Authorization: `Bearer ${authToken}`,
               "Content-Type": "application/json",
-
             }
         }
       );

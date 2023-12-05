@@ -41,12 +41,10 @@ function EditAdditional() {
         formDataToSend,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
+            Authorization: `Bearer ${authToken}`,
             "Content-Type": "application/json",
-          },
+          }
         }
       );
       console.log(response);

@@ -102,12 +102,10 @@ const EditStudent = () => {
     axios
       .put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
         withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
         headers: {
+          Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
-        },
+        }
       })
       .then((response) => {
         console.log("Student data updated successfully", response);

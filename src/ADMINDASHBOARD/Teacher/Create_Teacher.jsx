@@ -103,10 +103,8 @@ function CreateTeacher() {
         formDataToSend,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
+            Authorization: `Bearer ${authToken}`,
             "Content-Type": "multipart/form-data",
           },
         }

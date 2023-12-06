@@ -89,8 +89,6 @@ const EditTeacher = () => {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
-      },
-      headers: {
         'Content-Type': 'multipart/form-data',
       },
     })

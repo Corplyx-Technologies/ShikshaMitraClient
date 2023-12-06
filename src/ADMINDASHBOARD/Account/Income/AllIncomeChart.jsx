@@ -10,9 +10,14 @@ const AllIncomeChart = () => {
 
   useEffect(() => {
 
-    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/fees/feeIncomeMonths', {
-      withCredentials: true
-    })
+    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/fees/feeIncomeMonths', 
+    {
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      }
+    }
+    )
     .then((response) => {
       setDataAll(response.data.data);
     })

@@ -10,9 +10,14 @@ const ExpensesChart = () => {
 
   useEffect(() => {
 
-    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/employee/salaryExpensesMonths', {
-      withCredentials: true
-    })
+    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/employee/salaryExpensesMonths', 
+    {
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      }
+    }
+    )
     .then((response) => {
       setDataAll(response.data.data);
     })

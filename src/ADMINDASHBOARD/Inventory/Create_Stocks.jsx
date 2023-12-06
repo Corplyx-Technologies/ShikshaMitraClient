@@ -20,7 +20,7 @@ const modalStyle = {
 };
 
 function Create_Sales() {
-  const { currentColor} = useStateContext();
+  const { currentColor } = useStateContext();
   const [formData, setFormData] = useState({
     itemName: "",
     category: "",
@@ -54,10 +54,8 @@ function Create_Sales() {
         formDataToSend,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
+            Authorization: `Bearer ${authToken}`,
             "Content-Type": "application/json",
           },
         }
@@ -73,7 +71,7 @@ function Create_Sales() {
       });
       // setLoading(false)
       toast.success("Form submitted successfully!");
-      setShouldFetchData(true);
+      setShouldFetchData(!shouldFetchData);
       closeModal();
     } catch (error) {
       console.error("Error:", error);
@@ -85,9 +83,9 @@ function Create_Sales() {
     axios
       .delete(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteItem/${itemId}`, {
         withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
       })
       .then((response) => {
         console.log("Item deleted successfully");
@@ -157,9 +155,9 @@ function Create_Sales() {
     axios
       .get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllItems", {
         withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      }, // Set withCredentials to true
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        }, // Set withCredentials to true
       })
       .then((response) => {
         // console.log("Stocks", response.data.listOfAllItems);
@@ -185,7 +183,7 @@ function Create_Sales() {
         style={{ backgroundColor: currentColor }}
         className="  text-white py-2 px-4 rounded "
       >
-       Add Stock
+        Add Stock
       </button>
 
       {/* Modal */}
@@ -202,7 +200,7 @@ function Create_Sales() {
         <InputForm
           fields={formFields}
           handleChange={handleFieldChange}
-          // handleImageChange={handleImageChange}
+        // handleImageChange={handleImageChange}
         />
         <div
           style={{

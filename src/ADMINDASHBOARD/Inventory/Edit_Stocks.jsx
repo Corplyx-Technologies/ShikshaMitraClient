@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputForm from "../../Dynamic/Form/InputForm";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useParams , useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
@@ -17,7 +17,7 @@ function Edit_Stocks() {
     quantity: "",
     price: "",
   });
-  
+
   const [submittedData, setSubmittedData] = useState([]);
 
   const handleFieldChange = (fieldName, value) => {
@@ -41,16 +41,13 @@ function Edit_Stocks() {
         formDataToSend,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
-            "Content-Type": "application/json", // Use multipart/form-data for file uploads
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json",
           },
         }
       );
       console.log(response);
-      // Assuming that response.data contains the updated item data
       setFormData(response.data);
       navigate("/admin/stocks");
       toast.success("Item Updated successfully!");
@@ -59,7 +56,7 @@ function Edit_Stocks() {
       toast.error("An error occurred while updating the item.");
     }
   };
-  const handleclose=()=>{
+  const handleclose = () => {
     navigate("/admin/stocks");
   }
 
@@ -67,19 +64,19 @@ function Edit_Stocks() {
     axios
       .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllItems?_id=${_id}`, {
         withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
       })
       .then((response) => {
-          // Update the form data with the fetched item data
-          console.log(response.data.listOfAllItems[0])
-          setFormData({
-            itemName :  response.data.listOfAllItems[0].itemName,
-            category :  response.data.listOfAllItems[0].category,
-            quantity :  response.data.listOfAllItems[0].quantity,
-            price :  response.data.listOfAllItems[0].price,
-            });
+        // Update the form data with the fetched item data
+        console.log(response.data.listOfAllItems[0])
+        setFormData({
+          itemName: response.data.listOfAllItems[0].itemName,
+          category: response.data.listOfAllItems[0].category,
+          quantity: response.data.listOfAllItems[0].quantity,
+          price: response.data.listOfAllItems[0].price,
+        });
       })
       .catch((error) => {
         console.error("Error fetching item data:", error);
@@ -115,29 +112,29 @@ function Edit_Stocks() {
       value: formData.price,
       required: true,
     },
-    
+
   ];
 
   return (
     <div className="mt-12 w-[900px] mx-auto p-3">
-      
+
       <InputForm
         fields={formFields}
         handleChange={handleFieldChange}
       />
-        <div style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}>
-      <button
-        onClick={handleSubmit}
-        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-      >
-        Update Item
-      </button>
-      <button
-        onClick={handleclose}
-        className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded"
-      >
-     Cancel
-      </button>
+      <div style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}>
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+        >
+          Update Item
+        </button>
+        <button
+          onClick={handleclose}
+          className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded"
+        >
+          Cancel
+        </button>
       </div>
     </div>
   );

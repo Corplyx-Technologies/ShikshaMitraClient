@@ -12,25 +12,25 @@ const EditAdmission = () => {
   const [studentData, setStudentData] = useState({});
   const [loading,setLoading]=useState(false)
   const [formData, setFormData] = useState({
-    studentFullName: "",
+    fullName: "",
     // studentEmail: "",
     // studentPassword: "",
-    studentDateOfBirth: "",
-    studentRollNo: "",
-    studentGender: "",
-    studentJoiningDate: "",
-    studentAddress: "",
-    studentContact: "",
-    studentClass: "",
-    studentSection: "",
-    studentCountry: "",
-    studentSubject: "",
+    dateOfBirth: "",
+    rollNo: "",
+    gender: "",
+    joiningDate: "",
+    address: "",
+    contact: "",
+    class: "",
+    section: "",
+    country: "",
+    subject: "",
     // fatherName: "",
     // motherName: "",
     // parentEmail: "",
     // parentPassword: "",
     // parentContact: "",
-    studentImage:null,
+    image:null,
     // parentImage: "",
   });
 
@@ -57,8 +57,11 @@ const EditAdmission = () => {
     .get(
       `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
       {
-        withCredentials:true
-      }
+        withCredentials:true,
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      },
     )
       .then((response) => {
         const  data  = response.data.allStudent[0];
@@ -98,8 +101,6 @@ const EditAdmission = () => {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
-      },
-      headers: {
         'Content-Type': 'multipart/form-data',
       },
     })
@@ -123,18 +124,18 @@ const EditAdmission = () => {
         <Box className="py-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 p-4 bg-white rounded-md shadow-lg">
           <TextField
             label="Full Name"
-            name="studentFullName"
+            name="fullName"
             type="text"
-            value={formData.studentFullName}
+            value={formData.fullName}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="RollNo"
-            name="studentRollNo"
+            name="rollNo"
             type="text"
-            value={formData.studentRollNo}
+            value={formData.rollNo}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
@@ -153,79 +154,80 @@ const EditAdmission = () => {
           />
           <TextField
             label="DateOfBirth"
-            name="studentDateOfBirth"
+            name="dateOfBirth"
             type="date"
+            value={formData.dateOfBirth}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Gender"
-            name="studentGender"
-            value={formData.studentGender}
+            name="gender"
+            value={formData.gender}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Subject"
-            name="studentSubject"
-            value={formData.studentSubject}
+            name="subject"
+            value={formData.subject}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Joining Date"
-            name="studentJoiningDate"
-            value={formData.studentJoiningDate}
+            name="joiningDate"
+            value={formData.joiningDate}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Address"
-            name="studentAddress"
-            value={formData.studentAddress}
+            name="address"
+            value={formData.address}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Country"
-            name="studentCountry"
-            value={formData.studentCountry}
+            name="country"
+            value={formData.country}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Contact"
-            name="studentContact"
-            value={formData.studentContact}
+            name="contact"
+            value={formData.contact}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Class"
-            name="studentClass"
-            value={formData.studentClass}
+            name="class"
+            value={formData.class}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Section"
-            name="studentSection"
-            value={formData.studentSection}
+            name="section"
+            value={formData.section}
             onChange={handleOnChange}
             required
             style={{ width: "70%", paddingBottom:"20px" }}
           />
           <TextField
             label="Student Image"
-            name="studentImage"
+            name="image"
             type="file"
             accept="image/*"
             required

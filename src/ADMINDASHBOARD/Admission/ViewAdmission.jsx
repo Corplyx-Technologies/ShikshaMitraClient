@@ -50,10 +50,10 @@ const ViewAdmission = () => {
               console.log("student")
             }
             <div className=" flex justify-center mt-4">
-              {studentData.studentImage && studentData.studentImage.url ? (
+              {studentData.image && studentData.image.url ? (
                 <img
                   className="w-[150px] h-[150px] rounded-full"
-                  src={studentData.studentImage.url}
+                  src={studentData.image.url}
                   alt="Image"
                 />
               ) : (
@@ -63,16 +63,16 @@ const ViewAdmission = () => {
             <div className="p-8">
               <h2 className="text-center text-lg text-white font-bold  ">
                 {" "}
-                {studentData.studentFullName}
+                {studentData.fullName}
               </h2>
               
               <h2 className="text-center text-white font-bold">
                 {"  "}
-                +91{studentData.studentContact}
+                +91{studentData.contact}
               </h2>
               <hr />
               <div className="h-14 ">
-                <p className=" p-2 font-bold">{`Address : ${studentData.studentAddress}`}</p>
+                <p className=" p-2 font-bold">{`Address : ${studentData.address}`}</p>
               </div>
               <div className="flex justify-center mt-3 ">
                 <button className=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
@@ -91,7 +91,7 @@ const ViewAdmission = () => {
           <div className="w-[330px] border-1 rounded-md border-[#01a9ac] p-5   hover:shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
             <h1 className="text-center mb-3 font-extrabold">
               {" "}
-              {studentData.studentFullName}'s Details
+              {studentData.fullName}'s Details
             </h1>
 
             <div className="flex">
@@ -100,7 +100,7 @@ const ViewAdmission = () => {
               <h2 className="w-[130px]  text-[14px] ">Roll No:</h2>
               <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
                 {" "}
-                {studentData.studentRollNo}
+                {studentData.rollNo}
               </span>
             </div>
             <div className="flex justify-between gap-2 border-b-1  border-green-300 p-1 ">
@@ -113,42 +113,42 @@ const ViewAdmission = () => {
               <h2 cclassName="w-[130px]  text-[14px] ">Gender :</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
                 {" "}
-                {studentData.studentGender}
+                {studentData.gender}
               </span>
             </div>
             <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1 ">
               <h2 className="w-[110px] ">Joining Date :</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
                 {" "}
-                {studentData.studentJoiningDate}
+                {studentData.joiningDate}
               </span>
             </div>
             <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1 ">
               <h2 cclassName="w-[130px]  text-[14px] "> Class:</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
                 {" "}
-                {studentData.studentClass}
+                {studentData.class}
               </span>
             </div>
             <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1 ">
               <h2 cclassName="w-[130px]  text-[14px] "> Section :</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
                 {" "}
-                {studentData.studentSection}
+                {studentData.section}
               </span>
             </div>
             <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1 ">
               <h2 cclassName="w-[130px]  text-[14px] ">Subject :</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
                 {" "}
-                {studentData.studentSubject}
+                {studentData.subject}
               </span>
             </div>
             <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1 ">
               <h2 cclassName="w-[130px]  text-[14px] ">DOB :</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
                 {" "}
-                {studentData.studentDateOfBirth}
+                {studentData.dateOfBirth ? new Date(studentData.dateOfBirth).toISOString().split('T')[0] : ''}
               </span>
             </div>
           </div>

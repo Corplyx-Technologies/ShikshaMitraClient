@@ -101,10 +101,8 @@ function Create_Staff() {
           withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
+        "Content-Type": "multipart/form-data",
       },
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
         }
       );
       console.log(response)
@@ -114,6 +112,7 @@ function Create_Staff() {
       toast.success("Form submitted successfully!");
       closeModal();
     } catch (error) {
+      
       console.error("Error:", error);
       toast.error("An error occurred while submitting the form.");
     }
@@ -133,6 +132,7 @@ function Create_Staff() {
         toast.success("Staff data deleted successfully");
       })
       .catch((error) => {
+        
         console.error("Error deleting Staff data:", error);
         toast.error("An error occurred while deleting the staff data.");
       });

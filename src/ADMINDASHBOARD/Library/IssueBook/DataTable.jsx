@@ -5,7 +5,7 @@ import { useStateContext } from "../../../contexts/ContextProvider";
 import { Link } from "react-router-dom";
 import Issue from "./Issue";
 
-function DynamicDataTable({ data, handleDelete }) {
+function DynamicDataTable({ data, handleDelete, updateIssueDependency }) {
 
   const { currentColor } = useStateContext();
   const [openModals, setOpenModals] = useState({}); 
@@ -54,6 +54,7 @@ function DynamicDataTable({ data, handleDelete }) {
             isOpen={openModals[params.row._id] || false}
             onClose={() => handleCloseModal(params.row._id)}
             bookId={params.row._id} 
+            updateIssueDependency = {updateIssueDependency}
           />
 
           <Link to={`/admin/books/return-book/${params.row._id}`}>

@@ -61,10 +61,14 @@ const EditBook = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/updateBook/${_id}`, formData, {withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },})
+      .put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/updateBook/${_id}`, formData, 
+      {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        }
+      }
+      )
       .then((response) => {
         console.log("Book updated successfully");
         navigate("/admin/books");

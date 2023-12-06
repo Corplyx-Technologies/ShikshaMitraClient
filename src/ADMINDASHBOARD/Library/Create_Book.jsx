@@ -127,7 +127,12 @@ function Create_Book() {
       // Make an API request to delete the row from the server
       const response = await axios.delete(
         `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteBook/${_id}`,
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          }
+        }
       );
       console.log("Book deleted successfully");
 

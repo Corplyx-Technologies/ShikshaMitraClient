@@ -5,7 +5,7 @@ import { useStateContext } from "../../../contexts/ContextProvider";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-const Issue = ({ isOpen, onClose, bookId }) => {
+const Issue = ({ isOpen, onClose, bookId, updateIssueDependency }) => {
   const { currentColor } = useStateContext();
   const [studentId, setStudentId] = useState('');
 
@@ -25,6 +25,9 @@ const Issue = ({ isOpen, onClose, bookId }) => {
           'Content-Type': "application/json"
         }
       } );
+
+      updateIssueDependency();
+
       console.log("response", response.data.message);
       onClose(); 
       setStudentId('');

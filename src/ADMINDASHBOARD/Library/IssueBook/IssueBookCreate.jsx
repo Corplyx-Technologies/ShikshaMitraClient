@@ -9,6 +9,12 @@ const authToken = Cookies.get('token');
 function IssueBookCreate() {
 
   const [submittedData, setSubmittedData] = useState([]);
+  const [issueDependency, setIssueDependency] = useState(false);
+
+  const updateIssueDependency = () => {
+    setIssueDependency(!issueDependency);
+  };
+
 
   useEffect(() => {
     axios
@@ -30,14 +36,14 @@ function IssueBookCreate() {
       .catch((error) => {
         console.error("Error fetching data:", error.message);
       });
-  }, [ ]);
+  }, [issueDependency]);
   
   return (
     <div className=" mt-12  mx-auto p-3">
       <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700"> Book Issue</h1>
      
 
-      <DynamicDataTable data={submittedData} />
+      <DynamicDataTable data={submittedData} updateIssueDependency={updateIssueDependency} />
     </div>
   );
 }

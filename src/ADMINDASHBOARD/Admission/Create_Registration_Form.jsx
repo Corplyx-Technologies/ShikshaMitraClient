@@ -155,7 +155,7 @@ function Create_Registration_Form() {
       setSubmittedData([...submittedData, formData]);
       setLoading(false);
       toast.success("Form submitted successfully!");
-      setShouldFetchData(true)
+      setShouldFetchData(!shouldFetchData)
       closeModal();
     } catch (error) {
       console.error("Error:", error);

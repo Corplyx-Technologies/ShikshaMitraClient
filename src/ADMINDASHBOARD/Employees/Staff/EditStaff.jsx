@@ -234,7 +234,7 @@ const EditStaff = () => {
             // value={formData.image}
          />
         </Box>
-          <Link to="/staff">
+          <Link to="/admin/staff">
           <div className="button flex w-full" style={{ marginTop: '10px' }}>
             <Button variant="contained" onClick={handleFormSubmit} style={{ width: '50%', marginRight: '10px' }}>
             { loading ?

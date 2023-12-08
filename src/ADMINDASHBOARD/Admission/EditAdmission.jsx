@@ -46,7 +46,7 @@ const EditAdmission = () => {
       console.log("Updating studentImage with file:", file);
       setFormData({
         ...formData,
-        studentImage: file,
+        image: file,
       });
       console.log(formData)
     }
@@ -75,7 +75,7 @@ const EditAdmission = () => {
       .catch((error) => {
         console.error("Error fetching teacher data:", error);
       });
-  }, [email]);
+  }, []);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -108,7 +108,11 @@ const EditAdmission = () => {
     }
   
     // Append image as a separate file
-    if (image && typeof image === 'object' && image instanceof File) {
+    // if (image && typeof image === 'object' && image instanceof File) {
+    //   data.append("image", image);
+    // }
+
+    if (image  && image instanceof File) {
       data.append("image", image);
     }
 

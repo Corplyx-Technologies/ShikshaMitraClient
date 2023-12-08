@@ -120,7 +120,10 @@ function Create_Staff() {
 
   const handleDelete = (email) => {
     axios.put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deactivateEmployee`, { email }, {
-      withCredentials: true
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
     })
       .then((response) => {
         console.log("Staff data deleted successfully");

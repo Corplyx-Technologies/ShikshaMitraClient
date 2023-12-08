@@ -103,6 +103,8 @@ import StudentsResult from './ADMINDASHBOARD/Result/StudentsResult';
 import ViewResultCard from './ADMINDASHBOARD/Result/ViewResultCard';
 import EmployeeSalaryStatus from './ADMINDASHBOARD/Employees/SalaryStatus';
 import CreateCurriculum from './ADMINDASHBOARD/CreateCurriculum';
+import ViewSecondary from './ADMINDASHBOARD/Classes/Secondary/ViewSecondary';
+import EditSecondary from './ADMINDASHBOARD/Classes/Secondary/EditSecondary';
 // import EmployeeSalaryStatus from './ADMINDASHBOARD/Employee/SalaryStatus';
 
 
@@ -168,8 +170,8 @@ function App() {
        <Route path='/admin/primary/edit-primary/:className' element={<EditPrimary/>}/>
 
        <Route path='secondary' element={<Secondary/>}/>
-       <Route path='/admin/secondary/view-secondary/:className' element={<ViewPrimary/>}/>
-       <Route path='/admin/secondary/edit-secondary/:className' element={<EditPrimary/>}/>
+       <Route path='/admin/secondary/view-secondary/:className' element={<ViewSecondary />}/>
+       <Route path='/admin/secondary/edit-secondary/:className' element={<EditSecondary />}/>
 
        <Route path='staff' element={<Staff/>}/>
        <Route path='/admin/staff/view-profile/:email' element={<ViewStaff/>}/>

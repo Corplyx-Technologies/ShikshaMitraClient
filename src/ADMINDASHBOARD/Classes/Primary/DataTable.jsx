@@ -52,6 +52,7 @@ function DynamicDataTable({data , handleDelete}) {
                   <EditIcon  className="text-green-600"/>
                 </IconButton>
               </Link>
+              
               <IconButton onClick={() => handleDeleteClick(params.row.className)}>
                 <DeleteIcon  className="text-red-600" />
               </IconButton>

@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 // import "../Dynamic/Form/FormStyle.css";
 
-const ViewPrimary = () => {
+const ViewSecondary = () => {
   const { className } = useParams();
 
   console.log("P2 --- className", className)
@@ -91,4 +91,4 @@ const ViewPrimary = () => {
   );
 };
 
-export default ViewPrimary;
+export default ViewSecondary;

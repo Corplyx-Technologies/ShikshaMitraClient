@@ -45,7 +45,7 @@ function DynamicDataTable({data , handleDelete}) {
                   <VisibilityIcon  className="text-blue-600"/>
                 </IconButton>
               </Link>
-              <Link to={`/admin/secondary/view-secondary/${params.row.className}`}>
+              <Link to={`/admin/secondary/edit-secondary/${params.row.className}`}>
                 <IconButton>
                   <EditIcon  className="text-green-600"/>
                 </IconButton>

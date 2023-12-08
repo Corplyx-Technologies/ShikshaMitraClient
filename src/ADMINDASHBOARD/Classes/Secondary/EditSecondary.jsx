@@ -6,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-const EditPrimary = () => {
+const EditSecondary = () => {
   const navigate = useNavigate();
   const { className } = useParams();
   const [classData, setClassData] = useState({});
+
+  
   const [formData, setFormData] = useState({
     className: "",
     subject: "",
@@ -64,7 +66,7 @@ const EditPrimary = () => {
       },})
       .then((response) => {
         console.log("Class data updated successfully");
-        navigate("/admin/primary");
+        navigate("/admin/secondary");
       })
       .catch((error) => {
         console.error("Error updating class data:", error);
@@ -106,7 +108,7 @@ const EditPrimary = () => {
             style={{ width: "70%", paddingBottom:"20px" }}
           />
         </Box>
-          <Link to="/admin/primary">
+          <Link to="/admin/secondary">
           <div className="button flex w-full" style={{ marginTop: '10px' }}>
   <Button variant="contained" onClick={handleFormSubmit} style={{ width: '50%', marginRight: '10px' }}>
     Update
@@ -119,6 +121,8 @@ const EditPrimary = () => {
       </form>
     </div>
   );
+
+
 };
 
-export default EditPrimary;
+export default EditSecondary;

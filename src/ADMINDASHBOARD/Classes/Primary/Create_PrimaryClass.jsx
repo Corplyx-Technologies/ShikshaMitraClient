@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
@@ -26,6 +24,7 @@ const modalStyle = {
   },
 };
 
+
 function Create_PrimaryClass() {
   const { currentColor} = useStateContext();
   const [loading, setLoading] = useState(false);
@@ -33,9 +32,11 @@ function Create_PrimaryClass() {
     className: "",
     subject: "",
     section: [],
+    primary: true
   });
   const [submittedData, setSubmittedData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [createBookDependency, setCreateBookDependency] = useState(false);
 
   const isFormValid = () => {
     return formData.className && formData.subject && formData.section;
@@ -43,7 +44,7 @@ function Create_PrimaryClass() {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass", {
+      .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass?primary=${true}`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -61,7 +62,7 @@ function Create_PrimaryClass() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [createBookDependency]);
 
 
   const handleFieldChange = (fieldName, value) => {
@@ -125,10 +126,14 @@ function Create_PrimaryClass() {
         subject: "",
         section: [],
       });
+
       setSubmittedData([...submittedData, formData]);
       setLoading(false);
       toast.success("Form submitted successfully!");
       closeModal();
+
+      setCreateBookDependency(!createBookDependency);
+
     } catch (error) {
       console.error("Error:", error);
       toast.error("An error occurred while submitting the form.");
@@ -140,9 +145,10 @@ function Create_PrimaryClass() {
       const re = await axios.get(
         `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
         {   withCredentials: true,
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          }, }
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            }, 
+        }
       );
 
       // Make an API request to delete the row from the server
@@ -159,6 +165,7 @@ function Create_PrimaryClass() {
       setSubmittedData((prevData) =>
         prevData.filter((item) => item._id !== re.data.classList[0]._id)
       );
+      setCreateBookDependency(!createBookDependency);
 
       toast.success("Class data deleted successfully");
     } catch (error) {

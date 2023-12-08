@@ -23,14 +23,16 @@ const modalStyle = {
   },
 };
 
-function Create_PrimaryClass() {
+
+function Create_SecondaryClass() {
   const { currentColor} = useStateContext();
   const [loading,setLoading]=useState(false)
+  const [createClassDependency, setCreateClassDependency] = useState(false);
   const [formData, setFormData] = useState({
 
     className: "",
     subject: "",
-    section: "",
+    section: ""
  
   });
   const [submittedData, setSubmittedData] = useState([]);
@@ -38,10 +40,14 @@ function Create_PrimaryClass() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass', {withCredentials: true,
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-    },})
+    axios.get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass?primary=${false}`, 
+      {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      }
+    )
       .then((response) => {
         if (Array.isArray(response.data.classList)) {
           // Update the state with the array
@@ -54,7 +60,7 @@ function Create_PrimaryClass() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [createClassDependency]);
 
   const handleFieldChange = (fieldName, value) => {
     setFormData({
@@ -91,11 +97,17 @@ function Create_PrimaryClass() {
         section: "",
       
       });
+
+
       setSubmittedData([...submittedData, formData]);
       setLoading(false)
       // toast.success("Form submitted successfully!");
       toast.success("Form submitted successfully!");
       closeModal();
+
+      setCreateClassDependency(!createClassDependency);
+
+
     } catch (error) {
       console.error("Error:", error);
       toast.error("An error occurred while submitting the form.");
@@ -115,10 +127,11 @@ function Create_PrimaryClass() {
         Authorization: `Bearer ${authToken}`,
       }, });
       console.log("Class data deleted successfully");
-  
+      setCreateClassDependency(!createClassDependency);
+
       // Update the state to remove the deleted data from the data table
       setSubmittedData((prevData) => prevData.filter((item) => item._id !== re.data.classList[0]._id));
-  
+      
       toast.success("Class data deleted successfully");
     } catch (error) {
       console.error("Error deleting class data:", error);
@@ -217,4 +230,4 @@ function Create_PrimaryClass() {
   );
 }
 
-export default Create_PrimaryClass;
+export default Create_SecondaryClass;

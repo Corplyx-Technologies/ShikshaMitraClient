@@ -14,6 +14,9 @@ const Assignments = () => {
   const [selectedGrade, setSelectedGrade] = useState('');
   const [selectedSection, setSelectedSection] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('');
+
+  const [assignmentDeleted, setAssignmentDeleted] = useState(false);
+
   const[formData, setFormData] = useState({
     title: "",
     description:"",
@@ -134,7 +137,7 @@ const Assignments = () => {
     .catch((error) => {
       console.error('Error fetching class data:', error);
     });
-  }, [shouldFetchData]);
+  }, [shouldFetchData, assignmentDeleted]);
 
 
   const handleDeleteAssignment = (index) => {
@@ -147,6 +150,7 @@ const Assignments = () => {
       },
       })
       .then(() => {
+        setAssignmentDeleted(!assignmentDeleted);
         const updatedAssignments = [...assignmentData];
         updatedAssignments.splice(index, 1);
         setAssignmentsData(updatedAssignments);

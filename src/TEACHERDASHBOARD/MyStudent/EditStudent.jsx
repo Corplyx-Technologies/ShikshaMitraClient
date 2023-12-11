@@ -103,10 +103,8 @@ const EditStudentTeacher = () => {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
+        "Content-Type": "multipart/form-data"
       },
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
       })
       .then((response) => {
         console.log("Student data updated successfully", response);

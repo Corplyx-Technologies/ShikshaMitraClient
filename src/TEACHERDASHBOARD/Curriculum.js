@@ -59,10 +59,8 @@ const Curriculum = () => {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
-      },
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        "Content-Type": "multipart/form-data"
+      }
       })
       .then((response) => {
         console.log("Curriculum created successfully!");

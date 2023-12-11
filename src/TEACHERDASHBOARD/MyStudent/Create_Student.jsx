@@ -24,6 +24,8 @@ function Create_Student() {
   const [loading,setLoading]=useState(false)
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
+  const [createdStudent, setCreatedStudent] = useState(false);
+
   const [formData, setFormData] = useState({
     studentFullName: "",
     studentEmail: "",
@@ -72,7 +74,7 @@ function Create_Student() {
         console.error("Error fetching data:", error);
         // Handle the error gracefully, e.g., show an error message to the user
       });
-  }, []);
+  }, [createdStudent]);
 
 
   useEffect(() => {
@@ -139,6 +141,9 @@ function Create_Student() {
           },
         }
       );
+
+      setCreatedStudent(!createdStudent);
+
       console.log(response.data)
   
       setFormData({
@@ -170,6 +175,8 @@ function Create_Student() {
       toast.success("Form submitted successfully!");
       setShouldFetchData(true)
       closeModal();
+
+
     } catch (error) {
       console.error("Error:", error);
       toast.error("An error occurred while submitting the form.");

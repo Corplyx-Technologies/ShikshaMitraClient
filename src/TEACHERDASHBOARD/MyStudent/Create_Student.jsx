@@ -25,6 +25,7 @@ function Create_Student() {
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
   const [createdStudent, setCreatedStudent] = useState(false);
+  const [deactivatedStudent, setDeactivatedStudent] = useState(false);
 
   const [formData, setFormData] = useState({
     studentFullName: "",
@@ -74,7 +75,7 @@ function Create_Student() {
         console.error("Error fetching data:", error);
         // Handle the error gracefully, e.g., show an error message to the user
       });
-  }, [createdStudent]);
+  }, [createdStudent, deactivatedStudent]);
 
 
   useEffect(() => {
@@ -194,6 +195,8 @@ function Create_Student() {
     })
       .then((response) => {
         console.log("Student data deleted successfully");
+
+        setDeactivatedStudent(!deactivatedStudent);
 
         // Update the state to remove the deleted data from the data table
         const updatedData = submittedData.filter((item) => item.email !== email);

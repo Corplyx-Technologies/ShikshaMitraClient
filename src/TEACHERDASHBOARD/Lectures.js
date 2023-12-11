@@ -148,6 +148,8 @@ const Lectures = () => {
           ["", "", "", "", "", "", "", ""], 
           ["", "", "", "", "", "", "", ""], 
         ])
+        
+        setDependency(!dependency);
         // You can also handle any additional logic or UI updates after successful deletion
         
       })

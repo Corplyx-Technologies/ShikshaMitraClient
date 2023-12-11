@@ -78,10 +78,8 @@ const Assignments = () => {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
-      },
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        "Content-Type": "multipart/form-data",
+      }
       })
      
 

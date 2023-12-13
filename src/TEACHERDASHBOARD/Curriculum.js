@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IconButton from "@mui/material/IconButton";
@@ -11,6 +9,7 @@ const Api_GetAll = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/g
 const Delete_API ="https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteCurriculum";
 
 const Curriculum = () => {
+  
   const [selectedGrade, setSelectedGrade] = useState('');
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
@@ -19,6 +18,7 @@ const Curriculum = () => {
     course: '',
     image: null,
   });
+
   const[curriculumData, setCurriculumData] = useState([]);
   const [shouldFetchData, setShouldFetchData] = useState(false)
 
@@ -326,6 +326,8 @@ const Curriculum = () => {
 
     </div>
   );
+
+
 };
 
 export default Curriculum;

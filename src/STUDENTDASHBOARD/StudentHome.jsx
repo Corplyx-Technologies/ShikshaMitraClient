@@ -19,6 +19,8 @@ const StudentHome = () => {
   const image = localStorage.getItem("image");
   const email = localStorage.getItem("email");
 
+ { console.log("email---", email)}
+
   useEffect(() => {
     // GET Request to fetch existing notices
     axios

@@ -14,7 +14,7 @@ const StudentStudyMaterial = () => {
     image: null,
   });
 
-  const API_BASE_URL = "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/teacher";
+  const API_BASE_URL = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/teacher";
 
   useEffect(() => {
     // Fetch materials from the server using a GET request

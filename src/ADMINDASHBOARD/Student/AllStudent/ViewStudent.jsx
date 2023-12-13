@@ -19,7 +19,7 @@ const ViewStudent = () => {
     // Fetch teacher data based on the email parameter
     axios
       .get(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
       headers: {

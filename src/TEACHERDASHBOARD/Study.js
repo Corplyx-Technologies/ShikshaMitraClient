@@ -16,10 +16,10 @@ const Study = () => {
 
   });
 
-const API_BASE_URL="https://tiny-tan-wombat-shoe.cyclic.app/api/v1/teacher"
-  const API_POST_URL = "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/createStudyMaterial";
-const API_DELETE = "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteNotice/";
-const API_GET_DATA = "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/deleteStudyMaterial";
+const API_BASE_URL="https://grumpy-plum-dalmatian.cyclic.app/api/v1/teacher"
+  const API_POST_URL = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/createStudyMaterial";
+const API_DELETE = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteNotice/";
+const API_GET_DATA = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/deleteStudyMaterial";
 
 // const [submittedData, setSubmittedData] = useState([]);
 

@@ -38,7 +38,7 @@ function CreateAdditionalFee() {
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
   useEffect(() => {
-    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAdditionalFees', {
+    axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAdditionalFees', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -73,7 +73,7 @@ function CreateAdditionalFee() {
     try {
       setLoading(true)
       const response = await axios.post(
-        "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/createAdditionalFees",
+        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createAdditionalFees",
         formDataToSend,
         {
           withCredentials: true,
@@ -106,7 +106,7 @@ function CreateAdditionalFee() {
   };
 
   const handleDelete = (itemId) => {
-    axios.delete(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`, 
+    axios.delete(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`, 
     {
       withCredentials: true,
       headers: {

@@ -13,7 +13,7 @@ const AboutTeacher = () => {
 
     useEffect(()=>{
  
-        axios.get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`, {
+        axios.get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`, {
           withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

@@ -34,7 +34,7 @@ const ViewResultCard = () => {
   useEffect(() => {
     axios
       .get(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -72,7 +72,7 @@ const ViewResultCard = () => {
 
 
   useEffect(() => {
-    axios.get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAdminInfo", {
+    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAdminInfo", {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -99,7 +99,7 @@ const ViewResultCard = () => {
 
   useEffect(() => {
     axios
-      .get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/exam/getAllExams", {
+      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -142,7 +142,7 @@ const ViewResultCard = () => {
 
 
   // useEffect(() => {
-  //   axios.get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/results/getResults", {
+  //   axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/getResults", {
   //     withCredentials: true,
       // headers: {
       //   Authorization: `Bearer ${authToken}`,
@@ -163,7 +163,7 @@ const ViewResultCard = () => {
     if (selectedExam && userId) {
       { console.log("first", selectedExam && userId) }
       axios
-        .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`, {
+        .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`, {
           withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

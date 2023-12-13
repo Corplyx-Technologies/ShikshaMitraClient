@@ -10,7 +10,7 @@ const EmployeeChart = () => {
   useEffect(() => {
     axios
       .get(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/teacher/getPaymentHistory`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/teacher/getPaymentHistory`,
         {
           withCredentials: true,
       headers: {
@@ -39,7 +39,7 @@ const EmployeeChart = () => {
         // Fetch and extract month-wise paid amounts for employees
         axios
           .get(
-            `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/employee/getPaymentHistory`,
+            `https://grumpy-plum-dalmatian.cyclic.app/api/v1/employee/getPaymentHistory`,
             {
               withCredentials: true,
       headers: {

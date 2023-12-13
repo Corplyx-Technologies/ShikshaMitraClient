@@ -44,7 +44,7 @@ function Create_PrimaryClass() {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass?primary=${true}`, {
+      .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllClass?primary=${true}`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -112,7 +112,7 @@ function Create_PrimaryClass() {
     try {
       setLoading(true);
       const response = axios.post(
-        "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/createClass",
+        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createClass",
         formData,
         {
           withCredentials: true,
@@ -143,7 +143,7 @@ function Create_PrimaryClass() {
   const handleDelete = async (className) => {
     try {
       const re = await axios.get(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
         {   withCredentials: true,
             headers: {
               Authorization: `Bearer ${authToken}`,
@@ -153,7 +153,7 @@ function Create_PrimaryClass() {
 
       // Make an API request to delete the row from the server
       const response = await axios.delete(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteClass?_id=${re.data.classList[0]._id}`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteClass?_id=${re.data.classList[0]._id}`,
         {   withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,

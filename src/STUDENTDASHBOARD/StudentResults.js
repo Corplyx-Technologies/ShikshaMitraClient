@@ -28,7 +28,7 @@ const StudentResults = () => {
 
   useEffect(() => {
     axios
-      .get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAdminInfo", {
+      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAdminInfo", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -49,7 +49,7 @@ const StudentResults = () => {
 
   useEffect(() => {
     axios
-      .get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/exam/getAllExams", {
+      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -92,7 +92,7 @@ const StudentResults = () => {
   };
 
   // useEffect(() => {
-  //   axios.get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/results/getResults", {
+  //   axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/getResults", {
   //     withCredentials: true,
       // headers: {
       //   Authorization: `Bearer ${authToken}`,
@@ -116,7 +116,7 @@ const StudentResults = () => {
       }
       axios
         .get(
-          `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
+          `https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
           {
             withCredentials: true,
       headers: {
@@ -125,7 +125,7 @@ const StudentResults = () => {
           }
         )
         // axios
-        //   .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/results/getResults?examName=Monthly Exam&studentId=65363e9c8f161339f61c8747`, {
+        //   .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/getResults?examName=Monthly Exam&studentId=65363e9c8f161339f61c8747`, {
         //     withCredentials: true,
       // headers: {
       //   Authorization: `Bearer ${authToken}`,

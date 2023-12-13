@@ -49,7 +49,7 @@ function StockTable({ data, handleDelete, updateDependency }) {
 
     };
     console.log("POSTDATA---->", postData)
-    axios.post("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/inventory/createsellItem", postData,
+    axios.post("https://grumpy-plum-dalmatian.cyclic.app/api/v1/inventory/createsellItem", postData,
       {
         withCredentials: true,
         headers: {

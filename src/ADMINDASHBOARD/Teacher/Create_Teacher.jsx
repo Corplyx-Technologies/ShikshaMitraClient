@@ -58,7 +58,7 @@ function CreateTeacher() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getTeachers', {
+      const response = await axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getTeachers', {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -99,7 +99,7 @@ function CreateTeacher() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/createTeacher",
+        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createTeacher",
         formDataToSend,
         {
           withCredentials: true,
@@ -127,7 +127,7 @@ function CreateTeacher() {
   };
 
   const handleDelete = (email) => {
-    axios.put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deactivateTeacher`, { email }, {
+    axios.put(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deactivateTeacher`, { email }, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

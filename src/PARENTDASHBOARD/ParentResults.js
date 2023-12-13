@@ -28,7 +28,7 @@ const ParentResults = () => {
 
   useEffect(() => {
     axios
-      .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/myKids`, {
+      .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/myKids`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -51,7 +51,7 @@ const ParentResults = () => {
 
   useEffect(() => {
     axios
-      .get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/exam/getAllExams", {
+      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -103,7 +103,7 @@ const ParentResults = () => {
       }
       axios
         .get(
-          `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
+          `https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
           {
             withCredentials: true,
       headers: {

@@ -43,7 +43,7 @@ function Create_Staff() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllEmployees', {
+    axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllEmployees', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -95,7 +95,7 @@ function Create_Staff() {
     try {
       setLoading(true)
       const response = await axios.post(
-        "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/createEmployee",
+        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createEmployee",
         formDataToSend,
         {
           withCredentials: true,
@@ -119,7 +119,7 @@ function Create_Staff() {
   };
 
   const handleDelete = (email) => {
-    axios.put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deactivateEmployee`, { email }, {
+    axios.put(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deactivateEmployee`, { email }, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

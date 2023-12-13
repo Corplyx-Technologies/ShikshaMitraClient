@@ -37,7 +37,7 @@ function Edit_Stocks() {
 
     try {
       const response = await axios.put(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/updateItem/${_id}`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateItem/${_id}`,
         formDataToSend,
         {
           withCredentials: true,
@@ -62,7 +62,7 @@ function Edit_Stocks() {
 
   useEffect(() => {
     axios
-      .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllItems?_id=${_id}`, {
+      .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllItems?_id=${_id}`, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,

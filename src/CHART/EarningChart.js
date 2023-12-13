@@ -11,7 +11,7 @@ const EarningChart = () => {
 
   useEffect(() => {
 
-    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/fees/feeIncomeMonths', {
+    axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/feeIncomeMonths', {
       withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -49,7 +49,7 @@ const EarningChart = () => {
 
   useEffect(() => {
 
-    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/employee/salaryExpensesMonths', {
+    axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/employee/salaryExpensesMonths', {
       withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,

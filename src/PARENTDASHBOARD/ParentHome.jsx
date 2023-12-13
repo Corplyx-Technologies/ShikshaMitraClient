@@ -13,7 +13,7 @@ import ParentNotice from "./ParentNotice";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-// const API_GET_DATA = "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents"
+// const API_GET_DATA = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents"
 const ParentHome = () => {
   const [data, setData] = useState([]);
 
@@ -24,7 +24,7 @@ const ParentHome = () => {
 
   useEffect(() => {
     // GET Request to fetch existing notices
-    axios.get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+    axios.get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
       {
         withCredentials: true,
       headers: {

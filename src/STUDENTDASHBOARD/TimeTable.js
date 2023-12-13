@@ -31,7 +31,7 @@ const Lectures = () => {
   useEffect(() => {
     axios
       .get(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/timeTable/getClassTimeTable?className=${data.class}&section=${data.section}`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/timeTable/getClassTimeTable?className=${data.class}&section=${data.section}`,
         {
           withCredentials: true,
       headers: {

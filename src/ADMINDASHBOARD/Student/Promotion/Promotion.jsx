@@ -41,7 +41,7 @@ const Promotion = () => {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass", {
+      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllClass", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -215,7 +215,7 @@ const Promotion = () => {
   //   // To Promote a student we require the student id and the promoted section and class
   //   // The student id fetched form the checked student and id is fetched from the selectd promted class and id
   //   // selectionModel give the student id , promoteSection , promoteClass give the class and section now
-  //   // Make a put request to the https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/promotionOfStudent url and console the request sucess
+  //   // Make a put request to the https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/promotionOfStudent url and console the request sucess
   // };
 
   const handlePromoteClick = async () => {
@@ -238,7 +238,7 @@ const Promotion = () => {
     // Make the PUT request
     await axios
       .put(
-        "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/promotionOfStudent",
+        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/promotionOfStudent",
         dataToUpdate,
         {
           withCredentials: true,

@@ -7,8 +7,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-const Api_GetAll = "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllCurriculum";
-const Delete_API ="https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteCurriculum";
+const Api_GetAll = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllCurriculum";
+const Delete_API ="https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteCurriculum";
 
 const Curriculum = () => {
   const [selectedGrade, setSelectedGrade] = useState('');
@@ -55,7 +55,7 @@ const Curriculum = () => {
     formDataToSend.append("image", formData.image);
 
     axios
-      .post("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/createCurriculum", formDataToSend, {
+      .post("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createCurriculum", formDataToSend, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -74,7 +74,7 @@ const Curriculum = () => {
   };
  
   useEffect(() => {
-    axios.get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllCurriculum", {
+    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllCurriculum", {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -94,7 +94,7 @@ const Curriculum = () => {
  
  
   useEffect(() => {
-    axios.get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllClass", {
+    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllClass", {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -113,7 +113,7 @@ const Curriculum = () => {
   const handleDeleteCurriculum = (index) => {
     const curriculumId = curriculumData[index]._id; 
     axios
-      .delete("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deleteCurriculum/" + curriculumId, {
+      .delete("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteCurriculum/" + curriculumId, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

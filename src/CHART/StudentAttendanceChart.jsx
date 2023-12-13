@@ -38,7 +38,7 @@ const StudentAttendanceChart = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/teacher/getAttendance?year=2023&month=11`,
+          `https://grumpy-plum-dalmatian.cyclic.app/api/v1/teacher/getAttendance?year=2023&month=11`,
           {
             withCredentials: true,
       headers: {
@@ -102,7 +102,7 @@ export default StudentAttendanceChart;
 //         const fetchData = async () => {
 //           try {
 //             const response = await axios.get(
-//               "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents",
+//               "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents",
 //               {
 //                 withCredentials: true,
       // headers: {

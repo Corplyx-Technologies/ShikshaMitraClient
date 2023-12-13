@@ -55,7 +55,7 @@ function CreateStudent() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents', {
+    axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -122,7 +122,7 @@ function CreateStudent() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/createStudentParent",
+        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createStudentParent",
         formDataToSend,
         {
           withCredentials: true,
@@ -172,7 +172,7 @@ function CreateStudent() {
 
 
   const handleDelete = (email) => {
-    axios.put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/deactivateStudent`, { email }, {
+    axios.put(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deactivateStudent`, { email }, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

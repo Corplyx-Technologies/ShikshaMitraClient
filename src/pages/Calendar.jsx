@@ -21,7 +21,7 @@ const Scheduler = () => {
 
   useEffect(async () => {
     try {
-      const response = await axios.get('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/events/getAllEvents', {
+      const response = await axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/events/getAllEvents', {
         withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -125,7 +125,7 @@ const Scheduler = () => {
           EndTime: endTime,
         };
      
-      axios.post('https://tiny-tan-wombat-shoe.cyclic.app/api/v1/events/createEvent', {
+      axios.post('https://grumpy-plum-dalmatian.cyclic.app/api/v1/events/createEvent', {
         updatedData
       }, {
         withCredentials: true,

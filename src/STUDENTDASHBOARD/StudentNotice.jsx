@@ -3,7 +3,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-const API_GET_DATA = "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllNotice";
+const API_GET_DATA = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllNotice";
 
 
 const StudentNotice = () => {

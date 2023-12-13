@@ -38,7 +38,7 @@ const ExamChart = () => {
 
   useEffect(() => {
     axios
-      .get(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/exam/getAllExams`, {
+      .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

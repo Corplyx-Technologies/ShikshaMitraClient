@@ -39,7 +39,7 @@ const EditBook = () => {
   useEffect(() => {
     axios
     .get(
-      `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllBooks?_id=${_id}`,
+      `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllBooks?_id=${_id}`,
       {withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -61,7 +61,7 @@ const EditBook = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/updateBook/${_id}`, formData, 
+      .put(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateBook/${_id}`, formData, 
       {
         withCredentials: true,
         headers: {

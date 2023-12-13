@@ -40,7 +40,7 @@ const EditStaff = () => {
 
   useEffect(() => {
     axios.get(
-      `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllEmployees?email=${email}`,
+      `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllEmployees?email=${email}`,
       {
         withCredentials: true,
       headers: {
@@ -78,7 +78,7 @@ const EditStaff = () => {
       }
     }
   
-    axios.put(`https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/updateEmployee`, data, {
+    axios.put(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateEmployee`, data, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

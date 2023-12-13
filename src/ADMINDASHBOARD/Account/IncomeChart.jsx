@@ -11,7 +11,7 @@ const IncomeChart = () => {
 
   useEffect(() => {
     axios
-      .get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllItems", {
+      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllItems", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

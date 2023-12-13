@@ -11,7 +11,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-// const API_GET_DATA = "https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents"
+// const API_GET_DATA = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents"
 const StudentHome = () => {
   const [data, setData] = useState([]);
 
@@ -23,7 +23,7 @@ const StudentHome = () => {
     // GET Request to fetch existing notices
     axios
       .get(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
       headers: {

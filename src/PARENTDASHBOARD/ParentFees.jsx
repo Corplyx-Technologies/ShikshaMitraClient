@@ -26,7 +26,7 @@ const ParentFees = () => {
   useEffect(() => {
     axios
       .get(
-        `https://tiny-tan-wombat-shoe.cyclic.app/api/v1/adminRoute/myKids`,
+        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -50,7 +50,7 @@ const ParentFees = () => {
   console.log("studentData of Parents--->", studentData)
 
   useEffect(() => {
-    axios.get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/fees/getFeeStatus", {
+    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus", {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -66,7 +66,7 @@ const ParentFees = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("https://tiny-tan-wombat-shoe.cyclic.app/api/v1/fees/getFeeStatus?studentId=653b9df17615bd16f521a157", {
+    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus?studentId=653b9df17615bd16f521a157", {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

@@ -60,10 +60,9 @@ const API_GET_DATA = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/deleteStud
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
-      }, // Set withCredentials to true
-      headers: {
         "Content-Type": "multipart/form-data",
-      },
+
+      }, // Set withCredentials to true
     })
       .then((response) => {
         // Assuming the server responds with the created material
@@ -101,7 +100,10 @@ const API_GET_DATA = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/deleteStud
     // Fetch materials from the server using a GET request
     axios.get(`${API_BASE_URL}/getStudyMaterial`,
     {
-      withCredentials: true
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      }
     })
       .then((response) => {
         const materialsData = response.data.study;

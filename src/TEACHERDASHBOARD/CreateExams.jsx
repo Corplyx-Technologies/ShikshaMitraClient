@@ -130,10 +130,8 @@ const CreateExams = () => {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
-      },
-        headers: {
-          'Content-Type': 'application/json',
-        }
+        'Content-Type': 'application/json',
+      }
       })
   
       setFormData({

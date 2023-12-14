@@ -23,8 +23,9 @@ const ParentResults = () => {
   console.log("userData", userData);
   // const userId = userData ? userData._id : null;
   const [studentData, setStudentData] = useState({});
-  const [classs, setClass] = useState([]);
+  const [classs, setClass] = useState("")
   const userId = studentData ? studentData._id : null;
+  console.log("firstClassSets",classs)
 
   useEffect(() => {
     axios
@@ -41,6 +42,7 @@ const ParentResults = () => {
         setStudentData(data1);
         console.log("ParentDashBoard--->", data);
         setClass(data);
+        {console.log("classSet",classs)}
         // setLoading(false); // Set loading to false once data is received
       })
       .catch((error) => {
@@ -61,7 +63,7 @@ const ParentResults = () => {
         const classTeacher = JSON.parse(localStorage.response);
 
         const filteredData = response.data.examData.filter(
-          (exam) => exam.className === classs
+          (exam) =>  exam.className == classs 
         );
         console.log("Data--->", filteredData);
 
@@ -89,7 +91,7 @@ const ParentResults = () => {
       .catch((error) => {
         console.log(error.message);
       });
-  }, [selectedExam]);
+  }, [selectedExam,classs]);
 
   const handleExamChange = (e) => {
     console.log("chaya", e);

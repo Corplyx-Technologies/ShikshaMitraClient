@@ -297,12 +297,10 @@ const TeacherNotice = () => {
       axios
         .put(API_EDIT + notice[editingNotice]._id, formData, {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
-            "Content-Type": "multipart/form-data",
-          },
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "multipart/form-data"
+          }
         })
         .then((response) => {
           // Handle success and make any necessary updates
@@ -316,12 +314,10 @@ const TeacherNotice = () => {
       axios
         .post(API_BASE_URL, formData, {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
-            "Content-Type": "multipart/form-data",
-          },
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "multipart/form-data"
+          }
         })
         .then((response) => {
           // Handle success and make any necessary updates

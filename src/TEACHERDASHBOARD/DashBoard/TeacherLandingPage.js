@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 import { earningData, dropdownData } from "../../data/dummy";
 import PieChart from "../../pages/Charts/PieChart";
 

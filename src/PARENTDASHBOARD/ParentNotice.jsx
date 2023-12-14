@@ -14,7 +14,10 @@ const ParentNotice = () => {
       useEffect(() => {
             // GET Request to fetch existing notices
             axios.get(API_GET_DATA,{
-              withCredentials: true
+              withCredentials: true,
+              headers: {
+                Authorization: `Bearer ${authToken}`,
+              }
             })
               .then((response) => {
                 console.log('yes', response.data)

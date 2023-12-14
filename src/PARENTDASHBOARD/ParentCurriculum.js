@@ -128,7 +128,8 @@ const ParentCurriculum = () => {
         <th className="w-1/4 p-2 border border-gray-500">Class</th>
         {/* <th className="w-[100px] border">Course</th> */}
         <th className="w-1/4 p-2 border border-gray-500">Files</th>
-        <th className="w-1/4 p-2 border border-gray-500">Action</th>
+
+        {/*<th className="w-1/4 p-2 border border-gray-500">Action</th>*/}
       </tr>
     </thead>
     <tbody>
@@ -151,14 +152,14 @@ const ParentCurriculum = () => {
               </a>
             )}
           </td>
-          <td className="p-2 border border-gray-500">
+          {/* <td className="p-2 border border-gray-500">
             <IconButton
               onClick={() => handleDeleteCurriculum(index)}
               className="bg-red-500 border px-3 py-2 mt-2 w-full hover:bg-red-600"
             >
               <DeleteIcon className="text-red-600" />
             </IconButton>
-          </td>
+          </td> */}
         </tr>
       ))}
     </tbody>

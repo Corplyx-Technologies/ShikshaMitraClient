@@ -30,6 +30,8 @@ const ParentNotice = () => {
               });
           }, []);
 
+
+          
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleContent = () => {

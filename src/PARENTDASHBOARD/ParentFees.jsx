@@ -49,24 +49,26 @@ const ParentFees = () => {
 
   console.log("studentData of Parents--->", studentData)
 
-  useEffect(() => {
-    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus", {
-      withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    })
-      .then((response) => {
-        console.log("Student Fess Status--->", response.data.data);
+  // useEffect(() => {
+  //   axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus", {
+  //     withCredentials: true,
+  //     headers: {
+  //       Authorization: `Bearer ${authToken}`,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       console.log("Student Fess Status--->", response.data.data);
 
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
+
+  console.log("FInding Id",studentData._id)
 
   useEffect(() => {
-    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus?studentId=653b9df17615bd16f521a157", {
+    axios.get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentData._id}`, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -81,7 +83,7 @@ const ParentFees = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [studentData]);
 
   console.log("fee data Y1", feeData);
 

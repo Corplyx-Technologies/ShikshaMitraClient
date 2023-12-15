@@ -93,6 +93,9 @@ const ParentResults = () => {
       });
   }, [selectedExam,classs]);
 
+
+
+
   const handleExamChange = (e) => {
     console.log("chaya", e);
     setSelectedExam(e.target.value);

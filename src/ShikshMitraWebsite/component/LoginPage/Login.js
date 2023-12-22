@@ -5,12 +5,14 @@ import { useStateContext } from "../../../contexts/ContextProvider";
 import axios from "axios";
 import Dropdown from "./Dropdown";
 import Cookies from 'js-cookie';
+// import Spinner from './Spinner.jsx'
+import Spinner from "./Spinner";
 
 
 function Login() {
+  const [loading, setLoading] = useState(false);
   const [formdata, setformdata] = useState({ Username: "", Password: "" , Role : "admin" });
   const { setisLoggedIn } = useStateContext();
-
   const Navigate = useNavigate();
   function onclickHandler(event) {
     setformdata((prevdata) => {
@@ -21,6 +23,9 @@ function Login() {
     });
   }
   function submitHandler(e) {
+   
+
+    setLoading(true); 
     e.preventDefault();
     const loginobj = {
       email: formdata.Username,
@@ -46,6 +51,7 @@ function Login() {
         const token = response.data.token
         document.cookie = `token=${token}; path=/; max-age=3600`; 
         {console.log("first", formdata.Role)}
+        
 		    Navigate(`/${formdata.Role}`);
 
         // console.log("User Details",response.data.user.fullName)
@@ -58,7 +64,9 @@ function Login() {
 
   return (
     <>
-      <div className="login_body">
+       {loading && <Spinner/>   } 
+      ( 
+         {   <div className="login_body">
         <div className="box">
           <form onSubmit={submitHandler}>
           <Dropdown formdata={formdata} setformdata = {setformdata} />
@@ -93,7 +101,7 @@ function Login() {
 
           </form>
         </div>
-      </div>
+      </div> } )
     </>
   );
 }

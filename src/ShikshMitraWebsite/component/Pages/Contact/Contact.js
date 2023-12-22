@@ -84,8 +84,8 @@ const Contact = () => {
                       </h4>
                       <p className="text-base text-body-color">
                         Corplyx Technologies Pvt.Ltd
-                        <p>[Unit No-30 tower-B the ithum plot no A-40]
-                          Sector-62, Noida, Uttar Pradesh [201301]</p>
+                        <p>[Our Office
+Unit-930,I-thum Tower, Noida, Uttar Pradesh]</p>
                       </p>
                     </div>
                   </div>

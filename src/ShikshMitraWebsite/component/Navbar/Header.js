@@ -86,10 +86,10 @@ function Header() {
                     className={`header_content cursor-pointer  hover:text-[#00bf63] ${
                       bg_color ? "text-white" : ""
                     }`}
-                    to="/screenshorts"
+                    to="/screenshot"
                     onClick={closeMenu}
                   >
-                   ScreenShorts
+                   ScreenShots
                   </Link>
                 </li>
                 <li>

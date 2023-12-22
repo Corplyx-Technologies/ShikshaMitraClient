@@ -118,8 +118,10 @@ function App() {
            <Route index element={<Home/>} />
           <Route path='/login' element={<Login/>}/>
           <Route path='/services' element={<Services/>} />
-          <Route path='/screenshorts' element={<ScreenShorts/>} />
-          <Route path='/contact' element={<Contact/>} />
+          {/* <Route path='/screenshorts' element={<ScreenShorts/>} /> */}
+          <Route path='/screenshot' element = {<ScreenShorts/> } />
+          // <Route path='/contact' element={<Contact/>} />
+          
           <Route path='/about' element={<About/>} />
       </Route>
     <Route path='/admin' element={<AdminDashboard/>}>
@@ -130,7 +132,6 @@ function App() {
        <Route path='/admin/allteachers/view-profile/:email' element={<ViewTeacher/>}/>
        <Route path='/admin/allteachers/edit-profile/:email' element={<EditTeacher/>}/>
        <Route path='/admin/allteachers/salaryStatus/:email' element={<SalaryStatus/>}/>
-
        {/* Fees Routing  */}
        <Route path='additional' element={<AdditionalFee/>}/>
        <Route path='classwise' element={<ClasswiseFee/>}/>

@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const API_BASE_URL = "https://dull-rose-salamander-fez.cyclic.app/api/v1/ContactUs";
+const API_BASE_URL =
+  "https://dull-rose-salamander-fez.cyclic.app/api/v1/ContactUs";
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState([]);
-  const [formData, setFormData] = useState(
-    {
-      name: "",
-      schoolName: "",
-      email:"",
-      contact: "",
-      message: ""
-    }
-  );
+  const [formData, setFormData] = useState({
+    name: "",
+    schoolName: "",
+    email: "",
+    contact: "",
+    message: "",
+  });
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value)
+    console.log(name, value);
     setFormData({ ...formData, [name]: value });
   };
 
@@ -24,29 +23,23 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        `${API_BASE_URL}`,
-        formData
-      );
+      const response = await axios.post(`${API_BASE_URL}`, formData);
 
       const responseData = response.data;
-      console.log('Data successfully posted:', responseData);
+      console.log("Data successfully posted:", responseData);
       setFormSubmitted([...formSubmitted, formData]);
-      setFormData(
-        {
-          name: "",
-          schoolName: "",
-          contact: "",
-          email: "",
-          message: ""
-        }
-      );
+      setFormData({
+        name: "",
+        schoolName: "",
+        contact: "",
+        email: "",
+        message: "",
+      });
       console.log("Contact created successfully");
     } catch (error) {
       console.error("Error creating contact:", error);
     }
   };
-
 
   return (
     <>
@@ -63,9 +56,9 @@ const Contact = () => {
                     GET IN TOUCH WITH US
                   </h2>
                   <p className="text-base leading-relaxed mb-9 pl-5 text-body-color">
-                    Feel free to get in touch with us.
-                    We are always to discussing new projects,
-                    creative ideas or opportunities to be part of your visions.
+                    Feel free to get in touch with us. We are always to
+                    discussing new projects, creative ideas or opportunities to
+                    be part of your visions.
                   </p>
                   <div className="mb-8 flex w-full max-w-[370px]">
                     <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary bg-opacity-5 text-primary sm:h-[70px] sm:max-w-[70px]">
@@ -84,8 +77,10 @@ const Contact = () => {
                       </h4>
                       <p className="text-base text-body-color">
                         Corplyx Technologies Pvt.Ltd
-                        <p>[Our Office
-Unit-930,I-thum Tower, Noida, Uttar Pradesh]</p>
+                        <p>
+                          [Our Office Unit-930,I-thum Tower, Noida, Uttar
+                          Pradesh]
+                        </p>
                       </p>
                     </div>
                   </div>
@@ -135,69 +130,80 @@ Unit-930,I-thum Tower, Noida, Uttar Pradesh]</p>
               </div>
               <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
                 <div className="relative p-8 bg-white rounded-lg shadow-lg sm:p-12">
-                 
-
-
                   <form onSubmit={handleSubmitCreate}>
                     <div class="mb-6">
-                      <input type="text" placeholder="Your Name" name="name"
-                       class="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none 
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        name="name"
+                        class="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none 
                       focus:border-primary focus-visible:shadow-none"
-                      value={formData.name}
-                      onChange={handleOnChange}
-                      required
+                        value={formData.name}
+                        onChange={handleOnChange}
+                        required
                       />
-                      </div>
+                    </div>
                     <div class="mb-6">
-                      <input type="text" placeholder="Your School Name" name="schoolName" 
-                      class="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none 
-                      focus:border-primary focus-visible:shadow-none" 
-                      value={formData.schoolName}
-                      onChange={handleOnChange}
-                      required
+                      <input
+                        type="text"
+                        placeholder="Your School Name"
+                        name="schoolName"
+                        class="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none 
+                      focus:border-primary focus-visible:shadow-none"
+                        value={formData.schoolName}
+                        onChange={handleOnChange}
+                        required
                       />
-                  </div>
+                    </div>
                     <div class="mb-6">
-                      <input type="text" placeholder="Your Email" name="email" 
-                    class="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none 
+                      <input
+                        type="text"
+                        placeholder="Your Email"
+                        name="email"
+                        class="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none 
                     focus:border-primary focus-visible:shadow-none"
-                    value={formData.email}
-                    onChange={handleOnChange}
-                    required
-                    />
-                  </div>
+                        value={formData.email}
+                        onChange={handleOnChange}
+                        required
+                      />
+                    </div>
                     <div class="mb-6">
-                      <input type="tel" placeholder="Your Phone" name="contact" 
-                    class="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none 
-                    focus:border-primary focus-visible:shadow-none"  
-                    value={formData.contact}
-                    onChange={handleOnChange}
-                    required
-                    />
-                  </div>
-                    <div class="mb-6"><textarea rows="4" placeholder="Your Message" name="message" 
-                    class="border-[f0f0f0] w-full resize-none rounded border py-3 px-[14px] text-base text-body-color outline-none 
+                      <input
+                        type="tel"
+                        placeholder="Your Phone"
+                        name="contact"
+                        class="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none 
                     focus:border-primary focus-visible:shadow-none"
-                    value={formData.message}
-                    onChange={handleOnChange}
-                    required>
-                         </textarea>
-                  </div>
-                  <div> 
-                      <button type="submit" class="w-full p-3 text-black transition border rounded border-primary
-                       bg-primary hover:bg-opacity-90 hover:bg-sky-500" onClick={handleSubmitCreate}>Send Message</button>
-                  </div>
-                    
+                        value={formData.contact}
+                        onChange={handleOnChange}
+                        required
+                      />
+                    </div>
+                    <div class="mb-6">
+                      <textarea
+                        rows="4"
+                        placeholder="Your Message"
+                        name="message"
+                        class="border-[f0f0f0] w-full resize-none rounded border py-3 px-[14px] text-base text-body-color outline-none 
+                    focus:border-primary focus-visible:shadow-none"
+                        value={formData.message}
+                        onChange={handleOnChange}
+                        required
+                      ></textarea>
+                    </div>
+                    <div>
+                      <button
+                        type="submit"
+                        class="w-full p-3 text-black transition border rounded border-primary
+                       bg-primary hover:bg-opacity-90 hover:bg-sky-500"
+                        onClick={handleSubmitCreate}
+                      >
+                        Send Message
+                      </button>
+                    </div>
                   </form>
 
-
-
-
-
                   <div>
-
-
-
                     <span className="absolute -top-10 -right-9 z-[-1]">
                       <svg
                         width={100}
@@ -1010,7 +1016,6 @@ Unit-930,I-thum Tower, Noida, Uttar Pradesh]</p>
             </div>
           </div>
         </section>
-
       </div>
     </>
   );

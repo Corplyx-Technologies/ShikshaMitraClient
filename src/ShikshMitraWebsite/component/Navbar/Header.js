@@ -32,7 +32,7 @@ function Header() {
   // scrole navbar
   window.addEventListener("scroll", scrollHandler);
   return (
-    <header className="hearder_section z-[99999999] sm:mb-20 md:mb-20 mb-0 " >
+    <header className="hearder_section z-[99999999] sm:mb-20 md:mb-20 mb-0 ">
       <div
         className={`menu-toggle ${menuOpen ? "menu-open" : ""}`}
         id="hamburger"
@@ -89,7 +89,7 @@ function Header() {
                     to="/screenshot"
                     onClick={closeMenu}
                   >
-                   ScreenShots
+                    ScreenShot
                   </Link>
                 </li>
                 <li>

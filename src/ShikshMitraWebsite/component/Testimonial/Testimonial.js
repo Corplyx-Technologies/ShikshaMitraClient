@@ -5,48 +5,41 @@ const Testimonial = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonials = [
     {
-      name: "AJAY RAJ",
+      name: "Aman Sharma",
       image:
-        "http://nanaetben.fr/animation/assets/images/website/Ben-1.png",
-      text:
-        "Our school management system has been a transformative tool. It seamlessly handles administrative tasks, empowering our educators to focus on teaching. It's user-friendly,and it has truly elevated our school's operational efficiency.",
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      text: "Our school management system has been a transformative tool. It seamlessly handles administrative tasks, empowering our educators to focus on teaching. It's user-friendly,and it has truly elevated our school's operational efficiency.",
     },
     {
-      name: "Nitish",
+      name: "Gaurav",
       image:
-        "http://nanaetben.fr/animation/assets/images/website/Ben-2.png",
-      text:
-        "Implementing this management system was a game-changer for our school. It's highly efficient and simplifies tasks for administrators, reducing the learning curve and improving productivity.",
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      text: "Implementing this management system was a game-changer for our school. It's highly efficient and simplifies tasks for administrators, reducing the learning curve and improving productivity.",
     },
     {
-      name: "Sakshi",
+      name: "Anand Jaiswal",
       image:
-        "https://nanaetben.fr/animation/assets/images/website/Nana-4.png",
-      text:
-        "This system revolutionized our school's communication and organization. Information flows seamlessly, creating a connected learning community and providing a platform for real-time updates that benefit our students, parents, and staff.",
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      text: "This system revolutionized our school's communication and organization. Information flows seamlessly, creating a connected learning community and providing a platform for real-time updates that benefit our students, parents, and staff.",
     },
     {
-      name: "Akansha",
+      name: "Aakanksha Tyagi",
       image:
-        "https://nanaetben.fr/animation/assets/images/website/Nana-3.png",
-      text:
-        "An essential tool for modern schools, it's transformed how we manage everything. Our administrative processes, student records, and resource allocation are now more efficient and ensuring we're well-prepared for the future.",
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      text: "An essential tool for modern schools, it's transformed how we manage everything. Our administrative processes, student records, and resource allocation are now more efficient and ensuring we're well-prepared for the future.",
     },
     {
-      name: "Praveen",
+      name: "Parveen Pal",
       image:
-        "https://nanaetben.fr/animation/assets/images/website/Nana-1.png",
-      text:
-        "Parents and staff adore the transparency and convenience offered by this system. It empowers parents to monitor their children's progress and school-related updates easily.This system strengthens our school community.",
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      text: "Parents and staff adore the transparency and convenience offered by this system. It empowers parents to monitor their children's progress and school-related updates easily.This system strengthens our school community.",
     },
     {
-      name: "Chhaya Sengar",
+      name: "Ajay Raj",
       image:
-        "https://nanaetben.fr/animation/assets/images/website/Nana-2.png",
-      text:
-        "Effortlessly managing student data, attendance, and resources, this system is an invaluable asset to our institution. It saves time, optimizes resource allocation, and customizes our educational approach. It's not just a tool.",
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      text: "Effortlessly managing student data, attendance, and resources, this system is an invaluable asset to our institution. It saves time, optimizes resource allocation, and customizes our educational approach. It's not just a tool.",
     },
-
   ];
 
   useEffect(() => {
@@ -92,27 +85,36 @@ const Testimonial = () => {
           <div className="col-md-6 col-sm-6">
             <div className="sec-eight-text-area">
               <div className="container-dp-name">
-                {testimonials.map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className={`box-dpname dp-name-${index + 1} ${
-                      activeIndex === index ? "look" : "hide-dp-top"
-                    }`}
-                  >
-                    <img src={testimonial.image} alt="" />
-                    <h1>{testimonial.name}</h1>
-                    <div className="text-para w-[50%] ">
-                      <p>{testimonial.text}</p>
+                {testimonials.map((testimonial, index) => {
+                  console.log(testimonial); // Add this line to console log the testimonial object
+                  return (
+                    <div
+                      key={index}
+                      className={`box-dpname dp-name-${index + 1} ${
+                        activeIndex === index ? "look" : "hide-dp-top"
+                      }`}
+                    >
+                      <img
+                        src={testimonial.image}
+                        alt=""
+                        style={{
+                          width: "100px",
+                          height: "100px",
+                          borderRadius: "50%",
+                        }}
+                      />
+                      <h1>{testimonial.name}</h1>
+                      <div className="text-para w-[50%]">
+                        <p>{testimonial.text}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
         </div>
       </section>
-
-     
     </div>
   );
 };

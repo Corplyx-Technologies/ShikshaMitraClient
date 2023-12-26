@@ -1,12 +1,12 @@
 import React from "react";
-import "./Spinner.css";
+import "./Spinner.css"; // You can style the spinner in a separate CSS file
 
-const Spinner = () => {
+function Spinner() {
   return (
-    <div className="w-screen h-[calc(100vh-80px)] flex justify-center items-center">
+    <div className="spinner-overlay">
       <div className="spinner"></div>
     </div>
   );
-};
+}
 
 export default Spinner;

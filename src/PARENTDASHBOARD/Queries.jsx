@@ -10,7 +10,7 @@ const Queries = () => {
   const [adminInfoData, setAdminInfoData] = useState([]);
 
   useEffect(() => {
-    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAdminInfo", {
+    axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo", {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

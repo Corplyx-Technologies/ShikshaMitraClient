@@ -29,7 +29,7 @@ const ParentResults = () => {
 
   useEffect(() => {
     axios
-      .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/myKids`, {
+      .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/myKids`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -53,7 +53,7 @@ const ParentResults = () => {
 
   useEffect(() => {
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -108,7 +108,7 @@ const ParentResults = () => {
       }
       axios
         .get(
-          `https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
+          `https://dull-rose-salamander-fez.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
           {
             withCredentials: true,
       headers: {

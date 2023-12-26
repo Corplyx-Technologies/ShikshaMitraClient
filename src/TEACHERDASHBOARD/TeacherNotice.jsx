@@ -5,10 +5,10 @@
 // // Ensure that the modal is accessible to screen readers
 // Modal.setAppElement('#root');
 
-// const API_BASE_URL = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createNotice";
-// const API_EDIT = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateNotice/";
-// const API_DELETE = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteNotice/";
-// const API_GET_DATA = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllNotice";
+// const API_BASE_URL = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createNotice";
+// const API_EDIT = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateNotice/";
+// const API_DELETE = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteNotice/";
+// const API_GET_DATA = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllNotice";
 
 // const TeacherNotice = () => {
 //   const [notice, setNotices] = useState([]);
@@ -250,10 +250,10 @@ import Cookies from 'js-cookie';
 // Ensure that the modal is accessible to screen readers
 Modal.setAppElement("#root");
 
-const API_BASE_URL = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createNotice";
-const API_EDIT = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateNotice/";
-const API_DELETE = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteNotice/";
-const API_GET_DATA = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllNotice";
+const API_BASE_URL = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createNotice";
+const API_EDIT = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateNotice/";
+const API_DELETE = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteNotice/";
+const API_GET_DATA = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllNotice";
 const authToken = Cookies.get('token');
 
 const TeacherNotice = () => {

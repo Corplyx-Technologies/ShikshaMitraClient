@@ -6,7 +6,7 @@ const authToken = Cookies.get('token');
 
 
 
-const API_BASE_URL = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/ContactUs";
+const API_BASE_URL = "https://dull-rose-salamander-fez.cyclic.app/api/v1/ContactUs";
 //  const api_url = `/api/v1/contactUs/`
 const Form2 = () => {
   const [formSubmitted, setFormSubmitted] = useState([]);

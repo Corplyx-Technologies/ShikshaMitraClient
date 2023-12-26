@@ -75,7 +75,7 @@ function AdmissionStatus() {
 
     try {
       const response = await axios.post(
-        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createTeacher",
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createTeacher",
         formDataToSend,
         {
           headers: {

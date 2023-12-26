@@ -38,7 +38,7 @@ const Lectures = () => {
 
 
   useEffect(() => {
-    axios.get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/timeTable/getClassTimeTable?className=${data.classTeacher}&section=${data.section}` , {
+    axios.get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/timeTable/getClassTimeTable?className=${data.classTeacher}&section=${data.section}` , {
       withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -104,7 +104,7 @@ const Lectures = () => {
       console.log(formattedTimetable);
 
       await axios
-      .post("https://grumpy-plum-dalmatian.cyclic.app/api/v1/timeTable/createClassTimeTable", formattedTimetable, {
+      .post("https://dull-rose-salamander-fez.cyclic.app/api/v1/timeTable/createClassTimeTable", formattedTimetable, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -128,9 +128,9 @@ const Lectures = () => {
     // const timetableId = data._id;
     const timetableId = teacherid;
     console.log(timetableId);
-    // https://grumpy-plum-dalmatian.cyclic.app/api/v1/timeTable/deleteClassTimeTable/65449334131ddb58cb6de7f6
+    // https://dull-rose-salamander-fez.cyclic.app/api/v1/timeTable/deleteClassTimeTable/65449334131ddb58cb6de7f6
     await axios
-      .delete(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/timeTable/deleteClassTimeTable/${timetableId}`, {
+      .delete(`https://dull-rose-salamander-fez.cyclic.app/api/v1/timeTable/deleteClassTimeTable/${timetableId}`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -283,7 +283,7 @@ export default Lectures;
 //       console.log(formattedTimetable);
 
 //       await axios
-//       .post("https://grumpy-plum-dalmatian.cyclic.app/api/v1/timeTable/createClassTimeTable", formattedTimetable, {
+//       .post("https://dull-rose-salamander-fez.cyclic.app/api/v1/timeTable/createClassTimeTable", formattedTimetable, {
 //         withCredentials: true,
       // headers: {
       //   Authorization: `Bearer ${authToken}`,

@@ -3,11 +3,11 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-const Api_Create = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createAssignment";
-const Api_Update = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateAssignment/";
-const Api_GetAssiignment = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllAssignment";
-const Api_GetAll ="https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllClass";
-const API_DELETE = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteAssignment/6538e0fb0c6aa38bbddec27b";
+const Api_Create = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createAssignment";
+const Api_Update = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateAssignment/";
+const Api_GetAssiignment = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllAssignment";
+const Api_GetAll ="https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass";
+const API_DELETE = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteAssignment/6538e0fb0c6aa38bbddec27b";
 
 const Assignments = () => {
   const [data, setData] = useState([]);
@@ -105,7 +105,7 @@ const Assignments = () => {
   };
 
   useEffect(() => {
-    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllClass", {
+    axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass", {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -122,7 +122,7 @@ const Assignments = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllAssignment", {
+    axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllAssignment", {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -143,7 +143,7 @@ const Assignments = () => {
   const handleDeleteAssignment = (index) => {
     const assignmentId = assignmentData[index]._id; 
     axios
-      .delete("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteAssignment/" + assignmentId, {
+      .delete("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteAssignment/" + assignmentId, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

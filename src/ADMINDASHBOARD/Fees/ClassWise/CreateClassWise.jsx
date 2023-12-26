@@ -40,7 +40,7 @@ function CreateClassWise() {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getFees", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getFees", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -72,7 +72,7 @@ function CreateClassWise() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createFees",
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createFees",
         formDataToSend,
         {
             withCredentials: true,
@@ -112,7 +112,7 @@ function CreateClassWise() {
 
   const handleDelete = (itemId) => {
     axios
-      .delete(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`, {
+      .delete(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

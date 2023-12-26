@@ -13,7 +13,7 @@ const FeeChart = () => {
   useEffect(() => {
     axios
       .get(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/getFeeStatus`,
         {
           withCredentials: true,
       headers: {

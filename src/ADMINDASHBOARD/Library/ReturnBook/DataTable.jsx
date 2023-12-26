@@ -9,7 +9,7 @@ function DynamicDataTable({ data, updateFetchData }) {
 
   const handleReturn= async (issueId)=>{
     try {
-      const response = await axios.put(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/returnBook/${issueId}`,{}, {
+      const response = await axios.put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/returnBook/${issueId}`,{}, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

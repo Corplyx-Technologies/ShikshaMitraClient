@@ -50,7 +50,7 @@ const Create_Expenditure = () => {
   // Fetch Admin Info
   useEffect(() => {
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAdminInfo", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -74,7 +74,7 @@ const Create_Expenditure = () => {
   // Fetch teacher count
   useEffect(() => {
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getTeachers", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getTeachers", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -96,7 +96,7 @@ const Create_Expenditure = () => {
   // Fetch student count
   useEffect(() => {
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -117,7 +117,7 @@ const Create_Expenditure = () => {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllParents", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllParents", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

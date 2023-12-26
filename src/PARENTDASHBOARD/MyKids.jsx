@@ -12,7 +12,7 @@ const MyKids = () => {
   useEffect(() => {
     axios
       .get(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/myKids`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {

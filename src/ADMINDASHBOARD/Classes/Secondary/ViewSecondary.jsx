@@ -19,7 +19,7 @@ const ViewSecondary = () => {
     // Fetch teacher data based on the email parameter
     axios
       .get(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
         { withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,

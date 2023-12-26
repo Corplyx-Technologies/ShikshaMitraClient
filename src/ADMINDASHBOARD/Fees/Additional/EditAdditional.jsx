@@ -37,7 +37,7 @@ function EditAdditional() {
 
     try {
       const response = await axios.put(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateFees/${_id}`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateFees/${_id}`,
         formDataToSend,
         {
           withCredentials: true,
@@ -60,7 +60,7 @@ function EditAdditional() {
   useEffect(() => {
     axios
       .get(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAdditionalFees?_id=${_id}`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdditionalFees?_id=${_id}`,
         {
           withCredentials: true,
       headers: {

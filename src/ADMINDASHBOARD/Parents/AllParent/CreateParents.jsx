@@ -24,7 +24,7 @@ function CreateParents() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllParents', 
+    axios.get('https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllParents', 
     {
       withCredentials: true,
       headers: {
@@ -42,7 +42,7 @@ function CreateParents() {
   }, []);
 
   const handleDelete = (email) => {
-    axios.put(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deactivateParent`, {email}, {
+    axios.put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deactivateParent`, {email}, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

@@ -28,7 +28,7 @@ const ViewAdmitCard = () => {
   useEffect(() => {
     axios
       .get(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -48,7 +48,7 @@ const ViewAdmitCard = () => {
 
   useEffect(() => {
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

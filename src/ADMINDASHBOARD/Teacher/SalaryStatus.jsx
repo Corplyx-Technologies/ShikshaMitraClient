@@ -21,7 +21,7 @@ const SalaryStatus = () => {
 
   useEffect(() => {
     axios
-      .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`, {
+      .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -43,7 +43,7 @@ const SalaryStatus = () => {
   useEffect(() => {
     if (teacherId) {
       axios
-        .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`, {
+        .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`, {
           withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -104,7 +104,7 @@ const SalaryStatus = () => {
       })),
     };
 
-    const apiUrl = `https://grumpy-plum-dalmatian.cyclic.app/api/v1/teacher/salaryPay`;
+    const apiUrl = `https://dull-rose-salamander-fez.cyclic.app/api/v1/teacher/salaryPay`;
     axios
       .post(apiUrl, newSalaryData, {
         withCredentials: true,
@@ -116,7 +116,7 @@ const SalaryStatus = () => {
         console.log("Data Posted Successfully: ", response.data);
         // setSalaryData(response.data.salaryHistory);
         axios
-          .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`, {
+          .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`, {
             withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

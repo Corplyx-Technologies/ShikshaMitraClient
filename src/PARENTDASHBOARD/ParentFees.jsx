@@ -26,7 +26,7 @@ const ParentFees = () => {
   useEffect(() => {
     axios
       .get(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/myKids`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -50,7 +50,7 @@ const ParentFees = () => {
   console.log("studentData of Parents--->", studentData)
 
   // useEffect(() => {
-  //   axios.get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus", {
+  //   axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/getFeeStatus", {
   //     withCredentials: true,
   //     headers: {
   //       Authorization: `Bearer ${authToken}`,
@@ -68,7 +68,7 @@ const ParentFees = () => {
   console.log("FInding Id",studentData._id)
 
   useEffect(() => {
-    axios.get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentData._id}`, {
+    axios.get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentData._id}`, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

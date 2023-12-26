@@ -18,7 +18,7 @@ function IssueBookCreate() {
 
   useEffect(() => {
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllBooks", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllBooks", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

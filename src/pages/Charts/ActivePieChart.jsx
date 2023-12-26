@@ -62,7 +62,7 @@ const ActivePieChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudentStatus', {
+        const response = await axios.get('https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudentStatus', {
           withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

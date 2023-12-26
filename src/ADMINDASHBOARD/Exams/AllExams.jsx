@@ -11,7 +11,7 @@ const AllExams = () => {
     console.log("use effect");
 
     axios
-      .get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams`, {
+      .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -31,7 +31,7 @@ const AllExams = () => {
       const examId = examData[index]._id;
 
       const response = await axios.delete(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/deleteExam/${examId}`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/deleteExam/${examId}`,
         {
           withCredentials: true,
       headers: {

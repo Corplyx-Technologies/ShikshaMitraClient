@@ -16,7 +16,7 @@ const ParentExam= () => {
   useEffect(() => {
     axios
       .get(
-       ` https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/myKids`,
+       ` https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -46,7 +46,7 @@ const ParentExam= () => {
     if (studentData.class && studentData.section) {
       axios
         .get(
-         ` https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams?className=${studentData.class}&section=${studentData.section}`,
+         ` https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams?className=${studentData.class}&section=${studentData.section}`,
           {
             withCredentials: true,
           headers: {

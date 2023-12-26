@@ -38,7 +38,7 @@ const StudentAttendanceChart = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://grumpy-plum-dalmatian.cyclic.app/api/v1/teacher/getAttendance?year=2023&month=11`,
+          `https://dull-rose-salamander-fez.cyclic.app/api/v1/teacher/getAttendance?year=2023&month=11`,
           {
             withCredentials: true,
       headers: {
@@ -102,7 +102,7 @@ export default StudentAttendanceChart;
 //         const fetchData = async () => {
 //           try {
 //             const response = await axios.get(
-//               "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents",
+//               "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents",
 //               {
 //                 withCredentials: true,
       // headers: {

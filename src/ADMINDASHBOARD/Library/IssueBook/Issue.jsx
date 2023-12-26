@@ -15,7 +15,7 @@ const Issue = ({ isOpen, onClose, bookId, updateIssueDependency }) => {
 
     try {
 
-      const response = await axios.post("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/issueBook", {
+      const response = await axios.post("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/issueBook", {
         studentId,
         bookId
       }, {

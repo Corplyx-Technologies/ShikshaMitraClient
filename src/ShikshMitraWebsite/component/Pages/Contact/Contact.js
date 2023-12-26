@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const API_BASE_URL = "https://grumpy-plum-dalmatian.cyclic.app/api/v1/ContactUs";
+const API_BASE_URL = "https://dull-rose-salamander-fez.cyclic.app/api/v1/ContactUs";
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState([]);
   const [formData, setFormData] = useState(

@@ -4,13 +4,13 @@ import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
 export const GET_ALL_EXAMS_API =
-  "https://grumpy-plum-dalmatian.cyclic.app/api/v1/exam/getAllExams";
+  "https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams";
 export const GET_ALL_STUDENTS_API =
-  "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=11&studentSection=A";
+  "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=11&studentSection=A";
 export const CREATE_RESULTS_API =
-  "https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/createResults";
+  "https://dull-rose-salamander-fez.cyclic.app/api/v1/results/createResults";
 export const GET_RESULTS_API =
-  "https://grumpy-plum-dalmatian.cyclic.app/api/v1/results/getResults";
+  "https://dull-rose-salamander-fez.cyclic.app/api/v1/results/getResults";
 
 const Results = () => {
   const classdata = JSON.parse(localStorage.getItem("response"));
@@ -149,7 +149,7 @@ const Results = () => {
 
       axios
         .get(
-          `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=${classTeacher}&studentSection=${section}`,
+          `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=${classTeacher}&studentSection=${section}`,
           {
             withCredentials: true,
       headers: {

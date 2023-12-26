@@ -50,7 +50,7 @@ function Create_Sales() {
     try {
       // setLoading(true)
       const response = await axios.post(
-        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createItem",
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createItem",
         formDataToSend,
         {
           withCredentials: true,
@@ -81,7 +81,7 @@ function Create_Sales() {
 
   const handleDelete = (itemId) => {
     axios
-      .delete(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteItem/${itemId}`, {
+      .delete(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteItem/${itemId}`, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -153,7 +153,7 @@ function Create_Sales() {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllItems", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllItems", {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,

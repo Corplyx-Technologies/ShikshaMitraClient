@@ -55,7 +55,7 @@ const EditStudentTeacher = () => {
   useEffect(() => {
     axios
     .get(
-      `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+      `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
       {
         withCredentials: true,
           headers: {
@@ -99,7 +99,7 @@ const EditStudentTeacher = () => {
 
 
     axios
-      .put(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
+      .put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

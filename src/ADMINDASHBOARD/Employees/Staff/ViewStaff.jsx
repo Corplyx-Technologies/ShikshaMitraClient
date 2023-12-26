@@ -14,7 +14,7 @@ const ViewStaff = () => {
 
   useEffect(() => {
     axios.get(
-      `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllEmployees?email=${email}`,
+      `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllEmployees?email=${email}`,
       {
         withCredentials: true,
       headers: {

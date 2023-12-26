@@ -44,7 +44,7 @@ function Create_Book() {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getAllBooks", {
+      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllBooks", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -92,7 +92,7 @@ function Create_Book() {
       console.log("P2", formData);
       setLoading(true);
       const response = axios.post(
-        "https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/createBook",
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createBook",
         formData,
         {
           withCredentials: true,
@@ -126,7 +126,7 @@ function Create_Book() {
     try {
       // Make an API request to delete the row from the server
       const response = await axios.delete(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/deleteBook/${_id}`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteBook/${_id}`,
         {
           withCredentials: true,
           headers: {

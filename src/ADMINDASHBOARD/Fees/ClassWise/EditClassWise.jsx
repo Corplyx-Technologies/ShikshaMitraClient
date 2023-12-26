@@ -39,7 +39,7 @@ function Edit_Classwise_Fees() {
 
     try {
       const response = await axios.put(
-        `https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/updateFees/${_id}`,
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateFees/${_id}`,
         formDataToSend,
         {
           withCredentials: true,
@@ -59,7 +59,7 @@ function Edit_Classwise_Fees() {
   };
 
   useEffect(() => {
-    axios.get(`https://grumpy-plum-dalmatian.cyclic.app/api/v1/adminRoute/getFees?_id=${_id}`, {
+    axios.get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getFees?_id=${_id}`, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

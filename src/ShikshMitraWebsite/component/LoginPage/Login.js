@@ -39,7 +39,10 @@ function Login() {
     };
     sessionStorage.setItem("userRole", formdata.Role);
     axios
-      .post("https://dull-rose-salamander-fez.cyclic.app/api/v1/login", loginobj)
+      .post(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/login",
+        loginobj
+      )
       .then((response) => {
         setisLoggedIn(formdata.Role);
         Cookies.set("token", response?.data?.token, { expires: 7 });
@@ -53,7 +56,7 @@ function Login() {
         localStorage.setItem("response", JSON.stringify(response.data.user));
         const token = response.data.token;
         document.cookie = `token=${token}; path=/; max-age=3600`;
-        showErrorToast("Login Successfully!!!");
+        showSuccessToast("Login successful!!!");
         Navigate(`/${formdata.Role}`);
       })
       .catch((error) => {
@@ -70,6 +73,13 @@ function Login() {
       position: toast.POSITION.TOP_RIGHT,
       autoClose: 3000, // Auto-close the notification after 3 seconds
       style: { marginTop: "50px" }, // Add margin-top
+    });
+  };
+  const showSuccessToast = (message) => {
+    toast.success(message, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 3000,
+      style: { marginTop: "50px" },
     });
   };
 

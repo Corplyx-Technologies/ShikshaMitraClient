@@ -86,7 +86,6 @@ const Testimonial = () => {
             <div className="sec-eight-text-area">
               <div className="container-dp-name">
                 {testimonials.map((testimonial, index) => {
-                  console.log(testimonial); // Add this line to console log the testimonial object
                   return (
                     <div
                       key={index}

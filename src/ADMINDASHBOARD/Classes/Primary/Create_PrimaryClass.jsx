@@ -9,8 +9,8 @@ import DynamicDataTable from "./DataTable";
 // import InputForm from "../../../Dynamic/Form/FormData";
 import InputForm from "../../../Dynamic/Form/InputForm";
 import { useStateContext } from "../../../contexts/ContextProvider";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 const modalStyle = {
   content: {
     width: "80%",
@@ -24,15 +24,14 @@ const modalStyle = {
   },
 };
 
-
 function Create_PrimaryClass() {
-  const { currentColor} = useStateContext();
+  const { currentColor } = useStateContext();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     className: "",
     subject: "",
     section: [],
-    primary: true
+    primary: true,
   });
   const [submittedData, setSubmittedData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,17 +43,25 @@ function Create_PrimaryClass() {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass?primary=${true}`, {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass?primary=${true}`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.classList)) {
           // Update the state with the array
-          setSubmittedData(response.data.classList);
-          console.log(response.data.classList);
+          const filteredData = response.data.classList.filter(
+            (item) => item.className <= 5
+          );
+
+          // Update the state with the filtered array
+          setSubmittedData(filteredData);
+          console.log(filteredData);
         } else {
           console.error("Data format is not as expected:", response.data);
         }
@@ -63,7 +70,6 @@ function Create_PrimaryClass() {
         console.error("Error fetching data:", error);
       });
   }, [createBookDependency]);
-
 
   const handleFieldChange = (fieldName, value) => {
     if (fieldName === "section") {
@@ -116,9 +122,9 @@ function Create_PrimaryClass() {
         formData,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
       setFormData({
@@ -133,7 +139,6 @@ function Create_PrimaryClass() {
       closeModal();
 
       setCreateBookDependency(!createBookDependency);
-
     } catch (error) {
       console.error("Error:", error);
       toast.error("An error occurred while submitting the form.");
@@ -144,20 +149,23 @@ function Create_PrimaryClass() {
     try {
       const re = await axios.get(
         `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
-        {   withCredentials: true,
-            headers: {
-              Authorization: `Bearer ${authToken}`,
-            }, 
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 
       // Make an API request to delete the row from the server
       const response = await axios.delete(
         `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteClass?_id=${re.data.classList[0]._id}`,
-        {   withCredentials: true,
+        {
+          withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
-          }, }
+          },
+        }
       );
       console.log("Class data deleted successfully");
 
@@ -212,7 +220,10 @@ function Create_PrimaryClass() {
 
   return (
     <div className=" mt-12  mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700"> Primary Class</h1>
+      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">
+        {" "}
+        Primary Class
+      </h1>
       <button
         onClick={openModal}
         style={{ backgroundColor: currentColor }}

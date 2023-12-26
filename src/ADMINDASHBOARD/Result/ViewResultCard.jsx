@@ -3,33 +3,28 @@ import { Link, useParams } from "react-router-dom";
 // import school from '../../ShikshMitraWebsite/assets/student.png';
 import axios from "axios";
 import { FcLeft } from "react-icons/fc";
-import { usePDF } from 'react-to-pdf';
-import { Page, Text, View, doc} from '@react-pdf/renderer';
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
-
+import { usePDF } from "react-to-pdf";
+import { Page, Text, View, doc } from "@react-pdf/renderer";
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const theader = {
   subject: "Subject",
-  marks: "Marks",   
+  marks: "Marks",
   // day: "Day",
-}
+};
 
 const ViewResultCard = () => {
-  const { toPDF, targetRef} = usePDF({filename : "Student Admit Card"});
-
+  const { toPDF, targetRef } = usePDF({ filename: "Student Admit Card" });
 
   // const [examData, setExamData] = useState([]);
   // const [selectedExam, setSelectedExam] = useState("");
 
-  
-  const  {email}  = useParams();
- 
+  const { email } = useParams();
+
   const [studentData, setStudentData] = useState({});
 
-  console.log('chaya',email)
-  
- 
+  console.log("chaya", email);
 
   useEffect(() => {
     axios
@@ -52,9 +47,8 @@ const ViewResultCard = () => {
   }, [email]);
   console.log("StudentDATA---->", studentData);
 
-  const userId = studentData._id 
+  const userId = studentData._id;
   console.log("userId of Student-->", userId);
-
 
   const [selectedExam, setSelectedExam] = useState("");
   const [examData, setExamData] = useState([]);
@@ -62,53 +56,53 @@ const ViewResultCard = () => {
   const [studentMarks, setStudentMarks] = useState({});
   const [maximumMarks, setMaximumMarks] = useState({});
   const [subjects, setSubjects] = useState([]);
-  const [totalMarks, setTotalMarks] = useState('');
+  const [totalMarks, setTotalMarks] = useState("");
 
   // const userData = JSON.parse(localStorage.getItem("response"));
   // console.log("userData", userData);
   // const userId = studentData ? studentData._id : null;
 
-  const[schoolData, setSchoolData] = useState([])
-
-
-  useEffect(() => {
-    axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo", {
-      withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-
-    })
-
-    .then((response) => {
-      const data = response.data.admin; 
-     
-      console.log("AdminInfo---ResultData--->",response.data.admin)
-      setSchoolData(data)
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-
-  }, [])
-  console.log(schoolData);
-
-
-
-
+  const [schoolData, setSchoolData] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
+
+      .then((response) => {
+        const data = response.data.admin;
+
+        console.log("AdminInfo---ResultData--->", response.data.admin);
+        setSchoolData(data);
       })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
+  console.log(schoolData);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         const examData = response.data.examData;
         setExamData(examData);
-        console.log("Exam-Data--->", examData)
+        console.log("Exam-Data--->", examData);
 
         const maxMarks = {};
         const examSubjects = [];
@@ -132,21 +126,17 @@ const ViewResultCard = () => {
       });
   }, [selectedExam]);
 
-  
-  
   const handleExamChange = (e) => {
-    console.log('chaya', e)
+    console.log("chaya", e);
     setSelectedExam(e.target.value);
   };
-
-
 
   // useEffect(() => {
   //   axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/results/getResults", {
   //     withCredentials: true,
-      // headers: {
-      //   Authorization: `Bearer ${authToken}`,
-      // },
+  // headers: {
+  //   Authorization: `Bearer ${authToken}`,
+  // },
   //   })
   //   .then((response) => {
   //     const data = response.data.data; // Assuming 'data' is the property containing the array
@@ -161,16 +151,22 @@ const ViewResultCard = () => {
 
   useEffect(() => {
     if (selectedExam && userId) {
-      { console.log("first", selectedExam && userId) }
+      {
+        console.log("first", selectedExam && userId);
+      }
       axios
-        .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`, {
-          withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-        })
+        .get(
+          `https://dull-rose-salamander-fez.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
+          {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        )
         .then((response) => {
           const data = response.data.data; // Assuming 'data' is the property containing the array
+          console.log(data);
           setResultData(data);
           // console.log("ResultData--->", data)
           const newStudentMarks = {};
@@ -179,19 +175,18 @@ const ViewResultCard = () => {
           response.data.data.forEach((result) => {
             newStudentMarks[result.studentId] = {};
             result.subjects.forEach((subject) => {
-              newStudentMarks[result.studentId][subject.subjectName] = subject.marks;
+              newStudentMarks[result.studentId][subject.subjectName] =
+                subject.marks;
             });
           });
           setStudentMarks(newStudentMarks);
-          console.log(studentMarks)
+          console.log(studentMarks);
         })
         .catch((error) => {
           console.log(error.message);
         });
     }
   }, [selectedExam, userId]);
-
-
 
   const calculateTotalMarksForStudent = (studentId) => {
     if (selectedExam) {
@@ -215,7 +210,7 @@ const ViewResultCard = () => {
         totalMaxMarks += subjectTotalMarks;
       });
     }
-    console.log(totalMaxMarks)
+    console.log(totalMaxMarks);
     return totalMaxMarks;
   };
 
@@ -229,11 +224,14 @@ const ViewResultCard = () => {
       return 0;
     }
 
-    const filteredSubjects = subjects
-      .filter((subject) => {
-        const selectedExamData = examData.find((exam) => exam.examName === selectedExam);
-        return selectedExamData?.examInfo.some((info) => info.subjectName === subject);
-      });
+    const filteredSubjects = subjects.filter((subject) => {
+      const selectedExamData = examData.find(
+        (exam) => exam.examName === selectedExam
+      );
+      return selectedExamData?.examInfo.some(
+        (info) => info.subjectName === subject
+      );
+    });
 
     const totalMarks = filteredSubjects.reduce((acc, subject) => {
       return acc + (studentMarkData[subject] || 0);
@@ -253,9 +251,12 @@ const ViewResultCard = () => {
       return 0;
     }
 
-    const totalMarks = Object.values(studentMarkData).reduce((acc, subjectMark) => {
-      return acc + (subjectMark || 0);
-    }, 0);
+    const totalMarks = Object.values(studentMarkData).reduce(
+      (acc, subjectMark) => {
+        return acc + (subjectMark || 0);
+      },
+      0
+    );
 
     const totalMaxMarks = calculateMaximumMarksForStudent();
     const percentage = ((totalMarks / totalMaxMarks) * 100).toFixed(2);
@@ -278,20 +279,17 @@ const ViewResultCard = () => {
     }
     return 0;
   };
-  console.log(examData)
+  console.log(examData);
 
-  
   const handleDownload = () => {
     toPDF();
-   document.getElementById('studentResults');
-      };
-  
+    document.getElementById("studentResults");
+  };
 
   return (
     <>
       <div className=" w-full   flex items-center justify-center pt-10 ">
         <div className="   gap-2 sm:p-4 md:p-4 lg:p-4 p-2 pt-16  shadow-[rgba(0,0,_0,_0.25)_0px_25px_50px-12px]   overflow-y-auto">
-
           {/* <div className="absolute bg-white w-[50px] h-[50px] rounded-full flex justify-center items-center shadow-2xl">
             <Link to="/admin/studentsresult" className=" text-blue-500 text-3xl">
               <FcLeft />
@@ -315,67 +313,91 @@ const ViewResultCard = () => {
               ))}
             </select>
 
-            <button onClick={handleDownload}  className="ml-2 mb-2 w-full 
+            <button
+              onClick={handleDownload}
+              className="ml-2 mb-2 w-full 
             md:w-1/4 bg-indigo-500 text-white p-2 rounded-md font-semibold
-             hover:bg-indigo-600 focus:outline-none">
-            Download
+             hover:bg-indigo-600 focus:outline-none"
+            >
+              Download
             </button>
+          </div>
+          <div ref={targetRef}>
+            <Page size="A4">
+              <View
+                style={{
+                  textAlign: "center",
+                  marginLeft: 30,
+                  marginRight: 30,
+                  height: 150,
+                  width: 150,
+                }}
+              >
+                <div className="p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md">
+                  <div className="text-center">
+                    <h1 className="text-3xl font-semibold mt-2">
+                      {schoolData.schoolName}
+                    </h1>
+                    <p className="text-sm text-gray-600">
+                      {schoolData.address}
+                    </p>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <h2 className="text-xl font-semibold">Report Card</h2>
+                    <p>Exam: {selectedExam}</p>
+                    <p>Academic Year: 2023-2024</p>
+                  </div>
+                  <div className="mt-8 flex flex-wrap justify-center items-center">
+                    {studentData.image && (
+                      <img
+                        src={studentData.image.url}
+                        alt="Student Photo"
+                        className="w-24 h-24 mr-6"
+                      />
+                    )}
+                    <div className="mt-4 w-full md:w-1/2 text-center md:text-left">
+                      <p className="font-semibold">Student Details</p>
+                      <p>Name: {studentData.fullName}</p>
+                      <p>Class:{studentData.class} Grade</p>
+                      <p>Section: {studentData.section}</p>
+                      {/* <p>Admission Number: {studentData.fullName}</p> */}
+                      <p>Roll Number: {studentData.rollNo}</p>
+                    </div>
+                  </div>
+                  <div className="mt-6">
+                    <p className="font-semibold"></p>
 
-            </div>
-            <div ref={targetRef}>
-            <Page size="A4"   >
-           <View style={{ textAlign: 'center', marginLeft: 30, marginRight: 30,  height: 150,
-    width: 150}}>
-
-            <div   className="p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md">
-              <div className="text-center">
-              <h1 className="text-3xl font-semibold mt-2">{schoolData.schoolName}</h1>
-              <p className="text-sm text-gray-600">{schoolData.address}</p>
-              </div>
-              <div className="mt-4 text-center">
-                <h2 className="text-xl font-semibold">Report Card</h2>
-                <p>Exam: {selectedExam}</p>
-                <p>Academic Year: 2023-2024</p>
-              </div>
-              <div className="mt-8 flex flex-wrap justify-center items-center">
-                {studentData.image && <img src={studentData.image.url} alt="Student Photo" className="w-24 h-24 mr-6" />}
-                <div className="mt-4 w-full md:w-1/2 text-center md:text-left">
-                  <p className="font-semibold">Student Details</p>
-                  <p>Name: {studentData.fullName}</p>
-                  <p>Class:{studentData.class} Grade</p>
-                  <p>Section: {studentData.section}</p>
-                  {/* <p>Admission Number: {studentData.fullName}</p> */}
-                  <p>Roll Number: {studentData.rollNo}</p>
-                </div>
-              </div>
-              <div className="mt-6">
-                <p className="font-semibold"></p>
-
-
-                <table className="w-full border border-gray-300 mt-5">
-                  <thead className="bg-gray-100">
-                    <tr>
-                      {Object.keys(theader).map((key) => (
-                        <th key={key} className="border border-gray-300 p-2">
-                          {theader[key]}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {resultData.map((item) => 
-                      { return  item.subjects.map((data) => (
-                        <tr key={data.subjectId}>
-                          <td className="border border-gray-300 p-2">{data.subjectName}</td>
-                          <td className="border border-gray-300 p-2">{data.marks}</td>
-                          {/* <td className="border border-gray-300 p-2">{getDayOfWeek(data.examDate)}</td> */}
+                    <table className="w-full border border-gray-300 mt-5">
+                      <thead className="bg-gray-100">
+                        <tr>
+                          {Object.keys(theader).map((key) => (
+                            <th
+                              key={key}
+                              className="border border-gray-300 p-2"
+                            >
+                              {theader[key]}
+                            </th>
+                          ))}
                         </tr>
-                        ));
-                       } )}
-                  </tbody>
-                </table>
-              </div>
-              {/* <div className="mt-4">
+                      </thead>
+                      <tbody>
+                        {resultData.map((item) => {
+                          return item.subjects.map((data) => (
+                            <tr key={data.subjectId}>
+                              <td className="border border-gray-300 p-2">
+                                {data.subjectName}
+                              </td>
+                              <td className="border border-gray-300 p-2">
+                                {data.marks}
+                              </td>
+                              {/* <td className="border border-gray-300 p-2">{getDayOfWeek(data.examDate)}</td> */}
+                            </tr>
+                          ));
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  {/* <div className="mt-4">
                 <p className="font-semibold">Important Instructions:</p>
                 <ul className="list-disc list-inside text-sm">
                   <li>Please arrive at the exam center 30 minutes before the exam.</li>
@@ -388,38 +410,37 @@ const ViewResultCard = () => {
                 <div className="border border-gray-300 w-1/2 mx-auto h-8"></div>
               </div>
            */}
-          
-          <div className="mt-4">
-          {selectedExam ? (
-            <p className="font-semibold">Percentage: {calculatePercentageForStudent(userId)}</p>
-          ) : (
-            <p className="font-semibold">Percentage: </p>
-          )}
 
-          <p className="font-semibold">Grade: A</p>
-        
-        </div>
-       
-        <div className="mt-4">
-          <div className="flex justify-between">
-            <div>
-              <p className="font-semibold">Remarks: Excellent performance.</p>
-            </div>
-            <div>
-              <p className="font-semibold">Principal's Signature</p>
-            </div>
+                  <div className="mt-4">
+                    {selectedExam ? (
+                      <p className="font-semibold">
+                        Percentage: {calculatePercentageForStudent(userId)}
+                      </p>
+                    ) : (
+                      <p className="font-semibold">Percentage: </p>
+                    )}
+
+                    <p className="font-semibold">Grade: A</p>
+                  </div>
+
+                  <div className="mt-4">
+                    <div className="flex justify-between">
+                      <div>
+                        <p className="font-semibold">
+                          Remarks: Excellent performance.
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-semibold">Principal's Signature</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </View>
+            </Page>
           </div>
-       </div>
-           
-          
-          
-            </div>
-            </View>  
-           </Page>
-          
-           </div>
+        </div>
       </div>
-   </div>
     </>
   );
 };

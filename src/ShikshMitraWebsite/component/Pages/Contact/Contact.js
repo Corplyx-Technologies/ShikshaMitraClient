@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const API_BASE_URL =
   "https://dull-rose-salamander-fez.cyclic.app/api/v1/ContactUs";
 const Contact = () => {
@@ -12,7 +13,20 @@ const Contact = () => {
     contact: "",
     message: "",
   });
-
+  const showErrorToast = (message) => {
+    toast.error(message, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 3000, // Auto-close the notification after 3 seconds
+      style: { marginTop: "50px" }, // Add margin-top
+    });
+  };
+  const showSuccessToast = (message) => {
+    toast.success(message, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 3000,
+      style: { marginTop: "50px" },
+    });
+  };
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
@@ -36,8 +50,10 @@ const Contact = () => {
         message: "",
       });
       console.log("Contact created successfully");
+      showSuccessToast("Message Sent successfully!!!");
     } catch (error) {
       console.error("Error creating contact:", error);
+      showErrorToast("Error on Contact Us");
     }
   };
 

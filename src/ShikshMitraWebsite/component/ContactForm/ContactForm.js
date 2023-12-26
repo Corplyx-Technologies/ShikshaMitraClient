@@ -1,28 +1,40 @@
 import React, { useState } from "react";
 import "./ContactForm.css";
 import axios from "axios";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
-
-
-
-const API_BASE_URL = "https://dull-rose-salamander-fez.cyclic.app/api/v1/ContactUs";
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const API_BASE_URL =
+  "https://dull-rose-salamander-fez.cyclic.app/api/v1/ContactUs";
 //  const api_url = `/api/v1/contactUs/`
+const showErrorToast = (message) => {
+  toast.error(message, {
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: 3000, // Auto-close the notification after 3 seconds
+    style: { marginTop: "50px" }, // Add margin-top
+  });
+};
+const showSuccessToast = (message) => {
+  toast.success(message, {
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: 3000,
+    style: { marginTop: "50px" },
+  });
+};
+
 const Form2 = () => {
   const [formSubmitted, setFormSubmitted] = useState([]);
-  const [formData, setFormData] = useState(
-    {
-      name: "",
-      schoolName: "",
-      contact: "",
-      email: "",
-      message: ""
-    }
-  );
+  const [formData, setFormData] = useState({
+    name: "",
+    schoolName: "",
+    contact: "",
+    email: "",
+    message: "",
+  });
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value)
     setFormData({ ...formData, [name]: value });
   };
 
@@ -30,32 +42,28 @@ const Form2 = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        `${API_BASE_URL}`,
-        formData
-      );
+      const response = await axios.post(`${API_BASE_URL}`, formData);
 
-        const responseData = response.data;
-        console.log('Data successfully posted:', responseData);
-        setFormSubmitted([...formSubmitted, formData]);
-        setFormData(
-          {
-            name: "",
-            schoolName: "",
-            contact: "",
-            email: "",
-            message: ""
-          }
-        );
-        console.log("Contact created successfully");
+      const responseData = response.data;
+      console.log("Data successfully posted:", responseData);
+      setFormSubmitted([...formSubmitted, formData]);
+      setFormData({
+        name: "",
+        schoolName: "",
+        contact: "",
+        email: "",
+        message: "",
+      });
+      showSuccessToast("Message Sent successfully!!!");
     } catch (error) {
       console.error("Error creating contact:", error);
+      showErrorToast("Error on Contact Us");
     }
   };
 
   return (
     <>
-      <div className="w-100% mb-32 pt-[216px]  " id="contact" >
+      <div className="w-100% mb-32 pt-[216px]  " id="contact">
         <div className="w-[80%]  mx-auto form_box flex flex-wrap items-center justify-around  ">
           <div className=" w-[50%]">
             <svg
@@ -838,7 +846,7 @@ const Form2 = () => {
                   required
                 />
               </div>
-             
+
               <div className="form-group position-relative py-2">
                 <label htmlFor="schoolName" className="d-block">
                   <i className="icon" data-feather="mail"></i>
@@ -901,7 +909,12 @@ const Form2 = () => {
               </div>
 
               <div className="text-center mb-4">
-                <button type="submit" className="home_btn btn-primary" tabIndex="-1" onClick={handleSubmitCreate}>
+                <button
+                  type="submit"
+                  className="home_btn btn-primary"
+                  tabIndex="-1"
+                  onClick={handleSubmitCreate}
+                >
                   Send message
                 </button>
               </div>
@@ -909,6 +922,7 @@ const Form2 = () => {
           </div>
         </div>
       </div>
+      {/* <toast.ToastContainer /> */}
     </>
   );
 };

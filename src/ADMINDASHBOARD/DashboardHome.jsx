@@ -8,7 +8,7 @@ import {
   FcBusinesswoman,
   FcCurrencyExchange,
 } from "react-icons/fc";
-import { BiMaleFemale,  } from "react-icons/bi";
+import { BiMaleFemale } from "react-icons/bi";
 import Calendar from "../pages/Calendar";
 import axios from "axios";
 import ActivePieChart from "../pages/Charts/ActivePieChart";
@@ -17,8 +17,8 @@ import CreateCurriculum from "./CreateCurriculum";
 import CreateNotice from "../CreateNotice";
 import CreateExams from "./Exams/AllExams";
 import TeacherNotice from "../TEACHERDASHBOARD/TeacherNotice";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -34,8 +34,8 @@ const DropDown = ({ currentMode }) => (
   </div>
 );
 const DashboardHome = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
   const [teacherCount, setTeacherCount] = useState([]);
   const [studentCount, setStudentCount] = useState([]);
   const [parentCount, setParentCount] = useState([]);
@@ -45,12 +45,15 @@ const DashboardHome = () => {
   // Fetch teacher count
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getTeachers", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getTeachers",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.data)) {
           setTeacherCount(response.data.data.length);
@@ -66,12 +69,15 @@ const DashboardHome = () => {
   // Fetch student count
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.allStudent)) {
           setStudentCount(response.data.allStudent.length);
@@ -86,12 +92,15 @@ const DashboardHome = () => {
 
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllParents", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      }, 
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllParents",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         setParentCount(response.data.allParent.length);
         console.log("P2 parent", response.data.allParent);
@@ -101,15 +110,17 @@ const DashboardHome = () => {
       });
   }, []);
 
-  
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllItems", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllItems",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.listOfAllItems)) {
           const aggregatedSellAmounts = {};
@@ -128,17 +139,19 @@ const DashboardHome = () => {
           const extractedCategories = Object.keys(aggregatedSellAmounts);
           const extractedAmount = Object.values(aggregatedSellAmounts);
 
-          const totalSellAmount = extractedAmount.reduce((acc, amount) => acc + amount, 0);
+          const totalSellAmount = extractedAmount.reduce(
+            (acc, amount) => acc + amount,
+            0
+          );
 
-          setTotalSellAmount(totalSellAmount); 
-
+          setTotalSellAmount(totalSellAmount);
         }
       })
       .catch((error) => {
         console.error("Error fetching item list:", error);
       });
   }, []);
-  
+
   const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
@@ -149,9 +162,9 @@ const DashboardHome = () => {
         `https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/getFeeStatus`,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       )
       .then((response) => {
@@ -163,7 +176,7 @@ const DashboardHome = () => {
           if (total.feeHistory && total.feeHistory.length > 0) {
             total.feeHistory.forEach((fee) => {
               const paidAmount = Number(fee.paidAmount || 0);
-              const month = fee.month; 
+              const month = fee.month;
 
               if (!monthlyPaidAmounts[month]) {
                 monthlyPaidAmounts[month] = { paid: 0, dues: 0 };
@@ -175,23 +188,36 @@ const DashboardHome = () => {
           }
         });
 
-        const paidSeries = Object.values(monthlyPaidAmounts).map((data) => data.paid);
-        const totalPaid = paidSeries.reduce((total, amount) => total + amount, 0);
+        const paidSeries = Object.values(monthlyPaidAmounts).map(
+          (data) => data.paid
+        );
+        const totalPaid = paidSeries.reduce(
+          (total, amount) => total + amount,
+          0
+        );
         setTotalPaidAmount(totalPaid);
-
       })
       .catch((error) => {
         console.error("Error fetching Fees data: ", error);
       });
   }, []);
 
+  function calculateDynamicPercentage(
+    currentPercentage,
+    increment,
+    isIncrement
+  ) {
+    const factor = isIncrement ? 1 : -1;
+    const newPercentage = currentPercentage + factor * increment;
+    return `${newPercentage}%`;
+  }
 
   useEffect(() => {
     const newEarningData = [
       {
         icon: <FcConferenceCall />,
         amount: `${studentCount}`,
-        percentage: "-4%",
+        percentage: calculateDynamicPercentage(-4, 1, true),
         title: "Students",
         iconColor: "#03C9D7",
         iconBg: "#E5FAFB",
@@ -200,7 +226,7 @@ const DashboardHome = () => {
       {
         icon: <FcBusinesswoman />,
         amount: `${teacherCount}`,
-        percentage: "+23%",
+        percentage: calculateDynamicPercentage(23, 1, true),
         title: "Teachers",
         iconColor: "rgb(255, 244, 229)",
         iconBg: "rgb(254, 201, 15)",
@@ -208,8 +234,8 @@ const DashboardHome = () => {
       },
       {
         icon: <FcCurrencyExchange />,
-        amount: `${totalSellAmount + totalPaidAmount}`, 
-        percentage: "+38%",
+        amount: `${totalSellAmount + totalPaidAmount}`,
+        percentage: calculateDynamicPercentage(38, 1, true),
         title: "Earning",
         iconColor: "rgb(228, 106, 118)",
         iconBg: "rgb(255, 244, 229)",
@@ -218,15 +244,22 @@ const DashboardHome = () => {
       {
         icon: <BiMaleFemale />,
         amount: `${parentCount}`,
-        percentage: "-12%",
+        percentage: calculateDynamicPercentage(-12, 1, true),
         title: "Parents",
         iconColor: "rgb(0, 194, 146)",
         iconBg: "rgb(235, 250, 242)",
         pcColor: "red-600",
       },
     ];
+
     setEarningData(newEarningData);
-  }, [teacherCount, studentCount, parentCount, totalPaidAmount, totalSellAmount]);
+  }, [
+    teacherCount,
+    studentCount,
+    parentCount,
+    totalPaidAmount,
+    totalSellAmount,
+  ]);
 
   useEffect(() => {
     window.addEventListener("keydown", function (event) {
@@ -236,7 +269,7 @@ const DashboardHome = () => {
     });
 
     navigate(location.href, { replace: true });
-    window.addEventListener('popstate', function (event) {
+    window.addEventListener("popstate", function (event) {
       navigate(location.href, { replace: true });
     });
   }, [navigate]);
@@ -276,8 +309,6 @@ const DashboardHome = () => {
         <div class="clearfix"></div>
       </div>
 
-      
-
       <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-2 p-3">
         <div className="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg  rounded-2xl p-3">
           <EarningChart />
@@ -285,7 +316,6 @@ const DashboardHome = () => {
         <div className="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg   rounded-2xl p-3">
           {/* <CreateNotice /> */}
           <TeacherNotice />
-          
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg   rounded-2xl p-3 gap-2 flex justify-center items-center flex-col">
           <div className="p-2   ">
@@ -301,7 +331,6 @@ const DashboardHome = () => {
           <h1 className="text-xl font-bold text-cyan-700 mb-4">Calendar</h1>
           <Calendar />
         </div>
-      
       </div>
     </div>
   );

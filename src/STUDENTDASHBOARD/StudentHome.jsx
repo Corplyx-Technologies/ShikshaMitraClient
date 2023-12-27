@@ -4,22 +4,27 @@ import {
   FcBusinesswoman,
   FcCurrencyExchange,
 } from "react-icons/fc";
+import { useParams } from "react-router-dom";
+
 import Calendar from "../pages/Calendar";
 import StudentAttendanceChart from "../CHART/StudentAttendanceChart";
 import StudentNotice from "./StudentNotice";
 import axios from "axios";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 // const API_GET_DATA = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents"
 const StudentHome = () => {
   const [data, setData] = useState([]);
-
+  const [submittedData, setSubmittedData] = useState([]);
+  const [shouldFetchData, setShouldFetchData] = useState(false);
   const fullName = localStorage.getItem("fullName");
   const image = localStorage.getItem("image");
   const email = localStorage.getItem("email");
 
- { console.log("email---", email)}
+  {
+    console.log("email---", email);
+  }
 
   useEffect(() => {
     // GET Request to fetch existing notices
@@ -28,9 +33,9 @@ const StudentHome = () => {
         `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      }, // Set withCredentials to true
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          }, // Set withCredentials to true
         }
       )
       .then((response) => {
@@ -43,6 +48,36 @@ const StudentHome = () => {
       });
   }, []);
 
+  const { _id } = useParams();
+  console.log(_id);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllIssuedBookStudent?bookId=${_id}`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
+      .then((response) => {
+        if (Array.isArray(response.data.allStudent)) {
+          setSubmittedData(response.data.allStudent);
+          console.log(response.data.message);
+        } else {
+          console.error(
+            "Data format is not as expected:",
+            response.data.message
+          );
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error.message);
+      });
+  }, []);
+  console.log(submittedData);
   return (
     <>
       <div className="mt-12">

@@ -104,6 +104,7 @@ import CreateCurriculum from "./ADMINDASHBOARD/CreateCurriculum";
 import ViewSecondary from "./ADMINDASHBOARD/Classes/Secondary/ViewSecondary";
 import EditSecondary from "./ADMINDASHBOARD/Classes/Secondary/EditSecondary";
 import PrivacyPolicy from "./ShikshMitraWebsite/component/PrivacyPolicy/PrivacyPolicy";
+import BookManagement from "./STUDENTDASHBOARD/BookManagement";
 // import EmployeeSalaryStatus from './ADMINDASHBOARD/Employee/SalaryStatus';
 
 function App() {
@@ -293,6 +294,7 @@ function App() {
           <Route path="syllabus" element={<Syllabus />} />
           <Route path="exams" element={<StudentExam />} />
           <Route path="admitcard" element={<StudentAdmitCard />} />
+          <Route path="issuedBooks" element={<BookManagement />} />
         </Route>
         <Route path="/parent" element={<ParentDashboard />}>
           <Route index element={<ParentHome />} />

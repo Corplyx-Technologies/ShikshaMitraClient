@@ -5,7 +5,7 @@ import { useStateContext } from "../../../contexts/ContextProvider";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-const Issue = ({ isOpen, onClose, bookId, updateIssueDependency }) => {
+const Issue = ({ isOpen, onClose, bookId, bookName, updateIssueDependency }) => {
   const { currentColor } = useStateContext();
   const [studentId, setStudentId] = useState('');
 
@@ -17,7 +17,8 @@ const Issue = ({ isOpen, onClose, bookId, updateIssueDependency }) => {
 
       const response = await axios.post("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/issueBook", {
         studentId,
-        bookId
+        bookId,
+        bookName
       }, {
         withCredentials: true,
         headers: {

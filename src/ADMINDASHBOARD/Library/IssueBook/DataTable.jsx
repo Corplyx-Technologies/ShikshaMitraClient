@@ -54,6 +54,7 @@ function DynamicDataTable({ data, handleDelete, updateIssueDependency }) {
             isOpen={openModals[params.row._id] || false}
             onClose={() => handleCloseModal(params.row._id)}
             bookId={params.row._id} 
+            bookName={params.row.bookName}
             updateIssueDependency = {updateIssueDependency}
           />
 

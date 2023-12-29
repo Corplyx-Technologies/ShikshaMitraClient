@@ -202,52 +202,38 @@ const DashboardHome = () => {
       });
   }, []);
 
-  function calculateDynamicPercentage(
-    currentPercentage,
-    increment,
-    isIncrement
-  ) {
-    const factor = isIncrement ? 1 : -1;
-    const newPercentage = currentPercentage + factor * increment;
-    return `${newPercentage}%`;
-  }
-
   useEffect(() => {
     const newEarningData = [
       {
         icon: <FcConferenceCall />,
         amount: `${studentCount}`,
-        percentage: calculateDynamicPercentage(-4, 1, true),
         title: "Students",
-        iconColor: "#03C9D7",
-        iconBg: "#E5FAFB",
+        iconColor: "#fff",
+        iconBg: "rgb(254, 201, 15)",
         pcColor: "red-600",
       },
       {
         icon: <FcBusinesswoman />,
         amount: `${teacherCount}`,
-        percentage: calculateDynamicPercentage(23, 1, true),
         title: "Teachers",
-        iconColor: "rgb(255, 244, 229)",
+        iconColor: "#fff",
         iconBg: "rgb(254, 201, 15)",
         pcColor: "green-600",
       },
       {
         icon: <FcCurrencyExchange />,
         amount: `${totalSellAmount + totalPaidAmount}`,
-        percentage: calculateDynamicPercentage(38, 1, true),
         title: "Earning",
-        iconColor: "rgb(228, 106, 118)",
-        iconBg: "rgb(255, 244, 229)",
+        iconColor: "#fff",
+        iconBg: "rgb(254, 201, 15)",
         pcColor: "green-600",
       },
       {
         icon: <BiMaleFemale />,
         amount: `${parentCount}`,
-        percentage: calculateDynamicPercentage(-12, 1, true),
         title: "Parents",
-        iconColor: "rgb(0, 194, 146)",
-        iconBg: "rgb(235, 250, 242)",
+        iconColor: "#fff",
+        iconBg: "rgb(254, 201, 15)",
         pcColor: "red-600",
       },
     ];
@@ -282,7 +268,7 @@ const DashboardHome = () => {
             <div class="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg  p-1 m-2 flex justify-center rounded-2xl">
               <div
                 key={item.title}
-                className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl text-center"
+                className="bg-white h-44 dark:text-dark dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl text-center text-red font-semibold"
               >
                 <button
                   type="button"
@@ -300,7 +286,9 @@ const DashboardHome = () => {
                     {item.percentage}
                   </span>
                 </p>
-                <p className="text-sm text-gray-400  mt-1">{item.title}</p>
+                <p className="text-sm text-black font-bold  mt-1">
+                  {item.title}
+                </p>
               </div>
             </div>
           </div>

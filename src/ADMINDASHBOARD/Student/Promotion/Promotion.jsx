@@ -8,11 +8,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { useStateContext } from "../../../contexts/ContextProvider.js";
 import { toast } from "react-toastify";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const Promotion = () => {
   // Fetch data from global context
+  console.log(authToken);
   const { allstudentdata, currentColor } = useStateContext();
 
   const [selectionModel, setSelectionModel] = useState([]);
@@ -41,12 +42,15 @@ const Promotion = () => {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response);
         if (Array.isArray(response.data.classList)) {
@@ -242,11 +246,8 @@ const Promotion = () => {
         dataToUpdate,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
           headers: {
-            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
           },
         }
       )

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import LandingPage from "./ShikshMitraWebsite/LandingPage";
 import AdminDashboard from "./ADMINDASHBOARD/AdminDashboard";
@@ -109,7 +109,20 @@ import BookManagement from "./STUDENTDASHBOARD/BookManagement";
 
 function App() {
   const location = useLocation(); // Get the current location
+  useEffect(() => {
+    const scrollToTop = () => {
+      const scrollStep = -window.scrollY / (500 / 15);
+      const scrollInterval = setInterval(() => {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep);
+        } else {
+          clearInterval(scrollInterval);
+        }
+      }, 15);
+    };
 
+    scrollToTop(); // Scroll to the top when location changes with animation
+  }, [location]);
   return (
     <>
       <Routes>

@@ -246,9 +246,10 @@ const Promotion = () => {
         dataToUpdate,
         {
           withCredentials: true,
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json"
+      },
         }
       )
       .then((response) => {

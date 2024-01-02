@@ -59,9 +59,10 @@ const EditStaff = () => {
       .catch((error) => {
         console.error("Error fetching staff data:", error);
       });
-  }, [email]);
+  }, []);
 
   const handleFormSubmit = (e) => {
+    console.log("A");
     e.preventDefault();
     setLoading(true);
   
@@ -95,6 +96,8 @@ const EditStaff = () => {
       .finally(() => {
         setLoading(false);
       });
+
+      
   };
   
 

@@ -17,7 +17,6 @@ const EditTeacher = () => {
     fullName: "",
     employeeId: "",
     email: "",
-    password: "",
     dateOfBirth: "",
     status: "Active",
     qualification: "",

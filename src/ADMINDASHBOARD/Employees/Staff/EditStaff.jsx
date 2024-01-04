@@ -15,7 +15,6 @@ const EditStaff = () => {
     fullName: "",
     employeeId: "",
     email: "",
-    password: "",
     dateOfBirth: "",
     qualification: "",
     salary: "",

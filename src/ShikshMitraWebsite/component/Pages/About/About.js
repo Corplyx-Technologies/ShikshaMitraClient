@@ -84,7 +84,7 @@ const About = () => {
             <div className="overflow-hidden relative w-full h-full">
               <img src={aman} alt="Team Member 1" className="h-full hover:scale-125 duration-1000" />
               <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Aman</strong> (Fullstack Developer)
+                <strong>Aman Sharma</strong> (Fullstack Developer)
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@ const About = () => {
             <div className="overflow-hidden relative w-full h-full">
               <img src={chhaya} alt="Team Member 1" className="h-full hover:scale-125 duration-1000" />
               <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Chhaya</strong> (Fullstack Developer)
+                <strong>Chhaya Sengar</strong> (Fullstack Developer)
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ const About = () => {
             <div className="overflow-hidden relative  w-full h-full">
               <img src={annad} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
               <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Anand</strong> (Fullstack Developer)
+                <strong>Anand Jaiswal</strong> (Fullstack Developer)
               </div>
             </div>
 
@@ -111,7 +111,7 @@ const About = () => {
             <div className="overflow-hidden relative  w-full h-full">
               <img src={ajay} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
               <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Ajay</strong> (Fullstack Developer)
+                <strong>Ajay Raj</strong> (Fullstack Developer)
               </div>
             </div>
 
@@ -123,7 +123,7 @@ const About = () => {
             <div className="overflow-hidden relative  w-full h-full">
               <img src={praveen} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
               <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Praveen</strong> (Fullstack Developer)
+                <strong>Praveen Pal</strong> (Fullstack Developer)
               </div>
             </div>
 
@@ -132,7 +132,7 @@ const About = () => {
             <div className="overflow-hidden relative  w-full h-full">
               <img src={badal} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
               <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Badal</strong> (Fullstack Developer)
+                <strong>Badal Kumar</strong> (Fullstack Developer)
               </div>
             </div>
 

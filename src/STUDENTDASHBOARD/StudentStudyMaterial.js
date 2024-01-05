@@ -14,7 +14,7 @@ const StudentStudyMaterial = () => {
     image: null,
   });
 
-  const API_BASE_URL = "https://dull-rose-salamander-fez.cyclic.app/api/v1/teacher";
+  const API_BASE_URL = "https://precious-pink-nightgown.cyclic.app/api/v1/teacher";
 
   useEffect(() => {
     // Fetch materials from the server using a GET request

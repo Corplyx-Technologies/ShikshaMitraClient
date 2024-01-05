@@ -31,7 +31,7 @@ const ParentResults = () => {
 
   useEffect(() => {
     axios
-      .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/myKids`, {
+      .get(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/myKids`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -55,7 +55,7 @@ const ParentResults = () => {
 
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams", {
+      .get("https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -99,7 +99,7 @@ const ParentResults = () => {
   useEffect(() => {
     axios
       .get(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo`,
         {
           withCredentials: true,
           headers: {
@@ -131,7 +131,7 @@ const ParentResults = () => {
       }
       axios
         .get(
-          `https://dull-rose-salamander-fez.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
+          `https://precious-pink-nightgown.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
           {
             withCredentials: true,
       headers: {

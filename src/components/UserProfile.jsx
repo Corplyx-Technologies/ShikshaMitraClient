@@ -18,7 +18,7 @@ const UserProfile = () => {
   const handleLogout = (e) => {
     setIsClicked({ ...initialState, [e]: true });
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/logout")
+      .get("https://precious-pink-nightgown.cyclic.app/api/v1/logout")
       .then((response) => {
         localStorage.removeItem("fullName");
         localStorage.removeItem("image");

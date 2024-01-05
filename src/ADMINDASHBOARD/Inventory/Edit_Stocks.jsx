@@ -37,7 +37,7 @@ function Edit_Stocks() {
 
     try {
       const response = await axios.put(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateItem/${_id}`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/updateItem/${_id}`,
         formDataToSend,
         {
           withCredentials: true,
@@ -62,7 +62,7 @@ function Edit_Stocks() {
 
   useEffect(() => {
     axios
-      .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllItems?_id=${_id}`, {
+      .get(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllItems?_id=${_id}`, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,

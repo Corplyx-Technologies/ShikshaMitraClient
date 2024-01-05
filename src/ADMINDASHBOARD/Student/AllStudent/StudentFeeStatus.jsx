@@ -27,7 +27,7 @@ const StudentFeeStatus = () => {
   useEffect(() => {
     axios
       .get(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
       headers: {
@@ -69,7 +69,7 @@ const StudentFeeStatus = () => {
 
   const handleModalOpen = () => {
     axios
-      .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getFees`, {
+      .get(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getFees`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -167,7 +167,7 @@ const StudentFeeStatus = () => {
       dues: dues,
     };
 
-    const apiUrl = "https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/createFeeStatus";
+    const apiUrl = "https://precious-pink-nightgown.cyclic.app/api/v1/fees/createFeeStatus";
     axios
       .post(apiUrl, newExamData, {
         withCredentials: true,
@@ -180,7 +180,7 @@ const StudentFeeStatus = () => {
 
         axios
           .get(
-            `https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentId}`,
+            `https://precious-pink-nightgown.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentId}`,
             {
               withCredentials: true,
       headers: {
@@ -219,7 +219,7 @@ const StudentFeeStatus = () => {
     if (studentId && Object.keys(studentData).length > 0) {
       axios
         .get(
-          `https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentId}`,
+          `https://precious-pink-nightgown.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentId}`,
           {
             withCredentials: true,
       headers: {
@@ -266,7 +266,7 @@ const StudentFeeStatus = () => {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdditionalFees", {
+      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdditionalFees", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

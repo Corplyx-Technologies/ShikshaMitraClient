@@ -41,7 +41,7 @@ function CreateClassWise() {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getFees",
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getFees",
         {
           withCredentials: true,
           headers: {
@@ -75,7 +75,7 @@ function CreateClassWise() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createFees",
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createFees",
         formDataToSend,
         {
           withCredentials: true,
@@ -113,7 +113,7 @@ function CreateClassWise() {
   const handleDelete = (itemId) => {
     axios
       .delete(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`,
         {
           withCredentials: true,
           headers: {

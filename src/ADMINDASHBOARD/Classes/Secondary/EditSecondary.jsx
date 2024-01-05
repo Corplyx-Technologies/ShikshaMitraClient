@@ -37,7 +37,7 @@ const EditSecondary = () => {
   useEffect(() => {
     axios
     .get(
-      `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
+      `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
         { withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -60,7 +60,7 @@ const EditSecondary = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateClass`, formData, { withCredentials: true,
+      .put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/updateClass`, formData, { withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
       },})

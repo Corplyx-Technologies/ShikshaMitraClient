@@ -73,7 +73,7 @@ function Fee_Status() {
 
     try {
       const response = await axios.post(
-        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createTeacher",
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createTeacher",
         formDataToSend,
         {
           headers: {

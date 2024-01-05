@@ -28,7 +28,7 @@ const StudentAdmitCard = () => {
 
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo", {
+      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -49,7 +49,7 @@ const StudentAdmitCard = () => {
 
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams", {
+      .get("https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

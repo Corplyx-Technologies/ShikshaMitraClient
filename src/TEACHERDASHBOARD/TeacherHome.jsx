@@ -46,7 +46,7 @@ const TeacherHome = () => {
   // Fetch teacher count
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getTeachers", {
+      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -68,7 +68,7 @@ const TeacherHome = () => {
   // Fetch student count
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents", {
+      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -91,7 +91,7 @@ const TeacherHome = () => {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllParents", {
+      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllParents", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

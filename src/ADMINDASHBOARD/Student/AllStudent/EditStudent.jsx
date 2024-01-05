@@ -58,7 +58,7 @@ const EditStudent = () => {
   useEffect(() => {
     axios
       .get(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
       headers: {
@@ -100,7 +100,7 @@ const EditStudent = () => {
     }
   
     axios
-      .put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
+      .put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,

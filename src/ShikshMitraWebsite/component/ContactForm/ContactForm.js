@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 const authToken = Cookies.get("token");
 
 const API_BASE_URL =
-  "https://dull-rose-salamander-fez.cyclic.app/api/v1/ContactUs";
+  "https://precious-pink-nightgown.cyclic.app/api/v1/ContactUs";
 //  const api_url = `/api/v1/contactUs/`
 const showErrorToast = (message) => {
   toast.error(message, {

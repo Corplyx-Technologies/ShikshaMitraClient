@@ -19,7 +19,7 @@ function DynamicDataTable({ data, handleDelete }) {
 
   useEffect(() => {
     axios.get(
-      `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllEmployees`,
+      `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllEmployees`,
       {
         withCredentials: true,
       headers: {

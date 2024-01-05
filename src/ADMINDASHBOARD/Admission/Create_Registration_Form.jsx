@@ -52,7 +52,7 @@ function Create_Registration_Form() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getLastYearStudents', {
+    axios.get('https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getLastYearStudents', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -118,7 +118,7 @@ function Create_Registration_Form() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createStudentParent",
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createStudentParent",
         formDataToSend,
         {
           withCredentials: true,
@@ -166,7 +166,7 @@ function Create_Registration_Form() {
 
 
   const handleDelete = (email) => {
-    axios.put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deactivateStudent`, { email }, {
+    axios.put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deactivateStudent`, { email }, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

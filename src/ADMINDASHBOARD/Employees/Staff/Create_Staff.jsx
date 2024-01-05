@@ -43,7 +43,7 @@ function Create_Staff() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllEmployees', {
+    axios.get('https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllEmployees', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -95,7 +95,7 @@ function Create_Staff() {
     try {
       setLoading(true)
       const response = await axios.post(
-        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createEmployee",
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createEmployee",
         formDataToSend,
         {
           withCredentials: true,
@@ -119,7 +119,7 @@ function Create_Staff() {
   };
 
   const handleDelete = (email) => {
-    axios.put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deactivateEmployee`, { email }, {
+    axios.put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deactivateEmployee`, { email }, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

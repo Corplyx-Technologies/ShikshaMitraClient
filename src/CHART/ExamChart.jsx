@@ -38,7 +38,7 @@ const ExamChart = () => {
 
   useEffect(() => {
     axios
-      .get(`https://dull-rose-salamander-fez.cyclic.app/api/v1/exam/getAllExams`, {
+      .get(`https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

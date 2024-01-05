@@ -24,7 +24,7 @@ const StudentChart = () => {
         const fetchData = async () => {
           try {
             const response = await axios.get(
-              "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents",
+              "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
               {
                 withCredentials: true,
       headers: {

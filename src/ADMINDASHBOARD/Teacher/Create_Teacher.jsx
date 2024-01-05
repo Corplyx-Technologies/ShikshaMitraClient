@@ -58,7 +58,7 @@ function CreateTeacher() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getTeachers', {
+      const response = await axios.get('https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers', {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -99,7 +99,7 @@ function CreateTeacher() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createTeacher",
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createTeacher",
         formDataToSend,
         {
           withCredentials: true,
@@ -127,7 +127,7 @@ function CreateTeacher() {
   };
 
   const handleDelete = (email) => {
-    axios.put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deactivateTeacher`, { email }, {
+    axios.put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deactivateTeacher`, { email }, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

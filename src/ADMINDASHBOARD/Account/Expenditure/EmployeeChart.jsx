@@ -10,7 +10,7 @@ const EmployeeChart = () => {
   useEffect(() => {
     axios
       .get(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/teacher/getPaymentHistory`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/teacher/getPaymentHistory`,
         {
           withCredentials: true,
       headers: {
@@ -39,7 +39,7 @@ const EmployeeChart = () => {
         // Fetch and extract month-wise paid amounts for employees
         axios
           .get(
-            `https://dull-rose-salamander-fez.cyclic.app/api/v1/employee/getPaymentHistory`,
+            `https://precious-pink-nightgown.cyclic.app/api/v1/employee/getPaymentHistory`,
             {
               withCredentials: true,
       headers: {

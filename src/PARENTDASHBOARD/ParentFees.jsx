@@ -26,7 +26,7 @@ const ParentFees = () => {
   useEffect(() => {
     axios
       .get(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/myKids`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -51,7 +51,7 @@ const ParentFees = () => {
   useEffect(() => {
     axios
       .get(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo`,
         {
           withCredentials: true,
           headers: {
@@ -71,7 +71,7 @@ const ParentFees = () => {
   }, []);
 
   // useEffect(() => {
-  //   axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/getFeeStatus", {
+  //   axios.get("https://precious-pink-nightgown.cyclic.app/api/v1/fees/getFeeStatus", {
   //     withCredentials: true,
   //     headers: {
   //       Authorization: `Bearer ${authToken}`,
@@ -91,7 +91,7 @@ const ParentFees = () => {
   useEffect(() => {
     axios
       .get(
-        `https://dull-rose-salamander-fez.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentData._id}`,
+        `https://precious-pink-nightgown.cyclic.app/api/v1/fees/getFeeStatus?studentId=${studentData._id}`,
         {
           withCredentials: true,
           headers: {

@@ -16,7 +16,7 @@ function AdmissionStatus({ data }) {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getLastYearStudents",
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getLastYearStudents",
         {
           withCredentials: true,
           headers: {

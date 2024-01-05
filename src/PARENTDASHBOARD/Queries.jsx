@@ -12,7 +12,7 @@ const Queries = () => {
   useEffect(() => {
     axios
       .get(
-        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo",
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo",
         {
           withCredentials: true,
           headers: {

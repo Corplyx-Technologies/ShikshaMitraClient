@@ -18,7 +18,7 @@ const ParentCurriculum = () => {
   useEffect(() => {
     axios
       .get(
-       ` https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/myKids`,
+       ` https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -43,7 +43,7 @@ const ParentCurriculum = () => {
 
   // useEffect(() => {
   //   axios
-  //     .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllCurriculum", {
+  //     .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllCurriculum", {
   //       withCredentials: true,
       // headers: {
       //   Authorization: `Bearer ${authToken}`,
@@ -64,7 +64,7 @@ const ParentCurriculum = () => {
     if (studentData.class) {
       axios
         .get(
-         ` https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllCurriculum?className=${studentData.class}`,
+         ` https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllCurriculum?className=${studentData.class}`,
           {
             withCredentials: true,
           headers: {

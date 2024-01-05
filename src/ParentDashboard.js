@@ -21,7 +21,6 @@ function ParentDashboard() {
   const location = useLocation()
 const navigate = useNavigate()
   const [singleLog,setSingleLog] = useState(sessionStorage.getItem('userRole'));
-
   const {
     setCurrentColor,
     setCurrentMode,
@@ -34,7 +33,6 @@ const navigate = useNavigate()
     setisLoggedIn
   } = useStateContext();
 
- 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem("colorMode");
     const currentThemeMode = localStorage.getItem("themeMode");
@@ -44,24 +42,12 @@ const navigate = useNavigate()
     }
   }, []);
 
-  // useEffect(() => {
-  //   window.addEventListener('keydown', function(event) {
-  //     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-  //       event.preventDefault();
-  //     }
-  //   });
-
-  //   // Disable the back button in the browser's address bar
-  //   (null, null, location.href);
-  //   window.addEventListener('popstate', function(event) {
-  //     navigate.pushState(null, null, location.href);
-  //   });
-  // }, []);
-
-  // if( singleLog ){
-  //   setisLoggedIn(singleLog)
-  // }
-
+  
+  console.log(singleLog)
+  if( singleLog ){
+    setisLoggedIn(singleLog)
+  }
+  console.log(isLoggedIn);
 
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
@@ -102,18 +88,7 @@ const navigate = useNavigate()
             </div>
             <div>
               {themeSettings && <ThemeSettings />}
-<Outlet/>
-              {/* <Routes>
-               
-                <Route path="/parent" element={<DashBoard/>} />
-                <Route path='/queries' element={<ParentContact/>} />
-                <Route path='/curriculum' element={<Curriculum/>} />
-                <Route path='/events' element={<Events/>} />
-                <Route path='/mykids' element={<MyKids/>} />
-                <Route path='/notification' element={<Notification/>} />   
-                <Route path='/results' element={<Results/>} /> 
-                <Route path='expenses' element={<Expenses/>} />           
-              </Routes> */}
+                <Outlet/>
             </div>
             <Footer />
           </div>

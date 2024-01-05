@@ -3,19 +3,23 @@ import axios from "axios";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosCall } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const Queries = () => {
   const [adminInfoData, setAdminInfoData] = useState([]);
 
   useEffect(() => {
-    axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo", {
-      withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    })
+    axios
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         const data = response.data.admin;
         console.log("AdminInfo---ResultData--->", response.data.admin);
@@ -30,7 +34,9 @@ const Queries = () => {
 
   return (
     <div className="mt-20">
-      <h2 className=" mb-1 text-4xl mx-auto text-center font-bold text-cyan-700 uppercase ">{adminInfoData.schoolName}</h2>
+      <h2 className=" mb-1 text-4xl mx-auto text-center font-bold text-cyan-700 uppercase ">
+        {adminInfoData.schoolName}
+      </h2>
       <div className="relative">
         {adminInfoData.image && (
           <img
@@ -41,11 +47,8 @@ const Queries = () => {
         )}
         <div className="absolute inset-0 bg-black opacity-0"></div>
 
-
         <div className="absolute right-0 bottom-0 ">
-
           <div className=" text-black-600 ">
-
             {/* <h2 className=" mb-5 text-4xl mx-auto text-center font-bold ">{adminInfoData.schoolName}</h2> */}
             {/* <p className="text-lg">{adminInfoData.address}</p> */}
             <div className="flex flex-wrap lg:justify-between ">
@@ -53,57 +56,68 @@ const Queries = () => {
                 <div className="max-w-[570px] lg:mb-0">
                   <div className="flex items-start">
                     <div className="mt-1">
-
                       <IoIosCall className="text-cyan-600 text-2xl" />
                     </div>
                     <a href={`tel:+91${adminInfoData.contact}`}>
-                    <div className="">
-                      <h1 className="font-bold text-2xl text-cyan-700">Phone Number</h1>
-                      <p className="text-xl font-bold">
-                        (+91){adminInfoData.contact}
-                      </p>
-                    </div>
+                      <div className="">
+                        <h1 className="font-bold text-2xl text-cyan-700">
+                          Phone Number
+                        </h1>
+                        <p className="text-xl font-bold">
+                          (+91){adminInfoData.contact}
+                        </p>
+                      </div>
                     </a>
                   </div>
                   <div className="flex items-start">
-                  <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(adminInfoData.address)}`}
-                        target="_blank"
-                        rel="noopener noreferrer">
-                    <div className="mt-1">
-                      <FaLocationDot className="text-cyan-600 text-2xl" />
-                    </div>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        adminInfoData.address
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="mt-1">
+                        <FaLocationDot className="text-cyan-600 text-2xl" />
+                      </div>
                     </a>
                     <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(adminInfoData.address)}`}
-                        target="_blank"
-                        rel="noopener noreferrer">
-                    <div className="">
-                      <h1 className="font-bold text-2xl text-cyan-700">  Our Location</h1>
-                      <p className="text-xl font-bold">
-                        {adminInfoData.address}
-                      </p>
-                    </div>
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        adminInfoData.address
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="">
+                        <h1 className="font-bold text-2xl text-cyan-700">
+                          {" "}
+                          Our Location
+                        </h1>
+                        <p className="text-xl font-bold">
+                          {adminInfoData.address}
+                        </p>
+                      </div>
                     </a>
                   </div>
                   <div className="flex items-start">
-                  <a href={`mailto:${adminInfoData.email}`} > 
-                    <div className="mt-1">
-
-                      <MdEmail className="text-cyan-600 text-2xl" />
-
-                    </div>
+                    <a href={`mailto:${adminInfoData.email}`}>
+                      <div className="mt-1">
+                        <MdEmail className="text-cyan-600 text-2xl" />
+                      </div>
                     </a>
-                    <a href={`mailto:${adminInfoData.email}`} >
-                    <div className="">
-                      <h1 className="font-bold text-2xl text-cyan-700">  Email Address</h1>
-                      <p className="text-xl font-bold">
-                        {adminInfoData.email}
-                      </p>
-                    </div>
+                    <a href={`mailto:${adminInfoData.email}`}>
+                      <div className="">
+                        <h1 className="font-bold text-2xl text-cyan-700">
+                          {" "}
+                          Email Address
+                        </h1>
+                        <p className="text-xl font-bold">
+                          {adminInfoData.email}
+                        </p>
+                      </div>
                     </a>
                   </div>
-                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -18,6 +18,8 @@ const ParentResults = () => {
   const [maximumMarks, setMaximumMarks] = useState({});
   const [subjects, setSubjects] = useState([]);
   const [totalMarks, setTotalMarks] = useState("");
+  const [admindata, setAdminData] = useState({});
+  const [loading,setLoading] = useState(false);
 
   const userData = JSON.parse(localStorage.getItem("response"));
   console.log("userData", userData);
@@ -94,6 +96,27 @@ const ParentResults = () => {
   }, [selectedExam,classs]);
 
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
+      .then((response) => {
+        // console.log("Data student ", response.data.admin.schoolName);
+        setAdminData(response.data.admin);
+        setLoading(false); // Set loading to false once data is received
+      })
+      .catch((error) => {
+        console.error("Error fetching  data:", error);
+        setLoading(false); // Set loading to false in case of an error
+      });
+  }, []);
 
 
   const handleExamChange = (e) => {
@@ -268,8 +291,8 @@ const ParentResults = () => {
         <div className="flex flex-wrap "></div>
         <div className="text-center mb-4">
           {/* <img src={school} alt="School Logo" className="w-16 h-16 mx-auto" /> */}
-          <h1 className="text-3xl font-semibold mt-2">Corplyx Public School</h1>
-          <p className="text-sm text-gray-600">School Address</p>
+          <h1 className="text-3xl font-semibold mt-2">{admindata.schoolName} </h1>
+          <p className="text-sm text-gray-600">{ admindata.address}</p>
         </div>
         <div className="flex justify-between">
           <div>

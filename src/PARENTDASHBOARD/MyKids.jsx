@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const MyKids = () => {
   const [studentData, setStudentData] = useState({});
   const data = JSON.parse(localStorage.getItem("response"));
   console.log("LocalStorage-->", data);
   const [loading, setLoading] = useState(true);
+  const [admindata, setAdminData] = useState({});
 
   useEffect(() => {
     axios
@@ -33,6 +34,28 @@ const MyKids = () => {
       });
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
+      .then((response) => {
+        // console.log("Data student ", response.data.admin.schoolName);
+        setAdminData(response.data.admin);
+        setLoading(false); // Set loading to false once data is received
+      })
+      .catch((error) => {
+        console.error("Error fetching  data:", error);
+        setLoading(false); // Set loading to false in case of an error
+      });
+  }, []);
+
   console.log(studentData);
 
   return (
@@ -52,11 +75,17 @@ const MyKids = () => {
             </div>
 
             <div>
-              <h1 className="text-center text-2xl font-bold text-[#01a9ac]">Model School</h1>
+              <h1 className="text-center text-2xl font-bold text-[#01a9ac]">
+                {/* Model School */}
+                {admindata.schoolName}
+              </h1>
             </div>
 
             <div className="text-center rounded-sm bg-[#01a9acc2]">
-              <h3 className="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing.</h3>
+              <h3 className="text-white">
+                {/* Lorem ipsum dolor, sit amet consectetur adipisicing. */}
+                {admindata.address}
+              </h3>
             </div>
 
             <div className="flex mt-5">
@@ -73,17 +102,13 @@ const MyKids = () => {
                   </span>
                 </div>
                 <div className="my-1">
-                  <h2 className="w-[100px] text-[13px] leading-3 ">
-                    F/Name :
-                  </h2>
+                  <h2 className="w-[100px] text-[13px] leading-3 ">F/Name :</h2>
                   <span className="font-semibold text-[14px] text-[#01a9ac]">
                     {studentData.fatherName}
                   </span>
                 </div>
                 <div className="my-1">
-                  <h2 className="w-[100px] text-[13px] leading-3 ">
-                    M/Name :
-                  </h2>
+                  <h2 className="w-[100px] text-[13px] leading-3 ">M/Name :</h2>
                   <span className="font-semibold text-[14px] text-[#01a9ac]">
                     {studentData && studentData.motherName}
                   </span>
@@ -92,13 +117,17 @@ const MyKids = () => {
                 <div className="flex">
                   <h2 className="w-[60px]">Class:</h2>
                   <span className="text-[#01a9ac] ">
-                    {studentData.class !== undefined ? `${studentData.class}th - ${studentData.section}` : 'N/A'}
+                    {studentData.class !== undefined
+                      ? `${studentData.class}th - ${studentData.section}`
+                      : "N/A"}
                   </span>
                 </div>
                 <div className="flex ">
                   <h2 className="w-[60px] ">DOB. :</h2>
                   <span className="text-[#01a9ac]">
-                    {studentData.dateOfBirth ? studentData.dateOfBirth.split('T')[0] : 'N/A'}
+                    {studentData.dateOfBirth
+                      ? studentData.dateOfBirth.split("T")[0]
+                      : "N/A"}
                   </span>
                 </div>
               </div>
@@ -106,9 +135,7 @@ const MyKids = () => {
 
             <div className="p-2">
               <h2>Address : </h2>
-              <span>
-                {studentData.address}
-              </span>
+              <span>{studentData.address}</span>
             </div>
           </div>
 
@@ -130,7 +157,9 @@ const MyKids = () => {
             <div className="flex justify-start gap-2 ">
               <h2 className="w-[100px] ">Joining Date :</h2>
               <span className="font-semibold text-[#01a9ac]">
-                {studentData.joiningDate ? studentData.joiningDate.split('T')[0] : 'N/A'}
+                {studentData.joiningDate
+                  ? studentData.joiningDate.split("T")[0]
+                  : "N/A"}
               </span>
             </div>
 
@@ -142,13 +171,16 @@ const MyKids = () => {
             </div>
             <div className="flex justify-start gap-2 ">
               <h2 className="w-[100px]">Mobile :</h2>
-              <span className="font-semibold text-[#01a9ac]">+91
+              <span className="font-semibold text-[#01a9ac]">
+                +91
                 {studentData.contact}
               </span>
             </div>
             <div className="flex justify-start gap-4 ">
               <h2 className="w-[100px]">ParentMobile: </h2>
-              <span className="font-semibold text-[#01a9ac]">+91 {studentData.parentContact}</span>
+              <span className="font-semibold text-[#01a9ac]">
+                +91 {studentData.parentContact}
+              </span>
             </div>
           </div>
         </div>

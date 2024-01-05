@@ -192,7 +192,15 @@ console.log(assignmentData)
                 onChange={handleGradeChange}
               >
                 <option value="">Select Grade</option>
-                {data.map((item) => (
+                {/* {data.map((item) => (
+                  <option key={item.className} value={item.className}>
+                    {item.className}
+                  </option>
+                ))} */}
+                  {data
+                .slice()
+                .sort((a, b) => parseInt(a.className, 10) - parseInt(b.className, 10))
+                .map((item) => (
                   <option key={item.className} value={item.className}>
                     {item.className}
                   </option>

@@ -5,9 +5,10 @@ import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
 const Study = () => {
-  const [fetchData, setFetchData] = useState(false);
+  // const [fetchData, setFetchData] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [materials, setMaterials] = useState([]);
+  const [shouldFetchData, setShouldFetchData] = useState(false)
   const [formData, setFormData] = useState({
     title: '',
     type: '',
@@ -69,8 +70,8 @@ const API_GET_DATA = "https://dull-rose-salamander-fez.cyclic.app/api/v1/deleteS
         const createdMaterial = response.data;
         setMaterials([...materials, createdMaterial]);
         setFormData({ title: '', type: '', link: '', image: null  });
-        setFetchData(true)
         closeModal();
+        setShouldFetchData(!shouldFetchData);
       })
       .catch((error) => {
         console.error('Error adding material:', error);
@@ -112,7 +113,7 @@ const API_GET_DATA = "https://dull-rose-salamander-fez.cyclic.app/api/v1/deleteS
       .catch((error) => {
         console.error('Error fetching materials:', error);
       });
-    }, [fetchData]);
+    }, [shouldFetchData]);
     console.log(formData)
 
  
@@ -156,7 +157,7 @@ console.log(materials)
                     setFormData({ ...formData, type: e.target.value })}
                 >  
                   <option >Select Type</option>
-                  <option value="Video">Video</option>
+                  <option value="video">Video</option>
                   <option value="PDF">PDF</option>
                   <option value="youtube">YouTube</option>
                   <option value="Notes">Notes</option>
@@ -271,7 +272,7 @@ console.log(materials)
               >
                 View PDF
               </a>
-            ) : (material.type === 'Video' || material.type === 'YouTube') ? (
+            ) : (material.type === 'video' || material.type === 'youtube') ? (
               <a
                 href={material.link}
                 target="_blank"

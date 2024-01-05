@@ -156,11 +156,19 @@ const Curriculum = () => {
                 onChange={handleGradeChange}
               >
                 <option value="">Select class</option>
-                {data.map((item) => (
+                {data
+                .slice()
+                .sort((a, b) => parseInt(a.className, 10) - parseInt(b.className, 10))
+                .map((item) => (
                   <option key={item.className} value={item.className}>
                     {item.className}
                   </option>
                 ))}
+                {/* {data.map((item) => (
+                  <option key={item.className} value={item.className}>
+                    {item.className}
+                  </option>
+                ))} */}
               </select>
            
             </div>

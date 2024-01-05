@@ -104,7 +104,9 @@ const StudentAssigments = () => {
         <th className="p-4 border">Class</th>
         <th className="p-4 border">Section</th>
         <th className="p-4 border">Subject</th>
-      
+        <th className="border border-blue-500 px-4 py-2">File</th>
+
+
       </tr>
     </thead>
     <tbody>
@@ -116,6 +118,16 @@ const StudentAssigments = () => {
           <td className="p-4 border">{item.className}</td>
           <td className="p-4 border">{item.section}</td>
           <td className="p-4 border">{item.subject}</td>
+          <td className="border border-blue-500 px-4 py-2">
+                <a
+                  href={item.file.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline text-lg"
+                >
+                  View PDF
+                </a>
+            </td>
         
         </tr>
       ))}

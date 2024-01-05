@@ -11,6 +11,8 @@ const theader = {
   exam: "Exam",
   date: "Date",
   day: "Day",
+  startTime: "Start Time",
+  endTime: "End Time"
 };
 
 const StudentAdmitCard = () => {
@@ -75,6 +77,8 @@ const StudentAdmitCard = () => {
 
   const handleExamChange = (e) => {
     setSelectedExam(e.target.value);
+    setExamName(e.target.value);
+
   };
 
   const selectedExamData = examData.find(
@@ -190,6 +194,12 @@ const StudentAdmitCard = () => {
                           </td>
                           <td className="border border-gray-300 p-2">
                             {getDayOfWeek(data.examDate)}
+                          </td>
+                          <td className="border border-gray-300 p-2">
+                            {data.startTime}
+                          </td>
+                          <td className="border border-gray-300 p-2">
+                            {data.endTime}
                           </td>
                           {/* {studentData.studentDateOfBirth ? studentData.studentDateOfBirth.split('T')[0] : ''} */}
                         </tr>

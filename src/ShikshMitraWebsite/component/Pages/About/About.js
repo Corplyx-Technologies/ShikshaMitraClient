@@ -2,11 +2,14 @@ import "./About.css";
 
 
 import Shikha from '../../../assets/image/Shikha.png';
+import gaurav from '../../../assets/images/Gaurav.jpeg';
+import chhaya from '../../../assets/images/Chhaya.jpeg';
 import aman from '../../../assets/images/amanimg.jpeg';
 import annad from '../../../assets/images/annadimg.jpg';
 import praveen from '../../../assets/images/praveenimg.jpeg';
 import quoteIcon from '../../../assets/images/quoteIcon.png';
 import ajay from '../../../assets/images/ajayimage.jpeg'
+import badal from '../../../assets/images/Badal.jpeg'
 
 
 
@@ -71,9 +74,25 @@ const About = () => {
 
           <div className="text-center shadow-lg rounded">
             <div className="overflow-hidden relative w-full h-full">
+              <img src={gaurav} alt="Team Member 1" className="h-full hover:scale-125 duration-1000" />
+              <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
+                <strong>Gaurav</strong> (Project/Team Leader & Fullstack Developer)
+              </div>
+            </div>
+          </div>
+          <div className="text-center shadow-lg rounded">
+            <div className="overflow-hidden relative w-full h-full">
               <img src={aman} alt="Team Member 1" className="h-full hover:scale-125 duration-1000" />
               <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Aman</strong> (Project Manager)
+                <strong>Aman</strong> (Fullstack Developer)
+              </div>
+            </div>
+          </div>
+          <div className="text-center shadow-lg rounded">
+            <div className="overflow-hidden relative w-full h-full">
+              <img src={chhaya} alt="Team Member 1" className="h-full hover:scale-125 duration-1000" />
+              <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
+                <strong>Chhaya</strong> (Fullstack Developer)
               </div>
             </div>
           </div>
@@ -83,7 +102,7 @@ const About = () => {
             <div className="overflow-hidden relative  w-full h-full">
               <img src={annad} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
               <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Anand</strong> (Lead Designer)
+                <strong>Anand</strong> (Fullstack Developer)
               </div>
             </div>
 
@@ -92,7 +111,7 @@ const About = () => {
             <div className="overflow-hidden relative  w-full h-full">
               <img src={ajay} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
               <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Ajay</strong> (Lead Programmer)
+                <strong>Ajay</strong> (Fullstack Developer)
               </div>
             </div>
 
@@ -104,7 +123,16 @@ const About = () => {
             <div className="overflow-hidden relative  w-full h-full">
               <img src={praveen} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
               <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
-                <strong>Pravi</strong> (Lead Programmer)
+                <strong>Praveen</strong> (Fullstack Developer)
+              </div>
+            </div>
+
+          </div>
+          <div className="text-center shadow-lg rounded">
+            <div className="overflow-hidden relative  w-full h-full">
+              <img src={badal} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
+              <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
+                <strong>Badal</strong> (Fullstack Developer)
               </div>
             </div>
 

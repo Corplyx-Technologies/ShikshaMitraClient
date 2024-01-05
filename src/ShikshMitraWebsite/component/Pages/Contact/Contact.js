@@ -94,8 +94,8 @@ const Contact = () => {
                       <p className="text-base text-body-color">
                         Corplyx Technologies Pvt.Ltd
                         <p>
-                          [Our Office Unit-930,I-thum Tower, Noida, Uttar
-                          Pradesh]
+                          Our Office Unit-930,I-thum Tower, Noida, Uttar
+                          Pradesh
                         </p>
                       </p>
                     </div>
@@ -118,7 +118,9 @@ const Contact = () => {
                         Phone Number
                       </h4>
                       <p className="text-base text-body-color">
-                        (+91)9650388201
+                        <a href="tel:+919650388201" style={{ textDecoration: 'none', color: 'inherit' }}>
+                          +919650388201
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -138,8 +140,11 @@ const Contact = () => {
                         Email Address
                       </h4>
                       <p className="text-base text-body-color">
-                        corplyxtechnologies000@gmail.com
+                        <a href="mailto:corplyxtechnologies000@gmail.com" style={{ textDecoration: 'none', color: 'inherit' }}>
+                          corplyxtechnologies000@gmail.com
+                        </a>
                       </p>
+
                     </div>
                   </div>
                 </div>

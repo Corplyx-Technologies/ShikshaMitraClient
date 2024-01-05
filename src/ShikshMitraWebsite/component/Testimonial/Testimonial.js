@@ -7,37 +7,37 @@ const Testimonial = () => {
     {
       name: "Aman Sharma",
       image:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://i.ibb.co/qWPsKHT/amanimg.jpg",
       text: "Our school management system has been a transformative tool. It seamlessly handles administrative tasks, empowering our educators to focus on teaching. It's user-friendly,and it has truly elevated our school's operational efficiency.",
     },
     {
-      name: "Gaurav",
+      name: "Chhaya Sengar",
       image:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://i.ibb.co/nfn6hMH/Chhaya.jpg",
       text: "Implementing this management system was a game-changer for our school. It's highly efficient and simplifies tasks for administrators, reducing the learning curve and improving productivity.",
     },
     {
       name: "Anand Jaiswal",
       image:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://i.ibb.co/RcThCZ3/annadimg.jpg",
       text: "This system revolutionized our school's communication and organization. Information flows seamlessly, creating a connected learning community and providing a platform for real-time updates that benefit our students, parents, and staff.",
     },
     {
-      name: "Aakanksha Tyagi",
+      name: "Badal Kumar",
       image:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://i.ibb.co/5vmWpqX/Badal.jpg",
       text: "An essential tool for modern schools, it's transformed how we manage everything. Our administrative processes, student records, and resource allocation are now more efficient and ensuring we're well-prepared for the future.",
     },
     {
       name: "Parveen Pal",
       image:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://i.ibb.co/rtJwmxJ/praveenimg.jpg",
       text: "Parents and staff adore the transparency and convenience offered by this system. It empowers parents to monitor their children's progress and school-related updates easily.This system strengthens our school community.",
     },
     {
       name: "Ajay Raj",
       image:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "https://i.ibb.co/crfqLHp/ajayimage.jpg",
       text: "Effortlessly managing student data, attendance, and resources, this system is an invaluable asset to our institution. It saves time, optimizes resource allocation, and customizes our educational approach. It's not just a tool.",
     },
   ];

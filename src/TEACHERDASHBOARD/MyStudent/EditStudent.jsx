@@ -10,7 +10,7 @@ const EditStudentTeacher = () => {
   const navigate = useNavigate();
   const { email } = useParams();
   const [studentData, setStudentData] = useState({});
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     fullName: "",
     // studentEmail: "",
@@ -30,7 +30,7 @@ const EditStudentTeacher = () => {
     // parentEmail: "",
     // parentPassword: "",
     // parentContact: "",
-    image:null,
+    image: null,
     // parentImage: "",
   });
 
@@ -46,7 +46,7 @@ const EditStudentTeacher = () => {
       console.log("Updating studentImage with file:", file);
       setFormData({
         ...formData,
-        studentImage: file,
+        image: file,
       });
       console.log(formData)
     }
@@ -54,17 +54,17 @@ const EditStudentTeacher = () => {
 
   useEffect(() => {
     axios
-    .get(
-      `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
-      {
-        withCredentials: true,
+      .get(
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        {
+          withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
-      }
-    )
+        }
+      )
       .then((response) => {
-        const  data  = response.data.allStudent[0];
+        const data = response.data.allStudent[0];
         console.log(data)
         setStudentData(data);
         setFormData((prevFormData) => ({
@@ -101,10 +101,10 @@ const EditStudentTeacher = () => {
     axios
       .put(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
         withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-        "Content-Type": "multipart/form-data"
-      },
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "multipart/form-data"
+        },
       })
       .then((response) => {
         console.log("Student data updated successfully", response);
@@ -120,7 +120,7 @@ const EditStudentTeacher = () => {
 
   return (
 
-    <div style={{textAlign: "center", padding: "20px", }}>
+    <div style={{ textAlign: "center", padding: "20px", }}>
       <h1 style={{ fontSize: "30px", fontWeight: "900" }}>Edit Student Profile</h1>
       <form onSubmit={handleFormSubmit} encType="multipart/form-data">
         <Box className="py-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 p-4 bg-white rounded-md shadow-lg">
@@ -131,7 +131,7 @@ const EditStudentTeacher = () => {
             value={formData.fullName}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Roll No"
@@ -140,7 +140,7 @@ const EditStudentTeacher = () => {
             value={formData.rollNo}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Email"
@@ -151,14 +151,21 @@ const EditStudentTeacher = () => {
             required
             readOnly  // Ensure 'readOnly' is set here
             style={{ width: "70%", paddingBottom: "20px" }}
+            InputLabelProps={{
+              shrink: !!formData.email, // Shrink label if there's a value
+            }}
           />
           <TextField
             label="DateOfBirth"
             name="dateOfBirth"
-            type="date"
+            type="text" // Use text instead of date
+            value={formData.dateOfBirth ? formData.dateOfBirth.split('T')[0] : ''}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <TextField
             label="Gender"
@@ -166,7 +173,7 @@ const EditStudentTeacher = () => {
             value={formData.gender}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Subject"
@@ -174,7 +181,7 @@ const EditStudentTeacher = () => {
             value={formData.subject}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Joining Date"
@@ -182,7 +189,7 @@ const EditStudentTeacher = () => {
             value={formData.joiningDate}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Address"
@@ -190,7 +197,7 @@ const EditStudentTeacher = () => {
             value={formData.address}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Country"
@@ -198,7 +205,7 @@ const EditStudentTeacher = () => {
             value={formData.country}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Contact"
@@ -206,7 +213,7 @@ const EditStudentTeacher = () => {
             value={formData.contact}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Class"
@@ -214,7 +221,7 @@ const EditStudentTeacher = () => {
             value={formData.class}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Section"
@@ -222,7 +229,7 @@ const EditStudentTeacher = () => {
             value={formData.section}
             onChange={handleOnChange}
             required
-            style={{ width: "70%", paddingBottom:"20px" }}
+            style={{ width: "70%", paddingBottom: "20px" }}
           />
           <TextField
             label="Student Image"
@@ -231,19 +238,22 @@ const EditStudentTeacher = () => {
             accept="image/*"
             required
             onChange={handleImageChange}
-            style={{ width: "70%", paddingBottom:"20px" }}
-         />
+            style={{ width: "70%", paddingBottom: "20px" }}
+            InputLabelProps={{
+              shrink: !!formData.email, // Shrink label if there's a value
+            }}
+          />
         </Box>
-          <Link to="/teacher/mystudents">
+        <Link to="/teacher/mystudents">
           <div className="button flex w-full" style={{ marginTop: '10px' }}>
-  <Button variant="contained" onClick={handleFormSubmit} style={{ width: '50%', marginRight: '10px' }}>
-    Update
-  </Button>
-  <Button variant="contained" style={{ width: '50%' }}>
-    Cancel
-  </Button>
-</div>
-          </Link>
+            <Button variant="contained" onClick={handleFormSubmit} style={{ width: '50%', marginRight: '10px' }}>
+              Update
+            </Button>
+            <Button variant="contained" style={{ width: '50%' }}>
+              Cancel
+            </Button>
+          </div>
+        </Link>
       </form>
     </div>
   );

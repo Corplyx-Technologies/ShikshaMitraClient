@@ -90,8 +90,8 @@ const ViewStudentTeacher = () => {
             <div className="flex">
             </div>
             <div className="flex justify-between gap-2 border-b-1  border-green-300 p-1 ">
-              <h2 className="w-[130px]  text-[14px] ">Roll No:</h2>
-              <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
+            <h2 cclassName="w-[130px]  text-[14px] ">Roll No:</h2>
+              <span className="w-[200px] font-semibold text-[#01a9ac]  text-[12px]">
                 {" "}
                 {studentData.rollNo}
               </span>

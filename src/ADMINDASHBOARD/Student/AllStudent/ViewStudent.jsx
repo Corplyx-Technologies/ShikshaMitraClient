@@ -165,13 +165,13 @@ const ViewStudent = () => {
                 {studentData.gender}
               </span>
             </div>
-            <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1 ">
+            <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1">
               <h2 className="w-[110px] ">Joining Date :</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
-                {" "}
-                {studentData.joiningDate}
+                {new Date(studentData.joiningDate).toLocaleDateString("en-US")}
               </span>
             </div>
+
             <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1 ">
               <h2 className="w-[130px]  text-[14px] "> Class:</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
@@ -196,8 +196,7 @@ const ViewStudent = () => {
             <div className="flex justify-start gap-2 border-b-1  border-green-300 p-1 ">
               <h2 className="w-[130px]  text-[14px] ">DOB :</h2>
               <span className="font-semibold text-[#01a9ac]  text-[12px]">
-                {" "}
-                {studentData.dateOfBirth}
+                {new Date(studentData.dateOfBirth).toLocaleDateString("en-US")}
               </span>
             </div>
           </div>

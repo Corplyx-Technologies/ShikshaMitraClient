@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { dropdownData } from "../../data/dummy";
-import logo from '../../ShikshMitraWebsite/assets/logo/download-removebg-preview.png'
+import logo from "../../ShikshMitraWebsite/assets/logo/download-removebg-preview.png";
 import {
   FcConferenceCall,
   FcBusinesswoman,
   FcCurrencyExchange,
 } from "react-icons/fc";
 import { BiMaleFemale, BiSolidStoreAlt } from "react-icons/bi";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
 
 import axios from "axios";
 import IncomeChart from "./IncomeChart";
 import FeeChart from "./FeeChart";
 import AllIncomeChart from "./Income/AllIncomeChart";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
-const DropDown = ({ currentMode }) => ( 
+const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
     <DropDownListComponent
       id="time"
@@ -31,54 +31,59 @@ const DropDown = ({ currentMode }) => (
   </div>
 );
 const Create_Income = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
+  const navigate = useNavigate();
+  const location = useLocation();
   const [teacherCount, setTeacherCount] = useState([]);
   const [studentCount, setStudentCount] = useState([]);
   const [parentCount, setParentCount] = useState([]);
   const [earningData, setEarningData] = useState([]);
   const [schoolInfo, setSchoolInfo] = useState({
-    schoolImage: '',
-    schoolName: '',
-
+    schoolImage: "",
+    schoolName: "",
   });
 
   // Fetch Admin Info
   useEffect(() => {
-    axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo",{
-      withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      }, // Set withCredentials to true
-    })
-    .then((response) => {
-      console.log("badal Response Success", response);
-      const schoolImage = response.data.admin.image.url
-      const schoolName = response.data.admin.fullName
-      setSchoolInfo({
-        schoolImage,
-        schoolName,
+    axios
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAdminInfo",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          }, // Set withCredentials to true
+        }
+      )
+      .then((response) => {
+        console.log("badal Response Success", response);
+        const schoolImage = response.data.admin.image.url;
+        const schoolName = response.data.admin.fullName;
+        setSchoolInfo({
+          schoolImage,
+          schoolName,
+        });
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the logout process
+        console.error("badal Response error", error.message);
       });
-
-    })
-    .catch((error) => {
-      // Handle any errors that occur during the logout process
-      console.error("badal Response error", error.message);
-    });
-  }, [])
+  }, []);
 
   // Fetch teacher count
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getTeachers", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getTeachers",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.data)) {
-          console.log(response.data.data[0])
+          console.log(response.data.data[0]);
           setTeacherCount(response.data.data.length);
         } else {
           console.error("Data format is not as expected:", response.data);
@@ -92,12 +97,15 @@ const Create_Income = () => {
   // Fetch student count
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllStudents",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.allStudent)) {
           setStudentCount(response.data.allStudent.length);
@@ -112,12 +120,15 @@ const Create_Income = () => {
 
   useEffect(() => {
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllParents", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      }, // Set withCredentials to true
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllParents",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          }, // Set withCredentials to true
+        }
+      )
       .then((response) => {
         setParentCount(response.data.allParent.length);
         console.log(response.data.allParent);
@@ -184,89 +195,62 @@ const Create_Income = () => {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
       }
     };
 
     const handlePopstate = () => {
-        navigate(location.href);
+      navigate(location.href);
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('popstate', handlePopstate);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("popstate", handlePopstate);
 
     // Cleanup event listeners on component unmount
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('popstate', handlePopstate);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("popstate", handlePopstate);
     };
   }, [location.pathname]);
 
   return (
     <div className="mt-12">
       <div className="grid gap-3 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  p-3">
-        <div className={`p-2 rounded-md  bg-white w-full flex flex-col justify-center`} >
-         <div className="flex justify-center items-center  w-full h-[150px]">
-          <div className="w-[150px] h-[150px] rounded-full overflow-hidden">
-          {schoolInfo.schoolImage ? (
-            <img src={schoolInfo.schoolImage} alt="no img" className="w-full h-full object-cover" />
-          ) : (
-            <span>No Image Available</span>
-          )}
+        <div
+          className={`p-2 rounded-md  bg-white w-full flex flex-col justify-center col-span-2`}
+        >
+          <div className="flex justify-center items-center  w-full h-[150px]">
+            <div className="w-[150px] h-[150px] rounded-full overflow-hidden">
+              {schoolInfo.schoolImage ? (
+                <img
+                  src={schoolInfo.schoolImage}
+                  alt="no img"
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span>No Image Available</span>
+              )}
+            </div>
           </div>
-         </div>
-         <h2 className="text-center mt-4 border-b-4 border-cyan-700 text-2xl font-bold text-sky-800">{schoolInfo.schoolName}</h2>
+          <h2 className="text-center mt-4 border-b-4 border-cyan-700 text-2xl font-bold text-sky-800">
+            {schoolInfo.schoolName}
+          </h2>
         </div>
-        <div className=" p-2  rounded-md sm:w-full text-center bg-white col-span-2" >
-         <IncomeChart/>
-        </div>
-        <div className=" p-2  rounded-md sm:w-full  bg-white ">
-          <h2>Notice Board</h2>
-          <div className="h-[200px] overflow-scroll p-2 rounded-md">
-            <span>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus, sit! Aspernatur accusamus atque adipisci
-              voluptatibus deserunt suscipit nulla molestias nesciunt repellat
-              dicta soluta ullam deleniti corporis hic modi ipsa architecto
-              harum consequatur minima, aliquid incidunt quos, amet dolorum?
-              Unde culpa officiis nobis itaque, quibusdam ad quisquam doloribus?
-              Mollitia dolore similique culpa temporibus aspernatur enim placeat
-              magnam, sequi id delectus atque earum praesentium libero
-              repudiandae veritatis hic officia quis ea fugit, blanditiis, est
-              laboriosam tempore fugiat? Aliquam, in voluptates. Placeat,
-              maiores voluptatibus. Fugit dolorum minima similique quod, tempora
-              aperiam quaerat perferendis quasi sint explicabo quis consequatur,
-              a excepturi totam placeat hic itaque magnam debitis fuga minus
-              voluptatem suscipit obcaecati. Blanditiis, aspernatur eveniet
-              totam saepe molestiae cum. Officiis ducimus, alias adipisci
-              voluptatum dolor neque accusantium hic. Vel enim quasi accusantium
-              modi est? Incidunt cumque optio libero recusandae distinctio
-              voluptas repudiandae saepe praesentium dignissimos dicta nisi
-              accusantium ducimus accusamus adipisci eius facilis, expedita, ea
-              animi laudantium inventore cum vel! Numquam assumenda eos labore,
-              laboriosam mollitia animi nostrum, corporis ad soluta
-              exercitationem laborum, magni sunt optio quibusdam quidem. Modi
-              dolore ut voluptatibus cupiditate nulla, ipsum suscipit assumenda
-              nostrum ab laborum veniam incidunt voluptate nobis. Molestias
-              maxime nemo natus! Nesciunt repellendus a iste. Tenetur, ipsam?
-            </span>
-          </div>
+        <div className=" p-2  rounded-md sm:w-full text-center bg-white col-span-2">
+          <IncomeChart />
         </div>
       </div>
 
-      
-
       <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-2 p-3">
         <div className="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg  rounded-2xl p-3">
-<AllIncomeChart/>
+          <AllIncomeChart />
         </div>
         <div className="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg   rounded-2xl p-3">
-         
-          <FeeChart/>
+          <FeeChart />
         </div>
-          {/* <Calendar /> */}
-       
+        {/* <Calendar /> */}
+
         {/* <div className="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg   rounded-2xl p-3">
         </div> */}
       </div>

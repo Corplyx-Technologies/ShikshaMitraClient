@@ -213,20 +213,20 @@ const ViewTeacher = () => {
                 {teacherData.section}
               </span>
             </div>
-            <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
+            <div className="flex gap-2 border-b-1  border-green-300 p-1">
               <h2 className="w-[100px]  text-[14px] ">DOB :</h2>
-              <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-                {" "}
-                {teacherData.dateOfBirth}
+              <span className="w-[200px] font-semibold text-[#01a9ac]  text-[12px]">
+                {new Date(teacherData.dateOfBirth).toLocaleDateString("en-US")}
               </span>
             </div>
-            <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
+
+            <div className="flex gap-2 border-b-1  border-green-300 p-1">
               <h2 className="w-[100px]  text-[14px] ">Joining Date :</h2>
-              <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-                {" "}
-                {teacherData.joiningDate}
+              <span className="w-[200px] font-semibold text-[#01a9ac]  text-[12px]">
+                {new Date(teacherData.joiningDate).toLocaleDateString("en-US")}
               </span>
             </div>
+
             <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
               <h2 className="w-[100px]  text-[14px] ">Experience :</h2>
               <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">

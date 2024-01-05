@@ -1,4 +1,4 @@
-import React, { useState,  } from "react";
+import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
@@ -34,17 +34,23 @@ function DynamicDataTable({ data, handleDelete }) {
 
   const columns = [
     { field: "id", headerName: "S. No.", width: 50 },
-    { field: "fullName", headerName: "Full Name",flex:1 },
-    { field: "employeeId", headerName: "Employee ID",flex:1 },
-    { field: "email", headerName: "Email", flex:1 },
-    { field: "salary", headerName: "Salary", flex:1 },
-    { field: "joiningDate", headerName: "Joining Date",flex:1},
-    { field: "contact", headerName: "Contact", flex:1},
-    { field: "experience", headerName: "Experience",flex:1},
+    { field: "fullName", headerName: "Full Name", flex: 1 },
+    { field: "employeeId", headerName: "Employee ID", flex: 1 },
+    { field: "email", headerName: "Email", flex: 1 },
+    { field: "salary", headerName: "Salary", flex: 1 },
+    {
+      field: "joiningDate",
+      headerName: "Joining Date",
+      flex: 1,
+      valueFormatter: (params) =>
+        new Date(params.value).toLocaleDateString("en-US"),
+    },
+    { field: "contact", headerName: "Contact", flex: 1 },
+    { field: "experience", headerName: "Experience", flex: 1 },
     {
       field: "actions",
       headerName: "Actions",
-      flex:1,
+      flex: 1,
       renderCell: (params) => (
         <div>
           <Link to={`/admin/allteachers/view-profile/${params.row.email}`}>

@@ -7,8 +7,8 @@ import "../../Dynamic/Form/FormStyle.css";
 import DynamicDataTable from "./DataTable";
 import InputForm from "../../Dynamic/Form/InputForm";
 import { useStateContext } from "../../contexts/ContextProvider";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 const modalStyle = {
   content: {
     width: "80%",
@@ -23,7 +23,7 @@ const modalStyle = {
 };
 
 function Create_Book() {
-  const { currentColor} = useStateContext();
+  const { currentColor } = useStateContext();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     bookName: "",
@@ -31,25 +31,33 @@ function Create_Book() {
     quantity: "",
     category: "",
     className: "",
-    subject: ""
+    subject: "",
   });
   const [submittedData, setSubmittedData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
-
   const isFormValid = () => {
-    return formData.bookName && formData.authorName && formData.category && formData.className && formData.subject;
+    return (
+      formData.bookName &&
+      formData.authorName &&
+      formData.category &&
+      formData.className &&
+      formData.subject
+    );
   };
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllBooks", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllBooks",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.listOfAllBooks)) {
           // Update the state with the array
@@ -89,38 +97,42 @@ function Create_Book() {
     }
 
     try {
-      console.log("P2", formData);
       setLoading(true);
-      const response = axios.post(
+      const response = await axios.post(
         "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createBook",
         formData,
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
+
+      const newBookData = response.data;
+
       setFormData({
         bookName: "",
         authorName: "",
         quantity: "",
         category: "",
         className: "",
-        subject: ""
+        subject: "",
       });
-      setSubmittedData([...submittedData, formData]);
+
+      setSubmittedData([...submittedData, newBookData]);
       setLoading(false);
-      toast.success("Form submitted successfully!");
-      setShouldFetchData(true)
+      toast.success("Book Created successfully!");
+
+      // Set shouldFetchData to true to trigger the useEffect to fetch updated data
+      setShouldFetchData(true);
+
       closeModal();
     } catch (error) {
       console.error("Error:", error);
-      toast.error("An error occurred while submitting the form.");
+      toast.error("An error occurred while creating a book.");
     }
   };
-
-
 
   const handleDelete = async (_id) => {
     try {
@@ -131,7 +143,7 @@ function Create_Book() {
           withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
-          }
+          },
         }
       );
       console.log("Book deleted successfully");
@@ -200,12 +212,13 @@ function Create_Book() {
       value: formData.subject,
       required: true,
     },
-
   ];
 
   return (
     <div className=" mt-12  mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">All Book Details</h1>
+      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">
+        All Book Details
+      </h1>
       <button
         onClick={openModal}
         style={{ backgroundColor: currentColor }}

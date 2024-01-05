@@ -5,27 +5,28 @@ import axios from "axios";
 
 import { FcLeft } from "react-icons/fc";
 import "../../../Dynamic/Form/FormStyle.css";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const ViewStaff = () => {
   const { email } = useParams();
   const [staffData, setStaffData] = useState({});
 
   useEffect(() => {
-    axios.get(
-      `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllEmployees?email=${email}`,
-      {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      }
-    )
+    axios
+      .get(
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllEmployees?email=${email}`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         console.log("p2", response);
         const data = response.data.allEmployee[0];
-        console.log(data)
+        console.log(data);
         setStaffData(data);
       })
       .catch((error) => {
@@ -38,7 +39,6 @@ const ViewStaff = () => {
       <div className=" w-full   flex items-center justify-center pt-10 ">
         <div className="bg-white rounded-md  gap-2 sm:p-4 md:p-4 lg:p-4 p-2 pt-16 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]   overflow-y-auto">
           <div className="w-[330px]  bg-[#01a9ac]  p-5   hover:shadow-[rgba(6,_24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px_-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
-           
             <div className=" flex justify-center mt-4">
               {staffData.image && staffData.image.url ? (
                 <img
@@ -121,22 +121,19 @@ const ViewStaff = () => {
                 {staffData.salary} / month
               </span>
             </div>
-           
+
             <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
               <h2 className="w-[100px]  text-[14px] ">DOB :</h2>
-              <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-                {" "}
-                {staffData.dateOfBirth}
+              <span className="w-[200px] font-semibold text-[#01a9ac]  text-[12px]">
+                {new Date(staffData.dateOfBirth).toLocaleDateString("en-US")}
               </span>
             </div>
             <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
               <h2 className="w-[100px]  text-[14px] ">Joining Date :</h2>
-              <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-                {" "}
-                {staffData.joiningDate}
+              <span className="w-[200px] font-semibold text-[#01a9ac]  text-[12px]">
+                {new Date(staffData.joiningDate).toLocaleDateString("en-US")}
               </span>
             </div>
-           
           </div>
         </div>
       </div>

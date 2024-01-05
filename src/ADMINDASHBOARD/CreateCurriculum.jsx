@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
-const Api_GetAll = "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass";
+const Api_GetAll =
+  "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass";
 
 const CreateCurriculum = () => {
-  console.log('MRs. CHAYA')
-  const [selectedGrade, setSelectedGrade] = useState("");
+  const [selectedGrade, setSelectedGrade] = useState("Select Class");
   const [selectedAcademicYear, setSelectedAcademicYear] = useState("2023-2024");
-  // const [uploadedPDF, setUploadedPDF] = useState(null);
   const [data, setData] = useState([]);
-  
+  const [curriculumData, setCurriculumData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleGradeChange = (e) => {
     setSelectedGrade(e.target.value);
@@ -21,32 +21,62 @@ const CreateCurriculum = () => {
     setSelectedAcademicYear(e.target.value);
   };
 
-  // const handlePDFUpload = (e) => {
-  //   const file = e.target.files[0];
-  //   setUploadedPDF(file);
-  // };
-
-
- 
-
-
   useEffect(() => {
-    axios.get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass", {
-      withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    })
+    axios
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllClass",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         const { classList } = response.data;
-        console.log("GetALLCLASS--->", classList)
+        console.log("GetALLCLASS--->", classList);
         setData(classList);
       })
       .catch((error) => {
-        console.error('Error fetching class data:', error);
+        console.error("Error fetching class data:", error);
       });
   }, []);
- 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (selectedGrade) {
+        setLoading(true);
+        try {
+          const response = await axios.get(
+            "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getAllCurriculum",
+            {
+              withCredentials: true,
+              headers: {
+                Authorization: `Bearer ${authToken}`,
+              },
+              params: {
+                className: selectedGrade,
+              },
+            }
+          );
+          console.log("Response--->", response.data.allCurriculum);
+          setCurriculumData(response.data.allCurriculum);
+        } catch (error) {
+          console.error("Error fetching curriculum data:", error);
+        } finally {
+          setLoading(false); // Corrected this line
+        }
+      } else {
+        setCurriculumData([]);
+      }
+    };
+
+    fetchData();
+  }, [selectedGrade]);
+
+  const filteredByClass = selectedGrade
+    ? curriculumData.filter((item) => item.className === selectedGrade)
+    : curriculumData;
 
   return (
     <div
@@ -66,26 +96,26 @@ const CreateCurriculum = () => {
               onChange={handleGradeChange}
               className="text-gray-600 bg-gray-100 p-2 rounded-md w-full"
             >
-              {console.log("bacha", data)}
-
-
+              <option value="Select Class">Select Class</option>
 
               {data
                 .slice()
-                .sort((a, b) => parseInt(a.className, 10) - parseInt(b.className, 10))
+                .sort(
+                  (a, b) =>
+                    parseInt(a.className, 10) - parseInt(b.className, 10)
+                )
                 .map((item) => (
                   <option key={item.className} value={item.className}>
                     {item.className}
                   </option>
                 ))}
-
-
-
             </select>
           </div>
 
           <div className="mb-4">
-            <label className="text-xl font-semibold mb-2 ">Academic Year:</label>
+            <label className="text-xl font-semibold mb-2 ">
+              Academic Year:
+            </label>
             <select
               value={selectedAcademicYear}
               onChange={handleAcademicYearChange}
@@ -99,64 +129,29 @@ const CreateCurriculum = () => {
         </div>
 
         <div className="mb-4">
-          <h2 className="text-xl font-semibold mb-2 text-cyan-700">Courses</h2>
-          {/* <ul className="text-gray-600 ">
-            <li>Mathematics</li>
-            <li>Science</li>
-            <li>English</li>
-            <li>History</li>
-            <li>Physical Education</li>
-          </ul> */}
-<ul className="text-gray-600 ">
-{selectedGrade &&
-      data
-        .find((item) => item.className === selectedGrade)
-        .subject.map((item, index) => (
-          // <option key={index} value={item}>
-          //   {item}
-          // </option>
-          <li  key={index}>{item}</li>
-        ))}
-  </ul>
-
-
-
+          <h2 className="text-xl font-semibold mb-2 text-cyan-700">
+            Curriculum
+          </h2>
+          {filteredByClass.length > 0 ? (
+            filteredByClass.map((curriculum, index) => (
+              <div key={index} className="mb-2 w-full h-[100px]">
+                <h3 className="text-lg font-bold mb-1">
+                  Class {curriculum.className} - {curriculum.academicYear}
+                </h3>
+                <a
+                  href={curriculum.file.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg text-blue-400 font-semibold mt-2"
+                >
+                  View Curriculum
+                </a>
+              </div>
+            ))
+          ) : (
+            <p>No curriculum found.</p>
+          )}
         </div>
-
-        {/* <div className="mb-4">
-          <h2 className="text-xl font-semibold mb-2 text-cyan-700">Upcoming Events</h2>
-          <ul className="text-gray-600">
-            <li>Parent-Teacher Meeting: October 15, 2023</li>
-            <li>School Play: November 5, 2023</li>
-          </ul>
-        </div> */}
-
-        {/* <div className="mb-4">
-          <label className="text-xl font-semibold mb-2">
-            Upload Curriculum PDF:
-          </label>
-          <input
-            type="file"
-            accept=".pdf"
-            onChange={handlePDFUpload}
-            className="text-gray-600 bg-gray-100 p-2 rounded-md w-full"
-          />
-        </div> */}
-{/* 
-        {uploadedPDF && (
-          <div className="mb-4">
-            <label className="text-xl font-semibold mb-2">Uploaded PDF:</label>
-            <a
-              href={URL.createObjectURL(uploadedPDF)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {uploadedPDF.name}
-            </a>
-          </div>
-        )} */}
-
-        {/* Additional information sections, like courses and events, can be added as needed */}
       </div>
     </div>
   );

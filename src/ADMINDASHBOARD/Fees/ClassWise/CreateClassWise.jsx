@@ -6,8 +6,8 @@ import "../../../Dynamic/Form/FormStyle.css";
 import InputForm from "../../../Dynamic/Form/InputForm";
 import FeesDataTable from "./DataTable";
 import { useStateContext } from "../../../contexts/ContextProvider";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 const modalStyle = {
   content: {
     width: "80%",
@@ -32,7 +32,7 @@ function CreateClassWise() {
     feeType: "",
     amount: "",
   });
-  const { currentColor} = useStateContext();
+  const { currentColor } = useStateContext();
   const [submittedData, setSubmittedData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [shouldFetchData, setShouldFetchData] = useState(false);
@@ -40,12 +40,15 @@ function CreateClassWise() {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getFees", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/getFees",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         setSubmittedData(response.data);
       })
@@ -75,11 +78,11 @@ function CreateClassWise() {
         "https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/createFees",
         formDataToSend,
         {
-            withCredentials: true,
-            headers: {
-              Authorization: `Bearer ${authToken}`,
-              "Content-Type": "application/json",
-            }
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "application/json",
+          },
         }
       );
 
@@ -90,7 +93,7 @@ function CreateClassWise() {
       });
       setSubmittedData([...submittedData, formData]);
       setLoading(false);
-      toast.success("Form submitted successfully!", toastifyTiming);
+      toast.success("Fees Created Successfully!!!", toastifyTiming);
       setShouldFetchData(!shouldFetchData);
       closeModal();
     } catch (error) {
@@ -103,21 +106,21 @@ function CreateClassWise() {
         // Additional logic for a 400 status code
         return;
       }
-      toast.error(
-        "An error occurred while submitting the form.",
-        toastifyTiming
-      );
+      toast.error("An error occurred while creating the fees.", toastifyTiming);
     }
   };
 
   const handleDelete = (itemId) => {
     axios
-      .delete(`https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`, {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .delete(
+        `https://dull-rose-salamander-fez.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         console.log("Fees deleted successfully");
 
@@ -198,7 +201,10 @@ function CreateClassWise() {
 
   return (
     <div className=" mt-12  mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700"> Class Fee</h1>
+      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">
+        {" "}
+        Class Fee
+      </h1>
       <button
         onClick={openModal}
         style={{ backgroundColor: currentColor }}

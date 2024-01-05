@@ -62,7 +62,8 @@ const Results = () => {
 
     fetchExamData();
     console.log("selectedExam", selectedExam);
-  }, [selectedExam]);
+  },  []);
+  // [selectedExam]);
 
   useEffect(() => {
     if (selectedExam) {
@@ -181,7 +182,8 @@ const Results = () => {
       // Handle the case when selectedData is not defined
       console.error("Selected exam data not found.");
     }
-  }, [selectedExam, examData]);
+  }, []);
+  // [selectedExam, examData]);
 
   useEffect(() => {
     if (selectedExam) {

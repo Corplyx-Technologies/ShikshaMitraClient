@@ -1,13 +1,13 @@
 import React from "react";
 import "./Carousel.css";
-import s1 from "../../assets/image/s1.gif";
-import s2 from "../../assets/image/s2.gif";
-import s3 from "../../assets/image/s3.gif";
+// import s1 from "../../assets/image/s1.gif";
+// import s2 from "../../assets/image/s2.gif";
+// import s3 from "../../assets/image/s3.gif";
 const Carousel = () => {
   return (
     <>
       <h2 className="head2">Community</h2>
-      <div className="caro-heading">Nurturing minds, shaping futures, and building a brighter tomorrow together.</div>
+      <div className="caro-heading text-2xl">Nurturing minds, shaping futures, and building a brighter tomorrow together.</div>
       <div className="underline">
         <span></span>
       </div>
@@ -16,14 +16,14 @@ const Carousel = () => {
           <figure className="icon-cards ">
             <div className="icon-cards__content">
               <div className="icon-cards__item d-flex align-items-center justify-content-center">
-                <img className="rounded-3xl w-[388px]" src={s1} alt="" />
+                <img className="rounded-3xl w-[388px]" src="https://images.deccanherald.com/deccanherald%2Fimport%2Fsites%2Fdh%2Ffiles%2Fgallery_images%2Ffile6z51t1zjg4ykyudrg3y.jpg" alt="" />
               </div>
               <div className="icon-cards__item d-flex align-items-center justify-content-center">
-                <img className="rounded-3xl w-[100%]" src={s2} alt="" />
+                <img className="rounded-3xl w-[100%]" src="https://static.india.com/wp-content/uploads/2022/04/kids-school.jpg?impolicy=Medium_Resize&w=1200&h=800" alt="" />
               </div>
 
               <div className="icon-cards__item d-flex align-items-center justify-content-center">
-                <img className="rounded-3xl w-[388px]" src={s3} alt="" />
+                <img className="rounded-3xl w-[388px]" src="https://mediaindia.eu/wp-content/uploads/2020/03/48411210_278349832868894_5757913623229890560_o.jpg" alt="" />
               </div>
             </div>
           </figure>

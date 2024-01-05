@@ -15,59 +15,59 @@ import badal from '../../../assets/images/Badal.jpeg'
 
 
 const About = () => {
- 
+
   return (
     <div class="about-container mt-5">
       <div class="profile-image mt-5">
-        <img src={Shikha} alt="" /> 
+        <img src={Shikha} alt="" />
       </div>
 
       <div class="description">
-        <p >
+        <p className="text-sm">
           eShikshaMitra is a comprehensive school management system designed to streamline educational processes and enhance communication between administrators, teachers, students, and parents. Our platform offers
           a range of features and dashboards that empower educational institutions to manage
           their operations efficiently.
         </p>
         <p><h1 className="text-3xl text-center  text-green-500 my-2">Key Features </h1></p>
-        <p>
-          <h1 className="text-2xl">Admin Dashboard: </h1>
-          The Admin dashboard provides school administrators with a central hub for 
-          managing and overseeing various aspects of the institution. From user management to 
+        <p className="text-sm">
+          <h1 className="text-xl mt-5">Admin Dashboard: </h1>
+          The Admin dashboard provides school administrators with a central hub for
+          managing and overseeing various aspects of the institution. From user management to
           data analysis, administrators can access the tools they need to make informed decisions.
 
-          
+
 
         </p>
-        <p>
-        <h1 className="text-2xl">Teacher Dashboard:</h1> Teachers can utilize the dedicated dashboard to streamline classroom management,
-         track student performance, and communicate with both students and parents. Our intuitive interface 
-         ensures that educators have the necessary tools to excel in their roles.
+        <p className="text-sm">
+          <h1 className="text-xl mt-5">Teacher Dashboard:</h1> Teachers can utilize the dedicated dashboard to streamline classroom management,
+          track student performance, and communicate with both students and parents. Our intuitive interface
+          ensures that educators have the necessary tools to excel in their roles.
         </p>
-        <p>
-        <h1 className="text-2xl">Student Dashboard: </h1>The Student dashboard is designed to empower students by
-         providing them with easy access to essential information. From timetables and 
-         assignments to grades and communication tools, students can stay informed and 
-         engaged with their education.
+        <p className="text-sm">
+          <h1 className="text-xl mt-5">Student Dashboard: </h1>The Student dashboard is designed to empower students by
+          providing them with easy access to essential information. From timetables and
+          assignments to grades and communication tools, students can stay informed and
+          engaged with their education.
         </p>
-        <p>
-        <h1 className="text-2xl">Parent Dashboard:</h1> We understand the importance of involving parents in the educational journey. 
-        The Parent dashboard offers parents insights into their child's progress, attendance, and 
-        communication with teachers. Keeping parents informed and engaged is a cornerstone of our system.
+        <p className="text-sm">
+          <h1 className="text-xl mt-5">Parent Dashboard:</h1> We understand the importance of involving parents in the educational journey.
+          The Parent dashboard offers parents insights into their child's progress, attendance, and
+          communication with teachers. Keeping parents informed and engaged is a cornerstone of our system.
         </p>
-        <p>
-          <h1 className="text-2xl">Our Mission:</h1>
+        <p className="text-sm">
+          <h1 className="text-xl mt-5">Our Mission:</h1>
 
-     At eShikshaMitra, our mission is to simplify school management and create a more transparent and collaborative educational environment. We believe that effective communication and efficient processes are essential for the success of both educational institutions and
-    students. By offering a user-friendly platform that caters to the needs of all stakeholders, we aim to transform the way schools operate and support student development.</p>
+          At eShikshaMitra, our mission is to simplify school management and create a more transparent and collaborative educational environment. We believe that effective communication and efficient processes are essential for the success of both educational institutions and
+          students. By offering a user-friendly platform that caters to the needs of all stakeholders, we aim to transform the way schools operate and support student development.</p>
       </div>
 
-      <div class="projects-container">
+      {/* <div class="projects-container">
         {/* Rest of your code */}
-      </div>
+      {/* </div> */}
 
       <h2 class="our-team-heading">Our Team</h2>
 
-    
+
 
       <div className="w-full px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 m-auto" >
@@ -117,7 +117,7 @@ const About = () => {
 
           </div>
 
-        
+
 
           <div className="text-center shadow-lg rounded">
             <div className="overflow-hidden relative  w-full h-full">
@@ -141,7 +141,7 @@ const About = () => {
 
 
       <div class="our-mission">
-        <img class="quote-icon" src={quoteIcon} alt="" /> 
+        <img class="quote-icon" src={quoteIcon} alt="" />
         <p>Our mission is to provide the best services to our clients.</p>
       </div>
     </div>

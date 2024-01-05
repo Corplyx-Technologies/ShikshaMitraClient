@@ -30,10 +30,6 @@ const Assignments = () => {
  const [shouldFetchData, setShouldFetchData] = useState(false)
  const [showAssignment, setShowAssignment] = useState(false);
 
-
-
-
-
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setFormData({...formData, image:file});
@@ -84,8 +80,6 @@ const Assignments = () => {
         "Content-Type": "multipart/form-data",
       }
       })
-     
-
       .then((response) => {
         setFormData({
           title: "",
@@ -96,8 +90,10 @@ const Assignments = () => {
           subject: "",
           image: null,
         });
-      
         setShouldFetchData(!shouldFetchData)
+        setSelectedGrade("")
+        setSelectedSection("")
+        setSelectedSubject("")   
       })
       .catch((error) => {
         console.error('Error creating assignment:', error);

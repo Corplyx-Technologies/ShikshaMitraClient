@@ -60,7 +60,6 @@ const BookManagement = () => {
         rows={submittedData}
         columns={columns}
         pageSize={5}
-        checkboxSelection
         disableSelectionOnClick
         getRowId={getRowId}
       />

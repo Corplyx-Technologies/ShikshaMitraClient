@@ -140,7 +140,7 @@ const About = () => {
         </div></div>
 
 
-      <div class="our-mission">
+      <div className="our-mission m-8">
         <img class="quote-icon" src={quoteIcon} alt="" />
         <p>Our mission is to provide the best services to our clients.</p>
       </div>

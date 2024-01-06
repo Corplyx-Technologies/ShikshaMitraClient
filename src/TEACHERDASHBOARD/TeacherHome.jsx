@@ -8,7 +8,7 @@ import {
   FcCurrencyExchange,
 } from "react-icons/fc";
 import { BiMaleFemale, BiSolidStoreAlt } from "react-icons/bi";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import Calendar from "../pages/Calendar";
 import axios from "axios";
@@ -19,8 +19,8 @@ import CreateNotice from "../CreateNotice";
 import StudentApexChart from "../CHART/StudentApexChart";
 import ExamChart from "../CHART/ExamChart";
 import TeacherNotice from "./TeacherNotice";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -35,26 +35,30 @@ const DropDown = ({ currentMode }) => (
     />
   </div>
 );
+
 const TeacherHome = () => {
   const [teacherCount, setTeacherCount] = useState([]);
   const [studentCount, setStudentCount] = useState([]);
   const [parentCount, setParentCount] = useState([]);
   const [earningData, setEarningData] = useState([]);
-  const location = useLocation()
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Fetch teacher count
   useEffect(() => {
     axios
-      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.data)) {
-          console.log(response.data.data[0])
+          console.log(response.data.data[0]);
           setTeacherCount(response.data.data.length);
         } else {
           console.error("Data format is not as expected:", response.data);
@@ -68,15 +72,18 @@ const TeacherHome = () => {
   // Fetch student count
   useEffect(() => {
     axios
-      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         if (Array.isArray(response.data.allStudent)) {
-          console.log(response.data.allStudent)
+          console.log(response.data.allStudent);
           setStudentCount(response.data.allStudent.length);
         } else {
           console.error("Data format is not as expected:", response.allStudent);
@@ -87,16 +94,19 @@ const TeacherHome = () => {
       });
   }, []);
 
-  // Fetch Parents 
+  // Fetch Parents
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllParents", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      }, // Set withCredentials to true
-      })
+      .get(
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllParents",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          }, // Set withCredentials to true
+        }
+      )
       .then((response) => {
         setParentCount(response.data.allParent.length);
         console.log(response.data.allParent);
@@ -106,7 +116,7 @@ const TeacherHome = () => {
       });
   }, []);
 
-  console.log(studentCount)
+  console.log(studentCount);
   // Generate earning data based on teacher and student count
   useEffect(() => {
     const newEarningData = [
@@ -152,130 +162,61 @@ const TeacherHome = () => {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
       }
     };
-  
+
     // Disable the back button in the browser's address bar
     const handlePopstate = (event) => {
       event.preventDefault();
       window.history.pushState(null, null, window.location.pathname);
     };
-  
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('popstate', handlePopstate);
-  
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("popstate", handlePopstate);
+
     return () => {
       // Clean up event listeners when the component unmounts
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('popstate', handlePopstate);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("popstate", handlePopstate);
     };
   }, []);
-  
 
   return (
     <div className="mt-12">
-      <div className="grid gap-3 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  p-3">
-        {/* <div className="grid  md:grid-cols-2 gap-2 p-3"> */}
-        <div
-          className={`p-2 rounded-md text-center bg-white
-`}
-          // style={{backgroundColor:currentColor}}
-        >
+      <div className="grid gap-3 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 p-3">
+        <div className="p-2 rounded-md text-center bg-white col-span-2">
           <button
             type="button"
-            className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl bg-[#03C9D7]"
+            className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl bg-[#03C9D7]"
           >
             <FcConferenceCall />
           </button>
-
           <StudentApexChart />
         </div>
-        <div
-          className=" p-2  rounded-md sm:w-full text-center bg-white"
-          // style={{backgroundColor:currentColor}}
-        >
+        <div className="p-2 rounded-md text-center bg-white col-span-2">
           <button
             type="button"
-            className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl bg-[#03C9D7]"
+            className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl bg-[#03C9D7]"
           >
             <FcBusinesswoman />
           </button>
           <ExamChart />
         </div>
-        <div className=" p-2  rounded-md sm:w-full  bg-white col-span-2">
-          <h2>Notice Board</h2>
-          <div className="h-[200px] overflow-scroll p-2 rounded-md">
-            <span>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus, sit! Aspernatur accusamus atque adipisci
-              voluptatibus deserunt suscipit nulla molestias nesciunt repellat
-              dicta soluta ullam deleniti corporis hic modi ipsa architecto
-              harum consequatur minima, aliquid incidunt quos, amet dolorum?
-              Unde culpa officiis nobis itaque, quibusdam ad quisquam doloribus?
-              Mollitia dolore similique culpa temporibus aspernatur enim placeat
-              magnam, sequi id delectus atque earum praesentium libero
-              repudiandae veritatis hic officia quis ea fugit, blanditiis, est
-              laboriosam tempore fugiat? Aliquam, in voluptates. Placeat,
-              maiores voluptatibus. Fugit dolorum minima similique quod, tempora
-              aperiam quaerat perferendis quasi sint explicabo quis consequatur,
-              a excepturi totam placeat hic itaque magnam debitis fuga minus
-              voluptatem suscipit obcaecati. Blanditiis, aspernatur eveniet
-              totam saepe molestiae cum. Officiis ducimus, alias adipisci
-              voluptatum dolor neque accusantium hic. Vel enim quasi accusantium
-              modi est? Incidunt cumque optio libero recusandae distinctio
-              voluptas repudiandae saepe praesentium dignissimos dicta nisi
-              accusantium ducimus accusamus adipisci eius facilis, expedita, ea
-              animi laudantium inventore cum vel! Numquam assumenda eos labore,
-              laboriosam mollitia animi nostrum, corporis ad soluta
-              exercitationem laborum, magni sunt optio quibusdam quidem. Modi
-              dolore ut voluptatibus cupiditate nulla, ipsum suscipit assumenda
-              nostrum ab laborum veniam incidunt voluptate nobis. Molestias
-              maxime nemo natus! Nesciunt repellendus a iste. Tenetur, ipsam?
-            </span>
-          </div>
+      </div>
+
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-3 gap-3 lg:flex">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-3 md:col-span-2 md:w-2/2 lg:w-1/2">
+          <EarningChart />
+        </div>
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-3 md:col-span-2 md:w-2/2  lg:w-1/2">
+          <TeacherNotice />
         </div>
       </div>
 
-      {/* <div className="flex flex-wrap lg:flex-nowrap justify-center ">
-        <div className="flex m-1 flex-wrap justify-center gap-3 ">
-          {earningData.map((item) => (
-            <div
-              key={item.title}
-              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
-            >
-              <button
-                type="button"
-                style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
-              >
-                {item.icon}
-              </button>
-              <p className="mt-3">
-                <span className="text-lg font-semibold">{item.amount}</span>
-                <span className={`text-sm text-${item.pcColor} ml-2`}>
-                  {item.percentage}
-                </span>
-              </p>
-              <p className="text-sm text-gray-400  mt-1">{item.title}</p>
-            </div>
-          ))}
-        </div>
-      </div> */}
-
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-2 p-3">
-        <div className="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg  rounded-2xl p-3">
-          <EarningChart />
-        </div>
-        <div className="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg   rounded-2xl p-3">
-         
-          <TeacherNotice/>
-        </div>
-       
-        <div className="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg   rounded-2xl p-3">
-          <Calendar />
-        </div>
+      <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-3">
+        <Calendar />
       </div>
     </div>
   );

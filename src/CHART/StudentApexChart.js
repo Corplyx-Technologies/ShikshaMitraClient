@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import axios from "axios";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const StudentApexChart = () => {
   // Initialize state variables at the top of the component
@@ -46,9 +46,9 @@ const StudentApexChart = () => {
           "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
           {
             withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
           }
         );
 

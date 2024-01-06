@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import axios from "axios";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const ExamChart = () => {
   // Initialize state variables at the top of the component
@@ -15,7 +15,7 @@ const ExamChart = () => {
   const [concludedExams, setConcludedExams] = useState(0); // New state for concluded exams
   const [options, setOptions] = useState({
     chart: {
-      width: 380,
+      width: 280,
       type: "pie",
     },
     labels: ["Concluded", "Upcoming"],
@@ -24,7 +24,7 @@ const ExamChart = () => {
         breakpoint: 480,
         options: {
           chart: {
-            width: 300,
+            width: 400,
           },
           legend: {
             position: "bottom",
@@ -38,12 +38,15 @@ const ExamChart = () => {
 
   useEffect(() => {
     axios
-      .get(`https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams`, {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        `https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         // Set examData with modified examInfo property and calculate total exams
         const currentDate = new Date().toLocaleDateString("en-GB");

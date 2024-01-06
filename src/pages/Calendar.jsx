@@ -167,48 +167,45 @@ const Scheduler = () => {
     }
   };
 
-  return (
-    <div className="m-2 rounded-3xl">
-      {/* <Header title="Calendar" className="text-xl font-bold text-cyan-700 mb-4"/> */}
+return (
+  <div className="m-2 rounded-3xl">
+    <ScheduleComponent
+      height="350px"
+      navigating={handleNavigating}
+      ref={(schedule) => setScheduleObj(schedule)}
+      selectedDate={new Date()} // Initial date set to the current date
+      eventSettings={{ dataSource: [] }}
+      dragStart={onDragStart}
+      popupOpen={onPopupOpen}
+      popupClose={onPopupClose}
+      startHour="07:00" // Set the starting hour to 7:00 AM
+    >
+      <ViewsDirective>
+        {['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'].map((item) => <ViewDirective key={item} option={item} />)}
+      </ViewsDirective>
+      <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]} />
+    </ScheduleComponent>
 
-      <ScheduleComponent
-        height="350px"
-        navigating={handleNavigating}
-        ref={(schedule) => setScheduleObj(schedule)}
-        selectedDate={new Date()} // Initial date set to the current date
-        eventSettings={{ dataSource: [] }}
-        dragStart={onDragStart}
-        popupOpen={onPopupOpen}
-        popupClose={onPopupClose}
-        // actionBegin={handleActionBegin}
-      >
-        <ViewsDirective>
-          {['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'].map((item) => <ViewDirective key={item} option={item} />)}
-        </ViewsDirective>
-        <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]} />
-      </ScheduleComponent>
-
-      <PropertyPane>
-        <table style={{ width: '100%', background: 'white' }}>
-          <tbody>
-            <tr style={{ height: '50px' }}>
-              <td style={{ width: '100%' }}>
-                <DatePickerComponent
-                  value={new Date()}
-                  showClearButton={false}
-                  placeholder="Current Date"
-                  floatLabelType="Always"
-                  change={change}
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </PropertyPane>
-    </div>
-  );
+    <PropertyPane>
+      <table style={{ width: '100%', background: 'white' }}>
+        <tbody>
+          <tr style={{ height: '50px' }}>
+            <td style={{ width: '100%' }}>
+              <DatePickerComponent
+                value={new Date()}
+                showClearButton={false}
+                placeholder="Current Date"
+                floatLabelType="Always"
+                change={change}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </PropertyPane>
+  </div>
+);
 };
 
 export default Scheduler;
-
 

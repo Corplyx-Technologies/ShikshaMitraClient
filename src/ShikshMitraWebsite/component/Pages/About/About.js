@@ -18,8 +18,8 @@ const About = () => {
 
   return (
     <div class="about-container mt-5">
-      <div className="mt-14">
-        <h1 className="inline-block text-xl sm:text-2xl md:text-3xl font-medium text-center">About us- <br></br> Empowering Educational Institutions | Management System for Educational Institutes
+      <div className="mt-14 text-center">
+        <h1 className="inline-block text-xl sm:text-2xl md:text-3xl font-medium text-center">About us- <br></br> <span className="text-center text-xl">Empowering Educational Institutions | Management System for Educational Institutes</span> 
         </h1>
       </div>
       <div class="profile-image m-0">

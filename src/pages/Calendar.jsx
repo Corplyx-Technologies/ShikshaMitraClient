@@ -111,13 +111,15 @@ const Scheduler = () => {
 
       // Update the data with the converted times
      
-        const startTime = new Date(data.StartTime).toLocaleString('en-US', {
-          timeZone: 'Asia/Kolkata', // Use the desired time zone
-        });
+        const startTime = new Date(data.StartTime)
+        // .toLocaleString('en-US', {
+        //   timeZone: 'Asia/Kolkata', // Use the desired time zone
+        // });
 
-        const endTime = new Date(data.EndTime).toLocaleString('en-US', {
-          timeZone: 'Asia/Kolkata', // Use the desired time zone
-        });
+        const endTime = new Date(data.EndTime)
+        // .toLocaleString('en-US', {
+        //   timeZone: 'Asia/Kolkata', // Use the desired time zone
+        // });
 
         const updatedData = {
           ...data,
@@ -131,10 +133,8 @@ const Scheduler = () => {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
+        "Content-Type": "application/json",
       },
-        headers: {
-          "Content-Type": "application/json",
-        },
       })
         .then(response => {
           console.log('API Response:', response.data);

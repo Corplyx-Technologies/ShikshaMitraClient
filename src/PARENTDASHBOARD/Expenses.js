@@ -50,7 +50,7 @@ const Expenses = () => {
           (item) => item.className === studentFees
         );
 
-        setExpensesData([{ name: "Regular Fees", amount: filteredData }]);
+        setExpensesData(filteredData);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -116,7 +116,7 @@ const Expenses = () => {
       <div className="text-3xl font-bold text-cyan-700 mb-8">
         Parent Expenses
       </div>
-      <div className="bg-white rounded-lg overflow-hidden shadow-md w-full max-w-xl overflow-auto">
+      <div className="bg-white rounded-lg overflow-hidden shadow-md w-full max-w-xl">
         {mergedData.map((fee, index) => (
           <div
             key={index}
@@ -125,25 +125,16 @@ const Expenses = () => {
             }`}
           >
             <span className="text-lg font-semibold text-gray-800">
-              {fee.name && typeof fee.name === "string" ? fee.name : "N/A"}
+              {fee.name}
             </span>
             <span className="text-lg font-semibold text-blue-500">
-              {fee.amount && typeof fee.amount === "number"
-                ? `₹${fee.amount}`
-                : "N/A"}
+              ₹{fee.amount}
             </span>
           </div>
         ))}
       </div>
-
       <div className="mt-8 w-full max-w-xl">
         <Bar data={data} options={options} />
-        {expensesData.map((expense, index) => (
-          <div key={index}>
-            <p>{expense.name}</p>
-            <p>{expense.amount}</p>
-          </div>
-        ))}{" "}
       </div>
     </div>
   );

@@ -1,31 +1,102 @@
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Bar } from "react-chartjs-2";
+import Cookies from "js-cookie";
+
+const authToken = Cookies.get("token");
 
 const Expenses = () => {
-  const expensesData = [
-    { category: 'Tuition', amount: 500 },
-    { category: 'Books', amount: 100 },
-    { category: 'Uniform', amount: 50 },
-    { category: 'Activity Fees', amount: 75 },
-  ];
+  const [expensesData, setExpensesData] = useState([]);
+  const [additionalFeesData, setAdditionalFeesData] = useState([]);
+  const [shouldFetchData, setShouldFetchData] = useState(false);
+  const [studentFees, setStudentFees] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/myKids`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
+      .then((response) => {
+        const fees = response.data.data[0].class;
+        setStudentFees(fees);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching Student data:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getFees",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
+      .then((response) => {
+        const filteredData = response.data.filter(
+          (item) => item.className === studentFees
+        );
+
+        setExpensesData([{ name: "Regular Fees", amount: filteredData }]);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [shouldFetchData, studentFees, authToken]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdditionalFees",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
+      .then((response) => {
+        setAdditionalFeesData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching additional fees data:", error);
+      });
+  }, [shouldFetchData, authToken]);
+
+  const mergedData = [...expensesData, ...additionalFeesData];
 
   const data = {
-    labels: expensesData.map((expense) => expense.category),
+    labels: mergedData.map((fee) => fee.name),
     datasets: [
       {
-        label: 'Amount (₹)',
-        data: expensesData.map((expense) => expense.amount),
+        label: "Amount (₹)",
+        data: mergedData.map((fee) => fee.amount),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 205, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          // Add more colors if needed
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(255, 205, 86, 1)',
-          'rgba(75, 192, 192, 1)',
+          "rgba(255, 99, 132, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(255, 205, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          // Add more colors if needed
         ],
         borderWidth: 1,
       },
@@ -42,26 +113,37 @@ const Expenses = () => {
 
   return (
     <div className="flex flex-col items-center justify-center bg-white h-screen">
-      <div className="text-3xl font-bold text-cyan-700 mb-8">Parent Expenses</div>
-      <div className="bg-white rounded-lg overflow-hidden shadow-md w-full max-w-xl">
-        {expensesData.map((expense, index) => (
+      <div className="text-3xl font-bold text-cyan-700 mb-8">
+        Parent Expenses
+      </div>
+      <div className="bg-white rounded-lg overflow-hidden shadow-md w-full max-w-xl overflow-auto">
+        {mergedData.map((fee, index) => (
           <div
             key={index}
             className={`flex items-center justify-between px-6 py-4 ${
-              index % 2 === 0 ? 'bg-gray-100' : 'bg-gray-200'
+              index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
             }`}
           >
             <span className="text-lg font-semibold text-gray-800">
-              {expense.category}
+              {fee.name && typeof fee.name === "string" ? fee.name : "N/A"}
             </span>
             <span className="text-lg font-semibold text-blue-500">
-              ₹{expense.amount}
+              {fee.amount && typeof fee.amount === "number"
+                ? `₹${fee.amount}`
+                : "N/A"}
             </span>
           </div>
         ))}
       </div>
+
       <div className="mt-8 w-full max-w-xl">
         <Bar data={data} options={options} />
+        {expensesData.map((expense, index) => (
+          <div key={index}>
+            <p>{expense.name}</p>
+            <p>{expense.amount}</p>
+          </div>
+        ))}{" "}
       </div>
     </div>
   );

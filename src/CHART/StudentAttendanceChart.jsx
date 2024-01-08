@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import axios from "axios";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+
+const authToken = Cookies.get("token");
 
 const StudentAttendanceChart = () => {
   // Initialize state variables at the top of the component
@@ -37,21 +38,33 @@ const StudentAttendanceChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1; // Months are 0-indexed, so add 1
+
         const response = await axios.get(
-          `https://precious-pink-nightgown.cyclic.app/api/v1/teacher/getAttendance?year=2023&month=11`,
+          `https://precious-pink-nightgown.cyclic.app/api/v1/teacher/getAttendanceForStudent?year=${currentYear}&month=${currentMonth}`,
           {
             withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
           }
         );
 
-        if (Array.isArray(response.data)) {
-          console.log(response.data);
-        } else {
-          console.error("Data format is not as expected:", response.data);
-        }
+        console.log(response.data.data[0].attendanceData);
+        // Process the response data to get counts of present and absent
+        const presentCount = response.data.data[0].attendanceData.filter(
+          (item) => item.present
+        ).length;
+        console.log(presentCount);
+        const absentCount = response.data.data[0].attendanceData.filter(
+          (item) => !item.present
+        ).length;
+        console.log(absentCount);
+
+        setSeries([presentCount, absentCount]);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching student data:", error);
       }
@@ -82,97 +95,3 @@ const StudentAttendanceChart = () => {
 };
 
 export default StudentAttendanceChart;
-
-// import React, { useState, useEffect } from "react";
-// import ReactApexChart from 'react-apexcharts';
-// import axios from "axios";
-// const StudentApexChart = () => {
-//     const [data, setData] = useState({
-//         boys:null,
-//         girls:null
-//     });
-//     // const [arr, setArr] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     // const boys = arr[0];
-//     // const girls = arr[1];
-//     console.log("boysData", data.boys);
-//     console.log("girlsData", data.girls);
-
-//     useEffect(() => {
-//         const fetchData = async () => {
-//           try {
-//             const response = await axios.get(
-//               "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
-//               {
-//                 withCredentials: true,
-      // headers: {
-      //   Authorization: `Bearer ${authToken}`,
-      // },
-//               }
-//             );
-
-//             if (Array.isArray(response.data.allStudent)) {
-//               // Filter students by gender
-//               const boysCount = response.data.allStudent.filter(
-//                 (student) => student.studentGender === "Male"
-//               ).length;
-//               const girlsCount = response.data.allStudent.length - boysCount;
-
-//             //   setArr([boysCount, girlsCount]);
-//             //   setData(boysCount, girlsCount);
-
-//               setData({
-//                 boys: boysCount,
-//                 girls: girlsCount,
-//               });
-//             } else {
-//               console.error("Data format is not as expected:", response.data);
-//             }
-//           } catch (error) {
-//             console.error("Error fetching student data:", error);
-//           }
-//           finally {
-//             setLoading(false); // Set loading to false after data is fetched
-//           }
-//         };
-//         fetchData();
-//       }, []);
-
-//       if (loading) {
-//         return <div>Loading...</div>; // Display a loading message or spinner while data is being fetched
-//       }
-
-// //   const [series] = useState([44, 55, 13, 43, 22]);
-// const [series] = useState([data.boys+2, data.girls+2]);
-// //   const [series] = useState([boys, girls]);
-//   const [options] = useState({
-//     chart: {
-//       width: 380,
-//       type: 'pie',
-//     },
-//     // labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-//     labels: ['Boys', 'Girls'],
-//     // labels: ['Boys', 'Girls'],
-//     responsive: [
-//       {
-//         breakpoint: 480,
-//         options: {
-//           chart: {
-//             width: 200,
-//           },
-//           legend: {
-//             position: 'bottom',
-//           },
-//         },
-//       },
-//     ],
-//   });
-
-//   return (
-//     <div id="chart">
-//       <ReactApexChart options={options} series={series} type="pie" width={380} />
-//     </div>
-//   );
-// };
-
-// export default StudentApexChart;

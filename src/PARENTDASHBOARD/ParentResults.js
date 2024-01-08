@@ -3,8 +3,8 @@ import axios from "axios";
 // import { useReactToPdf } from 'react-to-pdf';
 // import html2canvas from 'html2canvas';
 import { usePDF } from "react-to-pdf";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const ParentResults = () => {
   // const targetPDF = useRef();
@@ -19,24 +19,27 @@ const ParentResults = () => {
   const [subjects, setSubjects] = useState([]);
   const [totalMarks, setTotalMarks] = useState("");
   const [admindata, setAdminData] = useState({});
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const userData = JSON.parse(localStorage.getItem("response"));
   console.log("userData", userData);
   // const userId = userData ? userData._id : null;
   const [studentData, setStudentData] = useState({});
-  const [classs, setClass] = useState("")
+  const [classs, setClass] = useState("");
   const userId = studentData ? studentData._id : null;
-  console.log("firstClassSets",classs)
+  console.log("firstClassSets", classs);
 
   useEffect(() => {
     axios
-      .get(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/myKids`, {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/myKids`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         console.log("My KIds ", response.data);
         const data = response.data.data[0].class;
@@ -44,7 +47,9 @@ const ParentResults = () => {
         setStudentData(data1);
         console.log("ParentDashBoard--->", data);
         setClass(data);
-        {console.log("classSet",classs)}
+        {
+          console.log("classSet", classs);
+        }
         // setLoading(false); // Set loading to false once data is received
       })
       .catch((error) => {
@@ -55,17 +60,20 @@ const ParentResults = () => {
 
   useEffect(() => {
     axios
-      .get("https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         const classTeacher = JSON.parse(localStorage.response);
 
         const filteredData = response.data.examData.filter(
-          (exam) =>  exam.className == classs 
+          (exam) => exam.className == classs
         );
         console.log("Data--->", filteredData);
 
@@ -93,8 +101,7 @@ const ParentResults = () => {
       .catch((error) => {
         console.log(error.message);
       });
-  }, [selectedExam,classs]);
-
+  }, [selectedExam, classs]);
 
   useEffect(() => {
     axios
@@ -118,7 +125,6 @@ const ParentResults = () => {
       });
   }, []);
 
-
   const handleExamChange = (e) => {
     console.log("chaya", e);
     setSelectedExam(e.target.value);
@@ -134,9 +140,9 @@ const ParentResults = () => {
           `https://precious-pink-nightgown.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
           {
             withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
           }
         )
         .then((response) => {
@@ -260,6 +266,21 @@ const ParentResults = () => {
     document.getElementById("studentResults");
   };
 
+  const [academicYear, setAcademicYear] = useState("");
+
+  const getCurrentAcademicYear = () => {
+    const currentYear = new Date().getFullYear();
+    const nextYear = currentYear + 1;
+    console.log(currentYear);
+    console.log(nextYear);
+    return `${currentYear}-${nextYear}`;
+  };
+
+  useEffect(() => {
+    const year = getCurrentAcademicYear();
+    setAcademicYear(year);
+  }, []);
+
   return (
     <div className="mt-12">
       <div className="mt-2 md:mt-10">
@@ -291,8 +312,10 @@ const ParentResults = () => {
         <div className="flex flex-wrap "></div>
         <div className="text-center mb-4">
           {/* <img src={school} alt="School Logo" className="w-16 h-16 mx-auto" /> */}
-          <h1 className="text-3xl font-semibold mt-2">{admindata.schoolName} </h1>
-          <p className="text-sm text-gray-600">{ admindata.address}</p>
+          <h1 className="text-3xl font-semibold mt-2">
+            {admindata.schoolName}{" "}
+          </h1>
+          <p className="text-sm text-gray-600">{admindata.address}</p>
         </div>
         <div className="flex justify-between">
           <div>
@@ -305,7 +328,7 @@ const ParentResults = () => {
         <div className="mt-4 text-center">
           <p className="text-lg font-semibold">Report Card</p>
           <p>Exam: {selectedExam}</p>
-          <p className="text-md">Academic Year:2023-2024</p>
+          <p className="text-md">Academic Year:{academicYear}</p>
         </div>
         <div className="mt-6">
           <h2 className="text-xl font-semibold">Student Details</h2>

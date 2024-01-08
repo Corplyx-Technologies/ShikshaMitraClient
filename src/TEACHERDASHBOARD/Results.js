@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 export const GET_ALL_EXAMS_API =
   "https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams";
@@ -30,13 +30,17 @@ const Results = () => {
       axios
         .get(GET_ALL_EXAMS_API, {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         })
         .then((response) => {
           const examData = response.data.examData;
-          setExamData(examData);
+          const exam = response.data.examData.filter(
+            (i) => i.className === classdata.classTeacher
+          );
+          console.log(exam);
+          setExamData(exam);
 
           const maxMarks = {};
           const examSubjects = [];
@@ -62,7 +66,7 @@ const Results = () => {
 
     fetchExamData();
     console.log("selectedExam", selectedExam);
-  },  []);
+  }, []);
   // [selectedExam]);
 
   useEffect(() => {
@@ -126,9 +130,9 @@ const Results = () => {
     axios
       .post(CREATE_RESULTS_API, postData, {
         withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
       })
       .then((response) => {
         console.log("Marks submitted successfully:", response.data);
@@ -153,9 +157,9 @@ const Results = () => {
           `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=${classTeacher}&studentSection=${section}`,
           {
             withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
           }
         )
         .then((response) => {
@@ -191,9 +195,9 @@ const Results = () => {
       axios
         .get(`${GET_RESULTS_API}?examName=${selectedExam}`, {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         })
         .then((response) => {
           const fetchedStudentMarks = {};
@@ -334,6 +338,8 @@ const Results = () => {
     }
 
     const percentage = ((totalMarks / totalMaxMarks) * 100).toFixed(2);
+    console.log(totalMarks);
+    console.log(totalMaxMarks);
     return `${percentage}%`;
   };
 

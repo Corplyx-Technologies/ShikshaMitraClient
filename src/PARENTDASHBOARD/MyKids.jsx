@@ -22,10 +22,10 @@ const MyKids = () => {
         }
       )
       .then((response) => {
-        console.log("My KIds ", response.data);
+        // console.log("My KIds ", response.data);
         const data = response.data.data[0];
         setStudentData(data);
-        console.log("ParentDashBoard--->", data);
+        // console.log("ParentDashBoard--->", data);
         setLoading(false); // Set loading to false once data is received
       })
       .catch((error) => {
@@ -46,7 +46,7 @@ const MyKids = () => {
         }
       )
       .then((response) => {
-        // console.log("Data student ", response.data.admin.schoolName);
+        // console.log("Data student ", response.data.admin);
         setAdminData(response.data.admin);
         setLoading(false); // Set loading to false once data is received
       })
@@ -57,6 +57,7 @@ const MyKids = () => {
   }, []);
 
   console.log(studentData);
+  // console.log(admindata);
 
   return (
     <div>
@@ -65,11 +66,13 @@ const MyKids = () => {
           <div className="w-[300px] border-1 rounded-md border-[#01a9ac] p-5 hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
             <div className="flex justify-between">
               <div>
-                <img
-                  className="w-[80px] h-[80px] rounded-full"
-                  src="https://cdn.pixabay.com/photo/2017/09/21/19/06/woman-2773007_1280.jpg"
-                  alt="school logo"
-                />
+                {admindata.image && (
+                  <img
+                    className="w-[80px] h-[80px] rounded-full"
+                    src={admindata.image.url}
+                    alt="school logo"
+                  />
+                )}
               </div>
               <h2>IDENTITY CARD </h2>
             </div>
@@ -89,11 +92,13 @@ const MyKids = () => {
             </div>
 
             <div className="flex mt-5">
-              <img
-                className="w-[110px] h-[140px] rounded-sm"
-                src="https://cdn.pixabay.com/photo/2017/09/21/19/06/woman-2773007_1280.jpg"
-                alt=""
-              />
+              {studentData.image && (
+                <img
+                  className="w-[80px] h-[80px] rounded-full"
+                  src={studentData.image.url}
+                  alt="Student Image "
+                />
+              )}
               <div className="ml-3">
                 <div className="">
                   <h2 className="w-[100px] text-[13px] leading-3">Name :</h2>

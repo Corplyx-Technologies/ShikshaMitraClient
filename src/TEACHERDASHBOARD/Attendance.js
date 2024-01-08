@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const Attendance = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -22,6 +22,7 @@ const Attendance = () => {
     setStudentTotalPresents(Array(students.length).fill(studentTotalPresents));
   }, []);
 
+  // Get Students
   useEffect(() => {
     const fetchStudentData = async () => {
       try {
@@ -29,9 +30,9 @@ const Attendance = () => {
           "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
           {
             withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
           }
         );
 
@@ -95,9 +96,9 @@ const Attendance = () => {
         },
         {
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
       console.log("Attendance data sent:", response.data);
@@ -140,9 +141,9 @@ const Attendance = () => {
             month: month,
           },
           withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 
@@ -421,23 +422,14 @@ const Attendance = () => {
               <table className="table-auto">
                 <thead>
                   <tr className="bg-cyan-700 text-white">
-                    <th className="px-2 py-1 border ">
-                      S.N
-                    </th>
-                    <th className="px-2 py-1 border ">
-                      Student
-                    </th>
+                    <th className="px-2 py-1 border ">S.N</th>
+                    <th className="px-2 py-1 border ">Student</th>
                     {dateLabels.map((dateLabel, dateIndex) => (
-                      <th
-                        key={dateIndex}
-                        className="px-2 py-1 border "
-                      >
+                      <th key={dateIndex} className="px-2 py-1 border ">
                         {dateLabel}
                       </th>
                     ))}
-                    <th className="px-2 py-1 border ">
-                    Days
-                    </th>
+                    <th className="px-2 py-1 border ">Days</th>
                   </tr>
                 </thead>
                 <tbody>{studentRows}</tbody>

@@ -6,7 +6,8 @@ import { Button } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 const UserProfile = () => {
   const { currentColor } = useStateContext();
   const fullName = localStorage.getItem("fullName");
@@ -54,13 +55,16 @@ const UserProfile = () => {
       .get(
         "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo",
         {
-          withCredentials: true, // Set withCredentials to true
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       )
       .then((response) => {
         console.log("Response Success", response);
         const schoolImage = response.data.admin.image.url;
-        const schoolName = response.data.admin.fullName;
+        const schoolName = response.data.admin.schoolName;
         const role = response.data.admin.role;
         setSchoolInfo({
           schoolName,

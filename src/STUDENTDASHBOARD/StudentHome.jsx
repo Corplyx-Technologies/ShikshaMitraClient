@@ -77,6 +77,7 @@ const StudentHome = () => {
         console.error("Error fetching data:", error.message);
       });
   }, []);
+
   console.log(submittedData);
   return (
     <>

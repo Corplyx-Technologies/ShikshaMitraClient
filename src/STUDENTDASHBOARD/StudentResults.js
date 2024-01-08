@@ -3,8 +3,8 @@ import axios from "axios";
 // import { useReactToPdf } from 'react-to-pdf';
 // import html2canvas from 'html2canvas';
 import { usePDF } from "react-to-pdf";
-import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
+import Cookies from "js-cookie";
+const authToken = Cookies.get("token");
 
 const StudentResults = () => {
   // const targetPDF = useRef();
@@ -28,12 +28,15 @@ const StudentResults = () => {
 
   useEffect(() => {
     axios
-      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
 
       .then((response) => {
         const data = response.data.admin;
@@ -49,12 +52,15 @@ const StudentResults = () => {
 
   useEffect(() => {
     axios
-      .get("https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams", {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      })
+      .get(
+        "https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams",
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         const classTeacher = JSON.parse(localStorage.response).class;
 
@@ -94,9 +100,9 @@ const StudentResults = () => {
   // useEffect(() => {
   //   axios.get("https://precious-pink-nightgown.cyclic.app/api/v1/results/getResults", {
   //     withCredentials: true,
-      // headers: {
-      //   Authorization: `Bearer ${authToken}`,
-      // },
+  // headers: {
+  //   Authorization: `Bearer ${authToken}`,
+  // },
   //   })
   //   .then((response) => {
   //     const data = response.data.data; // Assuming 'data' is the property containing the array
@@ -110,27 +116,18 @@ const StudentResults = () => {
   // }, [])
 
   useEffect(() => {
+    console.log(selectedExam, userId, "Done");
     if (selectedExam && userId) {
-      {
-        console.log("first", selectedExam && userId);
-      }
       axios
         .get(
           `https://precious-pink-nightgown.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
           {
             withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
           }
         )
-        // axios
-        //   .get(`https://precious-pink-nightgown.cyclic.app/api/v1/results/getResults?examName=Monthly Exam&studentId=65363e9c8f161339f61c8747`, {
-        //     withCredentials: true,
-      // headers: {
-      //   Authorization: `Bearer ${authToken}`,
-      // },
-        //   })
         .then((response) => {
           const data = response.data.data;
           console.log(data);
@@ -247,12 +244,28 @@ const StudentResults = () => {
     return 0;
   };
   console.log(examData);
+  console.log(resultData);
 
   const handleDownload = () => {
     toPDF();
     document.getElementById("studentResults");
   };
+  const [academicYear, setAcademicYear] = useState("");
 
+  const getCurrentAcademicYear = () => {
+    const currentYear = new Date().getFullYear();
+    const nextYear = currentYear + 1;
+    console.log(currentYear);
+    console.log(nextYear);
+    return `${currentYear}-${nextYear}`;
+  };
+
+  useEffect(() => {
+    const year = getCurrentAcademicYear();
+    setAcademicYear(year);
+  }, []);
+
+  console.log(academicYear);
   return (
     <div className="mt-12">
       <div className="mt-2 md:mt-10">
@@ -298,7 +311,7 @@ const StudentResults = () => {
         </div>
         <div className="mt-4 text-center">
           <p className="text-lg font-semibold">Report Card</p>
-          <p className="text-md">Academic Year:2023-2024</p>
+          <p className="text-md">Academic Year : {academicYear}</p>
         </div>
         <div className="mt-6">
           <h2 className="text-xl font-semibold">Student Details</h2>

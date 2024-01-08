@@ -12,16 +12,12 @@ import Header  from './component/Navbar/Header';
 import Footer from './component/Footer/Footer'
 import Banner from './component/Banner/Banner'
 import { Outlet } from 'react-router-dom';
-
 function LandingPage() {
   return (
     <div className=" overflow-x-hidden">
       <Header/>
-     
       <Outlet/>
       <Footer/>
-    
-
     </div>
   );
 }

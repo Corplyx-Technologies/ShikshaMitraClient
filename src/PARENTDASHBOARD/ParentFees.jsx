@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import generatePDF, { usePDF, Resolution, Margin } from "react-to-pdf";
+
 const authToken = Cookies.get("token");
 
 const monthData = {
@@ -23,6 +25,46 @@ const ParentFees = () => {
   const [selectedMonth, setSelectedMonth] = useState("");
   const [loading, setLoading] = useState(true);
   const [admindata, setAdminData] = useState({});
+
+  const [generatingPDF, setGeneratingPDF] = useState(false);
+  const options = {
+    // default is `save`
+    method: "open",
+    // default is Resolution.MEDIUM = 3, which should be enough, higher values
+    // increases the image quality but also the size of the PDF, so be careful
+    // using values higher than 10 when having multiple pages generated, it
+    // might cause the page to crash or hang.
+    resolution: Resolution.HIGH,
+    page: {
+      format: "a4", // Set the format to A4
+      // You can also adjust other properties like margin and orientation if needed
+      margin: Margin.SMALL,
+      orientation: "portrait", // or 'landscape' as per your requirement
+    },
+    canvas: {
+      // default is 'image/jpeg' for better size performance
+      mimeType: "image/png",
+      qualityRatio: 1,
+    },
+    // Customize any value passed to the jsPDF instance and html2canvas
+    // function. You probably will not need this and things can break,
+    // so use with caution.
+    overrides: {
+      // see https://artskydj.github.io/jsPDF/docs/jsPDF.html for more options
+      pdf: {
+        compress: true,
+      },
+      // see https://html2canvas.hertzen.com/configuration for more options
+      canvas: {
+        useCORS: true,
+      },
+    },
+  };
+  const { toPDF, targetRef } = usePDF({
+    filename: `Fees`,
+    options: options,
+  });
+
   useEffect(() => {
     axios
       .get(
@@ -122,6 +164,10 @@ const ParentFees = () => {
 
   console.log("filteredFeeData", filteredFeeData);
 
+  const handleDownload = () => {
+    toPDF();
+  };
+
   return (
     <div>
       <div className="mt-12">
@@ -139,12 +185,18 @@ const ParentFees = () => {
             ))}
           </select>
 
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-2 p-2 mb-2 rounded mt-2">
+          <button
+            onClick={handleDownload}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-2 p-2 mb-2 rounded mt-2"
+          >
             Download Receipt
           </button>
         </div>
 
-        <div className="p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md">
+        <div
+          ref={targetRef}
+          className="p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md"
+        >
           <div className="flex flex-wrap"></div>
           <div className="text-center mb-4">
             <h1 className="text-3xl font-semibold mt-2">

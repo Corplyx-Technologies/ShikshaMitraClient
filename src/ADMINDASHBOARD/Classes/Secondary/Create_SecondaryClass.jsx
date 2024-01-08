@@ -116,7 +116,6 @@ function Create_SecondaryClass() {
       toast.error("An error occurred while submitting the form.");
     }
   };
-
   const handleDelete = async (className) => {
     try {
       const re = await axios.get(

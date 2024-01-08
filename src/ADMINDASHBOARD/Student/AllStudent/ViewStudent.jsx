@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { usePDF } from "react-to-pdf";
+// import {  } from "react-to-pdf";
 import { FcLeft } from "react-icons/fc";
 import Cookies from "js-cookie";
-import generatePDF, { Resolution, Margin } from "react-to-pdf";
+import generatePDF, { usePDF, Resolution, Margin } from "react-to-pdf";
 
 const authToken = Cookies.get("token");
 

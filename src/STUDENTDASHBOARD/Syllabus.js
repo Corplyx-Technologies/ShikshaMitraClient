@@ -16,7 +16,7 @@ const Syllabus = () => {
   }
 
   // useEffect(() => {
-  //   axios.get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllCurriculum", {
+  //   axios.get("https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllCurriculum", {
   //     withCredentials: true,
       // headers: {
       //   Authorization: `Bearer ${authToken}`,
@@ -36,7 +36,7 @@ const Syllabus = () => {
   const email = localStorage.getItem("email");
   useEffect(() => {
     // GET Request to fetch existing notices
-    axios.get(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+    axios.get(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
       {
         withCredentials: true,
       headers: {
@@ -60,7 +60,7 @@ const Syllabus = () => {
     if (studentData.class) {
       axios
         .get(
-          `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllCurriculum?className=${studentData.class}`,
+          `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllCurriculum?className=${studentData.class}`,
           {
             withCredentials: true,
           headers: {

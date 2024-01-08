@@ -5,10 +5,10 @@
 // // Ensure that the modal is accessible to screen readers
 // Modal.setAppElement('#root');
 
-// const API_BASE_URL = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createNotice";
-// const API_EDIT = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/updateNotice/";
-// const API_DELETE = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deleteNotice/";
-// const API_GET_DATA = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllNotice";
+// const API_BASE_URL = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createNotice";
+// const API_EDIT = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/updateNotice/";
+// const API_DELETE = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deleteNotice/";
+// const API_GET_DATA = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllNotice";
 
 // const TeacherNotice = () => {
 //   const [notice, setNotices] = useState([]);
@@ -250,10 +250,10 @@ import Cookies from 'js-cookie';
 // Ensure that the modal is accessible to screen readers
 Modal.setAppElement("#root");
 
-const API_BASE_URL = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createNotice";
-const API_EDIT = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/updateNotice/";
-const API_DELETE = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deleteNotice/";
-const API_GET_DATA = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllNotice";
+const API_BASE_URL = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createNotice";
+const API_EDIT = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/updateNotice/";
+const API_DELETE = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deleteNotice/";
+const API_GET_DATA = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllNotice";
 const authToken = Cookies.get('token');
 
 const TeacherNotice = () => {

@@ -39,7 +39,7 @@ const ExamChart = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/exam/getAllExams`,
         {
           withCredentials: true,
           headers: {

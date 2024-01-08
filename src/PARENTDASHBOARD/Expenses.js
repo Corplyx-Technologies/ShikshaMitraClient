@@ -15,7 +15,7 @@ const Expenses = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/myKids`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -37,7 +37,7 @@ const Expenses = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getFees",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getFees",
         {
           withCredentials: true,
           headers: {
@@ -60,7 +60,7 @@ const Expenses = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdditionalFees",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAdditionalFees",
         {
           withCredentials: true,
           headers: {

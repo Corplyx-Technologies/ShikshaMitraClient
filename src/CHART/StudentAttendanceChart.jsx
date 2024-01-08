@@ -43,7 +43,7 @@ const StudentAttendanceChart = () => {
         const currentMonth = currentDate.getMonth() + 1; // Months are 0-indexed, so add 1
 
         const response = await axios.get(
-          `https://precious-pink-nightgown.cyclic.app/api/v1/teacher/getAttendanceForStudent?year=${currentYear}&month=${currentMonth}`,
+          `https://handsome-bear-beret.cyclic.app/api/v1/teacher/getAttendanceForStudent?year=${currentYear}&month=${currentMonth}`,
           {
             withCredentials: true,
             headers: {

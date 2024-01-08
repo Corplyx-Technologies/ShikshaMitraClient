@@ -26,7 +26,7 @@ const ViewAdmitCard = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -46,7 +46,7 @@ const ViewAdmitCard = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams",
+        "https://handsome-bear-beret.cyclic.app/api/v1/exam/getAllExams",
         {
           withCredentials: true,
           headers: {

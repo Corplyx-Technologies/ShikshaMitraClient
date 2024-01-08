@@ -24,7 +24,7 @@ function CreateParents() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllParents', 
+    axios.get('https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllParents', 
     {
       withCredentials: true,
       headers: {
@@ -42,7 +42,7 @@ function CreateParents() {
   }, []);
 
   const handleDelete = (email) => {
-    axios.put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deactivateParent`, {email}, {
+    axios.put(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deactivateParent`, {email}, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

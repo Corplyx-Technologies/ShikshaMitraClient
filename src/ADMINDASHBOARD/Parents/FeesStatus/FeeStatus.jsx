@@ -11,7 +11,7 @@ function DynamicDataTable() {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllParents",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllParents",
         {
           withCredentials: true,
           headers: {

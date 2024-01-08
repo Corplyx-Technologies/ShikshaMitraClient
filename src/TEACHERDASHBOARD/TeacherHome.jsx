@@ -48,7 +48,7 @@ const TeacherHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getTeachers",
         {
           withCredentials: true,
           headers: {
@@ -73,7 +73,7 @@ const TeacherHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents",
         {
           withCredentials: true,
           headers: {
@@ -99,7 +99,7 @@ const TeacherHome = () => {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllParents",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllParents",
         {
           withCredentials: true,
           headers: {

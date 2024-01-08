@@ -46,7 +46,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getTeachers",
         {
           withCredentials: true,
           headers: {
@@ -70,7 +70,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents",
         {
           withCredentials: true,
           headers: {
@@ -93,7 +93,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllParents",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllParents",
         {
           withCredentials: true,
           headers: {
@@ -113,7 +113,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllItems",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllItems",
         {
           withCredentials: true,
           headers: {
@@ -159,7 +159,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/fees/getFeeStatus`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/fees/getFeeStatus`,
         {
           withCredentials: true,
           headers: {

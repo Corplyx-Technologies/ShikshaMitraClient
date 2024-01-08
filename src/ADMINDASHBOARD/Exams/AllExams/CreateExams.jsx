@@ -41,7 +41,7 @@ function CreateExams() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllEmployees', {
+    axios.get('https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllEmployees', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -93,7 +93,7 @@ function CreateExams() {
     try {
       setLoading(true)
       const response = await axios.post(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createEmployee",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createEmployee",
         formDataToSend,
         {
           withCredentials: true,
@@ -118,7 +118,7 @@ function CreateExams() {
   };
 
   const handleDelete = (email) => {
-    axios.put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deactivateEmployee`, { email }, {
+    axios.put(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deactivateEmployee`, { email }, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

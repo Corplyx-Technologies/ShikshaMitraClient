@@ -55,7 +55,7 @@ const EditStudentTeacher = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -99,7 +99,7 @@ const EditStudentTeacher = () => {
 
 
     axios
-      .put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
+      .put(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,

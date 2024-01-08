@@ -29,7 +29,7 @@ const ViewResultCard = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -67,7 +67,7 @@ const ViewResultCard = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAdminInfo",
         {
           withCredentials: true,
           headers: {
@@ -91,7 +91,7 @@ const ViewResultCard = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams",
+        "https://handsome-bear-beret.cyclic.app/api/v1/exam/getAllExams",
         {
           withCredentials: true,
           headers: {
@@ -132,7 +132,7 @@ const ViewResultCard = () => {
   };
 
   // useEffect(() => {
-  //   axios.get("https://precious-pink-nightgown.cyclic.app/api/v1/results/getResults", {
+  //   axios.get("https://handsome-bear-beret.cyclic.app/api/v1/results/getResults", {
   //     withCredentials: true,
   // headers: {
   //   Authorization: `Bearer ${authToken}`,
@@ -156,7 +156,7 @@ const ViewResultCard = () => {
       }
       axios
         .get(
-          `https://precious-pink-nightgown.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
+          `https://handsome-bear-beret.cyclic.app/api/v1/results/getResults?examName=${selectedExam}&studentId=${userId}`,
           {
             withCredentials: true,
             headers: {

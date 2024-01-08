@@ -56,7 +56,7 @@
 
 //     try {
 //       const response = await axios.post(
-//         "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createItem",
+//         "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createItem",
 //         formDataToSend,
 //         {
 //           headers: {

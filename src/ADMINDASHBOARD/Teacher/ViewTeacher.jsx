@@ -52,7 +52,7 @@ const ViewTeacher = () => {
     // Fetch teacher data based on the email parameter
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`,
         {
           withCredentials: true,
           headers: {

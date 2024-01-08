@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 
 const Api_GetAll =
-  "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllClass";
+  "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllClass";
 
 const CreateCurriculum = () => {
   const [selectedGrade, setSelectedGrade] = useState("Select Class");
@@ -24,7 +24,7 @@ const CreateCurriculum = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllClass",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllClass",
         {
           withCredentials: true,
           headers: {
@@ -48,7 +48,7 @@ const CreateCurriculum = () => {
         setLoading(true);
         try {
           const response = await axios.get(
-            "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllCurriculum",
+            "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllCurriculum",
             {
               withCredentials: true,
               headers: {

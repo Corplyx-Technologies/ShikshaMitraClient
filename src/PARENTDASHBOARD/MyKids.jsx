@@ -13,7 +13,7 @@ const MyKids = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/myKids`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -37,7 +37,7 @@ const MyKids = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAdminInfo`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAdminInfo`,
         {
           withCredentials: true,
           headers: {

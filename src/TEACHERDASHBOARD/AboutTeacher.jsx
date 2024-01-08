@@ -63,7 +63,7 @@ const AboutTeacher = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`,
         {
           withCredentials: true,
           headers: {

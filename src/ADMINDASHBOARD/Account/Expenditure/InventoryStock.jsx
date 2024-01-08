@@ -11,7 +11,7 @@ const InventoryStock = () => {
 
   useEffect(() => {
     axios
-      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllItems", {
+      .get("https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllItems", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

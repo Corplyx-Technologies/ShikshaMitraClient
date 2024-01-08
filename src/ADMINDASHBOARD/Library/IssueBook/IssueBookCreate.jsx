@@ -18,7 +18,7 @@ function IssueBookCreate() {
 
   useEffect(() => {
     axios
-      .get("https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllBooks", {
+      .get("https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllBooks", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

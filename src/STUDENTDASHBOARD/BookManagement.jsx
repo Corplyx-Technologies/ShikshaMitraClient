@@ -12,7 +12,7 @@ const BookManagement = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getIssueBookToMe`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getIssueBookToMe`,
         {
           withCredentials: true,
           headers: {

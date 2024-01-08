@@ -73,7 +73,7 @@ function Create_Classes() {
 
     try {
       const response = await axios.post(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createTeacher",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createTeacher",
         formDataToSend,
         {
           headers: {

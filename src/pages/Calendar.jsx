@@ -21,7 +21,7 @@ const Scheduler = () => {
 
   useEffect(async () => {
     try {
-      const response = await axios.get('https://precious-pink-nightgown.cyclic.app/api/v1/events/getAllEvents', {
+      const response = await axios.get('https://handsome-bear-beret.cyclic.app/api/v1/events/getAllEvents', {
         withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -127,7 +127,7 @@ const Scheduler = () => {
           EndTime: endTime,
         };
      
-      axios.post('https://precious-pink-nightgown.cyclic.app/api/v1/events/createEvent', {
+      axios.post('https://handsome-bear-beret.cyclic.app/api/v1/events/createEvent', {
         updatedData
       }, {
         withCredentials: true,

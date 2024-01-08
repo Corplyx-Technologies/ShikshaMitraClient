@@ -43,7 +43,7 @@ const StudentApexChart = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
+          "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents",
           {
             withCredentials: true,
             headers: {

@@ -4,13 +4,13 @@ import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 
 export const GET_ALL_EXAMS_API =
-  "https://precious-pink-nightgown.cyclic.app/api/v1/exam/getAllExams";
+  "https://handsome-bear-beret.cyclic.app/api/v1/exam/getAllExams";
 export const GET_ALL_STUDENTS_API =
-  "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=11&studentSection=A";
+  "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=11&studentSection=A";
 export const CREATE_RESULTS_API =
-  "https://precious-pink-nightgown.cyclic.app/api/v1/results/createResults";
+  "https://handsome-bear-beret.cyclic.app/api/v1/results/createResults";
 export const GET_RESULTS_API =
-  "https://precious-pink-nightgown.cyclic.app/api/v1/results/getResults";
+  "https://handsome-bear-beret.cyclic.app/api/v1/results/getResults";
 
 const Results = () => {
   const classdata = JSON.parse(localStorage.getItem("response"));
@@ -154,7 +154,7 @@ const Results = () => {
 
       axios
         .get(
-          `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=${classTeacher}&studentSection=${section}`,
+          `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?studentClass=${classTeacher}&studentSection=${section}`,
           {
             withCredentials: true,
             headers: {

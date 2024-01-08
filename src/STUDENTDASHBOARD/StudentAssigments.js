@@ -9,7 +9,7 @@ const StudentAssigments = () => {
   const email = localStorage.getItem("email");
   useEffect(() => {
     // GET Request to fetch existing notices
-    axios.get(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+    axios.get(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
       {
         withCredentials: true,
       headers: {
@@ -34,7 +34,7 @@ const StudentAssigments = () => {
     if (studentData.class) {
       axios
         .get(
-          `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllAssignment?className=${studentData.class}&section=${studentData.section}`,
+          `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllAssignment?className=${studentData.class}&section=${studentData.section}`,
           {
             withCredentials: true,
           headers: {

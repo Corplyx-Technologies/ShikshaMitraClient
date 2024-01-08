@@ -57,7 +57,7 @@ function CreateStudent() {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents",
         {
           withCredentials: true,
           headers: {
@@ -123,7 +123,7 @@ function CreateStudent() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/createStudentParent",
+        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createStudentParent",
         formDataToSend,
         {
           withCredentials: true,
@@ -172,7 +172,7 @@ function CreateStudent() {
   const handleDelete = (email) => {
     axios
       .put(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/deactivateStudent`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deactivateStudent`,
         { email },
         {
           withCredentials: true,

@@ -13,7 +13,7 @@ import ParentNotice from "./ParentNotice";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
-// const API_GET_DATA = "https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents"
+// const API_GET_DATA = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents"
 const ParentHome = () => {
   const [data, setData] = useState([]);
 
@@ -24,7 +24,7 @@ const ParentHome = () => {
 
   useEffect(() => {
     // GET Request to fetch existing notices
-    axios.get(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+    axios.get(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
       {
         withCredentials: true,
       headers: {

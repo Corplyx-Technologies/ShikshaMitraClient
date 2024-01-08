@@ -22,7 +22,7 @@ const SalaryStatus = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -47,7 +47,7 @@ const SalaryStatus = () => {
   //   if (teacherId) {
   //     axios
   //       .get(
-  //         `https://precious-pink-nightgown.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`,
+  //         `https://handsome-bear-beret.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`,
   //         {
   //           withCredentials: true,
   //           headers: {
@@ -74,7 +74,7 @@ const SalaryStatus = () => {
     // Fetch salary data based on the selected year
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}&year=${selectedYear}`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}&year=${selectedYear}`,
         {
           withCredentials: true,
           headers: {
@@ -142,7 +142,7 @@ const SalaryStatus = () => {
       })),
     };
 
-    const apiUrl = `https://precious-pink-nightgown.cyclic.app/api/v1/teacher/salaryPay`;
+    const apiUrl = `https://handsome-bear-beret.cyclic.app/api/v1/teacher/salaryPay`;
     axios
       .post(apiUrl, newSalaryData, {
         withCredentials: true,
@@ -155,7 +155,7 @@ const SalaryStatus = () => {
         // setSalaryData(response.data.salaryHistory);
         axios
           .get(
-            `https://precious-pink-nightgown.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`,
+            `https://handsome-bear-beret.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`,
             {
               withCredentials: true,
               headers: {

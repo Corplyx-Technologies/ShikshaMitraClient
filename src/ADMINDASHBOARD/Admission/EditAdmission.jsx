@@ -55,7 +55,7 @@ const EditAdmission = () => {
   useEffect(() => {
     axios
       .get(
-        `https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -116,7 +116,7 @@ const EditAdmission = () => {
       data.append("image", image);
     }
 
-    axios.put(`https://precious-pink-nightgown.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
+    axios.put(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

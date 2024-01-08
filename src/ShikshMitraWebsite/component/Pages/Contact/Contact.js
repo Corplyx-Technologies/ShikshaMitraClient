@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const API_BASE_URL =
-  "https://precious-pink-nightgown.cyclic.app/api/v1/ContactUs";
+  "https://handsome-bear-beret.cyclic.app/api/v1/ContactUs";
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState([]);
   const [formData, setFormData] = useState({

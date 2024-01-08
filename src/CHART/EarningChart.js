@@ -11,7 +11,7 @@ const EarningChart = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/fees/feeIncomeMonths",
+        "https://handsome-bear-beret.cyclic.app/api/v1/fees/feeIncomeMonths",
         {
           withCredentials: true,
           headers: {
@@ -47,7 +47,7 @@ const EarningChart = () => {
   useEffect(() => {
     axios
       .get(
-        "https://precious-pink-nightgown.cyclic.app/api/v1/employee/salaryExpensesMonths",
+        "https://handsome-bear-beret.cyclic.app/api/v1/employee/salaryExpensesMonths",
         {
           withCredentials: true,
           headers: {

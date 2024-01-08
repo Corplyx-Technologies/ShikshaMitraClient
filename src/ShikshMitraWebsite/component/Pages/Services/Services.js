@@ -33,8 +33,8 @@ const Services = () => {
 
       <div className="py-5 mt-10">
         <div className="flex justify-center items-center py-3 flex-col">
-          <h1 className="inline-block text-xl sm:text-2xl md:text-3xl font-semibold">
-            Services - School Management System<br></br> <span className="text-center text-xl">Boost Academic Performance with our Advanced Learning Management Software System.</span>
+          <h1 className="inline-block text-xl sm:text-2xl md:text-3xl font-semibold text-center">
+            Services - School Management System<br></br> <span className="text-center text-l sm:text-sm">Boost Academic Performance with our Advanced Learning Management Software System.</span>
           </h1>
 
         </div>

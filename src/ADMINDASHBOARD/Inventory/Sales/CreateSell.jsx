@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import StockTable from "./StockDataTable";
 import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
 import { useStateContext } from "../../../contexts/ContextProvider";
+const authToken = Cookies.get('token');
 function CreateSell() { const { currentColor } = useStateContext();
 const modalStyle = {
   content: {

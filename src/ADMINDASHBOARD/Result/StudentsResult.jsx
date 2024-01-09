@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DynamicDataTable from './DataTable';
 import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
 import { useStateContext } from "../../contexts/ContextProvider";
+const authToken = Cookies.get('token');
 
 const StudentsResult = () => {
   const { currentColor } = useStateContext();

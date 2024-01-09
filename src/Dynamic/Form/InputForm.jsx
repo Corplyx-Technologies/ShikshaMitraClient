@@ -38,9 +38,10 @@ const InputForm = ({ fields, handleChange, handleImageChange }) => {
   const useGrid = fields.length > 5;
 
   return (
-    <div className=" p-1 h-[390px] bg-slate-400 sm:h-[350px]  overflow-y-auto">
+    // <div className=" p-1 h-[390px]  sm:h-[350px]  overflow-y-auto">
+    <div className=" p-1 h-full overflow-y-auto">
       <form
-        className={` p-1 rounded-md mt-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4  
+        className={` p-1 rounded-md sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4  
         ${
           // useGrid ? "grid  grid-cols-3 gap-4 " : ""
           useGrid ? "grid  gap-2 " : ""

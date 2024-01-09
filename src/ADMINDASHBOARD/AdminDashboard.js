@@ -99,10 +99,11 @@ const  AdminDashboard = () => {
               </div>
             )}
             <div
+            style={{background:currentColor}}
               className={
                 activeMenu
-                  ? "dark:bg-main-dark-bg min-h-screen md:ml-72 w-full overflow-x-hidden   bg-amber-300 "
-                  : " dark:bg-main-dark-bg  w-full min-h-screen flex-2 overflow-x-hidden bg-amber-300 "
+                  ? (`dark:bg-main-dark-bg min-h-screen md:ml-72 w-full overflow-x-hidden   `)
+                  : (`dark:bg-main-dark-bg  w-full min-h-screen flex-2 overflow-x-hidden `)
               }
             >
               <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">

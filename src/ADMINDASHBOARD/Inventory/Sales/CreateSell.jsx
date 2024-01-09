@@ -4,8 +4,22 @@ import axios from "axios";
 import StockTable from "./StockDataTable";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
+import { useStateContext } from "../../../contexts/ContextProvider";
+function CreateSell() { const { currentColor } = useStateContext();
+const modalStyle = {
+  content: {
+    width: "80%",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: 1000,
+    background:currentColor
+  },
+};
 
-function CreateSell() {
   const [formData, setFormData] = useState({
     itemName: "",
     category: "",
@@ -49,8 +63,10 @@ function CreateSell() {
   }, [shouldFetchData]);
 
   return (
-    <div className=" mt-12  w-[900px] mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">Products Sell</h1>
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
+    >Products Sell</h1>
     
       <StockTable data={submittedData} updateDependency={updateDependency}
       //  handleDelete={handleDelete}

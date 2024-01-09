@@ -9,19 +9,23 @@ import { useStateContext } from "../../contexts/ContextProvider";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 
-const modalStyle = {
-  content: {
-    width: "80%",
-    margin: "0 auto",
-    zIndex: 1000,
-    borderRadius: "8px",
-    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-    border: "none",
-  },
-};
+
 
 function Create_Registration_Form() {
   const { currentColor } = useStateContext();
+  const modalStyle = {
+    content: {
+      width: "80%",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 1000,
+      background:currentColor
+    },
+  };
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     studentFullName: "",
@@ -49,33 +53,6 @@ function Create_Registration_Form() {
   const [shouldFetchData, setShouldFetchData] = useState(false);
   const [submittedData, setSubmittedData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // useEffect(() => {
-  //   // Fetch data from the server when the component mounts
-  //   axios
-  //     .get(
-  //       "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getLastYearStudents",
-  //       {
-  //         withCredentials: true,
-  //         headers: {
-  //           Authorization: `Bearer ${authToken}`,
-  //         }, // Set withCredentials to true
-  //       }
-  //     )
-  //     .then((response) => {
-  //       if (Array.isArray(response.data.allStudent)) {
-  //         // Update the state with the array
-  //         setSubmittedData(response.data.allStudent);
-  //         console.log(response.data.allStudent[0].joiningDate);
-  //       } else {
-  //         console.error("Data format is not as expected:", response.allStudent);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //       // Handle the error gracefully, e.g., show an error message to the user
-  //     });
-  // }, [shouldFetchData]);
 
   const handleFieldChange = (fieldName, value) => {
     setFormData({
@@ -403,15 +380,16 @@ function Create_Registration_Form() {
   };
 
   return (
-    <div className=" mt-12  w-[900px] mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">
-        {" "}
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
+    >
         New Registration
       </h1>
       <button
         onClick={openModal}
-        style={{ backgroundColor: currentColor }}
-        className="  text-white py-2 px-4 rounded "
+        className="neu-btn   py-2 px-4  border-gray-100"
+        style={{color:currentColor}}
       >
         Create Registration
       </button>
@@ -485,8 +463,10 @@ function Create_Registration_Form() {
         </select>
 
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded m-1"
+          
           onClick={handleSearch}
+          className="neu-btn   py-2 px-4  border-gray-100"
+          style={{color:currentColor}}
         >
           Search
         </button>

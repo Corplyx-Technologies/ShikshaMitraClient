@@ -131,11 +131,13 @@ function Edit_Classwise_Fees() {
   ];
 
   return (
-    <div className="mt-12 w-[900px] mx-auto p-3">
+    // <div className="mt-12 w-[900px] mx-auto p-3 bg-gray-200 over-text">
+    <div className="mt-20 sm:mt-10  md:mt-5 md:w-[400px] mx-auto p-3 bg-gray-200 over-text">
+      <h1 className="hover-text text-center text-2xl">Update Fee</h1>
       <InputForm fields={formFields} handleChange={handleFieldChange} />
 
       <div
-        style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}
+        style={{ display: "flex", justifyContent: "flex-end",  }}
       >
         <button
           onClick={handleSubmit}

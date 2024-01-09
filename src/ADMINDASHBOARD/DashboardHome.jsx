@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { dropdownData } from "../data/dummy";
 import PieChart from "../pages/Charts/PieChart";
+import { useStateContext } from "../contexts/ContextProvider";
 import {
   FcConferenceCall,
   FcBusinesswoman,
@@ -43,6 +44,19 @@ const DashboardHome = () => {
   const [totalSellAmount, setTotalSellAmount] = useState(0);
   const [totalPaidAmount, setTotalPaidAmount] = useState(0);
   // Fetch teacher count
+
+
+  const {
+    setCurrentColor,
+    setCurrentMode,
+    currentMode,
+    activeMenu,
+    currentColor,
+    themeSettings,
+    setThemeSettings,
+    isLoggedIn,
+    setisLoggedIn
+  } = useStateContext();
   useEffect(() => {
     axios
       .get(
@@ -261,7 +275,7 @@ const DashboardHome = () => {
   }, [navigate]);
 
   return (
-    <div className="mt-12">
+    <div className="md:mt-12 mt-16">
       <div class="relative  ">
         {earningData.map((item) => (
           <div class="w-1/2 sm:w-1/4 float-left">
@@ -274,9 +288,9 @@ const DashboardHome = () => {
                   type="button"
                   style={{
                     color: item.iconColor,
-                    backgroundColor: item.iconBg,
+                  background:currentColor,
                   }}
-                  className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
+                  className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-2xl "
                 >
                   {item.icon}
                 </button>
@@ -316,7 +330,7 @@ const DashboardHome = () => {
           </div>
         </div>
         <div className="bg-white  dark:text-white dark:bg-secondary-dark-bg   rounded-2xl p-3">
-          <h1 className="text-xl font-bold text-cyan-700 mb-4">Calendar</h1>
+          <h1 className="text-xl text-center font-semibold text-cyan-700 mb-4">Calendar</h1>
           <Calendar />
         </div>
       </div>

@@ -3,10 +3,25 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DynamicDataTable from './DataTable';
 import Cookies from 'js-cookie';
+import { useStateContext } from "../../contexts/ContextProvider";
 const authToken = Cookies.get('token');
 
 
 const AdmitCard = () => {
+  const { currentColor } = useStateContext();
+  const modalStyle = {
+    content: {
+      width: "80%",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 1000,
+      background:currentColor
+    },
+  };
   const [students, setStudents] = useState([]);
   const [submittedData, setSubmittedData] = useState([]);
 
@@ -30,8 +45,10 @@ const AdmitCard = () => {
   }, []);
 
   return (
-    <div className="p-4 mt-10">
-<h1 className='text-center text-2xl font-bold text-cyan-700 uppercase'>admit card</h1>
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
+    >admit card</h1>
 
       <DynamicDataTable data={submittedData} />
 

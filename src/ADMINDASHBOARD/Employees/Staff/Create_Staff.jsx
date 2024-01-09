@@ -8,21 +8,24 @@ import { useStateContext } from "../../../contexts/ContextProvider";
 import DynamicDataTable from "./DataTable";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
-const modalStyle = {
-  content: {
-    width: "80%",
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    zIndex: 1000,
-  },
-};
+
 
 function Create_Staff() {
-  const { currentColor} = useStateContext();
+  const { currentColor } = useStateContext();
+  const modalStyle = {
+    content: {
+      width: "80%",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 1000,
+      background:currentColor
+    },
+  };
+  
   const [loading,setLoading]=useState(false)
   const [formData, setFormData] = useState({
     fullName: "",
@@ -241,12 +244,14 @@ function Create_Staff() {
 
 
   return (
-    <div className=" mt-12  mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">All Staff Here</h1>
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+      style={{color:currentColor}}
+      >All Staff Here</h1>
       <button
         onClick={openModal}
-        style={{ backgroundColor: currentColor }}
-        className="  text-white py-2 px-4 rounded "
+        className="neu-btn   py-2 px-4  border-gray-100"
+        style={{color:currentColor}}
       >
         Add Staff
       </button>

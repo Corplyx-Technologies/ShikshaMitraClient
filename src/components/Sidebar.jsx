@@ -44,14 +44,14 @@ const Sidebar = () => {
   };
 
   const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2 duration-1000";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2 duration-1000 cursor-pointer";
   // const activeLink ="flex items-center gap-5 pl-3 py-2 rounded-lg  text-white  text-sm m-1 duration-1500";
   const normalLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2 duration-700";
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2 duration-700 cursor-pointer";
   // const normalLink ="flex items-center gap-5 pl-3 p-2  rounded-lg text-sm text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2 duration-700";
 
   const navbarLink =
-    "flex items-center pl-3  py-2 rounded-lg  text-white  text-sm m-1 cursor-pointer ";
+    "flex items-center pl-3  py-2 rounded-lg  text-white  text-sm m-1 cursor-pointer duration-700";
 
   {
     if (isLoggedIn === "student") {
@@ -147,7 +147,7 @@ const Sidebar = () => {
                   <div key={item.title}>
                     <Link
                       to="/teacher"
-                      className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase"
+                      className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase  cursor-pointer"
                     >
                       {item.title}
                     </Link>
@@ -240,7 +240,7 @@ const Sidebar = () => {
     } else {
       return (
         // <div className="ml-4 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 bg-blend-overlay ">
-        <div className="ml-4 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10  ">
+        <div className="ml-4 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto   ">
           {activeMenu && (
             <>
               <div className="flex justify-between items-center ">
@@ -249,10 +249,12 @@ const Sidebar = () => {
                   onClick={handleCloseSideBar}
                   className="items-center gap-3 ml-4 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
                 >
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1 justify-center w-full h-[60px]  ">
                     {/* <GiExplosiveMaterials className="text-red-500 text-3xl" /> */}
-                    <img src={logo} className="w-[50px]" />
-                    <span className="text-cyan-700 text-md">ShikshaMitra</span>
+                   <div className="w-[70px] h-[70px]">
+                   <img src={logo} className="w-full h-full object-contain mt-2" />
+                   </div>
+                    <span className=" text-md font-medium text-cyan-700">ShikshaMitra</span>
                   </div>
                 </Link>
                 <TooltipComponent content="Menu" position="BottomCenter">
@@ -268,10 +270,11 @@ const Sidebar = () => {
               </div>
               <div className="mt-5 ">
                 {links.map((item) => (
-                  <div key={item.title}>
+                  <div key={item.title} >
                     <Link
+                    style={{ color: currentColor }}
                       to="/admin"
-                      className="text-gray-400 dark:text-gray-400 m-3 uppercase"
+                      className="text-gray-400 dark:text-gray-400 m-3 uppercase cursor-pointer"
                     >
                       {item.title}
                     </Link>
@@ -309,11 +312,14 @@ const Sidebar = () => {
                               }
                             >
                               <NavLink
-                                className="w-full "
+                                className="w-full flex gap-3 ml-2 "
                                 onClick={handleCloseSideBar}
                                 to={`/${link.route?.[0]}`}
-                              >
-                                {link.items?.[0]}
+                              > {link.icon}
+                              <span className="cursor-pointer ">
+                              {link.items?.[0]}
+                            </span>
+                                {/* {link.items?.[0]} */}
                               </NavLink>
                             </div>
                             <div
@@ -328,11 +334,14 @@ const Sidebar = () => {
                               }
                             >
                               <NavLink
-                                className="w-full "
+                                className="w-full flex gap-3 ml-2"
                                 onClick={handleCloseSideBar}
                                 to={`/${link.route?.[1]}`}
-                              >
-                                {link.items?.[1]}
+                              > {link.icon}
+                              <span className=" cursor-pointer ">
+                              {link.items?.[1]}
+                            </span>
+                                {/* {link.items?.[1]} */}
                               </NavLink>
                             </div>
                           </div>

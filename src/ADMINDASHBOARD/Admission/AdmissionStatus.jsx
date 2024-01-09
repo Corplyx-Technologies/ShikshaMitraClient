@@ -9,6 +9,20 @@ import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 
 function AdmissionStatus({ data }) {
+  const { currentColor } = useStateContext();
+  const modalStyle = {
+    content: {
+      width: "80%",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 1000,
+      background:currentColor
+    },
+  };
   const [submittedData, setSubmittedData] = useState([]);
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
@@ -39,10 +53,11 @@ function AdmissionStatus({ data }) {
       });
   }, [shouldFetchData]);
   return (
-    <div className=" mt-12  w-[900px] mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">
-        {" "}
-        Admission Status{" "}
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+      style={{color:currentColor}}
+      >
+        Admission Status
       </h1>
       <DataTable data={submittedData} />
     </div>

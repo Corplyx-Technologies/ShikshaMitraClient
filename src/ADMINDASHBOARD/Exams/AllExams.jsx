@@ -3,8 +3,23 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
-
+import { useStateContext } from "../../contexts/ContextProvider";
 const AllExams = () => {
+  const { currentColor } = useStateContext();
+  const modalStyle = {
+    content: {
+      width: "80%",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 1000,
+      background:currentColor
+    },
+  };
+  
   const [examData, setExamData] = useState([]);
 
   useEffect(() => {
@@ -40,7 +55,7 @@ const AllExams = () => {
         }
       );
 
-      console.log("message", response);
+      // console.log("message", response);
 
       // Update the state to remove the deleted exam
       const updatedExamData = [...examData];
@@ -53,8 +68,10 @@ const AllExams = () => {
 
   return (
     <div>
-<div className="mt-8 p-3">
-  <h2 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">Exam</h2>
+ <div className=" mt-12 md:mt-1  mx-auto p-3">
+      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+      style={{color:currentColor}}
+      >Exam</h1>
   <div className="overflow-x-auto bg-gray-100 rounded-lg p-4">
     <table className="w-full border-collapse table-auto">
       <thead>

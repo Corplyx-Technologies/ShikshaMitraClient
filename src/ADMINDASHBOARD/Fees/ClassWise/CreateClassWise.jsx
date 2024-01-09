@@ -7,32 +7,36 @@ import InputForm from "../../../Dynamic/Form/InputForm";
 import FeesDataTable from "./DataTable";
 import { useStateContext } from "../../../contexts/ContextProvider";
 import Cookies from "js-cookie";
+import './btn.css'
 const authToken = Cookies.get("token");
-const modalStyle = {
-  content: {
-    width: "80%",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    zIndex: 1000,
-  },
-};
+
 
 function CreateClassWise() {
   const toastifyTiming = {
     autoClose: 1000,
   };
-
+  const { currentColor } = useStateContext();
+  const modalStyle = {
+    content: {
+      width: "80%",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 1000,
+      background:currentColor
+    },
+  };
+  
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     className: "",
     feeType: "",
     amount: "",
   });
-  const { currentColor } = useStateContext();
+  
   const [submittedData, setSubmittedData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [shouldFetchData, setShouldFetchData] = useState(false);
@@ -200,15 +204,17 @@ function CreateClassWise() {
   ];
 
   return (
-    <div className=" mt-12  mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">
-        {" "}
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+      style={{color:currentColor}}
+      >
+      
         Class Fee
       </h1>
       <button
         onClick={openModal}
-        style={{ backgroundColor: currentColor }}
-        className="  text-white py-2 px-4 rounded "
+        className="neu-btn   py-2 px-4  border-gray-100"
+        style={{color:currentColor}}
       >
         Add Fee
       </button>
@@ -218,9 +224,15 @@ function CreateClassWise() {
         onRequestClose={closeModal}
         contentLabel="Create Form"
         style={modalStyle}
+      
         overlayClassName="overlay"
+        
       >
-        <h1 style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}>
+        <div className="bg-gray-100 rounded-md">
+        <h1 
+        className="hover-text text-center text-2xl pt-2"
+        style={{color:currentColor}}
+        >
           Create Fee
         </h1>
         <InputForm fields={formFields} handleChange={handleFieldChange} />
@@ -233,7 +245,8 @@ function CreateClassWise() {
         >
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            style={{background:currentColor }}
+            className=" hover:shadow-xl text-white py-2 px-4 rounded"
           >
             {loading ? (
               <svg
@@ -262,6 +275,7 @@ function CreateClassWise() {
           >
             Cancel
           </button>
+        </div>
         </div>
       </Modal>
 

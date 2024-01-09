@@ -176,13 +176,14 @@ function Create_Sales() {
   }, [shouldFetchData]);
 
   return (
-    <div className=" mt-12  w-[900px] mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">All Stock </h1>
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
+    >All Stock </h1>
       <button
-        onClick={openModal}
-        style={{ backgroundColor: currentColor }}
-        className="  text-white py-2 px-4 rounded "
-      >
+       className="neu-btn   py-2 px-4  border-gray-100"
+       style={{color:currentColor}}
+     >
         Add Stock
       </button>
 

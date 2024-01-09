@@ -279,7 +279,7 @@ const ViewResultCard = () => {
     }
     return 0;
   };
-  console.log(examData);
+ 
 
   const handleDownload = () => {
     toPDF();
@@ -290,14 +290,7 @@ const ViewResultCard = () => {
     <>
       <div className=" w-full   flex items-center justify-center pt-10 ">
         <div className="   gap-2 sm:p-4 md:p-4 lg:p-4 p-2 pt-16  shadow-[rgba(0,0,_0,_0.25)_0px_25px_50px-12px]   overflow-y-auto">
-          {/* <div className="absolute bg-white w-[50px] h-[50px] rounded-full flex justify-center items-center shadow-2xl">
-            <Link to="/admin/studentsresult" className=" text-blue-500 text-3xl">
-              <FcLeft />
-            </Link>
-          </div> */}
-          {/* {
-            console.log("student")
-          } */}
+          
 
           <div className="mt-12">
             <select

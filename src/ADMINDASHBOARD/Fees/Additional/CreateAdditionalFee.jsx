@@ -9,21 +9,23 @@ import InputForm from "./../../../Dynamic/Form/InputForm";
 import Additional_Fees_DataTable from "./DataTable";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
-const modalStyle = {
-  content: {
-    width: "80%",
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    zIndex: 1000,
-  },
-};
+
 
 function CreateAdditionalFee() {
   const { currentColor} = useStateContext();
+  const modalStyle = {
+    content: {
+      width: "80%",
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: 1000,
+      background:currentColor
+    },
+  };
   const toastifyTiming ={
     autoClose: 1000
   }
@@ -171,14 +173,16 @@ function CreateAdditionalFee() {
 
 
   return (
-    <div className=" mt-12  mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700"> Additional Fee</h1>
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+      style={{color:currentColor}}
+      > Additional Fee</h1>
       <button
         onClick={openModal}
-        style={{ backgroundColor: currentColor }}
-        className="  text-white py-2 px-4 rounded "
+        className="neu-btn   py-2 px-4  border-gray-100"
+        style={{color:currentColor}}
       >
-        Add Additional Fee
+        Add Fee
       </button>
       {isModalOpen && <div className="modal-blur"></div>}
       <Modal

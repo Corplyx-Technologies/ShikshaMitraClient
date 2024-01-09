@@ -133,7 +133,7 @@ const EarningChart = () => {
 
   return (
     <div className="w-full">
-      <h2 className="text-xl font-bold text-cyan-700 mb-4">
+      <h2 className="text-xl font-semibold text-cyan-700 mb-4">
         Fee Income and Expenses According to Months
       </h2>
       <div id="chart">

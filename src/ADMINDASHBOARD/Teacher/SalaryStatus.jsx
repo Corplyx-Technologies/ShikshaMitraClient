@@ -43,30 +43,6 @@ const SalaryStatus = () => {
       });
   }, [email]);
 
-  // useEffect(() => {
-  //   if (teacherId) {
-  //     axios
-  //       .get(
-  //         `https://handsome-bear-beret.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`,
-  //         {
-  //           withCredentials: true,
-  //           headers: {
-  //             Authorization: `Bearer ${authToken}`,
-  //           },
-  //         }
-  //       )
-  //       .then((response) => {
-  //         const data = response.data.data[0];
-  //         console.log("Salary", data);
-  //         console.log("Year", data.year);
-  //         setSalaryData(response.data.data[0].salaryHistory);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching Teacher salary data: ", error);
-  //       });
-  //   }
-  // }, [teacherId]);
-
   const handleSearch = () => {
     const selectedYearElement = document.getElementById("yearDropdown");
     const selectedYear = selectedYearElement.value;

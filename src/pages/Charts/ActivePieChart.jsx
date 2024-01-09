@@ -97,7 +97,7 @@ const ActivePieChart = () => {
 
   return (
     <>
-      <h1 className="text-center text-xl text-cyan-700 font-bold">Active Students</h1>
+      <h1 className="text-center text-xl text-cyan-700 font-semibold">Active Students</h1>
       <div className=" rounded-sm flex justify-center items-center ">
         <div className=" ">
           <Pie data={data} options={data.options} />

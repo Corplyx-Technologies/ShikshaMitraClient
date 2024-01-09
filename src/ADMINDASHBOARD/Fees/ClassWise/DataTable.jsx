@@ -10,6 +10,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
+import { useStateContext } from "../../../contexts/ContextProvider"
 
 function FeesDataTable({ data, handleDelete }) {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -45,7 +46,10 @@ function FeesDataTable({ data, handleDelete }) {
           <div>
             <Link to={`/admin/classwise/edit-fees/${params.row._id}`}>
               <IconButton>
-                <EditIcon className="text-green-600" />
+                <EditIcon 
+               className="text-cyan-600"
+              // style={{color:currentColor}}
+                />
               </IconButton>
             </Link>
             <IconButton onClick={() => handleDeleteClick(params.row._id)}>

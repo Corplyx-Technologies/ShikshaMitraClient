@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ScheduleComponent, ViewsDirective, ViewDirective, Day, Week, WorkWeek, Month, Agenda, Inject, Resize, DragAndDrop } from '@syncfusion/ej2-react-schedule';
 import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
+import { toast } from "react-toastify";
 
 // import { scheduleData } from '../data/dummy';
 import { Header } from '../components';
@@ -13,11 +14,54 @@ const authToken = Cookies.get('token');
 const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
 
 const Scheduler = () => {
+  const toastifyTiming ={
+    autoClose: 1000
+  }
+  
   const [scheduleData, setScheduleData] = useState([{}]);
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
   const [scheduleObj, setScheduleObj] = useState();
   const titleInputRef = useRef();
+ 
+  const handleDelete = (args) => {
+    if (args.type === 'DeleteAlert') {
+      // Check if the event property is present and it's a delete or cancel button click
+      if (args.event && args.event.target) {
+        const buttonText = args.event.target.textContent.trim().toLowerCase();
+
+        if (buttonText === 'delete') {
+          console.log('Delete button clicked');
+
+          const data = args.data;
+          // console.log(data)
+            axios.delete(`https://handsome-bear-beret.cyclic.app/api/v1/events/deleteEvent/${data._id}`, 
+          {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            }
+          }
+          )
+            .then((response) => {
+              console.log("Fees deleted successfully");
+              setShouldFetchData(!shouldFetchData)
+        
+              // const updatedData = submittedData.filter((item) => item._id !== itemId);
+              // setSubmittedData(updatedData);
+              toast.success("Event deleted successfully",toastifyTiming);
+            })
+            .catch((error) => {
+              console.error("Error deleting Fees:", error);
+              toast.error("An error occurred while deleting the Fees.",toastifyTiming);
+            });
+        } else if (buttonText === 'cancel') {
+          console.log('Cancel button clicked');
+          return
+        }
+      }
+    }
+  };
 
   useEffect(async () => {
     try {
@@ -81,7 +125,14 @@ const Scheduler = () => {
 
   const onPopupOpen = (args) => {
     if (args.type !== 'Editor') {
-      // console.log("args.data.Subject",args.data.Subject)
+      console.log("hereIAM")
+     
+      // const deleteButton = args.element.querySelector('.delete-button-class');
+      // if (deleteButton) {
+      //   console.log("kyahuare")
+      //   deleteButton.addEventListener('click', () => handleDelete(args));
+      // }
+
       if(args.data.Subject == undefined){
         args.cancel = true; // Cancel the default action
       }
@@ -94,6 +145,7 @@ const Scheduler = () => {
         saveButton.addEventListener('click', handleSave);
       }
     }
+   
   };
 
   const onPopupClose = (args) => {
@@ -138,11 +190,17 @@ const Scheduler = () => {
       })
         .then(response => {
           console.log('API Response:', response.data);
+          toast.success("EventF Created successfully!");
           setShouldFetchData(!shouldFetchData)
         })
         .catch(error => {
           console.error('API Error:', error);
         });
+    }
+    else if(args.type == 'DeleteAlert'){
+      console.log("kyahuare")
+      // deleteButton.addEventListener('click', () => handleDelete(args));
+      handleDelete(args)
     }
   };
 

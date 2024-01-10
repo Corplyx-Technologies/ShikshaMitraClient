@@ -50,8 +50,11 @@ const PrivacyPolicy = () => {
 
         <p className="mb-4">
           If you have any questions or concerns regarding our Privacy Policy,
-          please contact us at{" "}
-          <span className="text-blue-500">support@eShikshaMitra.com</span>.
+          please contact us at
+          {/* Email here   */}
+          <span className="text-blue-500 cursor-pointer ">
+            <a href="mailto:support@eshikshamitra.in"> Send EMail</a>
+          </span>
         </p>
 
         <p className="text-sm text-gray-600">Last updated: {formattedDate}</p>

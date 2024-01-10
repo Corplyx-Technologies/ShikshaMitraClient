@@ -9,12 +9,10 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 const UserProfile = () => {
-  const { currentColor } = useStateContext();
-  const fullName = localStorage.getItem("fullName");
   const responseString = localStorage.getItem("response");
   const response = JSON.parse(responseString);
   const schoolName = response.schoolName;
-  console.log(schoolName);
+  // console.log(schoolName);
   const image = localStorage.getItem("image");
   const email = localStorage.getItem("email");
   const userRole = sessionStorage.getItem("userRole");
@@ -62,7 +60,7 @@ const UserProfile = () => {
         }
       )
       .then((response) => {
-        console.log("Response Success", response);
+        // console.log("Response Success", response);
         const schoolImage = response.data.admin.image.url;
         const schoolName = response.data.admin.schoolName;
         const role = response.data.admin.role;

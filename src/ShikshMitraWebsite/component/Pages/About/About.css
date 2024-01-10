@@ -1,40 +1,3 @@
-/* .image-one-about img{
-    width: 100%;
-}
-
-.image-heading-about{
-    margin-top: -20%;
-    text-align: center;
-    font-size: 6rem;
-    font-weight: 600;
-}
-
-.about-img{
-    display: flex;
-    justify-content: space-around;
-}
-
-.about-img img{
-    margin-left: 7%;
-    margin-top: 4%;
-}
-
-.about-heading{
-    margin-top: 13%;
-    margin-left: 8%;
-    font-size: 1.5rem;
-    margin-right: 7%;
-    color: black;
-}
-
-.about-heading h1{
-    font-weight: 600;
-}
-
-.about-heading p{
-    margin-top: 3%;
-} */
-
 
 .about-container {
     max-width: 900px;
@@ -50,16 +13,19 @@
   .about-container .profile-image {
     /* text-align: center;
     padding: 30px; */
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 20px
+    text-align: center; */
+    /* padding-top: 50px; */
+    /* padding-bottom: 20px */
+    /* width: 150px;
+    height: 150px;
+    border-radius: 50%; */
   }
   
   .about-container .profile-image img {
-    width: 170px;
+    /* width: 150px; */
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     padding: 8px;

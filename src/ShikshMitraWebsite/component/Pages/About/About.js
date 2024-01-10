@@ -10,6 +10,7 @@ import praveen from '../../../assets/images/praveenimg.jpeg';
 import quoteIcon from '../../../assets/images/quoteIcon.png';
 import ajay from '../../../assets/images/ajayimage.jpeg'
 import badal from '../../../assets/images/Badal.jpeg'
+import logo from '../../../assets/SHIKSHAMITRA_logo.png'
 
 
 
@@ -17,21 +18,39 @@ import badal from '../../../assets/images/Badal.jpeg'
 const About = () => {
 
   return (
-    <div class="about-container mt-5">
-      <div className="mt-14 text-center">
-        <h1 className="inline-block text-xl sm:text-2xl md:text-3xl font-medium text-center">About us<br></br> <span className="text-center text-l sm:text-sm">eShikshaMitra : E-Learning management system for academic institutions.</span> 
+    <div class="about-container md:mt-10 mt-5">
+      <div className="mt-20 text-center">
+        <h1 className="inline-block text-xl sm:text-2xl md:text-3xl font-medium text-center">About us<br></br>
+         <span className="text-center text-l sm:text-sm">eShikshaMitra : E-Learning management system for academic institutions.</span> 
         </h1>
       </div>
-      <div class="profile-image m-0">
-        <img src={Shikha} alt="" />
+      <div className="  w-full grid md:grid-cols-2 grid-cols-1 py-10 mt-5">
+<div className=" flex justify-center items-center">
+{/* <div className="w-[100px] h-[100px] ">
+<img src={Shikha} alt="" className="w-full h-full object-contain" />
+</div> */}
+<div class="w-[250px]">
+        <img src={logo} alt="" />
       </div>
-
-      <div class="description">
-        <p className="text-sm">
+</div>
+<div className=" flex justify-center items-center">
+<p className="text-sm">
           eShikshaMitra is a comprehensive school management system designed to streamline educational processes and enhance communication between administrators, teachers, students, and parents. Our platform offers
           a range of features and dashboards that empower educational institutions to manage
           their operations efficiently.
         </p>
+</div>
+      </div>
+      {/* <div class="profile-image m-0">
+        <img src={Shikha} alt="" />
+      </div> */}
+
+      <div class="description">
+        {/* <p className="text-sm">
+          eShikshaMitra is a comprehensive school management system designed to streamline educational processes and enhance communication between administrators, teachers, students, and parents. Our platform offers
+          a range of features and dashboards that empower educational institutions to manage
+          their operations efficiently.
+        </p> */}
         <p><h1 className="text-3xl text-center  text-green-500 my-2">Key Features </h1></p>
         <p className="text-sm">
           <h1 className="text-xl mt-5">Admin Dashboard: </h1>

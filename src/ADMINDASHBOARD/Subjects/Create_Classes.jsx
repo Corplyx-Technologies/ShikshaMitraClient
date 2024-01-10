@@ -241,8 +241,8 @@ function Create_Classes() {
   ];
 
   return (
-    <div className=" mt-12  w-[900px] mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4">Create a New Class Here</h1>
+    <div className=" mt-12 md:mt-1  mx-auto p-3 ">
+    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text ">Create a New Class Here</h1>
       <button
         onClick={openModal}
         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full"

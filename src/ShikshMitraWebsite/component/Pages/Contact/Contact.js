@@ -68,7 +68,7 @@ const Contact = () => {
                   {/* <span className="block mb-4 text-base font-semibold text-primary">
                   Contact Us
                 </span> */}
-                  <h2 className="mb-6 text-[32px]  pl-5  font-bold uppercase text-dark sm:text-[40px] lg:text-[36px] xl:text-[40px]">
+                  <h2 className="mb-6 text-xl  pl-5  font-bold uppercase text-dark sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                     GET IN TOUCH WITH US
                   </h2>
                   <p className="text-base leading-relaxed mb-9 pl-5 text-body-color">
@@ -141,7 +141,7 @@ const Contact = () => {
                       </h4>
                       <p className="text-base text-body-color">
                         <a href="mailto:corplyxtechnologies000@gmail.com" style={{ textDecoration: 'none', color: 'inherit' }}>
-                          corplyxtechnologies000@gmail.com
+                        info.eshikshamitra@gmail.com
                         </a>
                       </p>
 

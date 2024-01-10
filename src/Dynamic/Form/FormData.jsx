@@ -6,14 +6,7 @@ import Modal from "react-modal"; // Import react-modal
 import  './FormStyle.css'
 const modalStyle = {
   content: {
-    // width: "50%", // Adjust the width as needed
-    // margin: "0 auto",
-    // zIndex: 1000, // Adjust the value as needed (lower than Toastify)
-    // borderRadius: "8px",
-    // boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-    // border: "none",
-    // backgroundColor:"red",
-    // width:"700px",
+    
 
     top: '50%',
     left: '50%',
@@ -117,8 +110,7 @@ function Form() {
       });
       return;
     }
-  
-    console.log("Form submitted:", formData);
+    // console.log("Form submitted:", formData);
     setSubmittedData([...submittedData, formData]);
     toast.success("Form submitted successfully!");
     setFormData({
@@ -142,7 +134,6 @@ function Form() {
   
 
   return (
-    // <div className="mt-12 w-[900px] mx-auto p-3 z-50">
     <div className=" p-10 -z-50    overflow-x-auto mt-20 sm:mt-20 md:mt-10">
       <h1 className="text-xl font-bold mb-4">Input Form</h1>
       <button

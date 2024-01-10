@@ -239,8 +239,8 @@ function CreateExams() {
 
 
   return (
-    <div className=" mt-12  mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700"> All Staff </h1>
+    <div className=" mt-12 md:mt-1  mx-auto p-3 ">
+    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "> All Staff </h1>
       <button
         onClick={openModal}
         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded "

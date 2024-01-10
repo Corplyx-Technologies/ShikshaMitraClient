@@ -15,25 +15,25 @@ const Card = () => {
       name: "Admin",
       logo: admin,
       bg: card_bg,
-      path: "/cardadmin",
+      path:"/login",
     },
     {
       name: "Teacher",
       logo: teacher,
       bg: card_bg,
-      path:"/cardteacher"
+      path:"/login",
     },
     {
       name: "Parent",
       logo: parent,
       bg: card_bg,
-      path:"/cardparent",
+      path:"/login",
     },
     {
       name: "Student",
       logo: student,
       bg: card_bg,
-      path:"/cardstudent",
+      path:"/login",
     },
   ];
   return (

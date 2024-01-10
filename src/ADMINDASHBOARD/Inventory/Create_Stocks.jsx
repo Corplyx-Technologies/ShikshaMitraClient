@@ -176,9 +176,8 @@ function Create_Sales() {
   }, [shouldFetchData]);
 
   return (
-    <div className=" mt-12 md:mt-1  mx-auto p-3">
+    <div className=" mt-12 md:mt-1  mx-auto p-3 ">
     <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
-    style={{color:currentColor}}
     >All Stock </h1>
       <button
        className="neu-btn   py-2 px-4  border-gray-100"

@@ -35,7 +35,7 @@ const Screenshot = () => {
   ];
 
   return (
-    <div className="bg-gray-100 py-20 px-5 ">
+    <div className="bg-white py-20 px-5 ">
       <div className="container mx-auto">
         <h1 className="text-3xl font-semibold text-gray-800 mb-8 text-center ">Our Management System</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">

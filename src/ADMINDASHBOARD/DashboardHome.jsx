@@ -294,13 +294,15 @@ const DashboardHome = () => {
                 >
                   {item.icon}
                 </button>
-                <p className="mt-3  dark:text-gray-200 ">
+                <p className="mt-3 text-gray-700 dark:text-gray-200 ">
                   <span className="text-lg font-semibold">{item.amount}</span>
                   <span className={`text-sm text-${item.pcColor} ml-2`}>
                     {item.percentage}
                   </span>
                 </p>
-                <p className="text-sm text-black font-bold  mt-1">
+                <p className="text-sm  font-semibold  mt-1"
+                style={{color:currentColor}}
+                >
                   {item.title}
                 </p>
               </div>

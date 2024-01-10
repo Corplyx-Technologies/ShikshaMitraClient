@@ -24,7 +24,7 @@ function Footer() {
               <img src={logo} alt="" />
             </div>
             <span className="self-center text-2xl font-semibold">
-              ShikshaMitra
+              eShikshaMitra
             </span>
           </a>
         </div>
@@ -71,12 +71,12 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link rel="noopener noreferrer" to="https://eshikshamitra.in/">
-                  E-Learning Software{" "}
+                <Link rel="noopener noreferrer" to="https://www.eshikshamitra.in/">
+                  E-Learning Software
                 </Link>
               </li>
               <li>
-                <Link rel="noopener noreferrer" to="https://eshikshamitra.in/">
+                <Link rel="noopener noreferrer" to="https://www.eshikshamitra.in/">
                   School Mobile App
                 </Link>
               </li>

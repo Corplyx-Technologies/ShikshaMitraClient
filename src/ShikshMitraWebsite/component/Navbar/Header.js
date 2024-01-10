@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/image/Shikha.png";
+import logo from "../../assets/SHIKSHAMITRA_logo.png";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";

@@ -150,7 +150,7 @@ const UserProfile = () => {
           style={{
             width: "100%",
             color: "white",
-            backgroundColor: "blue",
+            backgroundColor: currentColor,
             borderRadius: "10px",
             cursor: "pointer",
             padding: "10px",

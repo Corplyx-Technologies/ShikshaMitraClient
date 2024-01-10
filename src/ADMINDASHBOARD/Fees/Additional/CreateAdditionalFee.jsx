@@ -173,9 +173,9 @@ function CreateAdditionalFee() {
 
 
   return (
-    <div className=" mt-12 md:mt-1  mx-auto p-3">
+    <div className=" mt-12 md:mt-1  mx-auto p-3 ">
       <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
-      style={{color:currentColor}}
+      // style={{color:currentColor}}
       > Additional Fee</h1>
       <button
         onClick={openModal}
@@ -192,7 +192,11 @@ function CreateAdditionalFee() {
         style={modalStyle}
         overlayClassName="overlay"
       >
-        <h1 style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}>
+<div className="bg-gray-100 rounded-md">
+ <h1 
+        className="hover-text text-center text-2xl pt-2"
+        style={{color:currentColor}}
+        >
           Create Additional Fee
         </h1>
         <InputForm
@@ -202,7 +206,8 @@ function CreateAdditionalFee() {
         <div style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}>
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            style={{background:currentColor }}
+            className=" hover:shadow-xl text-white py-2 px-4 rounded"
             
           >
            { loading ?
@@ -216,6 +221,7 @@ function CreateAdditionalFee() {
             Cancel
           </button>
         </div>
+</div>
       </Modal>
 
       <Additional_Fees_DataTable data={submittedData} handleDelete={handleDelete}/>

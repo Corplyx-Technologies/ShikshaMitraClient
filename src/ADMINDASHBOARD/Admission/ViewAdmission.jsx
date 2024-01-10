@@ -46,9 +46,9 @@ const ViewAdmission = () => {
                 <FcLeft />
               </Link>
             </div>
-            {
+            {/* {
               console.log("student")
-            }
+            } */}
             <div className=" flex justify-center mt-4">
               {studentData.image && studentData.image.url ? (
                 <img

@@ -69,9 +69,8 @@ function CreateParents() {
   
 
   return (
-    <div className=" mt-12 md:mt-1  mx-auto p-3">
+    <div className=" mt-12 md:mt-1  mx-auto p-3 ">
     <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
-    style={{color:currentColor}}
     > Parent Details</h1>
       {submittedData.length === 0 ? (
         <div className="alert alert-warning uppercase text-center text-cyan-700">Parents are empty</div>

@@ -14,15 +14,16 @@ function CreateStudent() {
   const { currentColor } = useStateContext();
   const modalStyle = {
     content: {
-      width: "80%",
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      // width: "80%",
+      // top: "50%",
+      // left: "50%",
+      // right: "auto",
+      // bottom: "auto",
+      // marginRight: "-50%",
+      // transform: "translate(-50%, -50%)",
       zIndex: 1000,
-      background:currentColor
+      background:currentColor,
+      marginTop:"50px"
     },
   };
   
@@ -368,9 +369,8 @@ function CreateStudent() {
   ];
 
   return (
-   <div className=" mt-12 md:mt-1  mx-auto p-3">
-       <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
-      style={{color:currentColor}}
+    <div className=" mt-12 md:mt-1  mx-auto p-3 ">
+      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
       >
         All Student and Parent Here
       </h1>
@@ -381,7 +381,7 @@ function CreateStudent() {
       >
         Add Student & Parent
       </button>
-      {console.log("create_student")}
+      {/* {console.log("create_student")} */}
       {isModalOpen && <div className="modal-blur"></div>}
       {/* Modal */}
       <Modal
@@ -391,7 +391,8 @@ function CreateStudent() {
         style={modalStyle}
         overlayClassName="overlay"
       >
-        <h1 
+     <div className="bg-gray-100 rounded-md overflow-auto">
+       <h1 
         className="hover-text text-center text-2xl pt-2"
         style={{color:currentColor}}
         >
@@ -411,7 +412,8 @@ function CreateStudent() {
         >
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            style={{background:currentColor }}
+            className=" hover:shadow-xl text-white py-2 px-4 rounded"
           >
             {loading ? (
               <svg
@@ -441,6 +443,7 @@ function CreateStudent() {
             Cancel
           </button>
         </div>
+       </div>
       </Modal>
 
       <DynamicDataTable data={submittedData} handleDelete={handleDelete} />

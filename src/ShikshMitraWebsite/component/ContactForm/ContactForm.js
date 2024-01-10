@@ -65,7 +65,7 @@ const Form2 = () => {
   return (
     <>
       <div className="w-100% mb-32 pt-[216px]  " id="contact">
-        <div className="w-[80%]  mx-auto form_box flex flex-wrap items-center justify-around  ">
+        <div className="w-[100%]  mx-auto form_box flex flex-wrap items-center justify-around  ">
           <div className=" w-[50%]">
             <svg
               className="form_svg"

@@ -138,7 +138,7 @@ const ViewStudent = () => {
               </div>
             </div>
           </div>
-          <div className="w-[330px] border-1 rounded-md border-[#01a9ac] p-5   hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
+          {/* <div className="w-[330px] border-1 rounded-md border-[#01a9ac] p-5   hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
             <h1 className="text-center mb-3 font-extrabold">
               {" "}
               {studentData.fullName}'s Details
@@ -199,7 +199,93 @@ const ViewStudent = () => {
                 {new Date(studentData.dateOfBirth).toLocaleDateString("en-US")}
               </span>
             </div>
-          </div>
+          </div> */}
+          
+
+<div className="w-[300px]">
+<div class="relative overflow-x-auto">
+<h1 className="text-center mb-3 font-extrabold">
+              {" "}
+              {studentData.fullName}'s Details
+            </h1>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        {/* <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 w-full">
+               
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Color
+                </th>
+               
+            </tr>
+        </thead> */}
+        <tbody>
+           
+            
+            <tr class=" dark:bg-gray-800">
+                <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                Roll No:
+                </th>
+                <td class="px-2 py-2">
+                {studentData.rollNo}
+                </td>
+               
+            </tr>
+            <tr class=" dark:bg-gray-800">
+                <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                Email :
+                </th>
+                <td class="px-2 py-2">
+                {studentData.email}
+                </td>
+               
+            </tr>
+            <tr class=" dark:bg-gray-800">
+                <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                Gender :
+                </th>
+                <td class="px-2 py-2">
+                {studentData.gender}
+                </td>
+            </tr>
+            <tr class=" dark:bg-gray-800">
+                <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                Joining Date :
+                </th>
+                <td class="px-2 py-2">
+                {new Date(studentData.joiningDate).toLocaleDateString("en-US")}
+                </td>
+            </tr>
+            <tr class=" dark:bg-gray-800">
+                <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                Class :
+                </th>
+                <td class="px-2 py-2">
+                {studentData.class}-{studentData.section}
+                </td>
+            </tr>
+            <tr class=" dark:bg-gray-800">
+                <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                Subject :
+                </th>
+                <td class="px-2 py-2">
+                {studentData.subject}
+                </td>
+            </tr>
+            <tr class=" dark:bg-gray-800">
+                <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                DOB :
+                </th>
+                <td class="px-2 py-2">
+                {new Date(studentData.dateOfBirth).toLocaleDateString("en-US")}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
         </div>
       </div>
     </>

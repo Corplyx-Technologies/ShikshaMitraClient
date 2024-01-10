@@ -44,7 +44,10 @@ const Scheduler = () => {
           }
           )
             .then((response) => {
+              
               console.log("Fees deleted successfully");
+              const updatedData = scheduleData.filter(item => item._id !== data._id);
+              setScheduleData(updatedData);
               setShouldFetchData(!shouldFetchData)
         
               // const updatedData = submittedData.filter((item) => item._id !== itemId);
@@ -52,6 +55,7 @@ const Scheduler = () => {
               toast.success("Event deleted successfully",toastifyTiming);
             })
             .catch((error) => {
+              setScheduleData(scheduleData);
               console.error("Error deleting Fees:", error);
               toast.error("An error occurred while deleting the Fees.",toastifyTiming);
             });

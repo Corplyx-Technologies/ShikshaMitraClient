@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import {  toast } from 'react-toastify';
 import axios from "axios";
 import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
 import { useStateContext } from "../contexts/ContextProvider";
+
+const authToken = Cookies.get('token');
 
 
 const Lectures = () => {

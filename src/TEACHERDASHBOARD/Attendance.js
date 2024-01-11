@@ -17,13 +17,19 @@ const Attendance = () => {
   const [studentTotalPresents, setStudentTotalPresents] = useState([]);
   const [dataAvailable, setDataAvailable] = useState(false);
   const [hoverMessage, setHoverMessage] = useState(""); // State to store the hover message
+
   useEffect(() => {
-    // Set the initial state for studentTotalPresents here
-    setStudentTotalPresents(Array(students.length).fill(studentTotalPresents));
+    if (studentTotalPresents) {
+      setStudentTotalPresents(
+        Array(students.length).fill(studentTotalPresents)
+      );
+    } else {
+      setStudentTotalPresents(Array(students.length).fill(0));
+    }
   }, []);
 
   console.log(studentTotalPresents);
-  useEffect(() => {}, []);
+  console.log(studentAttendance);
 
   // Get Students
   useEffect(() => {
@@ -127,10 +133,6 @@ const Attendance = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    setStudentTotalPresents(Array(students.length).fill(0));
-  }, [students]);
-
   const fetchData = async () => {
     const selectedDate = new Date(date);
     const year = selectedDate.getFullYear();
@@ -175,7 +177,6 @@ const Attendance = () => {
               updatedPresents[studentIndex] = totalAttendance;
               return updatedPresents;
             });
-            console.log(studentAttendance);
           });
         } else {
           console.log("No student attendance data found in the response.");
@@ -264,57 +265,50 @@ const Attendance = () => {
             const day = dateObject.getDate(); // Get the day part (1-31)
             return day.toString().padStart(2, "0"); // Format it as "DD"
           };
-          {
-            /* console.log(formattedResponseDate); */
-          }
 
           const cellContent = () => {
-            if (attendanceData && attendanceData.attendanceData[dateIndex]) {
-              const responseDate =
-                attendanceData.attendanceData[dateIndex].date; // Replace with your actual date
-              const formattedDate = formattedResponseDate(responseDate);
+            if (attendanceData) {
               const matchingDateData = attendanceData.attendanceData.find(
-                (data) => formattedResponseDate(data.date) + 1 == dateLabel
-              );
-              const inputDate = new Date(
-                attendanceData.attendanceData[dateIndex].date
+                (data) =>
+                  formattedResponseDate(data.date) === dateLabel.toString()
               );
 
-              const year = inputDate.getFullYear();
-              const month = (inputDate.getMonth() + 1)
-                .toString()
-                .padStart(2, "0");
-              const day = inputDate.getDate().toString().padStart(2, "0");
+              if (matchingDateData) {
+                const inputDate = new Date(matchingDateData.date);
+                const year = inputDate.getFullYear();
+                const month = (inputDate.getMonth() + 1)
+                  .toString()
+                  .padStart(2, "0");
+                const day = inputDate.getDate().toString().padStart(2, "0");
+                const formatDate = `${day}-${month}-${year}`;
 
-              const formatDate = `${day}-${month}-${year}`;
-              return (
-                <td
-                  key={dateIndex}
-                  className="px-2 py-1 border text-center"
-                  onMouseEnter={() =>
-                    handleMouseEnter(student.name, formatDate, dateLabel)
-                  }
-                >
-                  <span
-                    className={
-                      attendanceData.attendanceData[dateIndex].present
-                        ? "text-green-600" /* Add a green color class for '✅' */
-                        : "text-red-600" /* Add a red color class for '❌' */
+                return (
+                  <td
+                    key={dateIndex}
+                    className="px-2 py-1 border text-center"
+                    onMouseEnter={() =>
+                      handleMouseEnter(student.name, formatDate, dateLabel)
                     }
                   >
-                    {attendanceData.attendanceData[dateIndex].present
-                      ? "✅"
-                      : "❌"}
-                  </span>
-                </td>
-              );
-            } else {
-              return (
-                <td key={dateIndex} className="px-2 py-1 border text-center">
-                  {/* Render date labels in this cell */}
-                  {/* {dateLabel} */}
-                </td>
-              ); // Render an empty cell if no data is available for the specific date
+                    <span
+                      className={
+                        matchingDateData.present
+                          ? "text-green-600" /* Add a green color class for '✅' */
+                          : "text-red-600" /* Add a red color class for '❌' */
+                      }
+                    >
+                      {matchingDateData.present ? "✅" : "❌"}
+                    </span>
+                  </td>
+                );
+              } else {
+                return (
+                  <td key={dateIndex} className="px-2 py-1 border text-center">
+                    {/* Render date labels in this cell */}
+                    {/* {dateLabel} */}
+                  </td>
+                ); // Render an empty cell if no data is available for the specific date label
+              }
             }
           };
 

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
 import { useStateContext } from "../contexts/ContextProvider";
+const authToken = Cookies.get('token');
+
 
 const CreateExams = () => {
   const { currentColor} = useStateContext();

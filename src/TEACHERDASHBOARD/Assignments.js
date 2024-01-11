@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useStateContext } from "../contexts/ContextProvider";
 const authToken = Cookies.get("token");
 
-import { useStateContext } from "../contexts/ContextProvider";
+
 
 const Api_Create =
   "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createAssignment";

@@ -26,7 +26,7 @@ const AllExams = () => {
     console.log("use effect");
 
     axios
-      .get(`https://handsome-bear-beret.cyclic.app/api/v1/exam/getAllExams`, {
+      .get(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/exam/getAllExams`, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -46,7 +46,7 @@ const AllExams = () => {
       const examId = examData[index]._id;
 
       const response = await axios.delete(
-        `https://handsome-bear-beret.cyclic.app/api/v1/exam/deleteExam/${examId}`,
+        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/exam/deleteExam/${examId}`,
         {
           withCredentials: true,
       headers: {

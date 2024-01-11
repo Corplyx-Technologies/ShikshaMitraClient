@@ -15,7 +15,7 @@ const Issue = ({ isOpen, onClose, bookId, bookName, updateIssueDependency }) => 
 
     try {
 
-      const response = await axios.post("https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/issueBook", {
+      const response = await axios.post("https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/issueBook", {
         studentId,
         bookId,
         bookName

@@ -18,7 +18,7 @@ const ViewBooks = () => {
     // Fetch teacher data based on the email parameter
     axios
       .get(
-        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllBooks?_id=${_id}`, {withCredentials: true,
+        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllBooks?_id=${_id}`, {withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,
         },}

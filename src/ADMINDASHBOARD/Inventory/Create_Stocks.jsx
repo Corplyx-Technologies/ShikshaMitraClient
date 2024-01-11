@@ -50,7 +50,7 @@ function Create_Sales() {
     try {
       // setLoading(true)
       const response = await axios.post(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createItem",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createItem",
         formDataToSend,
         {
           withCredentials: true,
@@ -81,7 +81,7 @@ function Create_Sales() {
 
   const handleDelete = (itemId) => {
     axios
-      .delete(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deleteItem/${itemId}`, {
+      .delete(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteItem/${itemId}`, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -153,7 +153,7 @@ function Create_Sales() {
   useEffect(() => {
     // Fetch data from the server when the component mounts
     axios
-      .get("https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllItems", {
+      .get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllItems", {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${authToken}`,

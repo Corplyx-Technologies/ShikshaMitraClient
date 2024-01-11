@@ -24,7 +24,7 @@ const StudentChart = () => {
         const fetchData = async () => {
           try {
             const response = await axios.get(
-              "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents",
+              "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents",
               {
                 withCredentials: true,
       headers: {

@@ -4,15 +4,15 @@ import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 
 const Api_Create =
-  "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createAssignment";
+  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createAssignment";
 const Api_Update =
-  "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/updateAssignment/";
+  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/updateAssignment/";
 const Api_GetAssiignment =
-  "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllAssignment";
+  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllAssignment";
 const Api_GetAll =
-  "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllClass";
+  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllClass";
 const API_DELETE =
-  "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deleteAssignment/6538e0fb0c6aa38bbddec27b";
+  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteAssignment/6538e0fb0c6aa38bbddec27b";
 
 const Assignments = () => {
   const [data, setData] = useState([]);
@@ -101,7 +101,7 @@ const Assignments = () => {
   useEffect(() => {
     axios
       .get(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllClass",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllClass",
         {
           withCredentials: true,
           headers: {
@@ -123,7 +123,7 @@ const Assignments = () => {
   useEffect(() => {
     axios
       .get(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllAssignment",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllAssignment",
         {
           withCredentials: true,
           headers: {
@@ -146,7 +146,7 @@ const Assignments = () => {
     const assignmentId = assignmentData[index]._id;
     axios
       .delete(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deleteAssignment/" +
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteAssignment/" +
           assignmentId,
         {
           withCredentials: true,

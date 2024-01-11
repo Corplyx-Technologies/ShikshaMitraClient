@@ -10,7 +10,7 @@ const AllIncomeChart = () => {
 
   useEffect(() => {
 
-    axios.get('https://handsome-bear-beret.cyclic.app/api/v1/fees/feeIncomeMonths', 
+    axios.get('https://real-ruby-dolphin-fez.cyclic.app/api/v1/fees/feeIncomeMonths', 
     {
       withCredentials: true,
       headers: {

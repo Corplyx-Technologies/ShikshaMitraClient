@@ -15,7 +15,7 @@ const Expenses = () => {
   useEffect(() => {
     axios
       .get(
-        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/myKids`,
+        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -37,7 +37,7 @@ const Expenses = () => {
   useEffect(() => {
     axios
       .get(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getFees",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getFees",
         {
           withCredentials: true,
           headers: {
@@ -60,7 +60,7 @@ const Expenses = () => {
   useEffect(() => {
     axios
       .get(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAdditionalFees",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAdditionalFees",
         {
           withCredentials: true,
           headers: {

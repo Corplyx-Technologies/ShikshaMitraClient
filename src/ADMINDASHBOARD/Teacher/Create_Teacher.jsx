@@ -60,7 +60,7 @@ const modalStyle = {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getTeachers', {
+      const response = await axios.get('https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getTeachers', {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -101,7 +101,7 @@ const modalStyle = {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createTeacher",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createTeacher",
         formDataToSend,
         {
           withCredentials: true,
@@ -129,7 +129,7 @@ const modalStyle = {
   };
 
   const handleDelete = (email) => {
-    axios.put(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deactivateTeacher`, { email }, {
+    axios.put(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deactivateTeacher`, { email }, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

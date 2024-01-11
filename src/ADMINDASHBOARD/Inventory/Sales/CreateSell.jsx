@@ -47,7 +47,7 @@ const modalStyle = {
 
   useEffect(() => {
 
-    axios.get('https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllItems', {
+    axios.get('https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllItems', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

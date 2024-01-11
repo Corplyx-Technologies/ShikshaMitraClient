@@ -55,7 +55,7 @@ function Create_Student() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents', {
+    axios.get('https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -132,7 +132,7 @@ function Create_Student() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/createStudentParent",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createStudentParent",
         formDataToSend,
         {
           withCredentials: true,
@@ -187,7 +187,7 @@ function Create_Student() {
   
 
   const handleDelete = (email) => {
-    axios.put(`https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/deactivateStudent`, {email}, {
+    axios.put(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deactivateStudent`, {email}, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

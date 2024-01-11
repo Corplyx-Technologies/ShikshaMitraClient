@@ -29,7 +29,7 @@ const UserProfile = () => {
   const handleLogout = () => {
     // You can make an Axios request to your server to log the user out
     axios
-      .get("https://handsome-bear-beret.cyclic.app/api/v1/logout")
+      .get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/logout")
       .then((response) => {
         // Handle successful logout, such as clearing user data and redirecting to the login page
         localStorage.removeItem("fullName"); // Clear user data from localStorage
@@ -53,7 +53,7 @@ const UserProfile = () => {
   useEffect(() => {
     axios
       .get(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAdminInfo",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAdminInfo",
         {
           withCredentials: true,
           headers: {

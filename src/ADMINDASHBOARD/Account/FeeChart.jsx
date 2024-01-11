@@ -13,7 +13,7 @@ const FeeChart = () => {
   useEffect(() => {
     axios
       .get(
-        `https://handsome-bear-beret.cyclic.app/api/v1/fees/getFeeStatus`,
+        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/fees/getFeeStatus`,
         {
           withCredentials: true,
       headers: {

@@ -13,7 +13,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 
-// const API_GET_DATA = "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents"
+// const API_GET_DATA = "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents"
 const StudentHome = () => {
   const [data, setData] = useState([]);
   const [submittedData, setSubmittedData] = useState([]);
@@ -30,7 +30,7 @@ const StudentHome = () => {
     // GET Request to fetch existing notices
     axios
       .get(
-        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -54,7 +54,7 @@ const StudentHome = () => {
   useEffect(() => {
     axios
       .get(
-        `https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllIssuedBookStudent?bookId=${_id}`,
+        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllIssuedBookStudent?bookId=${_id}`,
         {
           withCredentials: true,
           headers: {

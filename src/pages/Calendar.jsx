@@ -35,7 +35,7 @@ const Scheduler = () => {
 
           const data = args.data;
           // console.log(data)
-            axios.delete(`https://handsome-bear-beret.cyclic.app/api/v1/events/deleteEvent/${data._id}`, 
+            axios.delete(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/events/deleteEvent/${data._id}`, 
           {
             withCredentials: true,
             headers: {
@@ -69,7 +69,7 @@ const Scheduler = () => {
 
   useEffect(async () => {
     try {
-      const response = await axios.get('https://handsome-bear-beret.cyclic.app/api/v1/events/getAllEvents', {
+      const response = await axios.get('https://real-ruby-dolphin-fez.cyclic.app/api/v1/events/getAllEvents', {
         withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -183,7 +183,7 @@ const Scheduler = () => {
           EndTime: endTime,
         };
      
-      axios.post('https://handsome-bear-beret.cyclic.app/api/v1/events/createEvent', {
+      axios.post('https://real-ruby-dolphin-fez.cyclic.app/api/v1/events/createEvent', {
         updatedData
       }, {
         withCredentials: true,

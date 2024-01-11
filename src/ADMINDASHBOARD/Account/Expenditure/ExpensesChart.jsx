@@ -10,7 +10,7 @@ const ExpensesChart = () => {
 
   useEffect(() => {
 
-    axios.get('https://handsome-bear-beret.cyclic.app/api/v1/employee/salaryExpensesMonths', 
+    axios.get('https://real-ruby-dolphin-fez.cyclic.app/api/v1/employee/salaryExpensesMonths', 
     {
       withCredentials: true,
       headers: {

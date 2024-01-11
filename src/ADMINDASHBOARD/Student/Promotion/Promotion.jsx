@@ -43,7 +43,7 @@ const Promotion = () => {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/getAllClass",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllClass",
         {
           withCredentials: true,
           headers: {
@@ -219,7 +219,7 @@ const Promotion = () => {
   //   // To Promote a student we require the student id and the promoted section and class
   //   // The student id fetched form the checked student and id is fetched from the selectd promted class and id
   //   // selectionModel give the student id , promoteSection , promoteClass give the class and section now
-  //   // Make a put request to the https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/promotionOfStudent url and console the request sucess
+  //   // Make a put request to the https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/promotionOfStudent url and console the request sucess
   // };
 
   const handlePromoteClick = async () => {
@@ -242,7 +242,7 @@ const Promotion = () => {
     // Make the PUT request
     await axios
       .put(
-        "https://handsome-bear-beret.cyclic.app/api/v1/adminRoute/promotionOfStudent",
+        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/promotionOfStudent",
         dataToUpdate,
         {
           withCredentials: true,

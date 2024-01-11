@@ -182,11 +182,13 @@ function Create_Sales() {
       <button
       className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
       style={{color:currentColor}}
+      onClick={openModal}
      >
         Add Stock
       </button>
 
       {/* Modal */}
+      {isModalOpen && <div className="modal-blur"></div>}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}

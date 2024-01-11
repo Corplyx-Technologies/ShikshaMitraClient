@@ -11,9 +11,11 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useStateContext } from "../../contexts/ContextProvider";
 const authToken = Cookies.get('token');
 
 function DynamicDataTable({ data, handleDelete }) {
+  const { currentColor } = useStateContext();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [deletingItem, setDeletingItem] = useState(null);
 
@@ -53,7 +55,9 @@ function DynamicDataTable({ data, handleDelete }) {
                   
                   <Link to={`/admin/staff/salaryStatus/${params.row.email}`}>
                     <IconButton>
-                      <p className="bg-pink-500 py-3  text-white p-2">Salary status</p>
+                      <p className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
+            style={{ background:currentColor}}
+            >Salary status</p>
                     </IconButton>
                   </Link>
                 </div>

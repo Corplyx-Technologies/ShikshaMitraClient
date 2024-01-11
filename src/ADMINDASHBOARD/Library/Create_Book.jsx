@@ -15,15 +15,15 @@ function Create_Book() {
 
   const modalStyle = {
     content: {
-      width: "80%",
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      // width: "80%",
+      // top: "50%",
+      // left: "50%",
+      // right: "auto",
+      // bottom: "auto",
+      // marginRight: "-50%",
+      // transform: "translate(-50%, -50%)",
       zIndex: 1000,
-      background:currentColor
+      // background:currentColor
     },
   };
   const [loading, setLoading] = useState(false);
@@ -238,7 +238,10 @@ function Create_Book() {
         style={modalStyle}
         overlayClassName="overlay"
       >
-        <h1 style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}>
+        <h1 
+        className="hover-text text-center text-2xl pt-2 dark:text-white text-gray-100 pb-3 "
+        // style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}
+        >
           Create Book Details
         </h1>
         <InputForm
@@ -250,7 +253,7 @@ function Create_Book() {
           style={{
             display: "flex",
             justifyContent: "flex-end",
-            padding: "10px",
+            // padding: "10px",
           }}
         >
           <button

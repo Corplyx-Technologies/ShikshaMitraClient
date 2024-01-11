@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 // import { useStateContext } from './contexts/ContextProvider'
 
-import { Routes, Route, Outlet,useLocation,useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
@@ -11,11 +17,9 @@ import ".././App.css";
 
 import { useStateContext } from "../contexts/ContextProvider";
 
-
-
 function TeacherDashboard() {
-  const location = useLocation()
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const {
     setCurrentColor,
@@ -26,16 +30,16 @@ function TeacherDashboard() {
     themeSettings,
     setThemeSettings,
     isLoggedIn,
-    setisLoggedIn
+    setisLoggedIn,
   } = useStateContext();
 
-  const [singleLog,setSingleLog] = useState(sessionStorage.getItem('userRole'));
+  const [singleLog, setSingleLog] = useState(
+    sessionStorage.getItem("userRole")
+  );
 
-  console.log(singleLog)
-  if( singleLog ){
-    setisLoggedIn(singleLog)
+  if (singleLog) {
+    setisLoggedIn(singleLog);
   }
-  console.log(isLoggedIn)
 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem("colorMode");
@@ -48,32 +52,31 @@ function TeacherDashboard() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
       }
     };
-  
+
     // Disable the back button in the browser's address bar
     const handlePopstate = (event) => {
       event.preventDefault();
       window.history.pushState(null, null, window.location.pathname);
     };
-  
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('popstate', handlePopstate);
-  
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("popstate", handlePopstate);
+
     return () => {
       // Clean up event listeners when the component unmounts
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('popstate', handlePopstate);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("popstate", handlePopstate);
     };
   }, []);
-  
 
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       {/* {isLoggedIn == "teacher" && (singleLog == 'teacher') && ( */}
-       { (( isLoggedIn == 'teacher' && (singleLog=='teacher'))  ) && ( 
+      {isLoggedIn == "teacher" && singleLog == "teacher" && (
         <>
           <div className="flex relative dark:bg-main-dark-bg">
             <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
@@ -109,8 +112,7 @@ function TeacherDashboard() {
               </div>
               <div>
                 {themeSettings && <ThemeSettings />}
-                <Outlet/>
-
+                <Outlet />
               </div>
               <Footer />
             </div>

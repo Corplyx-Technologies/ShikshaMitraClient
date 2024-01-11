@@ -250,8 +250,8 @@ function Create_Staff() {
       >All Staff Here</h1>
       <button
         onClick={openModal}
-        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-        style={{color:currentColor}}
+        className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+        style={{border:`2px solid ${currentColor} `,color:currentColor}}
       >
         Add Staff
       </button>
@@ -280,7 +280,8 @@ function Create_Staff() {
          >
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+            style={{border:`2px solid ${currentColor} `,color:currentColor}}
             
           >
            { loading ?
@@ -290,7 +291,9 @@ function Create_Staff() {
            </svg>): " Submit"
             }
           </button>
-          <button onClick={closeModal} className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded">
+          <button onClick={closeModal} className="dark:text-white dark:bg-secondary-dark-bg text-red-600  neu-btn border-2 "
+            style={{border:`2px solid red `,}}
+            >
             Cancel
           </button>
         </div>

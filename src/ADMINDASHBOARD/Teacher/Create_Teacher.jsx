@@ -281,8 +281,8 @@ const modalStyle = {
       >All Teacher </h1>
       <button
         onClick={openModal}
-        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-        style={{color:currentColor}}
+        className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+        style={{border:`2px solid ${currentColor} `,color:currentColor}}
       >
         Add Teacher
       </button>
@@ -313,8 +313,8 @@ const modalStyle = {
         >
           <button
             onClick={handleSubmit}
-            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn "
-        style={{color:currentColor}}
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+            style={{border:`2px solid ${currentColor} `,color:currentColor}}
             disabled={loading}
           >
             {loading ? (
@@ -324,8 +324,8 @@ const modalStyle = {
             )}
           </button>
           <button onClick={closeModal}
-            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn "
-            style={{color:currentColor}}
+           className="dark:text-white dark:bg-secondary-dark-bg text-red-600  neu-btn border-2 "
+           style={{border:`2px solid red `,}}
            >
             Cancel
           </button>

@@ -213,8 +213,8 @@ function CreateClassWise() {
       </h1>
       <button
         onClick={openModal}
-        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-        style={{color:currentColor}}
+        className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+        style={{border:`2px solid ${currentColor} `,color:currentColor}}
       >
         Add Fee
       </button>
@@ -242,8 +242,8 @@ function CreateClassWise() {
         >
           <button
             onClick={handleSubmit}
-            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn "
-            style={{color:currentColor}}
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+           style={{border:`2px solid ${currentColor} `,color:currentColor}}
           >
             {loading ? (
               <svg
@@ -268,8 +268,8 @@ function CreateClassWise() {
           </button>
           <button
             onClick={closeModal}
-            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn  "
-        style={{color:currentColor}}
+            className="dark:text-white dark:bg-secondary-dark-bg text-red-600  neu-btn border-2 "
+            style={{border:`2px solid red `,}}
           >
             Cancel
           </button>

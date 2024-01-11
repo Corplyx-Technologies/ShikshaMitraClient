@@ -77,7 +77,7 @@ function DynamicDataTable({ data, handleDelete }) {
     // <div className="h-[350px]  mx-auto  bg-white mt-2 rounded-md">
     <div className="h-[450px] dark:text-white dark:bg-secondary-dark-bg mx-auto bg-white mt-2 rounded-md overflow-scroll w-full">
       <div className=" min-w-[1000px]  w-full">
-        <DataGrid rows={dataWithIds} columns={columns} />
+        <DataGrid rows={dataWithIds} columns={columns} className="dark:text-white dark:bg-secondary-dark-bg  mx-auto bg-white" />
       </div>
       <Dialog open={deleteDialogOpen} onClose={handleCancelDelete}>
         <DialogTitle>Confirm Delete</DialogTitle>

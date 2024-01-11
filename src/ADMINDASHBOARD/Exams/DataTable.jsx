@@ -38,7 +38,7 @@ function DynamicDataTable({data , handleDelete}) {
       <DataGrid
         rows={dataWithIds}
         columns={columns}
-        
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto bg-white"
       />
 
     </div>

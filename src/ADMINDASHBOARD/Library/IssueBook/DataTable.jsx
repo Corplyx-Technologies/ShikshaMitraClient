@@ -82,7 +82,7 @@ function DynamicDataTable({ data, handleDelete, updateIssueDependency }) {
     <div className="h-[450px] mx-auto bg-white dark:text-white dark:bg-secondary-dark-bg mt-2 rounded-md overflow-scroll w-full">
     
     <div className=" min-w-[1000px]  w-full">
-      <DataGrid rows={dataWithIds} columns={columns} />
+      <DataGrid rows={dataWithIds} columns={columns} className="dark:text-white dark:bg-secondary-dark-bg  mx-auto bg-white"/>
 
     </div>
     </div>

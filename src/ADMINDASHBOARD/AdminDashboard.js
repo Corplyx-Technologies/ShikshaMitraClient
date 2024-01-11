@@ -102,7 +102,7 @@ const  AdminDashboard = () => {
             style={{background:currentColor}}
               className={
                 activeMenu
-                  ? (`dark:bg-main-dark-bg min-h-screen md:ml-72 w-full overflow-x-hidden   `)
+                  ? (`dark:bg-main-dark-bg  min-h-screen md:ml-72 w-full overflow-x-hidden  `)
                   : (`dark:bg-main-dark-bg  w-full min-h-screen flex-2 overflow-x-hidden `)
               }
             >
@@ -111,60 +111,6 @@ const  AdminDashboard = () => {
               </div>
               <div>
                 {themeSettings && <ThemeSettings />}
-
-{/* 
-<Routes>
-  <Route path="/" element={<DashboardHome />} >
-  <Route path="/additional" element={<Create_Additional />} />
- 
-  <Route path="/admin/classwise" element={<Create_ClassWise />} />
-  <Route path="/classwise/edit-fees/:_id" element={<Edit_Classwise_Fees />} />
-  <Route path="/additional/edit-fees/:_id" element={<EditAdditional />} />
-  
-  <Route path="/allteachers">
-  <Route index element={<AllTeachers />} />
-  <Route path="view-profile/:email" element={<ViewTeacher />} />
-  <Route path="edit-profile/:email" element={<EditTeacher />} />
-</Route>
- 
-  <Route path="/allstudent" element={<Allstudent />} />
-  <Route path="/student/edit-profile/:email" element={<EditStudent />} />
-  <Route path="/student/view-profile/:email" element={<ViewStudent />} />
-  <Route path="/promotion" element={<Promotion />} />
- 
-  <Route path="/allparents" element={<Allparents />} />
-  <Route path="/feesstatus" element={<Fee_Status />} />
- 
-  <Route path="/income" element={<Income />} />
-  <Route path="/expenditure" element={<Expenditure />} />
-
-  <Route path="/stocks" element={<Stocks />} />
-  <Route path="/inventory/edit-item/:_id" element={<Edit_Stocks />} />
-  <Route path="/sales" element={<Sales />} />
-  
-  <Route path="/books" element={<AllBooks />} />
-  <Route path="/view-book/:id" element={<ViewBooks />} />
-  <Route path="/edit-book/:id" element={<EditBook />} />
- 
-  <Route path="/registration" element={<RegistrationForm />} />
-  <Route path="/status" element={<AdmissionStatus />} />
-  
-  <Route path="/classes" element={<AllClasses />} />
-  <Route path="/subjects" element={<AllSubjects />} />
-  
-  <Route path="/primary" element={<Primary />} />
-  <Route path="/view-class/:className" element={<ViewPrimary />} />
-  <Route path="/edit-class/:className" element={<EditPrimary />} />
-  <Route path="/secondary" element={<Secondary />} />
-
-  <Route path="/staff" element={<Staff />} />
-  <Route path="/wages" element={<Wages />} />
-  <Route path="/staff/view-profile/:email" element={<ViewStaff />} />
-  <Route path="/staff/edit-profile/:email" element={<EditStaff />} />
-  </Route>
-</Routes> */}
-
-
               </div>
               <Outlet/>
               <Footer />

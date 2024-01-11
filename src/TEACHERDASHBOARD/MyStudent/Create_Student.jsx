@@ -402,7 +402,7 @@ const modalStyle = {
       <button
         onClick={openModal}
         // className="neu-btn   py-2 px-4  border-gray-100"
-        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn ml-12 "
         style={{color:currentColor}}>
         Add Student & Parent
       </button>

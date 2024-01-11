@@ -159,6 +159,7 @@ const CreateExams = () => {
 
   return (
     <div className="py-8 px-4 md:px-8">
+      <h2 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">Exam</h2>
       <div className="">
         <button
            className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
@@ -171,6 +172,7 @@ const CreateExams = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
+          
           <div className="modal p-4 bg-white rounded-lg shadow-lg md:w-2/3 lg:w-1/2">
             <h2 className="text-2xl font-semibold mb-4 text-cyan-700 uppercase">Exam Form</h2>
             <div className="mb-4">
@@ -274,7 +276,7 @@ const CreateExams = () => {
     
       <div>
 <div className="mt-8">
-  <h2 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">Exam</h2>
+  
   <div className="overflow-x-auto bg-gray-100 rounded-lg p-4">
     <table className="w-full border-collapse table-auto">
       <thead>

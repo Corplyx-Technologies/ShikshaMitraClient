@@ -2,9 +2,10 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link, useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
-
+import { useStateContext } from "../../contexts/ContextProvider";
 
 function DataTable({data , handleDelete}) {
+  const { currentColor } = useStateContext();
   const navigate = useNavigate();
 
     const columns = [
@@ -17,7 +18,9 @@ function DataTable({data , handleDelete}) {
       renderCell: (params) => (
         <Link to={`/admin/allteachers/salaryStatus/${params.row.email}`}>
           <IconButton>
-            <p className="bg-pink-500 py-3  text-white p-2">Salary status</p>
+            <p className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
+            style={{ background:currentColor}}
+            >Salary status</p>
           </IconButton>
         </Link>
       ),

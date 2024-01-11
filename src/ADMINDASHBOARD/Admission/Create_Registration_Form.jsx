@@ -387,7 +387,7 @@ function Create_Registration_Form() {
       </h1>
       <button
         onClick={openModal}
-        className="neu-btn   py-2 px-4  border-gray-100"
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
         style={{color:currentColor}}
       >
         Create Registration

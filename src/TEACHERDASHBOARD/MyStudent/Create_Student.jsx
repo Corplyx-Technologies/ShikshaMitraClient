@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import Modal from "react-modal";
 import axios from "axios";
 import '../../Dynamic/Form/FormStyle.css'
+import { useStateContext } from "../../contexts/ContextProvider";
 import DynamicDataTable from "./DataTable";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
@@ -21,6 +22,20 @@ const modalStyle = {
 };
 
 function Create_Student() {
+  const { currentColor} = useStateContext();
+  const authToken = Cookies.get('token');
+const modalStyle = {
+  content: {
+    width: "80%",
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: 1000,
+  },
+};
   const [loading,setLoading]=useState(false)
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
@@ -382,12 +397,13 @@ function Create_Student() {
 
 
   return (
-    <div className=" mt-12  mx-auto p-3">
-      <h1 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">New Student and Parent</h1>
+    <div className=" mt-12 md:mt-1  mx-auto p-3 ">
+    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text ">New Student and Parent</h1>
       <button
         onClick={openModal}
-        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded "
-      >
+        // className="neu-btn   py-2 px-4  border-gray-100"
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
+        style={{color:currentColor}}>
         Add Student & Parent
       </button>
       {isModalOpen && <div className="modal-blur"></div>}

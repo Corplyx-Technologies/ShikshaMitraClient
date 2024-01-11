@@ -180,8 +180,8 @@ function Create_Sales() {
     <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
     >All Stock </h1>
       <button
-       className="neu-btn   py-2 px-4  border-gray-100"
-       style={{color:currentColor}}
+      className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
+      style={{color:currentColor}}
      >
         Add Stock
       </button>

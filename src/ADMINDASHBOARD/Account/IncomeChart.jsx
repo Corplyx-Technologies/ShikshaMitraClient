@@ -111,8 +111,8 @@ const IncomeChart = () => {
           console.log("Chart Colors:", chartColors);
   return (
     <div id="chart">
-      <h1 className="text-cyan-700 text-2xl font-semibold ">Income</h1>
-      <ReactApexChart options={options} series={options.series} type="pie" width={380} />
+      <h1 className="dark:text-white dark:bg-secondary-dark-bg text-xl py-2 ">Income</h1>
+      <ReactApexChart options={options} series={options.series} type="pie" width={380} className="dark:text-white dark:bg-secondary-dark-bg text-xl py-2"/>
     </div>
   );
 };

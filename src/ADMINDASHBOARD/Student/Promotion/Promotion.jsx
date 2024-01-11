@@ -62,12 +62,7 @@ const Promotion = () => {
           const classSection = response.data.classList.map(
             (classData) => classData.section
           );
-          //   // Sort the class names in increasing order
-          //   classNames.sort((a, b) =>
-          //     a.localeCompare(b, undefined, { numeric: true })
-          //   );
-          //   // classSection.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
-          // For checking the class lists
+        
           setApiData(response.data.classList);
 
           setApiclass(classNames);
@@ -91,17 +86,10 @@ const Promotion = () => {
 
   const customButtonStyle = {
     backgroundColor: currentColor, // Change this to the color you desire
-    // Add other styles as needed
-    // Example: color, padding, etc.
+  
   };
 
-  // const classSections = [
-  //   { class: "1", sections: ["A", "B", "C"] },
-  //   { class: "2", sections: ["A", "B", "C"] },
-  //   { class: "3", sections: ["A", "B", "C"] },
-  //   // Add more classes and sections as needed
-  // ];
-
+  
   const classSections = apiData.map((data) => ({
     class: data.className,
     sections: data.section,
@@ -141,10 +129,7 @@ const Promotion = () => {
   }
 
   const handleSectionChange = (section, selectedClass) => {
-    // Filter student data based on the selected class and section
-    // const filteredData = allstudentdata.filter((student) => {
-    //   return student.studentClass === "2" && student.studentSection == "B";
-    // });
+ 
 
     console.log("Handle Section Change ki selected Class", selectedClass);
     console.log("Handle Section Change ki selected section ", section);
@@ -162,34 +147,9 @@ const Promotion = () => {
     }));
 
     setStudentData(formattedData);
-    // for (let i = 0; i < allstudentdata.length; i++) {
-    //   const object = allstudentdata[i];
-    //   // console.log("print the data ", object);
-
-    //   if (
-    //     object.studentClass === selectedClass &&
-    //     object.studentSection === section
-    //   ) {
-    //     console.log("matched data ", object);
-    //     // setStudentData(object);
-    //     setStudentData([
-    //       {
-    //         id: object._id,
-    //         name: object.studentFullName,
-    //         rollNumber: object.studentRollNo,
-    //         class: object.studentClass,
-    //       },
-    //     ]);
-    //   }
-    //   // Do something with 'object'
-    // }
+   
     console.log("Working on data ", section);
-    // i;
-
-    // console.log("Data required ", filteredData);
-    // Update the studentData state with the filtered data
-
-    // Update the selected section
+  
     setSelectedSection(section);
     // Close the section anchor element (if you're using a dropdown or popover)
     setSectionAnchorEl(null);
@@ -215,13 +175,7 @@ const Promotion = () => {
     setSelectionModel(newSelection);
     console.log("Checked elements: in ", newSelection);
   };
-  // const handlePromoteClick = () => {
-  //   // To Promote a student we require the student id and the promoted section and class
-  //   // The student id fetched form the checked student and id is fetched from the selectd promted class and id
-  //   // selectionModel give the student id , promoteSection , promoteClass give the class and section now
-  //   // Make a put request to the https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/promotionOfStudent url and console the request sucess
-  // };
-
+  
   const handlePromoteClick = async () => {
     // Get the selected student's ID, promoted section, and promoted class
     const studentId = selectionModel; // Replace this with the actual way you obtain the selected student's ID
@@ -278,21 +232,15 @@ const Promotion = () => {
       });
   };
 
-  // const CustomStyledButton = () => {
-  //   const customButtonStyle = {
-  //     backgroundColor: currentColor, // Change this to the color you desire
-  //     // Add other styles as needed
-  //     // Example: color, padding, etc.
-  //   };
 
-  console.log("selectionModel : ", selectionModel);
-  console.log("Promoted Class : ", promoteClass);
-  console.log("Promoted Section  : ", promoteSection);
+  // console.log("selectionModel : ", selectionModel);
+  // console.log("Promoted Class : ", promoteClass);
+  // console.log("Promoted Section  : ", promoteSection);
   return (
-    <div className="p-4 space-y-4">
-      <h2 className="text-2xl font-semibold uppercase text-center text-cyan-700 dark:text-white ">
+    <div className=" mt-12 md:mt-1  mx-auto p-3">
+      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text ">
         Student Promotion
-      </h2>
+      </h1>
 
       <div className="flex space-x-4">
         <div className="w-1/2">
@@ -305,6 +253,7 @@ const Promotion = () => {
             onClick={(event) => {
               setClassAnchorEl(event.currentTarget);
               setSectionAnchorEl(null);
+              
             }}
           >
             {selectedClass
@@ -333,16 +282,7 @@ const Promotion = () => {
             onClose={handleMenuClose}
           >
             <List>
-              {/* {apiData.className === "1" &&
-                apiData.section.map((section) => (
-                  <ListItem
-                    button
-                    // key={section}
-                    onClick={() => handleSectionChange(section)}
-                  >
-                    <ListItemText primary={section} />
-                  </ListItem>
-                ))} */}
+              
               {apisection.map((section) => (
                 <ListItem
                   key={section}

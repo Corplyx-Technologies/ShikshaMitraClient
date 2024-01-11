@@ -14,13 +14,13 @@ function CreateStudent() {
   const { currentColor } = useStateContext();
   const modalStyle = {
     content: {
-      width: "80%",
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      // width: "80%",
+      // top: "50%",
+      // left: "50%",
+      // right: "auto",
+      // bottom: "auto",
+      // marginRight: "-50%",
+      // transform: "translate(-50%, -50%)",
       zIndex: 1000,
       background:currentColor,
       marginTop:"50px"
@@ -376,7 +376,7 @@ function CreateStudent() {
       </h1>
       <button
         onClick={openModal}
-        className="neu-btn   py-2 px-4  border-gray-100"
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
         style={{color:currentColor}}
       >
         Add Student & Parent

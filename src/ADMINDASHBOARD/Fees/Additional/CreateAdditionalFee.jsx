@@ -179,9 +179,9 @@ function CreateAdditionalFee() {
       > Additional Fee</h1>
       <button
         onClick={openModal}
-        className="neu-btn   py-2 px-4  border-gray-100"
-        style={{color:currentColor}}
-      >
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
+        style={{color:currentColor}}>
+      
         Add Fee
       </button>
       {isModalOpen && <div className="modal-blur"></div>}
@@ -203,11 +203,14 @@ function CreateAdditionalFee() {
           fields={formFields}
           handleChange={handleFieldChange}
         />
-        <div style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}>
+        <div
+        //  style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}
+        className="flex justify-end gap-2 p-2 "
+        >
           <button
             onClick={handleSubmit}
-            style={{background:currentColor }}
-            className=" hover:shadow-xl text-white py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn "
+        style={{color:currentColor}}
             
           >
            { loading ?
@@ -217,7 +220,10 @@ function CreateAdditionalFee() {
            </svg>): " Submit"
             }
           </button>
-          <button onClick={closeModal} className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded">
+          <button onClick={closeModal}
+            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn "
+            style={{color:currentColor}}
+           >
             Cancel
           </button>
         </div>

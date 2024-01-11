@@ -213,7 +213,7 @@ function CreateClassWise() {
       </h1>
       <button
         onClick={openModal}
-        className="neu-btn   py-2 px-4  border-gray-100"
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
         style={{color:currentColor}}
       >
         Add Fee
@@ -230,23 +230,20 @@ function CreateClassWise() {
       >
         <div className="bg-gray-100 rounded-md">
         <h1 
-        className="hover-text text-center text-2xl pt-2"
-        style={{color:currentColor}}
+        className="hover-text text-center text-2xl pt-2 dark:text-white text-gray-100 pb-3 "
+        // style={{color:currentColor}}
         >
           Create Fee
         </h1>
         <InputForm fields={formFields} handleChange={handleFieldChange} />
         <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            padding: "10px",
-          }}
+         
+         className="flex justify-end gap-2 p-2 "
         >
           <button
             onClick={handleSubmit}
-            style={{background:currentColor }}
-            className=" hover:shadow-xl text-white py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn "
+            style={{color:currentColor}}
           >
             {loading ? (
               <svg
@@ -271,7 +268,8 @@ function CreateClassWise() {
           </button>
           <button
             onClick={closeModal}
-            className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn  "
+        style={{color:currentColor}}
           >
             Cancel
           </button>

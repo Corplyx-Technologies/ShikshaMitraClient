@@ -74,8 +74,8 @@ function DynamicDataTable({ data, handleDelete }) {
             <IconButton>
               <p 
               // className="bg-pink-500 py-3  text-white p-2"
-              style={{ backgroundColor: currentColor }}
-              className="  text-white py-2 px-4 rounded "
+             className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
+            style={{ background:currentColor}}
               >Fee status</p>
             </IconButton>
           </Link>

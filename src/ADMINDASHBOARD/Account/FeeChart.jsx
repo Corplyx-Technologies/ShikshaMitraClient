@@ -97,7 +97,7 @@ const FeeChart = () => {
 
   return (
     <div id="chart">
-      <h1 className="text-cyan-700 text-2xl font-semibold">Fees</h1>
+      <h1 className="dark:text-white dark:bg-secondary-dark-bg text-xl py-2">Fees</h1>
       <ReactApexChart options={options} series={options.series} type="bar" height={350} />
     </div>
   );

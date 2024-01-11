@@ -282,7 +282,7 @@ const DashboardHome = () => {
             <div class="bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg  p-1 m-2 flex justify-center rounded-2xl">
               <div
                 key={item.title}
-                className="bg-white h-44 dark:text-dark dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl text-center text-red font-semibold"
+                className="bg-white h-44 dark:text-dark dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl text-center text-red font-semibold dark:text-white"
               >
                 <button
                   type="button"
@@ -300,8 +300,8 @@ const DashboardHome = () => {
                     {item.percentage}
                   </span>
                 </p>
-                <p className="text-sm  font-semibold  mt-1"
-                style={{color:currentColor}}
+                <p className="text-sm  font-semibold  mt-1 dark:text-white dark:bg-secondary-dark-bg py-2"
+                // style={{color:currentColor}}
                 >
                   {item.title}
                 </p>
@@ -332,7 +332,7 @@ const DashboardHome = () => {
           </div>
         </div>
         <div className="bg-white  dark:text-white dark:bg-secondary-dark-bg   rounded-2xl p-3">
-          <h1 className="text-xl text-center font-semibold text-cyan-700 mb-4">Calendar</h1>
+          {/* <h1 className="text-xl text-center font-semibold text-cyan-700 mb-4">Calendar</h1> */}
           <Calendar />
         </div>
       </div>

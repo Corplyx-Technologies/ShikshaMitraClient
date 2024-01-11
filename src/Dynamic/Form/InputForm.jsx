@@ -7,17 +7,6 @@ const InputForm = ({ fields, handleChange, handleImageChange }) => {
     return emptyFields.includes(name);
   };
 
-  // const handleInputChange = (name, value) => {
-  //   if (value === "") {
-  //     setEmptyFields((prevEmptyFields) => [...prevEmptyFields, name]);
-  //   } else {
-  //     setEmptyFields((prevEmptyFields) =>
-  //       prevEmptyFields.filter((fieldName) => fieldName !== name)
-  //     );
-  //   }
-
-  //   handleChange(name, value);
-  // };
   const [fieldErrors, setFieldErrors] = useState({});
 
   const handleInputChange = (name, value) => {
@@ -39,9 +28,9 @@ const InputForm = ({ fields, handleChange, handleImageChange }) => {
 
   return (
     // <div className=" p-1 h-[390px]  sm:h-[350px]  overflow-y-auto">
-    <div className=" p-1 h-full overflow-y-auto">
+    <div className=" overflow-hidden dark:text-white dark:bg-secondary-dark-bg ">
       <form
-        className={` p-1 rounded-md sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4  
+        className={` p-2 rounded-md sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4  dark:text-white dark:bg-secondary-dark-bg
         ${
           // useGrid ? "grid  grid-cols-3 gap-4 " : ""
           useGrid ? "grid  gap-2 " : ""
@@ -49,9 +38,9 @@ const InputForm = ({ fields, handleChange, handleImageChange }) => {
         encType="multipart/form-data"
       >
         {fields.map((field, index) => (
-          <div key={index} className={`mb-4 ${useGrid ? "" : "col-span-2"}`}>
+          <div key={index} className={`mb-4 dark:text-white dark:bg-secondary-dark-bg ${useGrid ? "" : "col-span-2"}`}>
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block  text-sm font-bold mb-2 dark:text-white dark:bg-secondary-dark-bg"
               htmlFor={field.name}
             >
               {field.label}

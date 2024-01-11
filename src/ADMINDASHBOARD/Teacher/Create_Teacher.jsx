@@ -38,15 +38,16 @@ function CreateTeacher() {
   
 const modalStyle = {
   content: {
-    width: "80%",
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    // width: "80%",
+    // top: '50%',
+    // left: '50%',
+    // right: 'auto',
+    // bottom: 'auto',
+    // marginRight: '-50%',
+    // transform: 'translate(-50%, -50%)',
     zIndex: 1000,
-    background:currentColor
+    // marginTop:"20px",
+    // background:currentColor,
   },
 };
   const [loading, setLoading] = useState(false);
@@ -280,12 +281,13 @@ const modalStyle = {
       >All Teacher </h1>
       <button
         onClick={openModal}
-        className="neu-btn   py-2 px-4  border-gray-100"
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
         style={{color:currentColor}}
       >
         Add Teacher
       </button>
-      {isModalOpen && <div className="modal-blur"></div>}
+     <div className="">
+     {isModalOpen && <div className="modal-blur"></div>}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
@@ -293,9 +295,10 @@ const modalStyle = {
         style={modalStyle}
         overlayClassName="overlay"
       >
-        <h1 
-          className="hover-text text-center text-2xl pt-2"
-          style={{color:currentColor}}
+       <div className=" p-4">
+       <h1 
+          className="hover-text text-center text-2xl pt-2 dark:text-white text-gray-100 pb-3 "
+          // style={{color:currentColor}}
         >
           Create Teacher
         </h1>
@@ -304,10 +307,14 @@ const modalStyle = {
           handleChange={handleFieldChange}
           handleImageChange={handleImageChange}
         />
-        <div style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}>
+        <div 
+        // style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}
+        className="flex justify-end gap-2 "
+        >
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn "
+        style={{color:currentColor}}
             disabled={loading}
           >
             {loading ? (
@@ -316,11 +323,16 @@ const modalStyle = {
               <span>Submit</span>
             )}
           </button>
-          <button onClick={closeModal} className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded">
+          <button onClick={closeModal}
+            className="dark:text-white dark:bg-secondary-dark-bg  neu-btn "
+            style={{color:currentColor}}
+           >
             Cancel
           </button>
         </div>
+       </div>
       </Modal>
+     </div>
       <DynamicDataTable data={submittedData} handleDelete={handleDelete} />
     </div>
   );

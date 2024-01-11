@@ -6,7 +6,8 @@
     padding: 0;
     font-family: sans-serif;
     
-    background-image: linear-gradient(to right top, #1db9ff, #a2a0ff, #fb7ad4, #ff677a, #f48603);
+    /* background-image: linear-gradient(to right top, #1db9ff, #a2a0ff, #fb7ad4, #ff677a, #f48603); */
+	background-image: linear-gradient(to right top,#1db9ff,#1fb9ffcf,#2ebeff,#42c4ff,#39c2ff);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

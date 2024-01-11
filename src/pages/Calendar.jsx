@@ -230,7 +230,8 @@ const Scheduler = () => {
   };
 
 return (
-  <div className="m-2 rounded-3xl">
+<div className="bg-white  dark:text-white dark:bg-secondary-dark-bg   rounded-2xl p-3">
+          <h1 className="text-xl text-center font-semibold text-cyan-700 mb-4">Calendar</h1>
     <ScheduleComponent
       height="350px"
       navigating={handleNavigating}
@@ -241,6 +242,7 @@ return (
       popupOpen={onPopupOpen}
       popupClose={onPopupClose}
       startHour="07:00" // Set the starting hour to 7:00 AM
+      // className='dark:text-white dark:bg-secondary-dark-bg'
     >
       <ViewsDirective>
         {['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'].map((item) => <ViewDirective key={item} option={item} />)}
@@ -249,7 +251,10 @@ return (
     </ScheduleComponent>
 
     <PropertyPane>
-      <table style={{ width: '100%', background: 'white' }}>
+      <table 
+      // style={{ width: '100%', background: 'white' }}
+      className='dark:text-white dark:bg-secondary-dark-bg w-full'
+      >
         <tbody>
           <tr style={{ height: '50px' }}>
             <td style={{ width: '100%' }}>

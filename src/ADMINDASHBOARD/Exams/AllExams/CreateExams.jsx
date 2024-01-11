@@ -243,7 +243,8 @@ function CreateExams() {
     <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "> All Staff </h1>
       <button
         onClick={openModal}
-        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded "
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
+        style={{color:currentColor}}
       >
        Add Staff
       </button>

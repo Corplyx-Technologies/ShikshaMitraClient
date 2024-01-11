@@ -82,15 +82,16 @@ const StudentApexChart = () => {
   }, []); // Include classTeacherClass as a dependency to re-run the effect when it changes
 
   return (
-    <div id="chart">
+    <div id="chart" className="dark:text-white dark:bg-secondary-dark-bg">
       {loading ? (
         <div>Loading...</div>
       ) : (
         <>
-          <h1 className="text-[#4f6583]">
+          <h1 className=" dark:text-white dark:bg-secondary-dark-bg">
             All Student :{series[1] + series[0]}{" "}
           </h1>
           <ReactApexChart
+     
             options={options}
             series={series}
             type="pie"

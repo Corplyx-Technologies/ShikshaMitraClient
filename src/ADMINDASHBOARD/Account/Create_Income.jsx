@@ -218,7 +218,7 @@ const Create_Income = () => {
     <div className="mt-12">
       <div className="grid gap-3 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  p-3">
         <div
-          className={`p-2 rounded-md  bg-white w-full flex flex-col justify-center col-span-2`}
+          className={`p-2 rounded-md  bg-white w-full flex flex-col justify-center col-span-2 dark:text-white dark:bg-secondary-dark-bg text-xl py-2`}
         >
           <div className="flex justify-center items-center  w-full h-[150px]">
             <div className="w-[150px] h-[150px] rounded-full overflow-hidden">
@@ -233,11 +233,11 @@ const Create_Income = () => {
               )}
             </div>
           </div>
-          <h2 className="text-center mt-4 border-b-4 border-cyan-700 text-2xl font-bold text-sky-800">
+          <h2 className="text-center mt-4 border-b-4 border-cyan-700 text-2xl font-bold text-sky-800 ">
             {schoolInfo.schoolName}
           </h2>
         </div>
-        <div className=" p-2  rounded-md sm:w-full text-center bg-white col-span-2">
+        <div className=" p-2  rounded-md sm:w-full text-center bg-white col-span-2 dark:text-white dark:bg-secondary-dark-bg text-xl py-2">
           <IncomeChart />
         </div>
       </div>

@@ -186,7 +186,7 @@ const TeacherHome = () => {
   return (
     <div className="mt-12">
       <div className="grid gap-3 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 p-3">
-        <div className="p-2 rounded-md text-center bg-white col-span-2">
+        <div className="p-2 rounded-md text-center bg-white col-span-2 dark:text-white dark:bg-secondary-dark-bg">
           <button
             type="button"
             className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl bg-[#03C9D7]"
@@ -195,7 +195,7 @@ const TeacherHome = () => {
           </button>
           <StudentApexChart />
         </div>
-        <div className="p-2 rounded-md text-center bg-white col-span-2">
+        <div className="p-2 rounded-md text-center bg-white col-span-2 dark:text-white dark:bg-secondary-dark-bg">
           <button
             type="button"
             className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl bg-[#03C9D7]"

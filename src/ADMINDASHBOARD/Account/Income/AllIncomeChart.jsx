@@ -81,7 +81,7 @@ const AllIncomeChart = () => {
 
   return (
     <div className="w-full">
-      <h2 className="text-2xl font-bold text-cyan-700 mb-4">Fee IncomeChart According to Months</h2>
+      <h2 className="dark:text-white dark:bg-secondary-dark-bg text-xl py-2">Fee IncomeChart According to Months</h2>
       <div id="chart">
         <ReactApexChart
           options={chartData.options}

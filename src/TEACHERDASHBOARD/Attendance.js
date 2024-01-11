@@ -333,7 +333,9 @@ const Attendance = () => {
 
   return (
     <div className="text-center py-6">
-       <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">
+       <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text"
+       style={{color:currentColor}}
+       >
           Student Attendance Management System
         </h1>
       <button

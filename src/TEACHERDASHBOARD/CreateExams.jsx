@@ -160,7 +160,9 @@ const CreateExams = () => {
 
   return (
     <div className="py-8 px-4 md:px-8">
-      <h2 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">Exam</h2>
+      <h2 className="text-4xl font-bold mb-4 uppercase text-center  hover-text"
+      style={{color:currentColor}}
+      >Exam</h2>
       <div className="">
         <button
            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
@@ -245,13 +247,15 @@ const CreateExams = () => {
               ))}
             </div>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded mr-2"
+              className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+              style={{border:`2px solid ${currentColor} `,color:currentColor}}
               onClick={handleAddSubject}
             >
               Add Subject
             </button>
             <button
-              className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded"
+               className="dark:text-white dark:bg-secondary-dark-bg text-red-600   mx-auto neu-btn border-2 "
+               style={{border:`2px solid red `}}
               onClick={handleModalClose}
             >
               Cancel
@@ -330,8 +334,8 @@ const CreateExams = () => {
             <td className='text-center'>
             <button 
             // clas className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
-           style={{border:`2px solid ${currentColor} `,color:currentColor}}
+            className="dark:text-white dark:bg-secondary-dark-bg text-red-600   mx-auto neu-btn border-2 "
+           style={{border:`2px solid red `}}
             
              onClick={() => handleDelete(data._id)}>Delete</button>
             </td>

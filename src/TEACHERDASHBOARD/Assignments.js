@@ -187,9 +187,11 @@ const Assignments = () => {
   return (
     <>
       <div className="p-6 w-full max-w-md mx-auto  rounded-md shadow-md"
-      style={{background:currentColor}}
+      // style={{background:currentColor}}
       >
-        <h1 className="text-xl font-bold mb-4 uppercase text-center  hover-text ">
+        <h1 className="text-xl font-bold mb-4 uppercase text-center  hover-text "
+        style={{color:currentColor}}
+        >
           Create Homework Assignment
         </h1>
         <form onSubmit={handleSubmit}>

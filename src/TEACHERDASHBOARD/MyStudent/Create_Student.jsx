@@ -398,7 +398,9 @@ const modalStyle = {
 
   return (
     <div className=" mt-12 md:mt-1 p-3  ">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text ">New Student and Parent</h1>
+    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
+    >New Student and Parent</h1>
       <button
         onClick={openModal}
         // className="neu-btn   py-2 px-4  border-gray-100"

@@ -135,7 +135,9 @@ const Curriculum = () => {
   return (
     <div className="min-h-screen p-8 flex flex-col items-center justify-center">
       <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md text-center">
-        <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">School Curriculum</h1>
+        <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text"
+        style={{color:currentColor}}
+        >School Curriculum</h1>
         <form onSubmit={handleFormSubmit}>
           <div className="grid md:grid-cols-2 gap-2">
             <div className="mb-4">

@@ -126,7 +126,9 @@ const API_GET_DATA = "https://real-ruby-dolphin-fez.cyclic.app/api/v1/deleteStud
 console.log(materials)
   return (
     <div className="p-4 text-center bg-gray-100 min-h-screen">
-      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">Study Materials</h1>
+      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text"
+      style={{color:currentColor}}
+      >Study Materials</h1>
 
       <button
        className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
@@ -18,18 +18,21 @@ const Attendance = () => {
   const [dataAvailable, setDataAvailable] = useState(false);
   const [hoverMessage, setHoverMessage] = useState(""); // State to store the hover message
 
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
-    if (studentTotalPresents) {
-      setStudentTotalPresents(
-        Array(students.length).fill(studentTotalPresents)
-      );
-    } else {
-      setStudentTotalPresents(Array(students.length).fill(0));
+    if (isFirstRender.current) {
+      if (studentTotalPresents) {
+        setStudentTotalPresents(
+          Array(students.length).fill(studentTotalPresents)
+        );
+      } else {
+        setStudentTotalPresents(Array(students.length).fill(0));
+      }
+      isFirstRender.current = false;
     }
   }, []);
-
   console.log(studentTotalPresents);
-  console.log(studentAttendance);
 
   // Get Students
   useEffect(() => {
@@ -157,27 +160,21 @@ const Attendance = () => {
         const attendanceData = response.data.data;
         if (attendanceData.length > 0) {
           console.log(attendanceData);
-          attendanceData.forEach((studentData) => {
-            const studentId = studentData.studentId;
-            const totalAttendance = studentData.attendanceData.reduce(
-              (total, data) => total + data.present,
-              0
-            );
-            // setStudentPresent(tota)
-            console.log(
-              `Student Id: ${studentId}, Total Attendance: ${totalAttendance}`
-            );
-
-            setStudentAttendance(attendanceData);
-            setStudentTotalPresents((prevPresents) => {
-              const updatedPresents = [...prevPresents];
-              const studentIndex = students.findIndex(
-                (student) => student.id === studentId
+          const updatedStudentTotalPresents = attendanceData.map(
+            (studentData) => {
+              const studentId = studentData.studentId;
+              const totalAttendance = studentData.attendanceData.reduce(
+                (total, data) => total + data.present,
+                0
               );
-              updatedPresents[studentIndex] = totalAttendance;
-              return updatedPresents;
-            });
-          });
+              console.log(
+                `Student Id: ${studentId}, Total Attendance: ${totalAttendance}`
+              );
+              return totalAttendance;
+            }
+          );
+          setStudentAttendance(attendanceData);
+          setStudentTotalPresents(updatedStudentTotalPresents);
         } else {
           console.log("No student attendance data found in the response.");
           setDataAvailable(false); // Data is not available for the selected month
@@ -321,9 +318,10 @@ const Attendance = () => {
   });
 
   const handleMouseEnter = (studentName, date, dateLabel) => {
-    const message = `Student Name: ${studentName}, Date: ${date} , DateLabel:${dateLabel}`;
+    const message = `Student Name: ${studentName}, Date: ${date} `;
     console.log(message); // Log the message to the console
     setHoverMessage(message); // Update the state with the message
+    document.body.style.cursor = "pointer";
   };
 
   const handleMouseLeave = () => {

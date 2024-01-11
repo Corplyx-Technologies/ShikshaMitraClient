@@ -26,13 +26,13 @@ function Create_Student() {
   const authToken = Cookies.get('token');
 const modalStyle = {
   content: {
-    width: "80%",
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    // width: "80%",
+    // top: '50%',
+    // left: '50%',
+    // right: 'auto',
+    // bottom: 'auto',
+    // marginRight: '-50%',
+    // transform: 'translate(-50%, -50%)',
     zIndex: 1000,
   },
 };
@@ -397,7 +397,7 @@ const modalStyle = {
 
 
   return (
-    <div className=" mt-12 md:mt-1  mx-auto p-3 ">
+    <div className=" mt-12 md:mt-1 p-3  ">
     <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text ">New Student and Parent</h1>
       <button
         onClick={openModal}

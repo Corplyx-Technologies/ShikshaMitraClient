@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
-
+import { useStateContext } from "../contexts/ContextProvider";
 
 const CreateExams = () => {
-
+  const { currentColor} = useStateContext();
   const data = JSON.parse(localStorage.response);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -161,7 +161,8 @@ const CreateExams = () => {
     <div className="py-8 px-4 md:px-8">
       <div className="">
         <button
-          className="bg-blue-500 hover-bg-blue-700 text-white font-semibold py-2 px-4 rounded"
+           className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
+           style={{color:currentColor}}
           onClick={handleModalOpen}
         >
           Create Exam
@@ -273,7 +274,7 @@ const CreateExams = () => {
     
       <div>
 <div className="mt-8">
-  <h2 className="text-2xl font-bold mb-4 text-cyan-600 text-center">Exam</h2>
+  <h2 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">Exam</h2>
   <div className="overflow-x-auto bg-gray-100 rounded-lg p-4">
     <table className="w-full border-collapse table-auto">
       <thead>
@@ -323,7 +324,12 @@ const CreateExams = () => {
            
            
             <td className='text-center'>
-            <button className='bg-red-600 p-3 text-center text-white' onClick={() => handleDelete(data._id)}>Delete</button>
+            <button 
+            // clas className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
+            className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
+            style={{color:currentColor}}
+            
+             onClick={() => handleDelete(data._id)}>Delete</button>
             </td>
           </tr>
         

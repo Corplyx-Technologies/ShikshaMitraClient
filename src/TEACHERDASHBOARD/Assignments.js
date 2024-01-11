@@ -3,6 +3,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 
+import { useStateContext } from "../contexts/ContextProvider";
+
 const Api_Create =
   "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createAssignment";
 const Api_Update =
@@ -15,6 +17,7 @@ const API_DELETE =
   "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteAssignment/6538e0fb0c6aa38bbddec27b";
 
 const Assignments = () => {
+  const { currentColor} = useStateContext();
   const [data, setData] = useState([]);
   const [selectedGrade, setSelectedGrade] = useState("");
   const [selectedSection, setSelectedSection] = useState("");
@@ -182,8 +185,10 @@ const Assignments = () => {
   console.log(assignmentData);
   return (
     <>
-      <div className="p-6 w-full max-w-md mx-auto bg-indigo-100 rounded-md shadow-md">
-        <h1 className="text-2xl font-semibold text-indigo-600 mb-4">
+      <div className="p-6 w-full max-w-md mx-auto  rounded-md shadow-md"
+      style={{background:currentColor}}
+      >
+        <h1 className="text-xl font-bold mb-4 uppercase text-center  hover-text ">
           Create Homework Assignment
         </h1>
         <form onSubmit={handleSubmit}>
@@ -352,13 +357,16 @@ const Assignments = () => {
             </div>
           </div>
           {/* Existing input fields for title, description, dueDate, and pdfFile go here */}
-          <button
+         <div className="w-full text-center">
+         <button
             onclick={handleSubmit}
             type="submit"
-            className="w-full bg-indigo-500 text-white p-2 rounded-md font-semibold hover:bg-indigo-600 focus:outline-none"
+            className="dark:text-white dark:bg-secondary-dark-bg  text-center neu-btn "
+        // style={{color:currentColor}}
           >
             Create Assignment
           </button>
+         </div>
         </form>
       </div>
       <div className="mt-4 p-3">

@@ -364,7 +364,7 @@ const Results = () => {
   return (
     <div className="bg-gray-100 p-4">
       <div className="mx-auto">
-        <h1 className="text-2xl font-bold mb-4">Results Management</h1>
+        <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">Results Management</h1>
         <div className="grid">
           <div className="flex flex-wrap space-y-2 md:space-y-0 md:space-x-4">
             <select

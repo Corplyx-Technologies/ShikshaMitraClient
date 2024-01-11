@@ -331,6 +331,9 @@ const Attendance = () => {
 
   return (
     <div className="text-center py-6">
+       <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">
+          Student Attendance Management System
+        </h1>
       <button
         onClick={() => setModalIsOpen(true)}
         className="bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
@@ -397,9 +400,9 @@ const Attendance = () => {
       </Modal>
 
       <div className="grid mx-auto p-4 overflow-hidden">
-        <h1 className="text-2xl font-bold mb-4 text-cyan-700 text-center uppercase">
+        {/* <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">
           Student Attendance Management System
-        </h1>
+        </h1> */}
         <div className="mb-4">
           <label className="mr-2">Month:</label>
           <input

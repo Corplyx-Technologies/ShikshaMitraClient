@@ -167,7 +167,7 @@ const AboutTeacher = () => {
             </div>
           </div>
         </div>
-        <div className="w-[330px] border-1 rounded-md border-[#01a9ac] p-5   hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
+        {/* <div className="w-[330px] border-1 rounded-md border-[#01a9ac] p-5   hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
           <h1 className="text-center mb-3 font-extrabold">
             {" "}
             {teacherDetails.fullName}'s Details
@@ -249,7 +249,80 @@ const AboutTeacher = () => {
               {teacherDetails.experience} yrs
             </span>
           </div>
-        </div>
+        </div> */}
+        <div className="w-[300px] border-1 rounded-md border-[#01a9ac] hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
+                        <div class="relative overflow-x-auto">
+                            <h1 className="text-center mb-3 font-extrabold">  {teacherDetails.fullName}'s Details</h1>
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <tbody>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Employee ID:
+                                        </th>
+                                        <td class="px-2 py-2">{teacherDetails.employeeId}</td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                            Email :
+                                        </th>
+                                        <td class="px-2 py-2">{teacherDetails.email}</td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                            Gender :
+                                        </th>
+                                        <td class="px-2 py-2">{teacherDetails.gender}</td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Qualification :
+                                        </th>
+                                        <td class="px-2 py-2">
+                                        {teacherDetails.qualification}
+                                        </td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Salary :
+                                        </th>
+                                        <td class="px-2 py-2">
+                                        {teacherDetails.salary} / month
+                                        </td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Subject :
+                                        </th>
+                                        <td class="px-2 py-2"> {teacherDetails.subject}</td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        ClassTeacher :
+                                        </th>
+                                        <td class="px-2 py-2">
+                                        {teacherDetails.classTeacher}-{teacherDetails.section}
+                                        </td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        DOB :
+                                        </th>
+                                        <td class="px-2 py-2">
+                                        {formattedDate(teacherDetails.dateOfBirth)}
+                                        </td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Experience :
+                                        </th>
+                                        <td class="px-2 py-2">
+                                        {teacherDetails.experience} yrs
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
       </div>
     </div>
   );

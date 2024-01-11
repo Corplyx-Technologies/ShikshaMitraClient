@@ -48,9 +48,9 @@ function DynamicDataTable({ data, handleDelete }) {
     { field: "id", headerName: "S. No.", width: 50 },
     { field: "fullName", headerName: "Student Name", flex:1 },
     { field: "email", headerName: "Email", flex:1 },
-    { field: "rollNo", headerName: "Roll No",flex:1 },
+    { field: "rollNo", headerName: "Roll No",width: 50 },
     { field: "contact", headerName: "Contact",flex:1 },
-    { field: "class", headerName: "Class",flex:1 },
+    { field: "class", headerName: "Class",width: 50 },
     { field: "section", headerName: "Section",flex:1 },
     {
       field: "actions",
@@ -82,12 +82,12 @@ function DynamicDataTable({ data, handleDelete }) {
 
   return (
     // <div className="h-[350px] mx-auto bg-white mt-2 rounded-md">
-    <div className="h-[450px] dark:text-white dark:bg-secondary-dark-bg  mx-auto bg-white mt-2 rounded-md overflow-scroll w-full">
-    <div className=" min-w-[1000px]  w-full dark:text-gray-200">
+   <div className="h-[450px]  dark:text-white dark:bg-secondary-dark-bg  mx-auto bg-white mt-2 rounded-md overflow-scroll w-full">
+    <div className="  dark:text-gray-200 ">
       <DataGrid
         rows={dataWithIds}
         columns={columns}
-        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto bg-white"
+        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto bg-white "
         // components={{ NoRowsOverlay }}
       />
       </div>

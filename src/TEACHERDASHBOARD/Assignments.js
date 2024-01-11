@@ -266,11 +266,17 @@ const Assignments = () => {
                 {selectedGrade &&
                   data
                     .find((item) => item.className === selectedGrade)
-                    .subject.map((item, index) => (
-                      <option key={index} value={item}>
-                        {item}
-                      </option>
-                    ))}
+                    .subject.map((item, index) => {
+                      let str = item;
+                      let result_array = str.split(',');
+                  
+                      return result_array.map((data, subIndex) => (
+                        <option key={index + subIndex} value={data}>
+                          {data}
+                        </option>
+                      ));
+                                  
+})}
               </select>
             </div>
 

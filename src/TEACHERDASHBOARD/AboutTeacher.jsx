@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import generatePDF, { usePDF, Resolution, Margin } from "react-to-pdf";
 import { download } from "@syncfusion/ej2/filemanager";
-
+import { useStateContext } from "../contexts/ContextProvider";
 const authToken = Cookies.get("token");
 
 const AboutTeacher = () => {
+  const { currentColor} = useStateContext();
   const [teacherDetails, setTeacherDetails] = useState([]);
   const email = localStorage.getItem("email");
   console.log("email", email);
@@ -97,7 +98,8 @@ const AboutTeacher = () => {
   const downloadButton = (
     <button
       onClick={handlePDFGeneration}
-      className=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+      className="text-center flex justify-center items-center w-full"
+      // className=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
     >
       <svg
         class="fill-current w-4 h-4 mr-2"
@@ -162,94 +164,15 @@ const AboutTeacher = () => {
             <div className="h-14 ">
               <p className=" p-2 text-white text-center font-bold">{`Address : ${teacherDetails.address}`}</p>
             </div>
-            <div className="flex justify-center mt-3 ">
+            <div 
+             className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+             style={{border:`2px solid ${currentColor} `,color:currentColor}}
+            >
               {!generatingPDF && downloadButton}
             </div>
           </div>
         </div>
-        {/* <div className="w-[330px] border-1 rounded-md border-[#01a9ac] p-5   hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
-          <h1 className="text-center mb-3 font-extrabold">
-            {" "}
-            {teacherDetails.fullName}'s Details
-          </h1>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">Employee ID:</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.employeeId}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">Email :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.email}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">Gender :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.gender}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">Qualification :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.qualification}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] "> Salary :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.salary} / month
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">Subject :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.subject}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">ClassTeacher :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.classTeacher}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">Section :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.section}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">DOB :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {formattedDate(teacherDetails.dateOfBirth)}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">Joining Date :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {formattedDate(teacherDetails.joiningDate)}
-            </span>
-          </div>
-          <div className="flex gap-2 border-b-1  border-green-300 p-1 ">
-            <h2 className="w-[100px]  text-[14px] ">Experience :</h2>
-            <span className="w-[200px]font-semibold text-[#01a9ac]  text-[12px]">
-              {" "}
-              {teacherDetails.experience} yrs
-            </span>
-          </div>
-        </div> */}
+        
         <div className="w-[300px] border-1 rounded-md border-[#01a9ac] hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
                         <div class="relative overflow-x-auto">
                             <h1 className="text-center mb-3 font-extrabold">  {teacherDetails.fullName}'s Details</h1>

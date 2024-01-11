@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-const authToken = Cookies.get('token');
 
+import { useStateContext } from "../contexts/ContextProvider";
+const authToken = Cookies.get('token');
 const Study = () => {
+  const { currentColor} = useStateContext();
   // const [fetchData, setFetchData] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [materials, setMaterials] = useState([]);
@@ -127,7 +129,8 @@ console.log(materials)
       <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">Study Materials</h1>
 
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+       className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+       style={{border:`2px solid ${currentColor} `}}
         onClick={openModal}
       >
         Add Material
@@ -287,7 +290,8 @@ console.log(materials)
           </td>
           <td className='text-center border border-blue-500 px-4 py-2'>
           <button
-              className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded mt-4"
+              className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+              style={{border:`2px solid red `,color:currentColor}}
               onClick={() => deleteMaterial(material)}
             >
               Delete

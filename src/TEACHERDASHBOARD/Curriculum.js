@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useStateContext } from "../contexts/ContextProvider";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
@@ -9,7 +10,7 @@ const Api_GetAll = "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/g
 const Delete_API ="https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteCurriculum";
 
 const Curriculum = () => {
-  
+  const { currentColor} = useStateContext();
   const [selectedGrade, setSelectedGrade] = useState('');
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
@@ -186,7 +187,9 @@ const Curriculum = () => {
               />
             </div>
           </div>
-          <button  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" 
+          <button  
+           className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+           style={{border:`2px solid ${currentColor} `,color:currentColor}}
           type="submit">Submit</button>
         </form>
 

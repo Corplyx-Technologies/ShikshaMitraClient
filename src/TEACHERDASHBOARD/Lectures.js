@@ -4,10 +4,11 @@ import {  toast } from 'react-toastify';
 import axios from "axios";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
+import { useStateContext } from "../contexts/ContextProvider";
 
 
 const Lectures = () => {
-
+  const { currentColor} = useStateContext();
   // const isStudent = props.student;
   const [timetable, setTimetable] = useState(
     [
@@ -218,14 +219,15 @@ const Lectures = () => {
         ) : (
           <button
             onClick={() => setIsEditing(true)}
-            className="bg-green-500 hover.bg-green-700 text-white font-bold py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+           style={{border:`2px solid ${currentColor} `,color:currentColor}}
           >
             Create
           </button>
         )}
   {
     !isEditing && <button
-    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4"
+    className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 border-red-600 ml-2"
     onClick={handleDelete}
    >Delete </button>
   }

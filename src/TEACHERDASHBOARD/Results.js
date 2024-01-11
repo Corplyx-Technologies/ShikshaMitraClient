@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useStateContext } from "../contexts/ContextProvider";
 const authToken = Cookies.get("token");
 
 export const GET_ALL_EXAMS_API =
@@ -13,6 +14,8 @@ export const GET_RESULTS_API =
   "https://real-ruby-dolphin-fez.cyclic.app/api/v1/results/getResults";
 
 const Results = () => {
+
+  const { currentColor} = useStateContext();
   const classdata = JSON.parse(localStorage.getItem("response"));
 
   const [resultData, setResultData] = useState([]);
@@ -474,14 +477,16 @@ const Results = () => {
           <div className="mt-4">
             {editMode ? (
               <button
-                className="bg-green-500 text-white px-4 py-2 rounded-md"
+              className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+              style={{border:`2px solid ${currentColor} `,color:currentColor}}
                 onClick={handleSubmitMarks}
               >
                 Submit Marks
               </button>
             ) : (
               <button
-                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+              className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+              style={{border:`2px solid yellow `,color:currentColor}}
                 onClick={() => setEditMode(true)}
               >
                 Edit Marks

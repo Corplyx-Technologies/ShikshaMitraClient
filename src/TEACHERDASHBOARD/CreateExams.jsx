@@ -162,8 +162,8 @@ const CreateExams = () => {
       <h2 className="text-4xl font-bold mb-4 uppercase text-center  hover-text">Exam</h2>
       <div className="">
         <button
-           className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-           style={{color:currentColor}}
+           className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+           style={{border:`2px solid ${currentColor} `,color:currentColor}}
           onClick={handleModalOpen}
         >
           Create Exam
@@ -257,7 +257,8 @@ const CreateExams = () => {
             </button>
             <div className="flex justify-end mt-4">
               <button
-                className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded"
+                 className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+                 style={{border:`2px solid ${currentColor} `,color:currentColor}}
                 onClick={handleSubmit}
               >
                 Submit
@@ -328,8 +329,8 @@ const CreateExams = () => {
             <td className='text-center'>
             <button 
             // clas className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-            className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-            style={{color:currentColor}}
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+           style={{border:`2px solid ${currentColor} `,color:currentColor}}
             
              onClick={() => handleDelete(data._id)}>Delete</button>
             </td>

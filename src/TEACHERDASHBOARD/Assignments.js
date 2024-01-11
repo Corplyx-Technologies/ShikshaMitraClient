@@ -361,7 +361,8 @@ const Assignments = () => {
          <button
             onclick={handleSubmit}
             type="submit"
-            className="dark:text-white dark:bg-secondary-dark-bg  text-center neu-btn "
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+            style={{border:`2px solid ${currentColor} `,color:currentColor}}
         // style={{color:currentColor}}
           >
             Create Assignment

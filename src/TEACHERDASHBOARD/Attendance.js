@@ -3,9 +3,11 @@ import Modal from "react-modal";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
 import Cookies from "js-cookie";
-const authToken = Cookies.get("token");
 
+import { useStateContext } from "../contexts/ContextProvider";
+const authToken = Cookies.get("token");
 const Attendance = () => {
+  const { currentColor} = useStateContext();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [students, setStudents] = useState([]);
   const [studentPresent, setStudentPresent] = useState([]);
@@ -336,7 +338,9 @@ const Attendance = () => {
         </h1>
       <button
         onClick={() => setModalIsOpen(true)}
-        className="bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+        className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 "
+        style={{border:`2px solid ${currentColor} `,color:currentColor}}
+        // style={{color:currentColor}}
       >
         Mark Attendance
       </button>

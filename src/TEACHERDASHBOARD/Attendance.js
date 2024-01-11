@@ -8,6 +8,7 @@ const authToken = Cookies.get("token");
 const Attendance = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [students, setStudents] = useState([]);
+  const [studentPresent, setStudentPresent] = useState([]);
   const [date, setDate] = useState(getFormattedDate(new Date()));
   const [isEditing, setIsEditing] = useState(true);
   const [daysInMonth, setDaysInMonth] = useState(getDaysInMonth(new Date()));
@@ -16,11 +17,13 @@ const Attendance = () => {
   const [studentTotalPresents, setStudentTotalPresents] = useState([]);
   const [dataAvailable, setDataAvailable] = useState(false);
   const [hoverMessage, setHoverMessage] = useState(""); // State to store the hover message
-
   useEffect(() => {
     // Set the initial state for studentTotalPresents here
     setStudentTotalPresents(Array(students.length).fill(studentTotalPresents));
   }, []);
+
+  console.log(studentTotalPresents);
+  useEffect(() => {}, []);
 
   // Get Students
   useEffect(() => {
@@ -158,6 +161,7 @@ const Attendance = () => {
               (total, data) => total + data.present,
               0
             );
+            // setStudentPresent(tota)
             console.log(
               `Student Id: ${studentId}, Total Attendance: ${totalAttendance}`
             );
@@ -171,6 +175,7 @@ const Attendance = () => {
               updatedPresents[studentIndex] = totalAttendance;
               return updatedPresents;
             });
+            console.log(studentAttendance);
           });
         } else {
           console.log("No student attendance data found in the response.");
@@ -239,14 +244,16 @@ const Attendance = () => {
     const formattedDate = date.getDate().toString().padStart(2, "0");
     return formattedDate;
   });
+  // console.log(dateLabels);
 
   const studentRows = students.map((student, index) => {
-    const totalPresents = studentTotalPresents[index]; // Get the total presents for the current student
+    // console.log("totalAttendance", attendanceData);
 
     return (
       <tr key={student.id}>
         <td className="px-2 py-1 border">{index + 1}</td>
         <td className="px-2 py-1 border">{student.name}</td>
+        {/* Issue */}
         {dateLabels.map((dateLabel, dateIndex) => {
           const attendanceData = studentAttendance.find(
             (data) => data.studentId === student.id
@@ -257,6 +264,9 @@ const Attendance = () => {
             const day = dateObject.getDate(); // Get the day part (1-31)
             return day.toString().padStart(2, "0"); // Format it as "DD"
           };
+          {
+            /* console.log(formattedResponseDate); */
+          }
 
           const cellContent = () => {
             if (attendanceData && attendanceData.attendanceData[dateIndex]) {
@@ -276,13 +286,13 @@ const Attendance = () => {
                 .padStart(2, "0");
               const day = inputDate.getDate().toString().padStart(2, "0");
 
-              const formatDate = `${year}-${month}-${day}`;
+              const formatDate = `${day}-${month}-${year}`;
               return (
                 <td
                   key={dateIndex}
                   className="px-2 py-1 border text-center"
                   onMouseEnter={() =>
-                    handleMouseEnter(student.name, formatDate)
+                    handleMouseEnter(student.name, formatDate, dateLabel)
                   }
                 >
                   <span
@@ -310,14 +320,14 @@ const Attendance = () => {
 
           return cellContent();
         })}
-        <td className="px-2 py-1 border">{totalPresents}</td>{" "}
-        {/* Display total presents here */}
+        <td className="px-2 py-1 border">{studentTotalPresents[index]}</td>{" "}
+        {/* Issue */}
       </tr>
     );
   });
 
-  const handleMouseEnter = (studentName, date) => {
-    const message = `Student Name: ${studentName}, Date: ${date}`;
+  const handleMouseEnter = (studentName, date, dateLabel) => {
+    const message = `Student Name: ${studentName}, Date: ${date} , DateLabel:${dateLabel}`;
     console.log(message); // Log the message to the console
     setHoverMessage(message); // Update the state with the message
   };
@@ -429,7 +439,7 @@ const Attendance = () => {
                         {dateLabel}
                       </th>
                     ))}
-                    <th className="px-2 py-1 border ">Days</th>
+                    <th className="px-2 py-1 border ">Presents</th>
                   </tr>
                 </thead>
                 <tbody>{studentRows}</tbody>

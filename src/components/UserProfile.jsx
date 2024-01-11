@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 const UserProfile = () => {
+  const { currentColor } = useStateContext();
+
   const responseString = localStorage.getItem("response");
   const response = JSON.parse(responseString);
   const schoolName = response.schoolName;

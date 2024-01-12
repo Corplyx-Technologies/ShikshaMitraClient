@@ -61,6 +61,7 @@ const Sidebar = () => {
             <>
               <div className="flex justify-between items-center ">
                 <Link
+                 style={{ color: currentColor }}
                   to="/student"
                   onClick={handleCloseSideBar}
                   className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
@@ -123,7 +124,7 @@ const Sidebar = () => {
               <div className="flex justify-between items-center ">
                 <Link
                   to="/teacher"
-                  
+                  style={{ color: currentColor }}
                   onClick={handleCloseSideBar}
                   className="items-center gap-3 ml-4 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
                 >
@@ -152,6 +153,7 @@ const Sidebar = () => {
                   
                   key={item.title}>
                     <Link
+
                       to="/teacher"
                       style={{ color: currentColor }}
                       className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase  cursor-pointer"
@@ -190,13 +192,16 @@ const Sidebar = () => {
             <>
               <div className="flex justify-between items-center ">
                 <Link
+                 style={{ color: currentColor }}
                   to="/parent"
                   onClick={handleCloseSideBar}
                   className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
                 >
                   <div className="flex items-center space-x-2">
                     <GiExplosiveMaterials className="text-red-500 text-2xl" />
-                    <span className="text-blue-900 text-xl">Parent</span>
+                    <span className=" text-xl"
+                    style={{color:currentColor}}
+                    >Parent</span>
                   </div>
                 </Link>
                 <TooltipComponent content="Menu" position="BottomCenter">
@@ -214,6 +219,7 @@ const Sidebar = () => {
                 {Parentslinks.map((item) => (
                   <div key={item.title}>
                     <Link
+                     style={{ color: currentColor }}
                       to="/parent"
                       className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase"
                     >

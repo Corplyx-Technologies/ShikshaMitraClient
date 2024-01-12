@@ -45,7 +45,7 @@ const StudentNotice = () => {
     {
       notice.map((item, index) => (
        
-        <div className="py-2 px-4 text-black   bg-white rounded-lg shadow-lg mb-3">
+        <div className="py-2 px-4 text-black   bg-white rounded-lg shadow-lg mb-3  dark:text-white dark:bg-secondary-dark-bg">
           <div className="wrapper" key={index}> 
             <h2 className="text-xl text-red-500 font-medium leading-2xl mb-6">{item.title}</h2>
             <p className="text-base">
@@ -66,7 +66,7 @@ const StudentNotice = () => {
             )}
             
             <p className="mt-6">
-              <button className="btn btn-primary text-black hover:opacity-75 transition duration-250" onClick={toggleContent}>
+              <button className="btn btn-primary text-black hover:opacity-75 transition duration-250  dark:text-white " onClick={toggleContent}>
                 {isExpanded ? 'Read Less' : 'Read More'}
               </button>
             </p>

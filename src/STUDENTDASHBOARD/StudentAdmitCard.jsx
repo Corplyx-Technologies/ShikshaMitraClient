@@ -4,7 +4,7 @@ import { usePDF } from "react-to-pdf";
 import { Page, Text, View, doc } from "@react-pdf/renderer";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
-
+import { useStateContext } from "../contexts/ContextProvider";
 // import { FcLeft } from "react-icons/fc";
 
 const theader = {
@@ -16,6 +16,7 @@ const theader = {
 };
 
 const StudentAdmitCard = () => {
+  const { currentColor } = useStateContext();
   const { toPDF, targetRef } = usePDF({ filename: "Student Admit Card" });
 
   const [examData, setExamData] = useState([]);
@@ -109,7 +110,9 @@ const StudentAdmitCard = () => {
     <div>
       <div className="mt-12">
         <select
-          className="p-2 mb-2 border rounded-md w-full md:w-1/4"
+          className="p-2 mb-2 border rounded-md w-full md:w-1/4
+          dark:text-white dark:bg-secondary-dark-bg 
+          "
           onChange={handleExamChange}
           value={selectedExam}
         >
@@ -126,6 +129,7 @@ const StudentAdmitCard = () => {
           className="ml-2 mb-2 w-full 
             md:w-1/4 bg-indigo-500 text-white p-2 rounded-md font-semibold
              hover:bg-indigo-600 focus:outline-none"
+             style={ {background : currentColor } }
         >
           Download
         </button>
@@ -141,7 +145,9 @@ const StudentAdmitCard = () => {
               width: 150,
             }}
           >
-            <div className="p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md">
+            <div className="p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md
+            dark:text-white dark:bg-secondary-dark-bg    
+            ">
               <div className="text-center">
                 <h1 className="text-3xl font-semibold">
                   {schoolData.schoolName}
@@ -174,7 +180,9 @@ const StudentAdmitCard = () => {
 
                 <table className="w-full border border-gray-300 mt-2">
                   <thead className="bg-gray-100">
-                    <tr>
+                    <tr 
+                    style={{background : currentColor}}
+                    >
                       {Object.keys(theader).map((key) => (
                         <th key={key} className="border border-gray-300 p-2">
                           {theader[key]}

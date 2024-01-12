@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
-
+import { useStateContext } from "../contexts/ContextProvider";
 const Lectures = () => {
+  const { currentColor }= useStateContext();
   const [timetable, setTimetable] = useState([
     ["", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", ""],
@@ -95,8 +96,12 @@ const Lectures = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4 text-center text-cyan-700 uppercase">School Dashboard</h1>
       <table className="table-auto w-full border p-2">
-        <thead>
-        <tr className="bg-cyan-700  text-white">
+        <thead 
+        
+        >
+        <tr
+        style={{background : currentColor}}
+         className="bg-cyan-700  text-white">
             <th className="border px-2 py-2"></th>
             <th className="border px-2 py-2">Period 1</th>
             <th className="border px-2 py-2">Period 2</th>
@@ -108,7 +113,7 @@ const Lectures = () => {
             <th className="border px-2 py-2">Period 8</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody  className="dark:text-white dark:bg-secondary-dark-bg text-gray-800" >
           {timetable.map((day, dayIndex) => (
             <tr key={dayIndex} className="border">
               <td className="text-left px-2 py-2 font-semibold border">

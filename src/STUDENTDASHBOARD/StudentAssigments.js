@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useStateContext } from '../contexts/ContextProvider';
 const authToken = Cookies.get('token');
 
 const StudentAssigments = () => {
+
+  const {currentColor} = useStateContext();
   const[assignmentData, setAssignmentsData] = useState([]);
   const[studentData, setStudentData] = useState([]);
   const email = localStorage.getItem("email");
@@ -97,7 +100,9 @@ const StudentAssigments = () => {
   <div className="overflow-x-auto">
   <table className="min-w-full  rounded-md border-collapse">
     <thead className=" bg-cyan-600 text-white ">
-      <tr className='border'>
+      <tr className='border'
+        style={{background : currentColor}}
+      >
         <th className="p-4 border">Title</th>
         <th className="p-4 border">Description</th>
         <th className="p-4 border">Due Date</th>

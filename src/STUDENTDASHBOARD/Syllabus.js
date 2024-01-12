@@ -4,11 +4,13 @@ import axios from 'axios';
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Cookies from 'js-cookie';
+import { useStateContext } from '../contexts/ContextProvider';
 const authToken = Cookies.get('token');
 
 
 
 const Syllabus = () => {
+  const {currentColor} = useStateContext();
   const[curriculumData, setCurriculumData] = useState([]);
 
   const handleDeleteCurriculum = (id)=>{
@@ -19,7 +21,7 @@ const Syllabus = () => {
   //   axios.get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllCurriculum", {
   //     withCredentials: true,
       // headers: {
-      //   Authorization: `Bearer ${authToken}`,
+      //   Authorization: Bearer ${authToken},
       // },
   //   })
   //   .then((response) => {
@@ -119,7 +121,9 @@ const Syllabus = () => {
 <div className="overflow-x-auto">
 <table className="w-full border-collapse border border-gray-500">
 <thead>
-<tr className="bg-cyan-600 text-white">
+<tr
+style={{background : currentColor}}
+ className="bg-cyan-600 text-white">
 <th className="w-1/4 p-2 border border-gray-500 whitespace-nowrap">Academic Year</th>
 <th className="w-1/4 p-2 border border-gray-500">Class</th>
 {/* <th className="w-[100px] border">Course</th> */}
@@ -129,7 +133,7 @@ const Syllabus = () => {
 </thead>
 <tbody>
 {curriculumData.map((item, index) => (
-<tr key={index} className="border border-gray-500 text-center">
+<tr key={index} className="border border-gray-500 text-center dark:text-white dark:bg-secondary-dark-bg  ">
   <td className="p-2 border border-gray-500 whitespace-nowrap">{item.academicYear}</td>
   <td className="p-2 border border-gray-500">{item.className}</td>
   {/* <td className="w-[100px] text-center  border">

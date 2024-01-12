@@ -3,10 +3,14 @@ import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
 import Cookies from "js-cookie";
 import { format } from "date-fns"; // Import the format function
+import { useStateContext } from "../contexts/ContextProvider";
+
 
 const authToken = Cookies.get("token");
 
 const BookManagement = () => {
+
+  const { currentColor } = useStateContext();
   const [submittedData, setSubmittedData] = useState([]);
 
   useEffect(() => {
@@ -55,13 +59,16 @@ const BookManagement = () => {
   const getRowId = (row) => row._id; // Use the _id property as the row id
 
   return (
-    <div style={{ height: "90vh", width: "100%" }}>
+    <div 
+      className="dark:text-white dark:bg-secondary-dark-bg " 
+     style={{ height: "90vh", width: "100%" }}>
       <DataGrid
         rows={submittedData}
         columns={columns}
         pageSize={5}
         disableSelectionOnClick
         getRowId={getRowId}
+        className="dark:text-white dark:bg-secondary-dark-bg "
       />
     </div>
   );

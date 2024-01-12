@@ -5,10 +5,11 @@ import axios from "axios";
 import { usePDF } from "react-to-pdf";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
+import { useStateContext } from "../contexts/ContextProvider";
 
 const StudentResults = () => {
   // const targetPDF = useRef();
-
+  const {currentColor} = useStateContext();
   const { toPDF, targetRef } = usePDF({ filename: "Student Results" });
 
   const [selectedExam, setSelectedExam] = useState("");
@@ -101,7 +102,7 @@ const StudentResults = () => {
   //   axios.get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/results/getResults", {
   //     withCredentials: true,
   // headers: {
-  //   Authorization: `Bearer ${authToken}`,
+  //   Authorization: Bearer ${authToken},
   // },
   //   })
   //   .then((response) => {
@@ -270,7 +271,7 @@ const StudentResults = () => {
     <div className="mt-12">
       <div className="mt-2 md:mt-10">
         <select
-          className="ml-2 p-2 mb-2 border rounded-md w-full md:w-1/4 "
+          className="ml-2 p-2 mb-2 border rounded-md w-full md:w-1/4  dark:text-white dark:bg-secondary-dark-bg text-gray-800 "
           onChange={handleExamChange}
           value={selectedExam}
         >
@@ -283,6 +284,7 @@ const StudentResults = () => {
         </select>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold  ml-2 p-2 mb-2 rounded mt-2"
+          style={{background : currentColor}}
           onClick={handleDownload}
         >
           Download Results
@@ -292,7 +294,7 @@ const StudentResults = () => {
       {/* p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md */}
       <div
         ref={targetRef}
-        className="p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md"
+        className="  dark:text-white dark:bg-secondary-dark-bg text-gray-800 p-4 border border-gray-300 rounded-lg max-w-xl mx-auto bg-white shadow-md"
       >
         <div className="text-center mb-4">
           {/* <img src={school} alt="School Logo" className="w-16 h-16 mx-auto" /> */}
@@ -320,11 +322,13 @@ const StudentResults = () => {
           <p className="text-sm">Section: {userData.section}</p>
           <p className="text-sm">Roll Number: {userData.rollNo}</p>
         </div>
-        <div className="mt-6">
+        <div className="mt-6  ">
           <h2 className="text-xl font-semibold mb-1">Results</h2>
           <table className="w-full border border-gray-300">
-            <thead className="bg-gray-100">
-              <tr>
+            <thead className="bg-gray-100 dark:text-white dark:bg-secondary-dark-bg text-gray-800  ">
+              <tr
+              style={{background : currentColor}} 
+               >
                 <th className="border border-gray-300 p-2">Subject</th>
                 <th className="border border-gray-300 p-2">Marks</th>
               </tr>

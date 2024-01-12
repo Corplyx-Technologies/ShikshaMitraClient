@@ -11,10 +11,12 @@ import StudentAttendanceChart from "../CHART/StudentAttendanceChart";
 import StudentNotice from "./StudentNotice";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useStateContext } from "../contexts/ContextProvider";
 const authToken = Cookies.get("token");
 
 // const API_GET_DATA = "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents"
 const StudentHome = () => {
+  const { currentColor } = useStateContext();
   const [data, setData] = useState([]);
   const [submittedData, setSubmittedData] = useState([]);
   const [shouldFetchData, setShouldFetchData] = useState(false);
@@ -84,7 +86,7 @@ const StudentHome = () => {
       <div className="mt-12">
         {/* <div className="grid gap-7 xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  p-3"> */}
         <div className="flex justify-around  gap-3  p-7">
-          <div className={`p-2 rounded-md text-center bg-white`}>
+          <div className={`p-2 rounded-md text-center bg-white dark:text-white dark:bg-secondary-dark-bg text-gray-800 `}>
             <button
               type="button"
               className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl bg-[#03C9D7]"
@@ -93,16 +95,16 @@ const StudentHome = () => {
             </button>
             <StudentAttendanceChart />
           </div>
-          <div className=" p-2  rounded-md sm:w-full  bg-white col-span-2">
+          <div className=" p-2  rounded-md sm:w-full  bg-white col-span-2  dark:text-white dark:bg-secondary-dark-bg text-gray-800 ">
             <h2 className="font-bold text-[#03c9d7]">Notice Board</h2>
-            <div className="h-[200px]  overflow-scroll p-2 rounded-md ">
+            <div className="h-[200px]  overflow-scroll p-2 rounded-md dark:text-white dark:bg-secondary-dark-bg text-gray-800 ">
               <StudentNotice />
             </div>
           </div>
         </div>
         <div>
           <div className=" w-full  flex items-center justify-center">
-            <div className="bg-white gap-2 rounded-lg mt-5 p-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 shadow-[rgba(0,0,_0,_0.25)_0px_25px_50px-12px]">
+            <div className="bg-white gap-2 rounded-lg mt-5 p-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 shadow-[rgba(0,0,_0,_0.25)_0px_25px_50px-12px]  dark:text-white dark:bg-secondary-dark-bg text-gray-800  ">
               <div className="w-[300px] border-1 rounded-md border-[#01a9ac] p-5   hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
                 <div className="flex justify-between">
                   <div>
@@ -115,14 +117,16 @@ const StudentHome = () => {
 
                   <h2>IDENTITY CARD </h2>
                 </div>
-
+                {/* text-center text-2xl font-bold text-[#01a9ac] */}
                 <div>
-                  <h1 className="text-center text-2xl font-bold text-[#01a9ac]">
+                  <h1 
+                  className="text-center text-2xl font-bold text-[#01a9ac]"
+                  >
                     Model School
                   </h1>
                 </div>
 
-                <div className="text-center rounded-sm bg-[#01a9acc2]">
+                <div className="text-center rounded-sm bg-[#01a9acc2]  "  style={ { background : currentColor }  } >
                   <h3 className="text-white">
                     Lorem ipsum dolor, sit amet consectetur adipisicing.
                   </h3>
@@ -145,23 +149,6 @@ const StudentHome = () => {
                         {fullName}
                       </span>
                     </div>
-                    {/* <div className="my-1">
-                      <h2 className="w-[100px] text-[13px] leading-3 ">
-                        F/Name :
-                      </h2>
-                      <span className="font-semibold text-[14px] text-[#01a9ac]">
-                        {data.fatherName}
-                      </span>
-                    </div>
-
-                    <div className="my-1">
-                      <h2 className="w-[100px] text-[13px] leading-3 ">
-                        M/Name :
-                      </h2>
-                      <span className="font-semibold text-[14px] text-[#01a9ac]">
-                        {data.motherName}
-                      </span>
-                    </div> */}
 
                     <div className="flex">
                       <h2 className="w-[60px]">Class:</h2>

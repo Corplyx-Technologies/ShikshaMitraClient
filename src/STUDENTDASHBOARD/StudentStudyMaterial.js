@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
+import { useStateContext } from '../contexts/ContextProvider';
 const authToken = Cookies.get('token');
 
 const StudentStudyMaterial = () => {
+  const {currentColor} = useStateContext();
   const [fetchData, setFetchData] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [materials, setMaterials] = useState([]);
@@ -90,15 +92,17 @@ const StudentStudyMaterial = () => {
        <h1 className="text-3xl text-cyan-700 mb-4 text-center uppercase">Study Materials</h1>
     <table className="border-collapse w-full">
       <thead>
-        <tr className="bg-cyan-700  text-white">
+        <tr 
+        style={{backgroundColor : currentColor}}
+        className="bg-cyan-700  text-white">
           <th className="border border-blue-500 px-4 py-2">Title</th>
           <th className="border border-blue-500 px-4 py-2">Type</th>
           <th className="border border-blue-500 px-4 py-2">File</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="  "  >
         {materials.map((material, index) => (
-          <tr key={index} className="bg-white text-center">
+          <tr key={index} className="bg-white text-center  dark:text-white dark:bg-secondary-dark-bg  ">
             <td className="border border-blue-500 px-4 py-2">{material.title}</td>
             <td className="border border-blue-500 px-4 py-2">{material.type}</td>
             <td className="border border-blue-500 px-4 py-2">

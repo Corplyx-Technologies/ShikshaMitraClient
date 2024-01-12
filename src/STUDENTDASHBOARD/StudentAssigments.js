@@ -95,7 +95,10 @@ const StudentAssigments = () => {
     
     // </div>
     <div className="mt-4 p-3">
-    <h2 className="text-lg font-semibold text-cyan-700 text-center uppercase my-3">Created Assignments</h2>
+    <h2 
+    className="text-4xl font-bold mb-4 uppercase text-center dark:text-white  hover-text "
+    style={{color:currentColor}}
+    >Created Assignments</h2>
   
   <div className="overflow-x-auto">
   <table className="min-w-full  rounded-md border-collapse">

@@ -89,7 +89,10 @@ const StudentStudyMaterial = () => {
     //   </div>
     // </div>
     <div className="mt-8 p-3">
-       <h1 className="text-3xl text-cyan-700 mb-4 text-center uppercase">Study Materials</h1>
+       <h1 
+       className="text-4xl font-bold mb-4 uppercase text-center dark:text-white  hover-text "
+       style={{color:currentColor}}
+       >Study Materials</h1>
     <table className="border-collapse w-full">
       <thead>
         <tr 

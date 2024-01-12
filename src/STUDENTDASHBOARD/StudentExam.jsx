@@ -101,7 +101,10 @@ const StudentExams= () => {
         </div>
       </div> */}
       <div className="mt-8">
-  <h2 className="text-2xl font-bold mb-4 uppercase text-center text-cyan-700">Exam</h2>
+  <h2 
+  className="text-4xl font-bold mb-4 uppercase text-center dark:text-white  hover-text "
+  style={{color:currentColor}}
+  >Exam</h2>
   <div className="overflow-x-auto bg-gray-100 rounded-lg p-4 dark:text-white dark:bg-secondary-dark-bg   ">
     <table className="w-full border-collapse table-auto">
       <thead>

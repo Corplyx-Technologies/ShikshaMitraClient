@@ -114,7 +114,10 @@ const Syllabus = () => {
 //       </div>
 //     </div>
 <div className="mt-4 w-full">
-<h2 className="text-2xl font-semibold text-cyan-700 uppercase text-center">
+<h2 
+className="text-4xl font-bold mb-4 uppercase text-center dark:text-white  hover-text "
+style={{color:currentColor}}
+>
   Curriculum
 </h2>
 

@@ -108,7 +108,7 @@ const StudentAdmitCard = () => {
 
   return (
     <div>
-      <div className="mt-12">
+      <div className="mt-12 w-[60%] mx-auto">
         <select
           className="p-2 mb-2 border rounded-md w-full md:w-1/4
           dark:text-white dark:bg-secondary-dark-bg 
@@ -126,10 +126,8 @@ const StudentAdmitCard = () => {
 
         <button
           onClick={handleDownload}
-          className="ml-2 mb-2 w-full 
-            md:w-1/4 bg-indigo-500 text-white p-2 rounded-md font-semibold
-             hover:bg-indigo-600 focus:outline-none"
-             style={ {background : currentColor } }
+          className="dark:text-white dark:bg-secondary-dark-bg text-gray-800 ml-2 neu-btn border-2 "
+          style={{ border: `2px solid ${currentColor} `, color: currentColor }}
         >
           Download
         </button>

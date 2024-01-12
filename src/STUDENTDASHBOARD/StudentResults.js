@@ -269,7 +269,7 @@ const StudentResults = () => {
   console.log(academicYear);
   return (
     <div className="mt-12">
-      <div className="mt-2 md:mt-10">
+      <div className="mt-2 md:mt-10 w-[60%] mx-auto">
         <select
           className="ml-2 p-2 mb-2 border rounded-md w-full md:w-1/4  dark:text-white dark:bg-secondary-dark-bg text-gray-800 "
           onChange={handleExamChange}
@@ -283,8 +283,8 @@ const StudentResults = () => {
           ))}
         </select>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold  ml-2 p-2 mb-2 rounded mt-2"
-          style={{background : currentColor}}
+          className="dark:text-white dark:bg-secondary-dark-bg text-gray-800 ml-2 neu-btn border-2 "
+          style={{ border: `2px solid ${currentColor} `, color: currentColor }}
           onClick={handleDownload}
         >
           Download Results

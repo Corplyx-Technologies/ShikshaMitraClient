@@ -94,14 +94,17 @@ const Lectures = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4 text-center text-cyan-700 uppercase">School Dashboard</h1>
+      <h1 
+      className="text-4xl font-bold mb-4 uppercase text-center dark:text-white  hover-text "
+      style={{color:currentColor}}
+      >School Dashboard</h1>
       <table className="table-auto w-full border p-2">
         <thead 
         
         >
         <tr
         style={{background : currentColor}}
-         className="bg-cyan-700  text-white">
+         className="bg-cyan-700  text-white ">
             <th className="border px-2 py-2"></th>
             <th className="border px-2 py-2">Period 1</th>
             <th className="border px-2 py-2">Period 2</th>

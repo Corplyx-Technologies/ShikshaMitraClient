@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-// import { useReactToPdf } from 'react-to-pdf';
-// import html2canvas from 'html2canvas';
+import { useStateContext } from "../contexts/ContextProvider";
 import { usePDF } from "react-to-pdf";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
 
 const ParentResults = () => {
   // const targetPDF = useRef();
-
+  const { currentColor} = useStateContext();
   const { toPDF, targetRef } = usePDF({ filename: "Student Results" });
 
   const [selectedExam, setSelectedExam] = useState("");
@@ -297,7 +296,8 @@ const ParentResults = () => {
           ))}
         </select>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold  ml-2 p-2 mb-2 rounded mt-2"
+          className="dark:text-white dark:bg-secondary-dark-bg text-gray-800 neu-btn border-2 ml-12"
+          style={{border:`2px solid ${currentColor} `,color:currentColor}}
           onClick={handleDownload}
         >
           Download Results

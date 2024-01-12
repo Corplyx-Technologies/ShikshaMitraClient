@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useStateContext } from "../contexts/ContextProvider";
 const authToken = Cookies.get("token");
 
 const MyKids = () => {
+  const { currentColor} = useStateContext();
   const [studentData, setStudentData] = useState({});
   const data = JSON.parse(localStorage.getItem("response"));
   console.log("LocalStorage-->", data);
@@ -78,13 +80,17 @@ const MyKids = () => {
             </div>
 
             <div>
-              <h1 className="text-center text-2xl font-bold text-[#01a9ac]">
+              <h1 className="text-center text-xl font-semibold"
+              style={{color:currentColor}}
+              >
                 {/* Model School */}
                 {admindata.schoolName}
               </h1>
             </div>
 
-            <div className="text-center rounded-sm bg-[#01a9acc2]">
+            <div className="text-center rounded-sm "
+            style={{background:currentColor}}
+            >
               <h3 className="text-white">
                 {/* Lorem ipsum dolor, sit amet consectetur adipisicing. */}
                 {admindata.address}
@@ -102,34 +108,34 @@ const MyKids = () => {
               <div className="ml-3">
                 <div className="">
                   <h2 className="w-[100px] text-[13px] leading-3">Name :</h2>
-                  <span className="font-semibold text-[14px] text-[#01a9ac]">
+                  <span className="font-semibold text-[14px] ">
                     {studentData && studentData.fullName}
                   </span>
                 </div>
-                <div className="my-1">
+                <div className="my-1 py-1">
                   <h2 className="w-[100px] text-[13px] leading-3 ">F/Name :</h2>
-                  <span className="font-semibold text-[14px] text-[#01a9ac]">
+                  <span className="font-semibold text-[14px] ">
                     {studentData.fatherName}
                   </span>
                 </div>
-                <div className="my-1">
+                <div className="my-1 py-1">
                   <h2 className="w-[100px] text-[13px] leading-3 ">M/Name :</h2>
-                  <span className="font-semibold text-[14px] text-[#01a9ac]">
+                  <span className="font-semibold text-[14px] ">
                     {studentData && studentData.motherName}
                   </span>
                 </div>
 
-                <div className="flex">
-                  <h2 className="w-[60px]">Class:</h2>
-                  <span className="text-[#01a9ac] ">
+                <div className="flex mt-2  items-center">
+                  <h2 className="w-[60px] text-[13px] leading-3 ">Class:</h2>
+                  <span className="">
                     {studentData.class !== undefined
                       ? `${studentData.class}th - ${studentData.section}`
                       : "N/A"}
                   </span>
                 </div>
-                <div className="flex ">
-                  <h2 className="w-[60px] ">DOB. :</h2>
-                  <span className="text-[#01a9ac]">
+                <div className="flex mt-2 items-center">
+                  <h2 className="w-[60px] text-[13px] leading-3 ">DOB. :</h2>
+                  <span className="">
                     {studentData.dateOfBirth
                       ? studentData.dateOfBirth.split("T")[0]
                       : "N/A"}
@@ -144,50 +150,59 @@ const MyKids = () => {
             </div>
           </div>
 
-          <div className="w-[300px] border-1 rounded-md border-[#01a9ac] p-5 hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
-            <h1 className="text-center mb-3">Contact Details</h1>
-            <div className="flex justify-start gap-2 ">
-              <h2 className="w-[100px]">Email :</h2>
-              <span className="font-semibold text-[#01a9ac]   ">
-                {studentData.email}
-              </span>
-            </div>
-            <div className="flex justify-start gap-2 ">
-              <h2 className="w-[100px]">Roll No. :</h2>
-              <span className="font-semibold text-[#01a9ac]">
-                {studentData.rollNo}
-              </span>
-            </div>
-
-            <div className="flex justify-start gap-2 ">
-              <h2 className="w-[100px] ">Joining Date :</h2>
-              <span className="font-semibold text-[#01a9ac]">
-                {studentData.joiningDate
+          <div className="w-[330px] border-1 rounded-md border-[#01a9ac] hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
+                        <div class="relative overflow-x-auto">
+                            <h1 className="text-center mb-3 font-extrabold"> Contact Details</h1>
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <tbody>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Email :
+                                        </th>
+                                        <td class="px-2 py-2">   {studentData.email}</td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Roll No. :
+                                        </th>
+                                        <td class="px-2 py-2"> {studentData.rollNo}</td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Joining Date :
+                                        </th>
+                                        <td class="px-2 py-2"> {studentData.joiningDate
                   ? studentData.joiningDate.split("T")[0]
                   : "N/A"}
-              </span>
-            </div>
-
-            <div className="flex justify-start gap-2 ">
-              <h2 className="w-[100px]">Gender :</h2>
-              <span className="font-semibold text-[#01a9ac]">
-                {studentData.gender}
-              </span>
-            </div>
-            <div className="flex justify-start gap-2 ">
-              <h2 className="w-[100px]">Mobile :</h2>
-              <span className="font-semibold text-[#01a9ac]">
-                +91
-                {studentData.contact}
-              </span>
-            </div>
-            <div className="flex justify-start gap-4 ">
-              <h2 className="w-[100px]">ParentMobile: </h2>
-              <span className="font-semibold text-[#01a9ac]">
-                +91 {studentData.parentContact}
-              </span>
-            </div>
-          </div>
+                  </td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Gender :
+                                        </th>
+                                        <td class="px-2 py-2">
+                                        {studentData.gender}
+                                        </td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        Mobile :
+                                        </th>
+                                        <td class="px-2 py-2">
+                                        {studentData.contact}
+                                        </td>
+                                    </tr>
+                                    <tr class=" dark:bg-gray-800">
+                                        <th scope="row" class="px-2 py-2 font-medium text-gray-900  dark:text-white">
+                                        ParentMobile:
+                                        </th>
+                                        <td class="px-2 py-2">    +91 {studentData.parentContact}</td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
         </div>
       </div>
     </div>

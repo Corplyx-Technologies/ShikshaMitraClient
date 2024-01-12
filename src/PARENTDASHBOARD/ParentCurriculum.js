@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useStateContext } from "../contexts/ContextProvider";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
 const ParentCurriculum = () => {
   const [curriculumData, setCurriculumData] = useState([]);
-
+  const { currentColor} = useStateContext();
   const [studentData, setStudentData] = useState({});
 
   const handleDeleteCurriculum = (id)=>{
@@ -39,26 +40,7 @@ const ParentCurriculum = () => {
       });
   }, []);
 
-  console.log("mykIDKidkid--->", studentData);
-
-  // useEffect(() => {
-  //   axios
-  //     .get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllCurriculum", {
-  //       withCredentials: true,
-      // headers: {
-      //   Authorization: `Bearer ${authToken}`,
-      // },
-  //     })
-  //     .then((response) => {
-  //       console.log("CurriculumDATA-->", response.data);
-  //       const { allCurriculum } = response.data;
-  //       console.log("GetALLCLASS--->", allCurriculum);
-  //       setCurriculumData(allCurriculum);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching class data:", error);
-  //     });
-  // }, []);
+  // console.log("mykIDKidkid--->", studentData);
 
   useEffect(() => {
     if (studentData.class) {
@@ -88,35 +70,12 @@ const ParentCurriculum = () => {
 
   return (
     <div className="min-h-screen p-8 flex flex-col">
-      {/* <div className="mt-4">
-        <h2 className="text-lg font-semibold text-indigo-600">Curriculum</h2>
-        <div className="w-full grid grid-cols-3 gap-4">
-          {curriculumData.map((item, index) => (
-            <div key={index} className="bg-white rounded-md shadow-md p-4">
-              <p className="text-gray-600">
-                Academic Year: {item.academicYear}
-              </p>
-              <p className="text-gray-600">Class: {item.className}</p>
-              <p className="text-gray-600">Course: {item.course}</p>
-              {item.file && (
-                <div className="mt-2">
-                  <label className="text-lg mb-2">View PDF:</label>
-                  <a
-                    href={item.file.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    View Image
-                  </a>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div> */}
+      
         <div className="mt-4 w-full">
-        <h2 className="text-2xl font-semibold text-cyan-700 uppercase text-center">
+        <h2 
+        className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+        style={{color:currentColor}}
+        >
           Created Curriculum
         </h2>
       

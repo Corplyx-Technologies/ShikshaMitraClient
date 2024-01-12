@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
+import { useStateContext } from "../contexts/ContextProvider";
 const authToken = Cookies.get('token');
 
 const ParentExam= () => {
+  const { currentColor} = useStateContext();
   const [examData, setExamData] = useState([]);
   const data = JSON.parse(localStorage.getItem("response"));
   console.log("LocalStorage-->", data);
@@ -67,49 +69,12 @@ const ParentExam= () => {
 
   return (
     <div>
-      {/* <div className="mt-8">
-        <h2 className="text-2xl font-semibold mb-4 text-indigo-600">Exam</h2>
-        <div className="overflow-x-auto bg-gray-100 rounded-lg p-4">
-          <table className="w-full border-collapse table-auto">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border text-left px-4 py-2">Class</th>
-                <th className="border text-left px-4 py-2">Section</th>
-                <th className="border text-left px-4 py-2">Exam Name</th>
-                <th className="border text-left px-4 py-2">Subjects</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-              {console.log("first", examData)}
-              {examData.map((data, index) => (
-                <tr key={index}>
-                  <td className="border px-4 py-2">{data.className}</td>
-                  <td className="border px-4 py-2">{data.section}</td>
-                  <td className="border px-4 py-2">{data.examName}</td>
-                  <td className="border px-4 py-2">
-                    {data.examInfo.map((subject, i) => (
-                      <div key={i}>
-                        {subject.subjectName} - Date:{" "}
-                        {subject.examDate
-                          ? subject.examDate.split("T")[0]
-                          : ""}, Time: {subject.startTime} -{" "}
-                        {subject.endTime}, Total Marks:{" "}
-                        {subject.subjectTotalMarks}
-                    
-                      </div>
-                    ))}
-                  </td>
-
-                
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div> */}
+      
       <div className="mt-8">
-  <h2 className="text-2xl font-bold mb-4 text-cyan-600 text-center">Exam</h2>
+  <h2 
+  className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+  style={{color:currentColor}}
+  >Exam</h2>
   <div className="overflow-x-auto bg-gray-100 rounded-lg p-4">
     <table className="w-full border-collapse table-auto">
       <thead>

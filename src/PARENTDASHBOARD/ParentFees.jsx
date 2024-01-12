@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import generatePDF, { usePDF, Resolution, Margin } from "react-to-pdf";
-
+import { useStateContext } from "../contexts/ContextProvider";
 const authToken = Cookies.get("token");
 
 const monthData = {
@@ -20,6 +20,7 @@ const monthData = {
 };
 
 const ParentFees = () => {
+  const { currentColor} = useStateContext();
   const [studentData, setStudentData] = useState({});
   const [feeData, setFeeData] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState("");
@@ -30,10 +31,7 @@ const ParentFees = () => {
   const options = {
     // default is `save`
     method: "open",
-    // default is Resolution.MEDIUM = 3, which should be enough, higher values
-    // increases the image quality but also the size of the PDF, so be careful
-    // using values higher than 10 when having multiple pages generated, it
-    // might cause the page to crash or hang.
+    
     resolution: Resolution.HIGH,
     page: {
       format: "a4", // Set the format to A4
@@ -112,21 +110,6 @@ const ParentFees = () => {
       });
   }, []);
 
-  // useEffect(() => {
-  //   axios.get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/fees/getFeeStatus", {
-  //     withCredentials: true,
-  //     headers: {
-  //       Authorization: `Bearer ${authToken}`,
-  //     },
-  //   })
-  //     .then((response) => {
-  //       console.log("Student Fess Status--->", response.data.data);
-
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
 
   console.log("FInding Id", studentData._id);
 
@@ -187,7 +170,8 @@ const ParentFees = () => {
 
           <button
             onClick={handleDownload}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-2 p-2 mb-2 rounded mt-2"
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800 neu-btn border-2 ml-12"
+            style={{border:`2px solid ${currentColor} `,color:currentColor}}
           >
             Download Receipt
           </button>

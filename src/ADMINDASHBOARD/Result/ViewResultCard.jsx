@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { FcLeft } from "react-icons/fc";
 import { usePDF } from "react-to-pdf";
+import { useStateContext } from "../../contexts/ContextProvider";
 import { Page, Text, View, doc } from "@react-pdf/renderer";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
@@ -15,6 +16,7 @@ const theader = {
 };
 
 const ViewResultCard = () => {
+  const { currentColor} = useStateContext();
   const { toPDF, targetRef } = usePDF({ filename: "Student Admit Card" });
 
   // const [examData, setExamData] = useState([]);
@@ -131,23 +133,6 @@ const ViewResultCard = () => {
     setSelectedExam(e.target.value);
   };
 
-  // useEffect(() => {
-  //   axios.get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/results/getResults", {
-  //     withCredentials: true,
-  // headers: {
-  //   Authorization: `Bearer ${authToken}`,
-  // },
-  //   })
-  //   .then((response) => {
-  //     const data = response.data.data; // Assuming 'data' is the property containing the array
-  //     // setResultData(data);
-  //     console.log("Parent---ResultData--->", data)
-  //   })
-  //   .catch((error) => {
-  //     console.log(error.message);
-  //   });
-
-  // }, [])
 
   useEffect(() => {
     if (selectedExam && userId) {
@@ -292,9 +277,9 @@ const ViewResultCard = () => {
         <div className="   gap-2 sm:p-4 md:p-4 lg:p-4 p-2 pt-16  shadow-[rgba(0,0,_0,_0.25)_0px_25px_50px-12px]   overflow-y-auto">
           
 
-          <div className="mt-12">
+          <div className="mt-12 ">
             <select
-              className="p-2 mb-2 border rounded-md w-full md:w-1/4"
+              className="p-2 mb-2 border rounded-md w-full"
               onChange={handleExamChange}
               value={selectedExam}
             >
@@ -308,9 +293,8 @@ const ViewResultCard = () => {
 
             <button
               onClick={handleDownload}
-              className="ml-2 mb-2 w-full 
-            md:w-1/4 bg-indigo-500 text-white p-2 rounded-md font-semibold
-             hover:bg-indigo-600 focus:outline-none"
+              className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+        style={{border:`2px solid ${currentColor} `,color:currentColor}}
             >
               Download
             </button>

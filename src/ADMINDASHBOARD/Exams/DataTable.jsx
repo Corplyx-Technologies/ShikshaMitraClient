@@ -3,9 +3,11 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Link} from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 
 function DynamicDataTable({data , handleDelete}) {
+  const {currentColor}=useStateContext()
 
     const columns = [
       { field: "id", headerName: "S. No." , width:50 },
@@ -20,7 +22,9 @@ function DynamicDataTable({data , handleDelete}) {
             <div>
                   <Link to={`/admin/viewadmitcard/${params.row.email}`}>
                 <IconButton>
-                  <VisibilityIcon  className="text-blue-600"/>
+                  <VisibilityIcon  
+                  style={{color:currentColor}}
+                  />
                 </IconButton>
               </Link>
             </div>

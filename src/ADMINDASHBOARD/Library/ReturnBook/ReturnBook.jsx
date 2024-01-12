@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { useStateContext } from "../../../contexts/ContextProvider";
 import axios from "axios";
 import "../../../Dynamic/Form/FormStyle.css";
 import DynamicDataTable from "./DataTable";
@@ -9,7 +10,7 @@ import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
 
 function ReturnBook() {
-
+  const { currentColor} = useStateContext();
   const { _id } = useParams();
   const [loading, setLoading] = useState(false);
 
@@ -43,7 +44,10 @@ function ReturnBook() {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3 ">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text ">Return Books</h1>
+    <h1 
+    className="text-4xl font-bold mb-4 uppercase text-center dark:text-white  hover-text "
+    style={{color:currentColor}}
+    >Return Books</h1>
      
 
       <DynamicDataTable data={submittedData} updateFetchData={handleReturnButtonClick}  />

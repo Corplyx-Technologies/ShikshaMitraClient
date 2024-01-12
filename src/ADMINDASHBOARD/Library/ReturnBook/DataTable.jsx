@@ -3,10 +3,11 @@ import { DataGrid } from "@mui/x-data-grid";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
 import Cookies from 'js-cookie';
+import { useStateContext } from "../../../contexts/ContextProvider";
 const authToken = Cookies.get('token');
 
 function DynamicDataTable({ data, updateFetchData }) {
-
+  const { currentColor} = useStateContext();
   const handleReturn= async (issueId)=>{
     try {
       const response = await axios.put(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/returnBook/${issueId}`,{}, {
@@ -36,7 +37,10 @@ function DynamicDataTable({ data, updateFetchData }) {
             <div>
                 <IconButton onClick={() => handleReturn(params.row._id)}>
                 
-                  <p className="bg-gray-500 text-red-800 p-2 rounded-xl">Return</p>
+                  <p 
+                  className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
+                  style={{ background:currentColor}}
+                  >Return</p>
 
                 </IconButton>
              

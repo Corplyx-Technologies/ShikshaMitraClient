@@ -30,11 +30,11 @@ function DynamicDataTable({ data, handleDelete, updateIssueDependency }) {
 
   const columns = [
       { field: "id", headerName: "S. No." , width:50 },
-      { field: "bookName", headerName: "Book Name",flex:1 },
-      { field: "quantity", headerName: "Quantity" ,flex:1},
-      { field: "category", headerName: "Category",flex:1 },
+      { field: "bookName", headerName: "Book Name",width:150 },
+      { field: "quantity", headerName: "Quantity" ,width:100},
+      { field: "category", headerName: "Category",width:150},
       { field: "className", headerName: "Class Name" ,flex:1},
-      { field: "subject", headerName: "Subject" ,flex:1},
+      { field: "subject", headerName: "Subject" ,width:150},
       {
         field: "actions",
         headerName: "Actions"
@@ -47,7 +47,11 @@ function DynamicDataTable({ data, handleDelete, updateIssueDependency }) {
               className="bg-blue-600 text-white "
           >
             
-          <p  style={{ backgroundColor: currentColor }} className= " text-white p-2 rounded-md">  Issue </p>
+          <p  
+          // style={{ backgroundColor: currentColor }} className= " text-white p-2 rounded-md"
+          className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
+          style={{ background:currentColor}}
+          >  Issue </p>
          
           </IconButton>
           <Issue
@@ -62,7 +66,10 @@ function DynamicDataTable({ data, handleDelete, updateIssueDependency }) {
           <IconButton >
         
        
-                <p    style={{ backgroundColor: currentColor }} className=" text-white p-2 rounded-md"> Book Issued List</p>
+                <p    
+                 className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
+                 style={{ background:currentColor}}
+                >Issued List</p>
 
           </IconButton>
           </Link>

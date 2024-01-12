@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 // import { useReactToPdf } from 'react-to-pdf';
+import { useStateContext } from "../contexts/ContextProvider";
 // import html2canvas from 'html2canvas';
 import { usePDF } from "react-to-pdf";
 import Cookies from "js-cookie";
 const authToken = Cookies.get("token");
-import { useStateContext } from "../contexts/ContextProvider";
 
 const StudentResults = () => {
   // const targetPDF = useRef();

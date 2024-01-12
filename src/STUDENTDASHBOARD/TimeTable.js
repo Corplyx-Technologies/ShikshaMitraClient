@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useStateContext } from "../contexts/ContextProvider";
 import axios from "axios";
 import Cookies from 'js-cookie';
 const authToken = Cookies.get('token');
-import { useStateContext } from "../contexts/ContextProvider";
 const Lectures = () => {
   const { currentColor }= useStateContext();
   const [timetable, setTimetable] = useState([

@@ -48,6 +48,7 @@ const modalStyle = {
     zIndex: 1000,
     // marginTop:"20px",
     // background:currentColor,
+  
   },
 };
   const [loading, setLoading] = useState(false);
@@ -278,6 +279,7 @@ const modalStyle = {
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3 ">
     <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
       >All Teacher </h1>
       <button
         onClick={openModal}
@@ -298,17 +300,18 @@ const modalStyle = {
        <div className=" p-4">
        <h1 
           className="hover-text text-center text-2xl pt-2 dark:text-white text-gray-100 pb-3 "
-          // style={{color:currentColor}}
+          style={{color:currentColor}}
         >
           Create Teacher
         </h1>
-        <InputForm
+     <div className="dark:text-white dark:bg-secondary-dark-bg text-gray-800 bg-gray-100">
+     <InputForm
           fields={formFields}
           handleChange={handleFieldChange}
           handleImageChange={handleImageChange}
         />
+     </div>
         <div 
-        // style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}
         className="flex justify-end gap-2 "
         >
           <button

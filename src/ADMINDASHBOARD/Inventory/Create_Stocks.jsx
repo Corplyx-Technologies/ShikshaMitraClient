@@ -177,11 +177,13 @@ function Create_Sales() {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3 ">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    <h1 
+     className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+     style={{color:currentColor}}
     >All Stock </h1>
       <button
-      className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-      style={{color:currentColor}}
+       className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+       style={{border:`2px solid ${currentColor} `,color:currentColor}}
       onClick={openModal}
      >
         Add Stock
@@ -196,7 +198,10 @@ function Create_Sales() {
         style={modalStyle}
         overlayClassName="overlay"
       >
-        <h1 style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}>
+        <h1 
+         className="text-xl font-bold mb-4 uppercase text-center  hover-text "
+         style={{color:currentColor}}
+        >
           Create Stock
         </h1>
         <InputForm
@@ -213,13 +218,15 @@ function Create_Sales() {
         >
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+        style={{border:`2px solid ${currentColor} `,color:currentColor}}
           >
             Submit
           </button>
           <button
             onClick={closeModal}
-            className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg text-red-800  ml-2 neu-btn border-2 "
+        style={{border:`2px solid red `}}
           >
             Cancel
           </button>

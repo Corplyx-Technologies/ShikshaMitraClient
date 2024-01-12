@@ -218,7 +218,9 @@ function Create_Book() {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3 ">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    <h1 
+    className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
     >
         All Book Details
       </h1>
@@ -239,8 +241,8 @@ function Create_Book() {
         overlayClassName="overlay"
       >
         <h1 
-        className="hover-text text-center text-2xl pt-2 dark:text-white text-gray-100 pb-3 "
-        // style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}
+       className="text-xl font-bold mb-4 uppercase text-center  hover-text "
+       style={{color:currentColor}}
         >
           Create Book Details
         </h1>
@@ -284,7 +286,7 @@ function Create_Book() {
           </button>
           <button
             onClick={closeModal}
-            className="dark:text-white dark:bg-secondary-dark-bg text-red-600  neu-btn border-2 "
+            className="dark:text-white dark:bg-secondary-dark-bg text-red-600 ml-2 neu-btn border-2 "
             style={{border:`2px solid red `,}}
           >
             Cancel

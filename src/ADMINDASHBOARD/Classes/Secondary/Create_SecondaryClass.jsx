@@ -15,15 +15,15 @@ function Create_SecondaryClass() {
   const { currentColor } = useStateContext();
   const modalStyle = {
     content: {
-      width: "80%",
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      // width: "80%",
+      // top: "50%",
+      // left: "50%",
+      // right: "auto",
+      // bottom: "auto",
+      // marginRight: "-50%",
+      // transform: "translate(-50%, -50%)",
       zIndex: 1000,
-      background:currentColor
+      // background:currentColor
     },
   };
   const [loading, setLoading] = useState(false);
@@ -190,8 +190,9 @@ function Create_SecondaryClass() {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
-    // style={{color:currentColor}}
+    <h1 
+    className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
     >
         Secondary Class
       </h1>
@@ -211,7 +212,10 @@ function Create_SecondaryClass() {
         style={modalStyle}
         overlayClassName="overlay"
       >
-        <h1 style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}>
+        <h1 
+        className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+        style={{color:currentColor}}
+        >
           Create Secondary Class
         </h1>
         <InputForm
@@ -254,8 +258,8 @@ function Create_SecondaryClass() {
           </button>
           <button
             onClick={closeModal}
-            className="dark:text-white dark:bg-secondary-dark-bg text-red-600  neu-btn border-2 "
-            style={{border:`2px solid red `,}}
+            className="dark:text-white dark:bg-secondary-dark-bg text-red-600 ml-2 neu-btn border-2 "
+            style={{border:`2px solid red `}}
           >
             Cancel
           </button>

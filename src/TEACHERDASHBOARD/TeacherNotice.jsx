@@ -133,7 +133,7 @@ const TeacherNotice = () => {
   }, [shouldFetchData]);
 
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-lg dark:text-white dark:bg-secondary-dark-bg">
+    <div className=" p-6 rounded-lg shadow-lg dark:text-white dark:bg-secondary-dark-bg">
       <h1 className="text-xl font-semibold text-cyan-700 mb-4 text-center">Notice Board</h1>
 
       {/* Create Notice Button */}
@@ -157,7 +157,7 @@ const TeacherNotice = () => {
           setIsModalOpen(false);
           setEditingNotice(null);
         }}
-        className="w-96 bg-white p-6 rounded-lg shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="w-96  p-6 rounded-lg shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       >
         <h2 className="text-xl text-center font-semibold text-cyan-700">
           {editingNotice !== null ? "Edit Notice" : "Create Notice"}

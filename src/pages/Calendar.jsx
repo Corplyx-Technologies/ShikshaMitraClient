@@ -81,7 +81,7 @@ const Scheduler = () => {
       if (Array.isArray(response.data.data)) {
         setScheduleData(response.data.data);
 
-        console.log("yyyyyyyyyyyyP2", scheduleData)
+        // console.log("yyyyyyyyyyyyP2", scheduleData)
       } else {
         console.error("API response is not an array:", response.data);
       }

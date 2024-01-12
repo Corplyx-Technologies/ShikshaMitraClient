@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DynamicDataTable from "./DataTable";
-
+import { useStateContext } from "../../contexts/ContextProvider";
 import axios from "axios";
 import '../../Dynamic/Form/FormStyle.css'
 import InputForm from "../../Dynamic/Form/InputForm";
@@ -22,7 +22,7 @@ const modalStyle = {
 
 function CreatePayment() {
   const [loading,setLoading]=useState(false)
- 
+  const { currentColor} = useStateContext();
   const [submittedData, setSubmittedData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -53,7 +53,8 @@ function CreatePayment() {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3 ">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text ">Payment Status</h1>
+    <h1    className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}>Payment Status</h1>
       
       <DynamicDataTable
        data={submittedData} 

@@ -10,15 +10,15 @@ const StudentsResult = () => {
   const { currentColor } = useStateContext();
   const modalStyle = {
     content: {
-      width: "80%",
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      // width: "80%",
+      // top: "50%",
+      // left: "50%",
+      // right: "auto",
+      // bottom: "auto",
+      // marginRight: "-50%",
+      // transform: "translate(-50%, -50%)",
       zIndex: 1000,
-      background:currentColor
+      // background:currentColor
     },
   };
   const [students, setStudents] = useState([]);
@@ -45,7 +45,10 @@ const StudentsResult = () => {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3 ">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    <h1 
+    className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
+
     >All result</h1>
 
       <DynamicDataTable data={submittedData} />

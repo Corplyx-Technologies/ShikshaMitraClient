@@ -64,8 +64,9 @@ const modalStyle = {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
-    // style={{color:currentColor}}
+    <h1 
+    className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
     >Products Sell</h1>
     
       <StockTable data={submittedData} updateDependency={updateDependency}

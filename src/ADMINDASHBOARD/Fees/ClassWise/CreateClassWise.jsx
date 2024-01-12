@@ -206,7 +206,7 @@ function CreateClassWise() {
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3">
       <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
-      // style={{color:currentColor}}
+      style={{color:currentColor}}
       >
       
         Class Fee
@@ -231,7 +231,7 @@ function CreateClassWise() {
         <div className="bg-gray-100 rounded-md">
         <h1 
         className="hover-text text-center text-2xl pt-2 dark:text-white text-gray-100 pb-3 "
-        // style={{color:currentColor}}
+        style={{color:currentColor}}
         >
           Create Fee
         </h1>

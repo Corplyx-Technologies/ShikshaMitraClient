@@ -15,15 +15,15 @@ function Create_Registration_Form() {
   const { currentColor } = useStateContext();
   const modalStyle = {
     content: {
-      width: "80%",
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      // width: "80%",
+      // top: "50%",
+      // left: "50%",
+      // right: "auto",
+      // bottom: "auto",
+      // marginRight: "-50%",
+      // transform: "translate(-50%, -50%)",
       zIndex: 1000,
-      background:currentColor
+      // background:currentColor
     },
   };
   const [loading, setLoading] = useState(false);
@@ -381,19 +381,23 @@ function Create_Registration_Form() {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3 ">
-    <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    <h1 
+    
+    className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
     >
         New Registration
       </h1>
       <button
         onClick={openModal}
-        className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "
-        style={{color:currentColor}}
+        className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+        style={{border:`2px solid ${currentColor} `,color:currentColor}}
       >
         Create Registration
       </button>
 
       {/* Modal */}
+      {isModalOpen && <div className="modal-blur"></div>}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
@@ -401,7 +405,10 @@ function Create_Registration_Form() {
         style={modalStyle}
         overlayClassName="overlay"
       >
-        <h1 style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}>
+        <h1 
+        className="text-xl font-bold mb-4 uppercase text-center  hover-text "
+        style={{color:currentColor}}
+        >
           Create Registration
         </h1>
         <InputForm
@@ -418,7 +425,8 @@ function Create_Registration_Form() {
         >
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+            style={{border:`2px solid ${currentColor} `,color:currentColor}}
           >
             {loading ? (
               <svg
@@ -443,7 +451,8 @@ function Create_Registration_Form() {
           </button>
           <button
             onClick={closeModal}
-            className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg text-red-600  neu-btn ml-2 border-2 "
+        style={{border:`2px solid red `}}
           >
             Cancel
           </button>
@@ -464,8 +473,8 @@ function Create_Registration_Form() {
         <button
           
           onClick={handleSearch}
-          className="neu-btn   py-2 px-4  border-gray-100"
-          style={{color:currentColor}}
+          className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 "
+          style={{border:`2px solid ${currentColor} `,color:currentColor}}
         >
           Search
         </button>

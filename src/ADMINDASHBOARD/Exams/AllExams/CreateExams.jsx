@@ -252,10 +252,10 @@ function CreateExams() {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3 ">
-      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text ">
-        {" "}
-        All Staff{" "}
-      </h1>
+    <h1 
+    className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+    style={{color:currentColor}}
+    > All Staff </h1>
       <button
         onClick={openModal}
         className="dark:text-white dark:bg-secondary-dark-bg  mx-auto neu-btn "

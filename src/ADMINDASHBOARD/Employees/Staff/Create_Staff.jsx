@@ -245,8 +245,9 @@ function Create_Staff() {
 
   return (
     <div className=" mt-12 md:mt-1  mx-auto p-3">
-      <h1 className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
-      // style={{color:currentColor}}
+      <h1 
+      className="text-4xl font-bold mb-4 uppercase text-center  hover-text "
+      style={{color:currentColor}}
       >All Staff Here</h1>
       <button
         onClick={openModal}
@@ -265,8 +266,8 @@ function Create_Staff() {
         overlayClassName="overlay"
       >
         <h1
-        //  style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}
-        className="hover-text text-center text-2xl pt-2 dark:text-white text-gray-100 pb-3 "
+className="text-xl font-bold mb-4 uppercase text-center  hover-text "
+style={{color:currentColor}}
         >
           Create Staff
         </h1>
@@ -291,7 +292,7 @@ function Create_Staff() {
            </svg>): " Submit"
             }
           </button>
-          <button onClick={closeModal} className="dark:text-white dark:bg-secondary-dark-bg text-red-600  neu-btn border-2 "
+          <button onClick={closeModal} className="dark:text-white dark:bg-secondary-dark-bg ml-2 text-red-600  neu-btn border-2 "
             style={{border:`2px solid red `,}}
             >
             Cancel

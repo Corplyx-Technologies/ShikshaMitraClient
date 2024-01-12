@@ -173,7 +173,7 @@ const AboutTeacher = () => {
           </div>
         </div>
         
-        <div className="w-[300px] border-1 rounded-md border-[#01a9ac] hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
+        <div className="w-[330px] border-1 rounded-md border-[#01a9ac] hover:shadow-[rgba(6,24,_44,_0.4)_0px_0px_0px_2px,_rgba(6,_24,_44,_0.65)_0px_4px_6px-1px,_rgba(255,_255,_255,_0.08)_0px_1px_0px_inset]">
                         <div class="relative overflow-x-auto">
                             <h1 className="text-center mb-3 font-extrabold">  {teacherDetails.fullName}'s Details</h1>
                             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

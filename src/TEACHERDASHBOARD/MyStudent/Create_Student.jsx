@@ -405,7 +405,8 @@ const modalStyle = {
         onClick={openModal}
         // className="neu-btn   py-2 px-4  border-gray-100"
         className="dark:text-white dark:bg-secondary-dark-bg text-gray-800   mx-auto neu-btn border-2 ml-12"
-           style={{border:`2px solid ${currentColor} `,color:currentColor}}>
+           style={{border:`2px solid ${currentColor} `,color:currentColor}}
+           >
         Add Student & Parent
       </button>
       {isModalOpen && <div className="modal-blur"></div>}
@@ -417,7 +418,10 @@ const modalStyle = {
         style={modalStyle}
         overlayClassName="overlay"
       >
-        <h1 style={{ fontSize: 30, fontWeight: 800, textAlign: "center" }}>
+        <h1 
+        className="text-xl font-bold mb-4 uppercase text-center  hover-text "
+        style={{color:currentColor}}
+        >
           Create Student and Parent 
         </h1>
         <InputForm
@@ -428,7 +432,8 @@ const modalStyle = {
         <div style={{ display: "flex", justifyContent: "flex-end", padding: "10px" }}>
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            className="dark:text-white dark:bg-secondary-dark-bg text-gray-800  neu-btn border-2 ml-2"
+            style={{border:`2px solid ${currentColor} `,color:currentColor}}
             
           >
            { loading ?
@@ -438,7 +443,10 @@ const modalStyle = {
            </svg>): " Submit"
             }
           </button>
-          <button onClick={closeModal} className="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded">
+          <button onClick={closeModal}
+           className="dark:text-white dark:bg-secondary-dark-bg text-red-600 ml-2 neu-btn border-2 "
+           style={{border:`2px solid red `}}
+           >
             Cancel
           </button>
         </div>

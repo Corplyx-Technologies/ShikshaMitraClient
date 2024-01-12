@@ -142,7 +142,8 @@ console.log(materials)
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="modal-container">
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-              <h2 className="text-2xl mb-4 text-blue-500">Add New Material</h2>
+              <h2 className="text-xl font-bold mb-4 uppercase text-center  hover-text "
+        style={{color:currentColor}}>Add New Material</h2>
               <input
                 type="text"
                 placeholder="Title"
@@ -190,14 +191,18 @@ console.log(materials)
               )}
               <div className="flex justify-end">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                 
                   onClick={addMaterial}
+                  className="dark:text-white dark:bg-secondary-dark-bg text-gray-800    neu-btn border-2"
+           style={{border:`2px solid ${currentColor} `,color:currentColor}}
                 >
                   Add
                 </button>
                 <button
-                  className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+                  
                   onClick={closeModal}
+                  className="dark:text-white dark:bg-secondary-dark-bg text-red-600    neu-btn border-2 ml-2"
+           style={{border:`2px solid red `}}
                 >
                   Cancel
                 </button>

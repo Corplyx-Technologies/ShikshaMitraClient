@@ -174,7 +174,8 @@ const CreateExams = () => {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        // <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className=" flex items-center justify-center z-50">
           
           <div className="modal p-4 bg-white rounded-lg shadow-lg md:w-2/3 lg:w-1/2">
             <h2 className="text-2xl font-semibold mb-4 text-cyan-700 uppercase">Exam Form</h2>

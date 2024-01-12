@@ -40,7 +40,7 @@ function CreateAdditionalFee() {
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
   useEffect(() => {
-    axios.get('https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAdditionalFees', {
+    axios.get('https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAdditionalFees', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -75,7 +75,7 @@ function CreateAdditionalFee() {
     try {
       setLoading(true)
       const response = await axios.post(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createAdditionalFees",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/createAdditionalFees",
         formDataToSend,
         {
           withCredentials: true,
@@ -108,7 +108,7 @@ function CreateAdditionalFee() {
   };
 
   const handleDelete = (itemId) => {
-    axios.delete(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`,
+    axios.delete(`https://average-red-kimono.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`,
       {
         withCredentials: true,
         headers: {

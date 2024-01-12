@@ -41,7 +41,7 @@ const Attendance = () => {
     const fetchStudentData = async () => {
       try {
         const response = await axios.get(
-          "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents",
+          "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents",
           {
             withCredentials: true,
             headers: {
@@ -104,7 +104,7 @@ const Attendance = () => {
 
     try {
       const response = await axios.post(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/teacher/createAttendance",
+        "https://average-red-kimono.cyclic.app/api/v1/teacher/createAttendance",
         {
           attendanceRecords: studentInfo,
         },
@@ -144,7 +144,7 @@ const Attendance = () => {
     const month = selectedDate.getMonth() + 1;
     try {
       const response = await axios.get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/teacher/getAttendance",
+        "https://average-red-kimono.cyclic.app/api/v1/teacher/getAttendance",
         {
           params: {
             year: year,

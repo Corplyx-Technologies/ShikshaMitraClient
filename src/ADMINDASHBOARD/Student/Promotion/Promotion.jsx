@@ -43,7 +43,7 @@ const Promotion = () => {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllClass",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllClass",
         {
           withCredentials: true,
           headers: {
@@ -196,7 +196,7 @@ const Promotion = () => {
     // Make the PUT request
     await axios
       .put(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/promotionOfStudent",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/promotionOfStudent",
         dataToUpdate,
         {
           withCredentials: true,

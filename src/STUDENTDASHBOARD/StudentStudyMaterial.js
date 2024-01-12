@@ -16,7 +16,7 @@ const StudentStudyMaterial = () => {
     image: null,
   });
 
-  const API_BASE_URL = "https://real-ruby-dolphin-fez.cyclic.app/api/v1/teacher";
+  const API_BASE_URL = "https://average-red-kimono.cyclic.app/api/v1/teacher";
 
   useEffect(() => {
     // Fetch materials from the server using a GET request

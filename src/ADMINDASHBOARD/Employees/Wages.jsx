@@ -21,7 +21,7 @@ function DynamicDataTable({ data, handleDelete }) {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllEmployees`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllEmployees`,
         {
           withCredentials: true,
           headers: {

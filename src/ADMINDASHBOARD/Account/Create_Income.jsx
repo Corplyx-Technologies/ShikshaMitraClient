@@ -46,7 +46,7 @@ const Create_Income = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAdminInfo",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAdminInfo",
         {
           withCredentials: true,
           headers: {
@@ -73,7 +73,7 @@ const Create_Income = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getTeachers",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getTeachers",
         {
           withCredentials: true,
           headers: {
@@ -98,7 +98,7 @@ const Create_Income = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents",
         {
           withCredentials: true,
           headers: {
@@ -121,7 +121,7 @@ const Create_Income = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllParents",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllParents",
         {
           withCredentials: true,
           headers: {

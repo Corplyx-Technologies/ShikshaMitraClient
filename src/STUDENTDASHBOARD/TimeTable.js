@@ -32,7 +32,7 @@ const Lectures = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/timeTable/getClassTimeTable?className=${data.class}&section=${data.section}`,
+        `https://average-red-kimono.cyclic.app/api/v1/timeTable/getClassTimeTable?className=${data.class}&section=${data.section}`,
         {
           withCredentials: true,
       headers: {

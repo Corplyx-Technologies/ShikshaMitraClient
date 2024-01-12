@@ -7,15 +7,15 @@ const authToken = Cookies.get("token");
 
 
 const Api_Create =
-  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createAssignment";
+  "https://average-red-kimono.cyclic.app/api/v1/adminRoute/createAssignment";
 const Api_Update =
-  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/updateAssignment/";
+  "https://average-red-kimono.cyclic.app/api/v1/adminRoute/updateAssignment/";
 const Api_GetAssiignment =
-  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllAssignment";
+  "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllAssignment";
 const Api_GetAll =
-  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllClass";
+  "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllClass";
 const API_DELETE =
-  "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteAssignment/6538e0fb0c6aa38bbddec27b";
+  "https://average-red-kimono.cyclic.app/api/v1/adminRoute/deleteAssignment/6538e0fb0c6aa38bbddec27b";
 
 const Assignments = () => {
   const { currentColor} = useStateContext();
@@ -105,7 +105,7 @@ const Assignments = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllClass",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllClass",
         {
           withCredentials: true,
           headers: {
@@ -127,7 +127,7 @@ const Assignments = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllAssignment",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllAssignment",
         {
           withCredentials: true,
           headers: {
@@ -150,7 +150,7 @@ const Assignments = () => {
     const assignmentId = assignmentData[index]._id;
     axios
       .delete(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteAssignment/" +
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/deleteAssignment/" +
           assignmentId,
         {
           withCredentials: true,

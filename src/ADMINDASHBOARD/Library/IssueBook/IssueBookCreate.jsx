@@ -32,7 +32,7 @@ function IssueBookCreate() {
 
   useEffect(() => {
     axios
-      .get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllBooks", {
+      .get("https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllBooks", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

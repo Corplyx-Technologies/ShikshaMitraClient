@@ -57,7 +57,7 @@ const ViewStudent = () => {
     useEffect(() => {
         // Fetch teacher data based on the email parameter
         axios
-        .get(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`, {
+        .get(`https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`, {
             withCredentials: true,
             headers: {
                 Authorization: `Bearer ${authToken}`,

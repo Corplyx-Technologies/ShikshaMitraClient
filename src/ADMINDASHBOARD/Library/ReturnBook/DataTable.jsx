@@ -10,7 +10,7 @@ function DynamicDataTable({ data, updateFetchData }) {
   const { currentColor} = useStateContext();
   const handleReturn= async (issueId)=>{
     try {
-      const response = await axios.put(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/returnBook/${issueId}`,{}, {
+      const response = await axios.put(`https://average-red-kimono.cyclic.app/api/v1/adminRoute/returnBook/${issueId}`,{}, {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

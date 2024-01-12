@@ -15,7 +15,7 @@ const MyKids = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/myKids`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -39,7 +39,7 @@ const MyKids = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAdminInfo`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAdminInfo`,
         {
           withCredentials: true,
           headers: {

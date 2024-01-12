@@ -17,7 +17,7 @@ const ViewAdmission = () => {
     // Fetch teacher data based on the email parameter
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
       headers: {

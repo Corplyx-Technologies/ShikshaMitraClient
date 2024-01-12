@@ -35,7 +35,7 @@ const EditPrimary = () => {
   useEffect(() => {
     axios
     .get(
-      `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
+      `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllClass?className=${className}`,
         { withCredentials: true,
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -58,7 +58,7 @@ const EditPrimary = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/updateClass`, formData, { withCredentials: true,
+      .put(`https://average-red-kimono.cyclic.app/api/v1/adminRoute/updateClass`, formData, { withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
       },})

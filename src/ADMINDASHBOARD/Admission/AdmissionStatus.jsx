@@ -30,7 +30,7 @@ function AdmissionStatus({ data }) {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getLastYearStudents",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getLastYearStudents",
         {
           withCredentials: true,
           headers: {

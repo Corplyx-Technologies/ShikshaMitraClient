@@ -39,7 +39,7 @@ const ExamChart = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/exam/getAllExams`,
+        `https://average-red-kimono.cyclic.app/api/v1/exam/getAllExams`,
         {
           withCredentials: true,
           headers: {

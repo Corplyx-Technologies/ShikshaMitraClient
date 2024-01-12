@@ -55,7 +55,7 @@ const EditAdmission = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -116,7 +116,7 @@ const EditAdmission = () => {
       data.append("image", image);
     }
 
-    axios.put(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
+    axios.put(`https://average-red-kimono.cyclic.app/api/v1/adminRoute/updateStudent`, data, {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

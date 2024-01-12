@@ -14,7 +14,7 @@ const StudentExams= () => {
   const email = localStorage.getItem("email");
   useEffect(() => {
     // GET Request to fetch existing notices
-    axios.get(`https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+    axios.get(`https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
       {
         withCredentials: true,
       headers: {
@@ -37,7 +37,7 @@ const StudentExams= () => {
     if (studentData.class && studentData.section) {
       axios
         .get(
-          `https://real-ruby-dolphin-fez.cyclic.app/api/v1/exam/getAllExams?className=${studentData.class}&section=${studentData.section}`,
+          `https://average-red-kimono.cyclic.app/api/v1/exam/getAllExams?className=${studentData.class}&section=${studentData.section}`,
           {
             withCredentials: true,
           headers: {

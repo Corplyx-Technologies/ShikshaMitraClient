@@ -22,7 +22,7 @@ const SalaryStatus = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getTeachers?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -50,7 +50,7 @@ const SalaryStatus = () => {
     // Fetch salary data based on the selected year
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}&year=${selectedYear}`,
+        `https://average-red-kimono.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}&year=${selectedYear}`,
         {
           withCredentials: true,
           headers: {
@@ -118,7 +118,7 @@ const SalaryStatus = () => {
       })),
     };
 
-    const apiUrl = `https://real-ruby-dolphin-fez.cyclic.app/api/v1/teacher/salaryPay`;
+    const apiUrl = `https://average-red-kimono.cyclic.app/api/v1/teacher/salaryPay`;
     axios
       .post(apiUrl, newSalaryData, {
         withCredentials: true,
@@ -131,7 +131,7 @@ const SalaryStatus = () => {
         // setSalaryData(response.data.salaryHistory);
         axios
           .get(
-            `https://real-ruby-dolphin-fez.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`,
+            `https://average-red-kimono.cyclic.app/api/v1/teacher/getPaymentHistory?teacherId=${teacherId}`,
             {
               withCredentials: true,
               headers: {

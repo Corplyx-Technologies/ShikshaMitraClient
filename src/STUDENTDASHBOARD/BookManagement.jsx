@@ -16,7 +16,7 @@ const BookManagement = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getIssueBookToMe`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getIssueBookToMe`,
         {
           withCredentials: true,
           headers: {

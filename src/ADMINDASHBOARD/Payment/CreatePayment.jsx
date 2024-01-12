@@ -28,7 +28,7 @@ function CreatePayment() {
 
   useEffect(() => {
     // Fetch data from the server when the component mounts
-    axios.get('https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getTeachers', {
+    axios.get('https://average-red-kimono.cyclic.app/api/v1/adminRoute/getTeachers', {
       withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

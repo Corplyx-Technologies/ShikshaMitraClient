@@ -29,7 +29,7 @@ const StudentAdmitCard = () => {
 
   useEffect(() => {
     axios
-      .get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAdminInfo", {
+      .get("https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAdminInfo", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -50,7 +50,7 @@ const StudentAdmitCard = () => {
 
   useEffect(() => {
     axios
-      .get("https://real-ruby-dolphin-fez.cyclic.app/api/v1/exam/getAllExams", {
+      .get("https://average-red-kimono.cyclic.app/api/v1/exam/getAllExams", {
         withCredentials: true,
       headers: {
         Authorization: `Bearer ${authToken}`,

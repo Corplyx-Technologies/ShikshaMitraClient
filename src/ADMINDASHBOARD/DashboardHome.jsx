@@ -60,7 +60,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getTeachers",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getTeachers",
         {
           withCredentials: true,
           headers: {
@@ -84,7 +84,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents",
         {
           withCredentials: true,
           headers: {
@@ -107,7 +107,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllParents",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllParents",
         {
           withCredentials: true,
           headers: {
@@ -127,7 +127,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllItems",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllItems",
         {
           withCredentials: true,
           headers: {
@@ -173,7 +173,7 @@ const DashboardHome = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/fees/getFeeStatus`,
+        `https://average-red-kimono.cyclic.app/api/v1/fees/getFeeStatus`,
         {
           withCredentials: true,
           headers: {

@@ -18,7 +18,7 @@ const ParentExam= () => {
   useEffect(() => {
     axios
       .get(
-       ` https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/myKids`,
+       ` https://average-red-kimono.cyclic.app/api/v1/adminRoute/myKids`,
         {
           withCredentials: true,
           headers: {
@@ -48,7 +48,7 @@ const ParentExam= () => {
     if (studentData.class && studentData.section) {
       axios
         .get(
-         ` https://real-ruby-dolphin-fez.cyclic.app/api/v1/exam/getAllExams?className=${studentData.class}&section=${studentData.section}`,
+         ` https://average-red-kimono.cyclic.app/api/v1/exam/getAllExams?className=${studentData.class}&section=${studentData.section}`,
           {
             withCredentials: true,
           headers: {

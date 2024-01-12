@@ -14,7 +14,7 @@ import Cookies from "js-cookie";
 import { useStateContext } from "../contexts/ContextProvider";
 const authToken = Cookies.get("token");
 
-// const API_GET_DATA = "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents"
+// const API_GET_DATA = "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents"
 const StudentHome = () => {
   const { currentColor } = useStateContext();
   const [data, setData] = useState([]);
@@ -32,7 +32,7 @@ const StudentHome = () => {
     // GET Request to fetch existing notices
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllStudents?email=${email}`,
         {
           withCredentials: true,
           headers: {
@@ -56,7 +56,7 @@ const StudentHome = () => {
   useEffect(() => {
     axios
       .get(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllIssuedBookStudent?bookId=${_id}`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllIssuedBookStudent?bookId=${_id}`,
         {
           withCredentials: true,
           headers: {

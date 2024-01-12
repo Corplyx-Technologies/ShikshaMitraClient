@@ -46,7 +46,7 @@ function CreateExams() {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllEmployees",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getAllEmployees",
         {
           withCredentials: true,
           headers: {
@@ -100,7 +100,7 @@ function CreateExams() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createEmployee",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/createEmployee",
         formDataToSend,
         {
           withCredentials: true,
@@ -127,7 +127,7 @@ function CreateExams() {
   const handleDelete = (email) => {
     axios
       .put(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deactivateEmployee`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/deactivateEmployee`,
         { email },
         {
           withCredentials: true,

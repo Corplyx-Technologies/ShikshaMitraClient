@@ -45,7 +45,7 @@ function CreateClassWise() {
     // Fetch data from the server when the component mounts
     axios
       .get(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getFees",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/getFees",
         {
           withCredentials: true,
           headers: {
@@ -79,7 +79,7 @@ function CreateClassWise() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createFees",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/createFees",
         formDataToSend,
         {
           withCredentials: true,
@@ -117,7 +117,7 @@ function CreateClassWise() {
   const handleDelete = (itemId) => {
     axios
       .delete(
-        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`,
+        `https://average-red-kimono.cyclic.app/api/v1/adminRoute/deleteFees/${itemId}`,
         {
           withCredentials: true,
           headers: {

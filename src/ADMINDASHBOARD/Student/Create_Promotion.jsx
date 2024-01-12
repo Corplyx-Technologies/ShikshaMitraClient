@@ -78,7 +78,7 @@ function Create_Promotion() {
 
     try {
       const response = await axios.post(
-        "https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/createTeacher",
+        "https://average-red-kimono.cyclic.app/api/v1/adminRoute/createTeacher",
         formDataToSend,
         {
           headers: {

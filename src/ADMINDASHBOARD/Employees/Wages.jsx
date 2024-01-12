@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,10 +8,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
-import axios from 'axios';
-import Cookies from 'js-cookie';
+import axios from "axios";
+import Cookies from "js-cookie";
 import { useStateContext } from "../../contexts/ContextProvider";
-const authToken = Cookies.get('token');
+const authToken = Cookies.get("token");
 
 function DynamicDataTable({ data, handleDelete }) {
   const { currentColor } = useStateContext();
@@ -20,15 +19,16 @@ function DynamicDataTable({ data, handleDelete }) {
   const [deletingItem, setDeletingItem] = useState(null);
 
   useEffect(() => {
-    axios.get(
-      `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllEmployees`,
-      {
-        withCredentials: true,
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-      }
-    )
+    axios
+      .get(
+        `https://real-ruby-dolphin-fez.cyclic.app/api/v1/adminRoute/getAllEmployees`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         const data = response.data.allEmployee;
         console.log(data);
@@ -39,31 +39,40 @@ function DynamicDataTable({ data, handleDelete }) {
       });
   }, []);
 
-  const [dataWithIds, setData] = useState(Array.isArray(data) ? data.map((item, index) => ({ id: index + 1, ...item })) : []);
+  const [dataWithIds, setData] = useState(
+    Array.isArray(data)
+      ? data.map((item, index) => ({ id: index + 1, ...item }))
+      : []
+  );
 
   const columns = [
-          { field: "id", headerName: "S. No." , width:50 },
-          { field: "fullName", headerName: "Full Name" , flex:1 },
-          { field: "employeeId", headerName: "Employee ID",flex:1 },
-          { field: "email", headerName: "Email", flex:1},
-          { field: "salary", headerName: "Salary", flex:1},
-          { field: "joiningDate", headerName: "Joining Date", flex:1 },
-          { field: "contact", headerName: "Contact", flex:1 },
-            { field: "actions", headerName: "Status", flex:1,
-              renderCell: (params) => (
-                <div>
-                  
-                  <Link to={`/admin/staff/salaryStatus/${params.row.email}`}>
-                    <IconButton>
-                      <p className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
-            style={{ background:currentColor}}
-            >Salary status</p>
-                    </IconButton>
-                  </Link>
-                </div>
-              ),
-            },
-          ];
+    { field: "id", headerName: "S. No.", width: 50 },
+    { field: "fullName", headerName: "Full Name", flex: 1 },
+    { field: "employeeId", headerName: "Employee ID", flex: 1 },
+    { field: "email", headerName: "Email", flex: 1 },
+    { field: "salary", headerName: "Salary", flex: 1 },
+    { field: "joiningDate", headerName: "Joining Date", flex: 1 },
+    { field: "contact", headerName: "Contact", flex: 1 },
+    {
+      field: "actions",
+      headerName: "Status",
+      flex: 1,
+      renderCell: (params) => (
+        <div>
+          <Link to={`/admin/staff/salaryStatus/${params.row.email}`}>
+            <IconButton>
+              <p
+                className="text-[16px] text-gray-100 px-2 py-2 rounded-xl "
+                style={{ background: currentColor }}
+              >
+                Salary status
+              </p>
+            </IconButton>
+          </Link>
+        </div>
+      ),
+    },
+  ];
 
   const handleDeleteClick = (item) => {
     setDeletingItem(item);
@@ -83,12 +92,9 @@ function DynamicDataTable({ data, handleDelete }) {
 
   return (
     // <div className="h-[350px]  mx-auto  bg-white mt-2 rounded-md">
-    <div className="h-[450px] mx-auto bg-white mt-2 rounded-md overflow-scroll w-full p-3">
-    <div className=" min-w-[1000px]  w-full">
-      <DataGrid
-        rows={dataWithIds}
-        columns={columns}
-      />
+    <div className="h-[450px] mx-auto bg-white mt-2 rounded-md overflow-scroll w-full p-3   dark:text-white dark:bg-secondary-dark-bg  ">
+      <div className=" min-w-[1000px]  w-full dark:text-white  ">
+        <DataGrid rows={dataWithIds} columns={columns} />
       </div>
       <Dialog open={deleteDialogOpen} onClose={handleCancelDelete}>
         <DialogTitle>Confirm Delete</DialogTitle>

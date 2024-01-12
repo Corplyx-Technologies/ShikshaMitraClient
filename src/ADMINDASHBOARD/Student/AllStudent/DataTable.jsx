@@ -56,7 +56,7 @@ function DynamicDataTable({ data, handleDelete }) {
             to={`/admin/allstudent/viewstudent/view-profile/${params.row.email}`}
           >
             <IconButton>
-              <VisibilityIcon className="text-blue-600" />
+              <VisibilityIcon style={{color:currentColor}} />
             </IconButton>
           </Link>
 
@@ -75,7 +75,7 @@ function DynamicDataTable({ data, handleDelete }) {
               <p 
               // className="bg-pink-500 py-3  text-white p-2"
              className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
-            style={{ background:currentColor}}
+             style={{border:`2px solid ${currentColor} `,color:currentColor}}
               >Fee status</p>
             </IconButton>
           </Link>

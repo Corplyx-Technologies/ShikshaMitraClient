@@ -19,7 +19,7 @@ function DataTable({data , handleDelete}) {
         <Link to={`/admin/allteachers/salaryStatus/${params.row.email}`}>
           <IconButton>
             <p className="text-[16px] text-gray-100 px-2 py-2 rounded-xl " 
-            style={{ background:currentColor}}
+            style={{border:`2px solid ${currentColor} `,color:currentColor}}
             >Salary status</p>
           </IconButton>
         </Link>

@@ -5,6 +5,7 @@ import AdminDashboard from "./ADMINDASHBOARD/AdminDashboard";
 import Login from "./ShikshMitraWebsite/component/LoginPage/Login";
 import Services from "./ShikshMitraWebsite/component/Pages/Services/Services";
 import About from "./ShikshMitraWebsite/component/Pages/About/About";
+import Demo from "./ShikshMitraWebsite/component/Demo/Demo";
 import Contact from "./ShikshMitraWebsite/component/Pages/Contact/Contact";
 import Home from "./ShikshMitraWebsite/component/Pages/Home";
 import ScreenShorts from "./ShikshMitraWebsite/component/Pages/Screenshots/Screenshot";
@@ -105,6 +106,7 @@ import ViewSecondary from "./ADMINDASHBOARD/Classes/Secondary/ViewSecondary";
 import EditSecondary from "./ADMINDASHBOARD/Classes/Secondary/EditSecondary";
 import PrivacyPolicy from "./ShikshMitraWebsite/component/PrivacyPolicy/PrivacyPolicy";
 import BookManagement from "./STUDENTDASHBOARD/BookManagement";
+
 // import EmployeeSalaryStatus from './ADMINDASHBOARD/Employee/SalaryStatus';
 
 function App() {
@@ -134,6 +136,7 @@ function App() {
           <Route path="/screenshot" element={<ScreenShorts />} />
           // <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/demo" element={<Demo />} />
           <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
         </Route>
         <Route path="/admin" element={<AdminDashboard />}>

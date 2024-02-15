@@ -1,7 +1,6 @@
 import "./About.css";
 
-
-import Shikha from '../../../assets/image/Shikha.png';
+// import Shikha from '../../../assets/image/Shikha.png';
 import gaurav from '../../../assets/images/Gaurav.jpeg';
 import chhaya from '../../../assets/images/Chhaya.jpeg';
 import aman from '../../../assets/images/amanimg.jpeg';
@@ -18,7 +17,7 @@ import logo from '../../../assets/SHIKSHAMITRA_logo.png'
 const About = () => {
 
   return (
-    <div class="about-container md:mt-10 mt-5">
+      <div className= "about-container md:mt-10 mt-5">
       <div className="mt-20 text-center">
         <h1 className="inline-block text-xl sm:text-2xl md:text-3xl font-medium text-center">About us<br></br>
          <span className="text-center text-l sm:text-sm">eShikshaMitra : E-Learning management system for academic institutions.</span> 
@@ -29,7 +28,7 @@ const About = () => {
 {/* <div className="w-[100px] h-[100px] ">
 <img src={Shikha} alt="" className="w-full h-full object-contain" />
 </div> */}
-<div class="w-[250px]">
+      <div className="w-[250px]">
         <img src={logo} alt="" />
       </div>
 </div>
@@ -45,7 +44,7 @@ const About = () => {
         <img src={Shikha} alt="" />
       </div> */}
 
-      <div class="description">
+      <div className="description">
         {/* <p className="text-sm">
           eShikshaMitra is a comprehensive school management system designed to streamline educational processes and enhance communication between administrators, teachers, students, and parents. Our platform offers
           a range of features and dashboards that empower educational institutions to manage
@@ -88,7 +87,7 @@ const About = () => {
         {/* Rest of your code */}
       {/* </div> */}
 
-      <h2 class="our-team-heading">Our Team</h2>
+      <h2 className="our-team-heading">Our Team</h2>
 
 
 
@@ -98,7 +97,7 @@ const About = () => {
           <div className="text-center shadow-lg rounded">
             <div className="overflow-hidden relative w-full h-full">
               <img src={gaurav} alt="Team Member 1" className="h-full hover:scale-125 duration-1000" />
-              <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
+              <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
                 <strong>Gaurav</strong> (Project/Team Leader & Fullstack Developer)
               </div>
             </div>
@@ -106,7 +105,7 @@ const About = () => {
           <div className="text-center shadow-lg rounded">
             <div className="overflow-hidden relative w-full h-full">
               <img src={aman} alt="Team Member 1" className="h-full hover:scale-125 duration-1000" />
-              <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
+              <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
                 <strong>Aman Sharma</strong> (Fullstack Developer)
               </div>
             </div>
@@ -114,7 +113,7 @@ const About = () => {
           <div className="text-center shadow-lg rounded">
             <div className="overflow-hidden relative w-full h-full">
               <img src={chhaya} alt="Team Member 1" className="h-full hover:scale-125 duration-1000" />
-              <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
+              <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
                 <strong>Chhaya Sengar</strong> (Fullstack Developer)
               </div>
             </div>
@@ -124,7 +123,7 @@ const About = () => {
           <div className="text-center shadow-lg rounded ">
             <div className="overflow-hidden relative  w-full h-full">
               <img src={annad} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
-              <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
+              <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
                 <strong>Anand Jaiswal</strong> (Fullstack Developer)
               </div>
             </div>
@@ -133,7 +132,7 @@ const About = () => {
           <div className="text-center shadow-lg rounded">
             <div className="overflow-hidden relative  w-full h-full">
               <img src={ajay} alt="Team Member 1" className=" h-full hover:scale-125 duration-1000" />
-              <div class="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
+              <div className="designation absolute bottom-6 bg-white p-3 rounded-r-2xl shadow-md text-sm">
                 <strong>Ajay Raj</strong> (Fullstack Developer)
               </div>
             </div>
@@ -164,7 +163,7 @@ const About = () => {
 
 
       <div className="our-mission m-8">
-        <img class="quote-icon" src={quoteIcon} alt="" />
+        <img className="quote-icon" src={quoteIcon} alt="" />
         <p>Our mission is to provide the best services to our clients.</p>
       </div>
     </div>

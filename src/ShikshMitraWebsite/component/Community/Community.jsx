@@ -19,7 +19,7 @@ function Community() {
             Learning made easy
           </h1>
           <p>
-            Our management system will make learning more accessible by streamlining administrative tasks, allowing educators to focus on teaching. It will enhance communication between teachers, students, and parents, fostering a supportive learning environment. With user-friendly interfaces and robust data tracking, it ensures personalized learning paths, making education a seamless and enjoyable experience for all.
+          Our eShikshaMitra learning management system will make education more accessible by automating administrative processes and allowing educators to focus on teaching. It will increase communication among teachers, students, and parents, resulting in a better learning environment. Its user-friendly interfaces and advanced data tracking enable personalized learning paths, making education a pleasant and enjoyable experience for all.
           </p>
         </div>
       </div>

@@ -119,6 +119,24 @@ function Header() {
                     className={`header_content cursor-pointer  ${
                       bg_color ? "text-white" : ""
                     }`}
+                    to="demo"
+                    onClick={closeMenu}
+                  >
+                    <button
+                      className={` px-5 py-1 text-sm font-large  border bg-[#f84444] rounded hover:bg-[#3de0d7] hover:text-white active:bg-red-800    ${
+                        bg_color ? "text-white" : "text-white"
+                      }`}
+                      onclick={navigateToAdmin}
+                    >
+                      Demo
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={`header_content cursor-pointer  ${
+                      bg_color ? "text-white" : ""
+                    }`}
                     to="login"
                     onClick={closeMenu}
                   >
